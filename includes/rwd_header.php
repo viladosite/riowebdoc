@@ -1,5 +1,5 @@
 <!-- Início do header -->
-<header class=" mdl-layout__header">
+<header class=" mdl-layout__header mdl-layout__header--transparent">
 	<div class="mdl-layout__header-row">
 		<span class="mdl-layout-title"> Riowebdoc </span>
 
