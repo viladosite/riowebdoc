@@ -3,11 +3,11 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width= device-width, initial-scale=1.0">
-	<title>ATENCIL</title>
+	<title>RIOWEBDOC</title>
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 	<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.blue-amber.min.css" />
-   	<link rel="stylesheet" href="css/style_dashboard.css" />
+   	<link rel="stylesheet" href="css/rwd_style.css" />
 	<script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	 

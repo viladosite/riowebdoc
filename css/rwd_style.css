@@ -1,0 +1,14 @@
+/*cor de fundo */
+body{
+	background-color: #888;
+}
+
+/*cor de fundo das divs de conteudo */
+.rwd_local , .rwd_content{
+	background-color: #fff;
+}
+
+/* alinhar ao centro os icones de localização */
+.rwd_local{
+	text-align: center;
+}
