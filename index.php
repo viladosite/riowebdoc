@@ -45,6 +45,16 @@
     });
     });
     </script>
+
+    <script>
+        $(document).ready(function() {
+        $(document).on('click', '#menumodal a', function( e ){ 
+        e.preventDefault();
+        var href = $( this ).attr('href');
+        $("#janela1").load( href +" #janela1", null, function(){componentHandler.upgradeAllRegistered();});
+        });
+        });
+    </script>
 	 
 </head>
 
@@ -81,7 +91,15 @@
             <h4>Primeira janela modal</h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam venenatis auctor tempus. Lorem ipsum dolor sit amet,</p>
             <p>Morbi dui lacus, placerat eget pretium vehicula, mollis id ligula. Nulla facilisi. </p>
-            </div>
+    
+            <div id="menumodal">
+                <a href="includes/modalp1.php">passo1</a>
+                <a href="includes/modalp2.php">passo2</a>
+                <a href="includes/modalp3.php">passo3</a>
+            </div>        
+
+    </div>
+
 
     <div id="mascara"></div> 
 </body>
