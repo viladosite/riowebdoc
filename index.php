@@ -12,6 +12,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
     <script type="text/javascript">
+
+// Script de execução do modal
+
     $(document).ready(function(){
     $("a[rel=modal]").click( function(ev){
         ev.preventDefault();
@@ -44,14 +47,15 @@
         $(".window").hide();
     });
     });
-    </script>
 
-    <script>
+
+// Script para rodar o carregamento dos passos dentro do modal
+
         $(document).ready(function() {
         $(document).on('click', '#menumodal a', function( e ){ 
         e.preventDefault();
         var href = $( this ).attr('href');
-        $("#janela1").load( href +" #janela1", null, function(){componentHandler.upgradeAllRegistered();});
+        $("#janela2").load( href +" #janela2", null, function(){componentHandler.upgradeAllRegistered();});
         });
         });
     </script>
@@ -87,19 +91,11 @@
 	</div>
 
     <div class="window" id="janela1">
-            <a href="#" class="fechar">X Fechar</a>
-            <h4>Primeira janela modal</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam venenatis auctor tempus. Lorem ipsum dolor sit amet,</p>
-            <p>Morbi dui lacus, placerat eget pretium vehicula, mollis id ligula. Nulla facilisi. </p>
-    
-            <div id="menumodal">
-                <a href="includes/modalp1.php">passo1</a>
-                <a href="includes/modalp2.php">passo2</a>
-                <a href="includes/modalp3.php">passo3</a>
-            </div>        
-
+        <a href="#" class="fechar"> <img src="images/icon_close.png" width="35px" height="35px" /> </a>
+        <div id="janela2" name="janela2">
+            <?php include "includes/modalp1.php" ?>
+        </div>
     </div>
-
 
     <div id="mascara"></div> 
 </body>
