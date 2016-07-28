@@ -91,17 +91,12 @@
 	</div>
 
     <div class="window" id="janela1">
-        <a href="#" class="fechar"> X </a>
+        <a href="#" class="fechar"> <img src="images/icon_close.png" width="35px" height="35px" /> </a>
         <div id="janela2" name="janela2">
-                <div id="menumodal">
-                    <a href="includes/modalp2.php"> > </a>
-                </div>
-            <a href="#" class="steps"> > </a>
-            <h4>Passo 1</h4>
-            <p>Escolha 3 vídeos que aparecerão em seu webcard</p>
+            <?php include "includes/modalp1.php" ?>
         </div>
     </div>
-    
+
     <div id="mascara"></div> 
 </body>
 </html>
