@@ -53,11 +53,33 @@ body{
 .steps{
     text-align:right;
     float: right;
-
 }
 
-.step{
-    width: 40px;
-    height: 40px;
+.modalicons{
+    font-size: xx-large;
 }
+
+/*imagens do footer */
+.footer_img1{
+    height: 41px;
+    width: 83px;
+}
+
+.footer_img2{
+    height: 32px;
+    width: 88px;    
+}
+
+@media (max-width: 400px){
+    .footer_img1{
+    height: 33px;
+    width: 67px;
+    }
+
+.footer_img2{
+    height: 26px;
+    width: 72px;    
+    }
+            }
+
 

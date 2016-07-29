@@ -93,7 +93,7 @@
 	</div>
 
     <div class="window" id="janela1">
-        <a href="#" class="fechar"> <img src="images/icon_close.png" class="step" /> </a>
+        <a href="#" class="fechar"> <i class="modalicons material-icons">close</i> </a>
         <div id="janela2" name="janela2">
             <?php include "includes/modalp1.php" ?>
         </div>
