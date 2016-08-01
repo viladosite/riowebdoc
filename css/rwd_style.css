@@ -35,6 +35,17 @@ body{
         padding: 2%;
                 }
             }
+
+ #janela2{
+    width: 95%;
+    float:right;
+ }
+ @media (max-width: 900px){
+    #janela2{
+        width:90%;
+                }
+            }
+
  
 #mascara{
     display:none;
@@ -48,6 +59,7 @@ body{
 .fechar{
     text-align:left;
     float: left;
+    width: 5%;
 }
 
 .steps{
@@ -55,8 +67,12 @@ body{
     float: right;
 }
 
-.modalicons{
+.modaliconsl,.modaliconsr {
     font-size: xx-large;
+}
+
+.modaliconsr{
+    text-align: right;
 }
 
 /*imagens do footer */
