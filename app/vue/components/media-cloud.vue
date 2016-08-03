@@ -4,31 +4,11 @@
 
 <template>
 
-  <div id="media_cloud" class="mdl-grid" style="padding: 0; ">
+  <div id="media_cloud" class="mdl-grid" style="padding: 0; overflow: hidden">
     <div class="rwd_content mdl-cell mdl-cell--12-col" style="margin: 0; width: 100%; perspective: 800px;">
 
-      <div v-for="media in media_cloud" transition="fade" style="position: absolute; float: left; transform-style: preserve-3d; transition: transform 1s; left: 0; top: 0;" class="demo-card-wide mdl-card mdl-shadow--2dp" :id="media.id">
-        <div :id="media.id+'-front'" class="demo-card-wide mdl-card mdl-shadow--2dp" style="height: 200px; min-height: 200px; position: absolute; backface-visibility: hidden; transform-style: preserve-3d; transition: transform 1s;">
-          <div class="mdl-card__title" :style="{background: 'url('+media.imgs[0]+') center / cover'}" style="height: 100%; color: white;">
-            <h2 class="mdl-card__title-text">{{media.nome}}</h2>
-          </div>
-          <div class="mdl-card__menu">
-            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" @click="flip(media.id)">
-              <i class="material-icons">share</i>
-            </button>
-          </div>
-        </div>
-        <div :id="media.id+'-back'" class="demo-card-wide mdl-card mdl-shadow--2dp" style="height: 200px; min-height: 200px; transform: rotateY( 180deg ); position: absolute; backface-visibility: hidden; transform-style: preserve-3d; transition: transform 1s;">
-          <div class="mdl-card__title" :style="{background: 'url('+media.imgs[0]+') center / cover'}" style="height: 100%; color: white;">
-            <h2 class="mdl-card__title-text">Back</h2>
-          </div>
-          <div class="mdl-card__menu">
-            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" @click="unFlip(media.id)">
-              <i class="material-icons">share</i>
-            </button>
-          </div>
-        </div>
-      </div>
+      <in-media v-for="media in medias" transition="fade" :media="media" :offset="offset"></in-media>
+
     </div>  
   </div>  
 
@@ -43,10 +23,10 @@
     data: function(){
       return {
         media_cloud: [],
+        medias: [],
         width: 0,
         height: 0,
-        offset: 0,
-        temp: []
+        offset: 0
       }
     },
     methods: {
@@ -93,19 +73,25 @@
         var w = $$$(window).height()
         var width = $$$(window).width()
         this.width = width*2
-        this.height = w
+        this.height = h
         this.offset = width/2
         $$$('#media_cloud').height(w-h)
       },
-      checkPos: function(a, array) {
-        d3.map(array).each(function(k, v, m) {
-          console.log(array)
-          var left = Math.max(a.pos.x, k.pos.x)
-          var right = Math.min((a.pos.x + a.size.width), (k.pos.x + k.size.width))
-          var top = Math.min(a.pos.y, k.pos.y)
-          var bottom = Math.max((a.pos.y + a.size.height), (k.pos.y + k.size.height))
+      copyArray: function () {
+        this.medias = this.media_cloud
+      },
+      checkPos: function(a, array, n) {
+        var ar = array.slice(0, n)
+        var self = this
+        console.log(ar)
+        console.log(n)
+        d3.map(ar).each(function(k, v, m) {
+          var left = Math.max(a.pos.x, k.x)
+          var right = Math.min((a.pos.x + a.size.width), (k.x + k.width))
+          var top = Math.min(a.pos.y, k.y)
+          var bottom = Math.max((a.pos.y + a.size.height), (k.y + k.height))
           a.area = a.size.width * a.size.height 
-          k.area = k.size.width * k.size.height 
+          k.area = k.width * k.height 
           if (left < right && bottom < top) {
             console.log('intercendiu')
             var int_area = (right - left) * (top - bottom)
@@ -113,19 +99,22 @@
             if (k.area * 0.3 < int_area) {
               if (right - left > top - bottom) {
                 a.pos.x = a.pos.x + (Math.ramdom() * (right - left + 20))
-                this.checkPos(a, array)
+                self.checkPos(a, array, n)
               } else if (right - left < top - bottom) {
                 a.pos.y = a.pos.y + (Math.ramdom() * (top - bottom + 20))
-                this.checkPos(a, array)
+                self.checkPos(a, array, n)
               } else {
-                return a.pos
+                self.media_cloud[n].x = a.pos.x
+                self.media_cloud[n].y = a.pos.y
               }
             } else {
-              return a.pos
+              self.media_cloud[n].x = a.pos.x
+              self.media_cloud[n].y = a.pos.y
             }
           } else {
             console.log('nao intercendiu')
-            return a.pos
+            self.media_cloud[n].x = a.pos.x
+            self.media_cloud[n].y = a.pos.y
           }
         })
       },
@@ -134,28 +123,28 @@
           size: null,
           pos: null
         }
-        a.size = this.media_cloud[n].size
+        a.size = {
+          widht: this.media_cloud[n].width,
+          height: this.media_cloud[n].height
+        }
         var pos = {
-          x: Math.random() * (this.width - this.media_cloud[n].size.width),
-          y: Math.random() * (this.height - this.media_cloud[n].size.height)
+          x: Math.random() * (this.width - this.media_cloud[n].width),
+          y: Math.random() * (this.height - this.media_cloud[n].height)
         }
         a.pos = pos
         a.id = this.media_cloud[n].id
         if (n===0) {
           console.log(n)
-          this.media_cloud[n].pos = pos
+          this.media_cloud[n].x = a.pos.x
+          this.media_cloud[n].y = a.pos.y
           this.arrangeItens(n+1)
-          this.temp.push(a)
         } else if (n!==this.media_cloud.length - 1 && n!== 0) {
-          a.pos = this.checkPos(a, this.temp)
-          this.media_cloud[n].pos = pos
+          this.checkPos(a, this.media_cloud, n)
           console.log(n)
           this.arrangeItens(n+1)
-          this.temp.push(a)
         } else if (n===this.media_cloud.length - 1) {
-          a.pos = this.checkPos(a, this.temp)
-          this.media_cloud[n].pos = pos
-          this.temp.push(a)
+          this.checkPos(a, this.media_cloud, n)
+          this.copyArray()
         }
       }
     },
@@ -167,22 +156,24 @@
         for (var o = 0; o < this.naves[i].media.length; o++) {
           var m = this.naves[i].media[o]
           m.nav = this.naves[i].headers.nome
-          m.size = this.getSize(m)
+          var size = this.getSize(m)
+          m.width = size.width
+          m.height = size.height
+          m.x = 0
+          m.y = 0
           this.media_cloud.push(m)
         }
       }
       this.media_cloud = this.shuffle(this.media_cloud)
-      console.log(this.temp)
 
     },
     attached: function () {
       componentHandler.upgradeDom()
       this.changeCanvasSize()
-      console.log(this.temp)
       this.arrangeItens(0)
     },
     components: {
-      
+      'in-media': require('./media.vue')
     },
     filters: {
       marked: function(value) {
