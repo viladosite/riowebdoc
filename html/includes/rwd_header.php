@@ -9,7 +9,7 @@
 		<!-- Construção dos ícones indicativos no menu -->
 		<nav class="mdl-navigation">
 
-	        <a class="mdl-navigation__link" href="">
+	        <a class="mdl-navigation__link" href="#janela1" rel="modal">
 			<div id= "icon1" class="material-icons" >contact_mail</div></a>
             <div class="mdl-tooltip mdl-tooltip--large" for="icon1">
 			Envie um Webcard
@@ -18,3 +18,7 @@
 		</nav>
 	</div>
 </header>
+
+
+ 
+			

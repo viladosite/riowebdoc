@@ -77,7 +77,18 @@
 		var media = getData(medias[n].desc)
 		media.id = medias[n].id
 		media.nome = medias[n].name
-		attachImages(n, media, medias, headers, nn, naves)
+		attachVotes(n, media, medias, headers, nn, naves)
+	}
+	var attachVotes = function (n, media, medias, headers, nn, naves) {
+		Trello.get("/cards/"+media.id+"/actions", function(comment) {
+			var votes = []
+			for (var i = 0; i < comment.length; i++) {
+				votes.push(comment[i].data.text)
+			}
+			media.votes = votes
+			media.labels = medias[n].labels.length
+			attachImages(n, media, medias, headers, nn, naves)
+		})
 	}
 	var attachImages = function (n, media, medias, headers, nn, naves) {
 		Trello.get("/cards/"+media.id+"/attachments", function(attach) {
@@ -139,26 +150,6 @@
 		Trello.get("/lists/"+webcards[0].id+"/cards", function(hip) {
 			for (var i = 0; i < hip.length; i++) {
 				app.$data.webcards.push(getData(hip[i].desc))
-			}
-		})
-	}
-	var getCards = function (n, lists) {
-		Trello.get("/lists/"+lists[n].id+"/cards", function(hip) {
-			if (lists[n].name === "Webcards") { app.$data.webcards = hip}
-			else {
-				var headers = getHeaders(hip)
-				var media = getMedia(hip)
-				headers.nome = lists[n].name
-				var nave = {
-					headers: headers,
-					media: media
-				}
-				app.$data.naves.push(nave)
-				if (n === lists.length - 1) {
-					init()
-				} else if (n < lists.length-1) {
-					getCards(n+1, lists)
-				}
 			}
 		})
 	}

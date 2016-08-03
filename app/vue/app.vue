@@ -19,6 +19,7 @@
 	module.exports = {
 		el: '#app',
 		data: {
+			className: '',
 			webcards: [],
 			naves: [],
 			view: '',
