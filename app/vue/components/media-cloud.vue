@@ -45,7 +45,8 @@
         media_cloud: [],
         width: 0,
         height: 0,
-        offset: 0
+        offset: 0,
+        temp: []
       }
     },
     methods: {
@@ -97,30 +98,64 @@
         $$$('#media_cloud').height(w-h)
       },
       checkPos: function(a, array) {
-        console.log(a)
-        console.log(array)
-      },
-      arrangeItens: function () {
-        var arr = []
-        for (var i = 0; i < this.media_cloud.length; i++) {
-          var a = {
-            size: null,
-            pos: null
-          }
-          a.size = this.media_cloud[i].size
-          var pos = {
-            x: Math.random() * ((this.width - this.media_cloud[i].size.width) - 0) + 0,
-            y: Math.random() * ((this.height - this.media_cloud[i].size.height) - 0) + 0
-          }
-          a.pos = pos
-          if (i===0) {
-            this.media_cloud[i].pos = pos
-            arr.push(a)
+        d3.map(array).each(function(k, v, m) {
+          console.log(array)
+          var left = Math.max(a.pos.x, k.pos.x)
+          var right = Math.min((a.pos.x + a.size.width), (k.pos.x + k.size.width))
+          var top = Math.min(a.pos.y, k.pos.y)
+          var bottom = Math.max((a.pos.y + a.size.height), (k.pos.y + k.size.height))
+          a.area = a.size.width * a.size.height 
+          k.area = k.size.width * k.size.height 
+          if (left < right && bottom < top) {
+            console.log('intercendiu')
+            var int_area = (right - left) * (top - bottom)
+            console.log(int_area)
+            if (k.area * 0.3 < int_area) {
+              if (right - left > top - bottom) {
+                a.pos.x = a.pos.x + (Math.ramdom() * (right - left + 20))
+                this.checkPos(a, array)
+              } else if (right - left < top - bottom) {
+                a.pos.y = a.pos.y + (Math.ramdom() * (top - bottom + 20))
+                this.checkPos(a, array)
+              } else {
+                return a.pos
+              }
+            } else {
+              return a.pos
+            }
           } else {
-            this.checkPos(a, arr)
-            this.media_cloud[i].pos = pos
-            arr.push(a)
+            console.log('nao intercendiu')
+            return a.pos
           }
+        })
+      },
+      arrangeItens: function (n) {
+        var a = {
+          size: null,
+          pos: null
+        }
+        a.size = this.media_cloud[n].size
+        var pos = {
+          x: Math.random() * (this.width - this.media_cloud[n].size.width),
+          y: Math.random() * (this.height - this.media_cloud[n].size.height)
+        }
+        a.pos = pos
+        a.id = this.media_cloud[n].id
+        if (n===0) {
+          console.log(n)
+          this.media_cloud[n].pos = pos
+          this.arrangeItens(n+1)
+          this.temp.push(a)
+        } else if (n!==this.media_cloud.length - 1 && n!== 0) {
+          a.pos = this.checkPos(a, this.temp)
+          this.media_cloud[n].pos = pos
+          console.log(n)
+          this.arrangeItens(n+1)
+          this.temp.push(a)
+        } else if (n===this.media_cloud.length - 1) {
+          a.pos = this.checkPos(a, this.temp)
+          this.media_cloud[n].pos = pos
+          this.temp.push(a)
         }
       }
     },
@@ -137,12 +172,14 @@
         }
       }
       this.media_cloud = this.shuffle(this.media_cloud)
+      console.log(this.temp)
 
     },
     attached: function () {
       componentHandler.upgradeDom()
       this.changeCanvasSize()
-      this.arrangeItens()
+      console.log(this.temp)
+      this.arrangeItens(0)
     },
     components: {
       
