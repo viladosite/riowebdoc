@@ -4,7 +4,7 @@
 
 <template>
 
-  <div id="media_cloud" class="mdl-grid" style="padding: 0; overflow: hidden" @mouseout="mouseOut">
+  <div id="media_cloud" class="mdl-grid" style="padding: 0; overflow: hidden" @mousemove="mouseMove" @mouseout="mouseOut">
     <div class="rwd_content mdl-cell mdl-cell--12-col" style="margin: 0; width: 100%; perspective: 800px;">
 
       <in-media v-for="media in medias" transition="fade" :media="media" :offset="offset"></in-media>
@@ -25,10 +25,12 @@
       return {
         media_cloud: [],
         medias: [],
+        naves_array: [],
         width: 0,
         height: 0,
         offset: 0,
-        interval: 0
+        interval: 0,
+        area: []
       }
     },
     methods: {
@@ -58,16 +60,16 @@
         var votos = size.width * (media.votes.length/50)
         var labels = size.width * media.labels
 
-        size.width = size.width + votos + labels
-        size.height = (size.width * 9)/16
+        size.width = parseInt(size.width + votos + labels)
+        size.height = parseInt((size.width * 9)/16)
         return size;
       },
       changeCanvasSize: function () {
         var h = $$$('#markers').outerHeight() + $$$('header').outerHeight() + $$$('footer').outerHeight()
         var w = $$$(window).height()
         var width = $$$(window).width()
-        this.width = width*3
-        this.height = h
+        this.width = width
+        this.height = w-h
         this.offset = - width/2
         $$$('#media_cloud').height(w-h)
       },
@@ -93,7 +95,7 @@
             intercessoes.push(int_area)
             // console.log(intercessoes)
             if (k.area * 0.3 < int_area || a.area * 0.3 < int_area || intercessoes.length > 1 ) {
-              if (right - left < bottom - top && right - left > 1 || toggle === 'x') {
+              if (right - left < bottom - top && right - left > 1 && toggle !== 'y' || toggle === 'x' && right - left > 1) {
                 if (a.pos.x > k.x && cof) {
                   cof = false
                   var o = {
@@ -106,20 +108,12 @@
                       height: a.size.height
                     }
                   }
-                  if (o.pos.x + o.size.width > self.width) {
-                    console.log(o.pos.x)
-                    console.log(k.width)
-                    o.pos.x = o.pos.x - (k.width*2)
-                    console.log('x maior que '+self.width)
-                    console.log(o.pos.x)
-                  } else {
-                    console.log(right - left)
-                    console.log(a.size.width)
-                    console.log(k.width)
-                    console.log(a.pos.x)
-                    console.log(o.pos.x)
-                    console.log('a1')
-                  }
+                  console.log(right - left)
+                  console.log(a.size.width)
+                  console.log(k.width)
+                  console.log(a.pos.x)
+                  console.log(o.pos.x)
+                  console.log('a1')
                   self.checkPos(o, array, n, 'y')
                 } else if (a.pos.x < k.x && cof) {
                   cof = false
@@ -133,23 +127,15 @@
                       height: a.size.height
                     }
                   }
-                  if (o.pos.x < 0) {
-                    console.log(o.pos.x)
-                    console.log(k.width)
-                    o.pos.x = o.pos.x + (k.width*2)
-                    console.log('x menor que 0')
-                    console.log(o.pos.x)
-                  } else {
-                    console.log(right - left)
-                    console.log(a.size.width)
-                    console.log(k.width)
-                    console.log(a.pos.x)
-                    console.log(o.pos.x)
-                    console.log('a2')
-                  }
+                  console.log(right - left)
+                  console.log(a.size.width)
+                  console.log(k.width)
+                  console.log(a.pos.x)
+                  console.log(o.pos.x)
+                  console.log('a2')
                   self.checkPos(o, array, n, 'y')
                 }
-              } else if (right - left > bottom - top && bottom - top > 1 || toggle === 'y') {
+              } else if (right - left > bottom - top && bottom - top > 1 && toggle !== 'x' || toggle === 'y' && bottom - top > 1) {
                 if (a.pos.y > k.y && cof) {
                   cof = false
                   var o = {
@@ -227,16 +213,34 @@
       },
       arrangeItens: function (n) {
         var a = {
-          size: null,
+          size: {
+            width: this.media_cloud[n].width,
+            height: this.media_cloud[n].height
+          },
           pos: null
         }
-        a.size = {
-          width: this.media_cloud[n].width,
-          height: this.media_cloud[n].height
+        var area = null
+        if (this.area.length === 0) {
+          var temp_array = this.naves_array.filter(function() {return true})
+          this.area = this.shuffle(temp_array)
+          area = this.area.pop()
+        } else {
+          area = this.area.pop()
         }
-        var pos = {
-          x: Math.random() * (this.width - this.media_cloud[n].width),
-          y: Math.random() * (this.height - this.media_cloud[n].height)
+        if (n%2 == 0) {
+          console.log('par')
+          var pos = {
+            x: Math.random() * ( ((this.width/this.naves_array.length)*(area+1)) - ((this.width/this.naves_array.length)*area) ) + ((this.width/this.naves_array.length)*area),
+            y: Math.random() * (this.height/2)
+          }
+          console.log(pos.y)
+        } else {
+          console.log('impar')
+          var pos = {
+            x: Math.random() * ( ((this.width/this.naves_array.length)*(area+1)) - ((this.width/this.naves_array.length)*area) ) + ((this.width/this.naves_array.length)*area),
+            y: Math.random() * ((this.height - this.media_cloud[n].height) - this.height/2) + this.height/2
+          }
+          console.log(pos.y)
         }
         a.pos = pos
         a.id = this.media_cloud[n].id
@@ -245,17 +249,74 @@
           this.media_cloud[n].x = a.pos.x
           this.media_cloud[n].y = a.pos.y
           this.copyArray(n)
-          // this.arrangeItens(n+1)
+          this.arrangeItens(n+1)
         } else if (n!==this.media_cloud.length - 1 && n!== 0) {
           console.log(n)
           this.checkPos(a, this.media_cloud, n, null)
           this.copyArray(n)
-          // this.arrangeItens(n+1)
+          this.arrangeItens(n+1)
         } else if (n===this.media_cloud.length - 1) {
           console.log(n)
           this.checkPos(a, this.media_cloud, n, null)
           this.copyArray(n)
         }
+      },
+      checkPos2: function(a, n, p, area) {
+        var pos = {
+          x: 0,
+          y: 0
+        }
+
+        var ar = this.media_cloud.slice(0, n)
+        if (p === 'par') {
+          var part = [0, this.height/2]
+        } else {
+          var part = [this.height/2, this.height]
+        }
+
+        var matrix_area = [
+                            [((this.width/this.naves_array.length)*area)-(this.width/this.naves_array), part[0] ]],
+                            [(this.width/this.naves_array.length)*area, part[1] ]]
+                          ]
+
+        var in_area = _.filter(ar, function (a) { return a.matrix[0][0] > matrix_area[0][0] && a.matrix[0][0] < matrix_area[1][0] + a.size.width })
+
+        if (in_area.length === 0) {
+          pos.x = Math.random() * (matrix_area[1][0] - matrix_area[0][0]) + matrix_area[0][0]
+          pos.y = Math.random() * (matrix_area[1][0] - matrix_area[0][1]) + matrix_area[0][0]
+        }
+      },
+      arrangeItens2: function (n) {
+        var a = {
+          size: {
+            width: this.media_cloud[n].width,
+            height: this.media_cloud[n].height
+          },
+          pos: null
+        }
+
+        var area = null
+        if (this.area.length === 0) {
+          var temp_array = this.naves_array.filter(function() {return true})
+          this.area = this.shuffle(temp_array)
+          area = this.area.pop()
+        } else {
+          area = this.area.pop()
+        }
+
+        if (n%2 == 0) {
+          console.log('par')
+          a.pos = this.checkPos2(a, n, 'par', area)
+        } else {
+          console.log('impar')
+          a.pos = this.checkPos2(a, n, 'impar', area)
+        }
+
+        console.log(n)
+        this.media_cloud[n].x = a.pos.x
+        this.media_cloud[n].y = a.pos.y
+        this.copyArray(n)
+
       },
       mouseMove: function (event) {
         var self = this
@@ -266,7 +327,7 @@
         if (interval > -0.5 && interval < 0.5) {
           self.interval = 0
         } else {
-          self.interval = -((range(event.clientX) - 1)*3)
+          self.interval = -(range(event.clientX) - 1)
         }
       },
       mouseOut: function (event) {
@@ -288,9 +349,12 @@
           m.y = 0
           this.media_cloud.push(m)
         }
+        this.naves_array.push(i+1)
+        this.area.push(i+1)
       }
       this.media_cloud = _.sortBy(this.shuffle(this.media_cloud), 'width')
       this.media_cloud.reverse()
+      this.shuffle(this.area)
 
     },
     attached: function () {
