@@ -79,19 +79,21 @@
          <div id="content"> <?php include "includes/rwd_content.php"; ?> </div>
         
          <!-- Inclui um espaçador para separar o footer -->
+
+        <div class="mdl-layout-spacer"></div>
             
 
         </main>
 
-       <!-- Inclui o footer -->
         <div class="mdl-layout-spacer"></div>
 
+        <!-- Inclui o footer -->
          <?php include "includes/rwd_footer.php"; ?>
 
 	</div>
 
     <div class="window" id="janela1">
-        <a href="#" class="fechar"> <img src="images/icon_close.png" width="35px" height="35px" /> </a>
+        <a href="#" class="fechar"> <i class="modaliconsl material-icons">close</i> </a>
         <div id="janela2" name="janela2">
             <?php include "includes/modalp1.php" ?>
         </div>
