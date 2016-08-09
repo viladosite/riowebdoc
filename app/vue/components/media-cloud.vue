@@ -274,122 +274,202 @@
         if (in_area.length === 0) {
           espacos.push([[matrix_area[0][0], matrix_area[0][1]],
                         [matrix_area[1][0], matrix_area[1][1] - a.size.height]])
+          console.log(espacos)
         } else {
           var this_area = _.filter(in_area, function (o) { 
             return o.matrix[0][1] > matrix_area[0][1] 
-                && o.matrix[0][1] < matrix_area[1][1] })
+                && o.matrix[0][1] < matrix_area[1][1]
+                || o.matrix[1][1] > matrix_area[0][1] 
+                && o.matrix[1][1] < matrix_area[1][1] })
           if (this_area.length === 0) {
-            
-          }
-          var min_y = _.min(this_area, function(min_y) {
-            return min_y.matrix[0][1]
-          })
-          if (min_y.matrix[0][1] - matrix_area[0][1] > a.size.height) {
-            console.log('tem espaço em cima')
-            espacos.push([matrix_area[0],
-                         [matrix_area[1][0],min_y.matrix[0][1]-a.size.height]])
-          } 
+            espacos.push([[matrix_area[0][0], matrix_area[0][1]],
+                          [matrix_area[1][0], matrix_area[1][1] - a.size.height]])
+            console.log(espacos)
+          } else {
+            var min_y = _.min(this_area, function(min_y) {
+              return min_y.matrix[0][1]
+            })
+            if (min_y.matrix[0][1] - matrix_area[0][1] > a.size.height) {
+              console.log('tem espaço em cima')
+              espacos.push([matrix_area[0],
+                           [matrix_area[1][0],min_y.matrix[0][1]-a.size.height]])
+              console.log(espacos)
+            } 
 
-          if (min_y.matrix[0][0] - matrix_area[0][0] > a.size.width) {
-            console.log('checando area a esquerda')
-            var check_area_y = _.filter(this_area, function (o) { 
-              return o.matrix[0][1] > min_y.matrix[0][1] 
-                  && o.matrix[0][1] < min_y.matrix[1][1]
-                  || o.matrix[1][1] > min_y.matrix[0][1] 
-                  && o.matrix[1][1] < min_y.matrix[1][1]
-            })
-            var check_area = _.filter(check_area_y, function (o) { 
-              return o.matrix[0][0] > matrix_area[0][0] 
-                  && o.matrix[0][0] < min_y.matrix[0][0]
-                  || o.matrix[1][0] > matrix_area[0][0] 
-                  && o.matrix[1][0] < min_y.matrix[0][0]
-            })
-            if (check_area.length === 0) {
-              console.log('area a esquerda sem objetos')
-              var bot_area_y = _.filter(this_area, function (o) { 
-                return o.matrix[0][1] > min_y.matrix[1][1] 
-                && o.matrix[0][1] < min_y.matrix[1][1] + a.size.height})
-              var bot_area = _.filter(bot_area_y, function (o) { 
+            if (min_y.matrix[0][0] - matrix_area[0][0] > a.size.width) {
+              console.log('checando area a esquerda')
+              var check_area_y = _.filter(this_area, function (o) { 
+                return o.matrix[0][1] > matrix_area[0][1] 
+                    && o.matrix[0][1] < min_y.matrix[1][1]
+                    || o.matrix[1][1] > matrix_area[0][1] 
+                    && o.matrix[1][1] < min_y.matrix[1][1]
+              })
+              var check_area = _.filter(check_area_y, function (o) { 
                 return o.matrix[0][0] > matrix_area[0][0] 
                     && o.matrix[0][0] < min_y.matrix[0][0]
                     || o.matrix[1][0] > matrix_area[0][0] 
                     && o.matrix[1][0] < min_y.matrix[0][0]
               })
-              if (bot_area.length === 0) {
-                console.log('tem espaço na esquerda e sem impedimentos em baixo')
-                espacos.push([[matrix_area[0][0],matrix_area[0][1]],
-                              [min_y.matrix[0][0]-a.size.width,min_y.matrix[1][1]]])
+              if (check_area.length === 0) {
+                console.log('area a esquerda sem objetos')
+                var bot_area_y = _.filter(this_area, function (o) { 
+                  return o.matrix[0][1] > min_y.matrix[1][1] 
+                  && o.matrix[0][1] < min_y.matrix[1][1] + a.size.height})
+                var bot_area = _.filter(bot_area_y, function (o) { 
+                  return o.matrix[0][0] > matrix_area[0][0] 
+                      && o.matrix[0][0] < min_y.matrix[0][0]
+                      || o.matrix[1][0] > matrix_area[0][0] 
+                      && o.matrix[1][0] < min_y.matrix[0][0]
+                })
+                if (bot_area.length === 0) {
+                  console.log('tem espaço na esquerda e sem impedimentos em baixo')
+                  if (min_y.matrix[1][1] + a.size.height > matrix_area[1][1]) {
+                    espacos.push([[matrix_area[0][0],matrix_area[0][1]],
+                                  [min_y.matrix[0][0]-a.size.width,matrix_area[1][1] - a.size.height]])
+                    console.log(espacos)
+                  } else {
+                    espacos.push([[matrix_area[0][0],matrix_area[0][1]],
+                                [min_y.matrix[0][0]-a.size.width,min_y.matrix[1][1]]])
+                    console.log(espacos)
+                  }
+                  
+                } else {
+                  var ss = _.min(bot_area, function(b) {
+                    return b.matrix[0][1]
+                  })
+                  espacos.push([[matrix_area[0][0],matrix_area[0][1]],
+                                [min_y.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]])
+                  console.log(espacos)
+                }
               } else {
-                espacos.push([[matrix_area[0][0],matrix_area[0][1]],
-                              [min_y.matrix[0][0]-a.size.width,min_y.matrix[1][1]-(bot_area[0].matrix[0][1]-min_y.matrix[1][1])-a.size.height]])
+                console.log('tem espaco entre os objetos?')
+                var ob_esq = _.max(check_area, function(esq) {
+                  return esq.matrix[1][0]
+                })
+                if (min_y.matrix[0][0] - ob_esq.matrix[1][0] > a.size.width) {
+                  console.log('tem!')
+                  var bot_area_y = _.filter(this_area, function (o) { 
+                    return o.matrix[0][1] > ob_esq.matrix[1][1] 
+                    && o.matrix[0][1] < ob_esq.matrix[1][1] + a.size.height })
+                  var bot_area = _.filter(bot_area_y, function (o) { 
+                    return o.matrix[0][0] > ob_esq.matrix[1][0] 
+                        && o.matrix[0][0] < min_y.matrix[0][0]
+                        || o.matrix[1][0] > ob_esq.matrix[1][0] 
+                        && o.matrix[1][0] < min_y.matrix[0][0] })
+                  if (bot_area.length === 0) {
+                    espacos.push([[ob_esq.matrix[1][0],matrix_area[0][1]],
+                                  [min_y.matrix[0][0]-a.size.width,min_y.matrix[1][1]]])
+                    console.log(espacos)
+                  } else {
+                    var ss = _.min(bot_area, function(b) {
+                      return b.matrix[0][1]
+                    })
+                    espacos.push([[ob_esq.matrix[1][0],matrix_area[0][1]],
+                                  [min_y.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]])
+                    console.log(espacos)
+                  }
+                } else {
+                  console.log('não cabe entre os objetos')
+                }
               }
-            } else {
-              console.log('nao tem espaco na esquerda')
-              // console.log('executar novo scan a esquerda')
-              // var esqArea = [[matrix_area[0][0],matrix_area[0][1]],
-              //                 [matrix_area[0][0],min_y.matrix[1][1]+a.size.height]]
-              // var esqEspacos = this.scanArea(esqArea, a, ar)
-              // espacos.concat(esqEspacos)
-            }
-          } 
+            } 
 
-          if (matrix_area[1][0] - min_y.matrix[1][0] > 0) {
-            console.log('checando area a direita')
-            var check_area_y = _.filter(this_area, function (o) { 
-              return o.matrix[0][1] > min_y.matrix[0][1] 
-                  && o.matrix[0][1] < min_y.matrix[1][1]
-                  || o.matrix[1][1] > min_y.matrix[0][1] 
-                  && o.matrix[1][1] < min_y.matrix[1][1]
-            })
-            var check_area = _.filter(check_area_y, function (o) { 
-              return o.matrix[0][0] > min_y.matrix[1][0] 
-                  && o.matrix[0][0] < matrix_area[1][0] + a.size.width
-            })
-            if (check_area.length === 0) {
-              console.log('area a direita sem objetos')
-              var bot_area_y = _.filter(this_area, function (o) { 
-                return o.matrix[0][1] > min_y.matrix[1][1] 
-                && o.matrix[0][1] < min_y.matrix[1][1] + a.size.height})
-              var bot_area = _.filter(bot_area_y, function (o) { 
-                return o.matrix[0][0] > min_y.matrix[1][0] 
-                  && o.matrix[0][0] < matrix_area[1][0] + a.size.width
+            if (matrix_area[1][0] - min_y.matrix[1][0] > 0) {
+              console.log('checando area a direita')
+              var check_area_y = _.filter(this_area, function (o) { 
+                return o.matrix[0][1] > min_y.matrix[0][1] 
+                    && o.matrix[0][1] < min_y.matrix[1][1]
+                    || o.matrix[1][1] > min_y.matrix[0][1] 
+                    && o.matrix[1][1] < min_y.matrix[1][1]
               })
-              if (bot_area.length === 0) {
-                console.log('tem espaço na direita e sem impedimentos em baixo')
-                espacos.push([[min_y.matrix[1][0],matrix_area[0][1]],
-                              [matrix_area[1][0],min_y.matrix[1][1]]])
+              var check_area = _.filter(check_area_y, function (o) { 
+                return o.matrix[0][0] > min_y.matrix[1][0] 
+                    && o.matrix[0][0] < matrix_area[1][0] + a.size.width
+              })
+              if (check_area.length === 0) {
+                console.log('area a direita sem objetos')
+                var bot_area_y = _.filter(this_area, function (o) { 
+                  return o.matrix[0][1] > min_y.matrix[1][1] 
+                  && o.matrix[0][1] < min_y.matrix[1][1] + a.size.height})
+                var bot_area = _.filter(bot_area_y, function (o) { 
+                  return o.matrix[0][0] > min_y.matrix[1][0] 
+                    && o.matrix[0][0] < matrix_area[1][0] + a.size.width
+                })
+                if (bot_area.length === 0) {
+                  console.log('tem espaço na direita e sem impedimentos em baixo')
+                  if (min_y.matrix[1][1] + a.size.height > matrix_area[1][1]) {
+                    espacos.push([[min_y.matrix[1][0],matrix_area[0][1]],
+                                  [matrix_area[1][0],matrix_area[1][1] - a.size.height]])
+                    console.log(espacos)
+                  } else {
+                    espacos.push([[min_y.matrix[1][0],matrix_area[0][1]],
+                                [matrix_area[1][0],min_y.matrix[1][1]]])
+                    console.log(espacos)
+                  }
+                } else {
+                  var ss = _.min(bot_area, function(b) {
+                    return b.matrix[0][1]
+                  })
+                  espacos.push([[min_y.matrix[1][0],matrix_area[0][1]],
+                                [matrix_area[1][0],ss.matrix[0][1]-a.size.height]])
+                  console.log(espacos)
+                }
               } else {
-                espacos.push([[min_y.matrix[1][0],matrix_area[0][1]],
-                              [matrix_area[1][0],min_y.matrix[1][1]-(bot_area[0].matrix[0][1]-min_y.matrix[1][1])-a.size.height]])
+                console.log('tem espaco entre os objetos?')
+                var ob_dir = _.max(check_area, function(esq) {
+                  return esq.matrix[0][0]
+                })
+                if (ob_dir.matrix[0][0] - min_y.matrix[1][0] > a.size.width) {
+                  console.log('tem!')
+                  var bot_area_y = _.filter(this_area, function (o) { 
+                    return o.matrix[0][1] > ob_esq.matrix[1][1] 
+                    && o.matrix[0][1] < ob_dir.matrix[1][1] + a.size.height })
+                  var bot_area = _.filter(bot_area_y, function (o) { 
+                    return o.matrix[0][0] > min_y.matrix[1][0] 
+                        && o.matrix[0][0] < ob_dir.matrix[0][0]
+                        || o.matrix[1][0] > min_y.matrix[1][0] 
+                        && o.matrix[1][0] < ob_dir.matrix[0][0] })
+                  if (bot_area.length === 0) {
+                    espacos.push([[min_y.matrix[1][0],matrix_area[0][1]],
+                                  [ob_dir.matrix[0][0]-a.size.width,min_y.matrix[1][1]]])
+                    console.log(espacos)
+                  } else {
+                    var ss = _.min(bot_area, function(b) {
+                      return b.matrix[0][1]
+                    })
+                    espacos.push([[min_y.matrix[1][0],matrix_area[0][1]],
+                                  [ob_dir.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]])
+                    console.log(espacos)
+                  }
+                } else {
+                  console.log('não cabe entre os objetos')
+                }
               }
-            } else {
-              console.log('nao ha espaco a direita')
-              // console.log('executar novo scan a direita')
-              // var dirArea = [[min_y.matrix[1][0],matrix_area[1][0]],
-              //                 [matrix_area[1][0],min_y.matrix[1][1]+a.size.height]]
-              // var dirEspacos = this.scanArea(dirArea, a, ar)
-              // espacos.concat(dirEspacos)
+            } 
+
+            if (matrix_area[1][1] - min_y.matrix[1][1] > a.size.height) {
+              console.log('scanear abaixo')
+              var area_baixo = _.filter(this_area, function (o) { 
+                return o.matrix[0][1] > min_y.matrix[1][1] 
+                    && o.matrix[0][1] < matrix_area[1][1] + a.size.height
+              })
+
+              if (area_baixo === 0) {
+                espacos.push([[matrix_area[0][0],min_y.matrix[1][1]],
+                              [matrix_area[1][0],matrix_area[1][1] - a.size.height]])
+                console.log(espacos)
+              } else {
+                console.log('executar novo scan')
+                console.log(espacos)
+                var botArea = [[matrix_area[0][0],min_y.matrix[1][1]],
+                                [matrix_area[1][0],matrix_area[1][1]]]
+                var botEspacos = this.scanArea(botArea, a, ar)
+                console.log(botEspacos)
+                espacos = espacos.concat(botEspacos)
+                console.log(espacos)
+              }
+
             }
-          } 
-
-          if (matrix_area[1][1] - min_y.matrix[1][1] > a.size.height) {
-            console.log('scanear abaixo')
-            var area_baixo = _.filter(this_area, function (o) { 
-              return o.matrix[0][1] > min_y.matrix[1][1] 
-                  && o.matrix[0][1] < matrix_area[1][1] + a.size.height
-            })
-
-            if (area_baixo === 0) {
-              espacos.push([[matrix_area[0][0],min_y.matrix[1][1]],
-                            [matrix_area[1][0],matrix_area[1][1] - a.size.height]])
-            } else {
-              console.log('executar novo scan')
-              var botArea = [[matrix_area[0][0],min_y.matrix[1][1]],
-                              [matrix_area[1][0],matrix_area[1][1]]]
-              var botEspacos = this.scanArea(botArea, a, ar)
-              espacos.concat(botEspacos)
-            }
-
           }
 
         }
@@ -465,7 +545,7 @@
           this.media_cloud[n].y = a.pos.y
           this.media_cloud[n].matrix = [[a.pos.x, a.pos.y], [a.pos.x+a.size.width, a.pos.y+a.size.height]]
           this.copyArray(n)
-        }
+        } 
       },
       mouseMove: function (event) {
         var self = this
