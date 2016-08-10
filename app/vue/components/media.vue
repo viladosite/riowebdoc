@@ -4,7 +4,7 @@
 
 <template>
 
-  <div style="position: absolute; transform-style: preserve-3d; transition: transform 1s;" :style="[{left: offset + media.x+'px'},{top: media.y+'px'}]" class="" :id="media.id">
+  <div style="position: absolute; transform-style: preserve-3d; transition: transform 1s; z-index: 1;" :style="[{left: offset + media.x+'px'},{top: media.y+'px'}]" class="" :id="media.id">
     <div :id="media.id+'-front'" class="demo-card-wide mdl-card mdl-shadow--2dp" style="position: absolute; backface-visibility: hidden; transform-style: preserve-3d; transition: transform 1s;"  :style="[{height: media.height+'px'},{'min-height': media.height+'px'},{width: media.width+'px'}]">
       <div class="mdl-card__title" :style="{background: 'url('+media.imgs[0]+') center / cover'}" style="height: 100%; color: white;">
       </div>

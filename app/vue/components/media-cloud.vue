@@ -8,6 +8,8 @@
     <div class="rwd_content mdl-cell mdl-cell--12-col" style="margin: 0; width: 100%; perspective: 800px;">
 
       <in-media v-for="media in medias" transition="fade" :media="media" :offset="offset"></in-media>
+      <div v-for="areas in naves" :style="[{width: width / naves.length + 'px'}, {'background-color': 'rgb('+($index+10)*10 +','+($index+10)*10 +','+($index+10)*10+')'}, {left: (((width / naves.length) * $index) + offset) +'px'}]" style="position: absolute; height: 100%; z-index: 0;">{{$index}}</div>
+      <div v-for="f in found" :style="[{width: f.matrix[1][0] - f.matrix[0][0] + 'px'}, {height: f.matrix[1][1] - f.matrix[0][1] + 'px'}, {top: f.matrix[0][1] + 'px'}, {left: (f.matrix[0][0] + offset) + 'px'}, {'background-color': f.color}]" style="z-index: 2; position: absolute;">{{$index}}</div>
 
     </div>  
   </div>  
@@ -30,7 +32,8 @@
         height: 0,
         offset: 0,
         interval: 0,
-        area: []
+        area: [],
+        found: []
       }
     },
     methods: {
@@ -275,6 +278,7 @@
           espacos.push([[matrix_area[0][0], matrix_area[0][1]],
                         [matrix_area[1][0], matrix_area[1][1] - a.size.height]])
           console.log(espacos)
+          this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0], matrix_area[0][1]],[matrix_area[1][0], matrix_area[1][1] - a.size.height]]})
         } else {
           var this_area = _.filter(in_area, function (o) { 
             return o.matrix[0][1] > matrix_area[0][1] 
@@ -285,6 +289,7 @@
             espacos.push([[matrix_area[0][0], matrix_area[0][1]],
                           [matrix_area[1][0], matrix_area[1][1] - a.size.height]])
             console.log(espacos)
+            this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0], matrix_area[0][1]],[matrix_area[1][0], matrix_area[1][1] - a.size.height]]})
           } else {
             var min_y = _.min(this_area, function(min_y) {
               return min_y.matrix[0][1]
@@ -294,6 +299,7 @@
               espacos.push([matrix_area[0],
                            [matrix_area[1][0],min_y.matrix[0][1]-a.size.height]])
               console.log(espacos)
+              this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [matrix_area[0],[matrix_area[1][0],min_y.matrix[0][1]-a.size.height]]})
             } 
 
             if (min_y.matrix[0][0] - matrix_area[0][0] > a.size.width) {
@@ -320,6 +326,8 @@
                       && o.matrix[0][0] < min_y.matrix[0][0]
                       || o.matrix[1][0] > matrix_area[0][0] 
                       && o.matrix[1][0] < min_y.matrix[0][0]
+                      || o.matrix[0][0] < matrix_area[0][0] 
+                      && o.matrix[1][0] > min_y.matrix[0][0]
                 })
                 if (bot_area.length === 0) {
                   console.log('tem espaço na esquerda e sem impedimentos em baixo')
@@ -327,10 +335,12 @@
                     espacos.push([[matrix_area[0][0],matrix_area[0][1]],
                                   [min_y.matrix[0][0]-a.size.width,matrix_area[1][1] - a.size.height]])
                     console.log(espacos)
+                    this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,matrix_area[1][1] - a.size.height]]})
                   } else {
                     espacos.push([[matrix_area[0][0],matrix_area[0][1]],
                                 [min_y.matrix[0][0]-a.size.width,min_y.matrix[1][1]]])
                     console.log(espacos)
+                    this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,min_y.matrix[1][1]]]})
                   }
                   
                 } else {
@@ -340,14 +350,15 @@
                   espacos.push([[matrix_area[0][0],matrix_area[0][1]],
                                 [min_y.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]])
                   console.log(espacos)
+                  this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]]})
                 }
               } else {
-                console.log('tem espaco entre os objetos?')
+                console.log('tem espaco entre os objetos ou acima?')
                 var ob_esq = _.max(check_area, function(esq) {
                   return esq.matrix[1][0]
                 })
                 if (min_y.matrix[0][0] - ob_esq.matrix[1][0] > a.size.width) {
-                  console.log('tem!')
+                  console.log('tem entre!')
                   var bot_area_y = _.filter(this_area, function (o) { 
                     return o.matrix[0][1] > ob_esq.matrix[1][1] 
                     && o.matrix[0][1] < ob_esq.matrix[1][1] + a.size.height })
@@ -357,9 +368,15 @@
                         || o.matrix[1][0] > ob_esq.matrix[1][0] 
                         && o.matrix[1][0] < min_y.matrix[0][0] })
                   if (bot_area.length === 0) {
+                    if (min_y.matrix[1][1] + a.size.height > matrix_area[1][1]) {
+                      var down = matrix_area[1][1] - a.size.height
+                    } else {
+                      var down = min_y.matrix[1][1] - a.size.height
+                    }
                     espacos.push([[ob_esq.matrix[1][0],matrix_area[0][1]],
-                                  [min_y.matrix[0][0]-a.size.width,min_y.matrix[1][1]]])
+                                  [min_y.matrix[0][0]-a.size.width,down]])
                     console.log(espacos)
+                    this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[ob_esq.matrix[1][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,down]]})
                   } else {
                     var ss = _.min(bot_area, function(b) {
                       return b.matrix[0][1]
@@ -367,9 +384,23 @@
                     espacos.push([[ob_esq.matrix[1][0],matrix_area[0][1]],
                                   [min_y.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]])
                     console.log(espacos)
+                    this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[ob_esq.matrix[1][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]]})
                   }
                 } else {
                   console.log('não cabe entre os objetos')
+                }
+
+                var ob_esq_up = _.max(check_area, function(esq) {
+                  return esq.matrix[1][0]
+                })
+                if (ob_esq_up.matrix[0][1] - matrix_area[0][1] > a.size.height) {
+                  console.log('tem acima!')
+                  espacos.push([[matrix_area[0][0],matrix_area[0][1]],
+                                [min_y.matrix[0][0]-a.size.width,ob_esq_up.matrix[0][1]-a.size.height]])
+                  console.log(espacos)
+                  this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,ob_esq_up.matrix[0][1]-a.size.height]]})
+                } else {
+                  console.log('não cabe em acima')
                 }
               }
             } 
@@ -378,9 +409,9 @@
               console.log('checando area a direita')
               var check_area_y = _.filter(this_area, function (o) { 
                 return o.matrix[0][1] > min_y.matrix[0][1] 
-                    && o.matrix[0][1] < min_y.matrix[1][1]
+                    && o.matrix[0][1] < min_y.matrix[1][1] + a.size.height
                     || o.matrix[1][1] > min_y.matrix[0][1] 
-                    && o.matrix[1][1] < min_y.matrix[1][1]
+                    && o.matrix[1][1] < min_y.matrix[1][1] + a.size.height
               })
               var check_area = _.filter(check_area_y, function (o) { 
                 return o.matrix[0][0] > min_y.matrix[1][0] 
@@ -390,10 +421,14 @@
                 console.log('area a direita sem objetos')
                 var bot_area_y = _.filter(this_area, function (o) { 
                   return o.matrix[0][1] > min_y.matrix[1][1] 
-                  && o.matrix[0][1] < min_y.matrix[1][1] + a.size.height})
+                      && o.matrix[0][1] < min_y.matrix[1][1] + a.size.height})
                 var bot_area = _.filter(bot_area_y, function (o) { 
                   return o.matrix[0][0] > min_y.matrix[1][0] 
-                    && o.matrix[0][0] < matrix_area[1][0] + a.size.width
+                      && o.matrix[0][0] < matrix_area[1][0] + a.size.width
+                      || o.matrix[1][0] > min_y.matrix[1][0] 
+                      && o.matrix[1][0] < matrix_area[1][0] + a.size.width
+                      || o.matrix[0][0] < min_y.matrix[1][0] 
+                      && o.matrix[1][0] > matrix_area[1][0] + a.size.width
                 })
                 if (bot_area.length === 0) {
                   console.log('tem espaço na direita e sem impedimentos em baixo')
@@ -401,10 +436,12 @@
                     espacos.push([[min_y.matrix[1][0],matrix_area[0][1]],
                                   [matrix_area[1][0],matrix_area[1][1] - a.size.height]])
                     console.log(espacos)
+                    this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[matrix_area[1][0],matrix_area[1][1] - a.size.height]]})
                   } else {
                     espacos.push([[min_y.matrix[1][0],matrix_area[0][1]],
                                 [matrix_area[1][0],min_y.matrix[1][1]]])
                     console.log(espacos)
+                    this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[matrix_area[1][0],min_y.matrix[1][1]]]})
                   }
                 } else {
                   var ss = _.min(bot_area, function(b) {
@@ -413,16 +450,17 @@
                   espacos.push([[min_y.matrix[1][0],matrix_area[0][1]],
                                 [matrix_area[1][0],ss.matrix[0][1]-a.size.height]])
                   console.log(espacos)
+                  this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[matrix_area[1][0],ss.matrix[0][1]-a.size.height]]})
                 }
               } else {
                 console.log('tem espaco entre os objetos?')
-                var ob_dir = _.max(check_area, function(esq) {
+                var ob_dir = _.min(check_area, function(esq) {
                   return esq.matrix[0][0]
                 })
                 if (ob_dir.matrix[0][0] - min_y.matrix[1][0] > a.size.width) {
-                  console.log('tem!')
+                  console.log('tem entre!')
                   var bot_area_y = _.filter(this_area, function (o) { 
-                    return o.matrix[0][1] > ob_esq.matrix[1][1] 
+                    return o.matrix[0][1] > ob_dir.matrix[1][1] 
                     && o.matrix[0][1] < ob_dir.matrix[1][1] + a.size.height })
                   var bot_area = _.filter(bot_area_y, function (o) { 
                     return o.matrix[0][0] > min_y.matrix[1][0] 
@@ -430,9 +468,15 @@
                         || o.matrix[1][0] > min_y.matrix[1][0] 
                         && o.matrix[1][0] < ob_dir.matrix[0][0] })
                   if (bot_area.length === 0) {
+                    if (min_y.matrix[1][1] + a.size.height > matrix_area[1][1]) {
+                      var down = matrix_area[1][1] - a.size.height
+                    } else {
+                      var down = min_y.matrix[1][1] - a.size.height
+                    }
                     espacos.push([[min_y.matrix[1][0],matrix_area[0][1]],
-                                  [ob_dir.matrix[0][0]-a.size.width,min_y.matrix[1][1]]])
+                                  [ob_dir.matrix[0][0]-a.size.width,down]])
                     console.log(espacos)
+                    this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[ob_dir.matrix[0][0]-a.size.width,down]]})
                   } else {
                     var ss = _.min(bot_area, function(b) {
                       return b.matrix[0][1]
@@ -440,9 +484,23 @@
                     espacos.push([[min_y.matrix[1][0],matrix_area[0][1]],
                                   [ob_dir.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]])
                     console.log(espacos)
+                    this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[ob_dir.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]]})
                   }
                 } else {
                   console.log('não cabe entre os objetos')
+                }
+
+                var ob_dir_up = _.min(check_area, function(esq) {
+                  return esq.matrix[0][1]
+                })
+                if (ob_dir_up.matrix[0][1] - matrix_area[0][1] > a.size.height) {
+                  console.log('tem acima!')
+                  espacos.push([[min_y.matrix[1][0],matrix_area[0][1]],
+                                [matrix_area[1][0],ob_dir_up.matrix[0][1]-a.size.height]])
+                  console.log(espacos)
+                  this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[matrix_area[1][0],ob_dir_up.matrix[0][1]-a.size.height]]})
+                } else {
+                  console.log('não cabe em acima')
                 }
               }
             } 
@@ -458,6 +516,7 @@
                 espacos.push([[matrix_area[0][0],min_y.matrix[1][1]],
                               [matrix_area[1][0],matrix_area[1][1] - a.size.height]])
                 console.log(espacos)
+                this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0],min_y.matrix[1][1]],[matrix_area[1][0],matrix_area[1][1] - a.size.height]]})
               } else {
                 console.log('executar novo scan')
                 console.log(espacos)
@@ -518,6 +577,7 @@
           },
           pos: null
         }
+        this.found=[]
 
         var area = null
         if (this.area.length === 0) {
