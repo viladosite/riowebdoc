@@ -1,11 +1,11 @@
 /*cor de fundo */
 body{
-	background-color: #888;
+	background: url("../img/background_rwd.jpg") center/cover;
 }
 
 /*cor de fundo das divs de conteudo */
 .rwd_local , .rwd_content{
-	background-color: #fff;
+	
 }
 
 /* alinhar ao centro os icones de localização */
