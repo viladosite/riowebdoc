@@ -26,9 +26,9 @@
 			    <a class="mdl-navigation__link" href="#janela1" rel="modal">
 						<div id= "icon1" class="material-icons" >contact_mail</div>
 					</a>
-		      <div class="mdl-tooltip mdl-tooltip--large" for="icon1">
+		      	<div class="mdl-tooltip mdl-tooltip--large" for="icon1">
 						Envie um Webcard
-					</div>
+				</div>
 
 				</nav>
 			</div>
@@ -91,10 +91,9 @@
 		  	<media-cloud :naves="naves" user.sync="user"></media-cloud>
 
     	</div>
-    
-    </main>
 
-    <footer class="mdl-mini-footer">
+
+    	<footer class="mdl-mini-footer">
 			<div class="mdl-mini-footer__left-section">
 				<div class="mdl-logo"> 
 					<a href="http://github.com/viladosite/riowebdoc" target="_blank"> Fork us at 
@@ -121,6 +120,10 @@
 				</ul>
 			</div>
 		</footer>
+    
+    </main>
+
+    
 
 	  <div class="window" id="janela1">
 	    <a href="#" class="fechar"> <img src="images/icon_close.png" width="35px" height="35px" /> </a>
