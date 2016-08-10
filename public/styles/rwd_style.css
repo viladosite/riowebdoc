@@ -1,0 +1,119 @@
+/*cor de fundo */
+body{
+	background-color: #888;
+}
+
+/*cor de fundo das divs de conteudo */
+.rwd_local , .rwd_content{
+	background-color: #fff;
+}
+
+/* alinhar ao centro os icones de localização */
+.rwd_local{
+	text-align: center;
+}
+
+
+/* janela modal */
+	.window{
+    display:none;
+    width:55%;
+    height:70%;
+    position:absolute;
+    left:0;
+    top:0;
+    background:#FFF;
+    z-index:10000;
+    padding:10px;
+    border-radius:10px;
+}
+
+@media (max-width: 900px){
+    .window{
+        width:75%;
+        height:85%;
+        padding: 2%;
+                }
+            }
+
+ #janela2{
+    width: 95%;
+    float:right;
+ }
+ @media (max-width: 900px){
+    #janela2{
+        width:90%;
+                }
+            }
+
+ 
+#mascara{
+    display:none;
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:9000;
+    background-color:#000;
+}
+ 
+.fechar{
+    text-align:left;
+    float: left;
+    width: 5%;
+}
+
+.steps{
+    text-align:right;
+    float: right;
+}
+
+.modaliconsl,.modaliconsr {
+    font-size: xx-large;
+}
+
+.modaliconsr{
+    text-align: right;
+}
+
+/*imagens do footer */
+.footer_img1{
+    height: 41px;
+    width: 83px;
+}
+
+.footer_img2{
+    height: 32px;
+    width: 88px;    
+}
+
+@media (max-width: 400px){
+    .footer_img1{
+    height: 33px;
+    width: 67px;
+    }
+
+.footer_img2{
+    height: 26px;
+    width: 72px;    
+    }
+            }
+
+/* div do passo 1 escolha dos videos */
+.video-card{
+    width: 20%;
+    height: 25%!important;
+    padding: 2%;
+    margin: 2%;
+    background-color: #ff0000;
+    color: #fff;
+    display: inline-block;
+}
+
+.rwd_p2{
+    align:center;
+}
+
+/* tamanho da caixa de texto do passo2 */
+.mdl-textfield.mdl-js-textfield.rwd_txtmsg.is-upgraded {
+    width: 100%;
+}
