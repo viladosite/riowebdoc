@@ -1,17 +1,52 @@
 /*cor de fundo */
 body{
-	background-color: #888;
+	background: url("../img/background_rwd.jpg") center/cover;
 }
 
 /*cor de fundo das divs de conteudo */
 .rwd_local , .rwd_content{
-	background-color: #fff;
+	
 }
 
 /* alinhar ao centro os icones de localização */
 .rwd_local{
-	text-align: center;
+    text-align: center;
 }
+
+/* Utilizada nas divs de pin de localização */
+.markerbox {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Utilizada nos nomes de pin de localização */
+.markername {
+
+}
+
+/* Utilizada nos ícones de pin de localização */
+.markericon {
+
+}
+
+/* Utilizada na div de pins de localização */
+.markers {
+    width: 80%;
+    float: left;
+    position: relative;
+}
+
+/* Utilizada na div de pins de localização */
+.logo {
+    width: 20%;
+    text-align: center;
+    float: left;
+    position: relative;
+}
+
 
 
 /* janela modal */
