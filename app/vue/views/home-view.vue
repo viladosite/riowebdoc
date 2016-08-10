@@ -15,7 +15,6 @@
 
     <header class=" mdl-layout__header mdl-layout__header--transparent">
 			<div class="mdl-layout__header-row">
-				<span class="mdl-layout-title"> Riowebdoc </span>
 
 				<!-- Class destinada a dar um espaçamento grande -->
 				<div class="mdl-layout-spacer"></div>
@@ -75,18 +74,26 @@
     <main class="mdl-layout__content">
     
     	<div id="content">
-    		<div class="mdl-grid" id="markers">
-		  		<div class="rwd_local mdl-cell mdl-cell--12-col">
+    		
+    		<div id="logo" class="logo">
+    			<img src="images/logo.png">
+    		</div>
 
+
+    		<div id="markers" class="markers">
+		  		<div class="rwd_local">
 		  			<span v-for="nave in naves">
-		  				<a class="mdl-button mdl-js-button mdl-button--icon mdl-button--primary" :id="nave.id">
-			    			<i class="material-icons mdl-badge"> room </i>
-			    		</a>
-			    			
+		  				<div class="markerbox">
+			  				<a class="mdl-button mdl-js-button mdl-button--icon mdl-button--primary markericon" :id="nave.id">
+				    			<i class="material-icons mdl-badge"> room </i>
+				    		</a>
+				    		<br>
 
 							<div class="mdl-tooltip" :for="nave.id"> {{nave.nome}} </div>
+			  				<span class="markername"> Localidade </span>
+		  				</div>
 		  			</span>
-
+		  			<div style="clear: both"></div>
 		  		</div>
 		  	</div>
 
