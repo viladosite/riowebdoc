@@ -8,6 +8,8 @@
     <div class="rwd_content mdl-cell mdl-cell--12-col" style="margin: 0; width: 100%; perspective: 800px;">
 
       <in-media v-for="media in medias" transition="fade" :media="media" :offset="offset"></in-media>
+<!--       <div v-for="areas in naves" :style="[{width: width / naves.length + 'px'}, {'background-color': 'rgb('+($index+10)*10 +','+($index+10)*10 +','+($index+10)*10+')'}, {left: (((width / naves.length) * $index) + offset) +'px'}]" style="position: absolute; height: 100%; z-index: 0;">{{$index}}</div>
+      <div v-for="f in found" :style="[{width: f.matrix[1][0] - f.matrix[0][0] + 'px'}, {height: f.matrix[1][1] - f.matrix[0][1] + 'px'}, {top: f.matrix[0][1] + 'px'}, {left: (f.matrix[0][0] + offset) + 'px'}, {'background-color': f.color}]" style="z-index: 2; position: absolute;">{{$index}}</div> -->
 
     </div>  
   </div>  
@@ -30,7 +32,8 @@
         height: 0,
         offset: 0,
         interval: 0,
-        area: []
+        area: [],
+        found: []
       }
     },
     methods: {
@@ -69,7 +72,7 @@
         var h = $$$('#markers').outerHeight() + $$$('header').outerHeight() + $$$('footer').outerHeight()
         var w = $$$(window).height()
         var width = $$$(window).width()
-        this.width = 500 * this.naves.length
+        this.width = 300 * this.naves.length
         this.height = w-h
         this.offset = - width/2
         $$$('#media_cloud').height(w-h)
@@ -91,10 +94,10 @@
           a.area = a.size.width * a.size.height 
           k.area = k.width * k.height
           if (left < right && bottom > top) {
-            console.log('intercendiu')
+            // console.log('intercendiu')
             var int_area = (right - left) * (bottom - top)
             intercessoes.push(int_area)
-            // console.log(intercessoes)
+            console.log(intercessoes)
             if (k.area * 0.3 < int_area || a.area * 0.3 < int_area || intercessoes.length > 1 ) {
               if (right - left < bottom - top && right - left > 1 && toggle !== 'y' || toggle === 'x' && right - left > 1) {
                 if (a.pos.x > k.x && cof) {
@@ -109,12 +112,12 @@
                       height: a.size.height
                     }
                   }
-                  console.log(right - left)
-                  console.log(a.size.width)
-                  console.log(k.width)
-                  console.log(a.pos.x)
-                  console.log(o.pos.x)
-                  console.log('a1')
+                  // console.log(right - left)
+                  // console.log(a.size.width)
+                  // console.log(k.width)
+                  // console.log(a.pos.x)
+                  // console.log(o.pos.x)
+                  // console.log('a1')
                   self.checkPos(o, array, n, 'y')
                 } else if (a.pos.x < k.x && cof) {
                   cof = false
@@ -128,12 +131,12 @@
                       height: a.size.height
                     }
                   }
-                  console.log(right - left)
-                  console.log(a.size.width)
-                  console.log(k.width)
-                  console.log(a.pos.x)
-                  console.log(o.pos.x)
-                  console.log('a2')
+                  // console.log(right - left)
+                  // console.log(a.size.width)
+                  // console.log(k.width)
+                  // console.log(a.pos.x)
+                  // console.log(o.pos.x)
+                  // console.log('a2')
                   self.checkPos(o, array, n, 'y')
                 }
               } else if (right - left > bottom - top && bottom - top > 1 && toggle !== 'x' || toggle === 'y' && bottom - top > 1) {
@@ -150,18 +153,18 @@
                     }
                   } 
                   if (o.pos.y + o.size.height > self.height) {
-                    console.log(o.pos.y)
-                    console.log(k.height)
+                    // console.log(o.pos.y)
+                    // console.log(k.height)
                     o.pos.y = o.pos.y - k.height
-                    console.log('y maior que '+self.height)
-                    console.log(o.pos.y)
+                    // console.log('y maior que '+self.height)
+                    // console.log(o.pos.y)
                   } else {
-                    console.log(bottom - top)
-                    console.log(a.size.height)
-                    console.log(k.height)
-                    console.log(a.pos.y)
-                    console.log(o.pos.y)
-                    console.log('a3')
+                    // console.log(bottom - top)
+                    // console.log(a.size.height)
+                    // console.log(k.height)
+                    // console.log(a.pos.y)
+                    // console.log(o.pos.y)
+                    // console.log('a3')
                   }
                   self.checkPos(o, array, n, 'x')
                 } else if (a.pos.y < k.y && cof) {
@@ -177,18 +180,18 @@
                     }
                   }
                   if (o.pos.y < 0) {
-                    console.log(o.pos.y)
-                    console.log(k.height)
+                    // console.log(o.pos.y)
+                    // console.log(k.height)
                     o.pos.y = o.pos.y + (k.height*2)
-                    console.log('y menor que 0...')
-                    console.log(o.pos.y)
+                    // console.log('y menor que 0...')
+                    // console.log(o.pos.y)
                   } else {
-                    console.log(bottom - top)
-                    console.log(a.size.height)
-                    console.log(k.height)
-                    console.log(a.pos.y)
-                    console.log(o.pos.y)
-                    console.log('a4')
+                    // console.log(bottom - top)
+                    // console.log(a.size.height)
+                    // console.log(k.height)
+                    // console.log(a.pos.y)
+                    // console.log(o.pos.y)
+                    // console.log('a4')
                   }
                   self.checkPos(o, array, n, 'x')
                 }
@@ -204,8 +207,8 @@
             }
           } else {
             if (cof === true) {
-              console.log('nao intercendiu')
-              // console.log(a.pos)
+              // console.log('nao intercendiu')
+              console.log(a.pos)
               self.media_cloud[n].x = a.pos.x
               self.media_cloud[n].y = a.pos.y
             }
@@ -229,52 +232,53 @@
           area = this.area.pop()
         }
         if (n%2 == 0) {
-          console.log('par')
+          // console.log('par')
           var pos = {
             x: Math.random() * ( ((this.width/this.naves_array.length)*(area+1)) - ((this.width/this.naves_array.length)*area) ) + ((this.width/this.naves_array.length)*area),
             y: Math.random() * (this.height/2)
           }
-          console.log(pos.y)
+          // console.log(pos.y)
         } else {
-          console.log('impar')
+          // console.log('impar')
           var pos = {
             x: Math.random() * ( ((this.width/this.naves_array.length)*(area+1)) - ((this.width/this.naves_array.length)*area) ) + ((this.width/this.naves_array.length)*area),
             y: Math.random() * ((this.height - this.media_cloud[n].height) - this.height/2) + this.height/2
           }
-          console.log(pos.y)
+          // console.log(pos.y)
         }
         a.pos = pos
         a.id = this.media_cloud[n].id
         if (n===0) {
-          console.log(n)
+          // console.log(n)
           this.media_cloud[n].x = a.pos.x
           this.media_cloud[n].y = a.pos.y
           this.copyArray(n)
           // this.arrangeItens(n+1)
         } else if (n!==this.media_cloud.length - 1 && n!== 0) {
-          console.log(n)
+          // console.log(n)
           this.checkPos(a, this.media_cloud, n, null)
           this.copyArray(n)
           // this.arrangeItens(n+1)
         } else if (n===this.media_cloud.length - 1) {
-          console.log(n)
+          // console.log(n)
           this.checkPos(a, this.media_cloud, n, null)
           this.copyArray(n)
         }
       },
       scanArea: function (matrix_area, a, ar) {
         var espacos = []
-        console.log(matrix_area)
+        // console.log(matrix_area)
         var in_area = _.filter(ar, function (o) { 
           return o.matrix[0][0] > matrix_area[0][0] 
               && o.matrix[0][0] < matrix_area[1][0] + a.size.width 
               || o.matrix[1][0] > matrix_area[0][0] 
               && o.matrix[1][0] < matrix_area[1][0] })
-        console.log(in_area)
+        // console.log(in_area)
         if (in_area.length === 0) {
           espacos.push([[matrix_area[0][0], matrix_area[0][1]],
                         [matrix_area[1][0], matrix_area[1][1] - a.size.height]])
-          console.log(espacos)
+          // console.log(espacos)
+          // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0], matrix_area[0][1]],[matrix_area[1][0], matrix_area[1][1] - a.size.height]]})
         } else {
           var this_area = _.filter(in_area, function (o) { 
             return o.matrix[0][1] > matrix_area[0][1] 
@@ -284,20 +288,22 @@
           if (this_area.length === 0) {
             espacos.push([[matrix_area[0][0], matrix_area[0][1]],
                           [matrix_area[1][0], matrix_area[1][1] - a.size.height]])
-            console.log(espacos)
+            // console.log(espacos)
+            // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0], matrix_area[0][1]],[matrix_area[1][0], matrix_area[1][1] - a.size.height]]})
           } else {
             var min_y = _.min(this_area, function(min_y) {
               return min_y.matrix[0][1]
             })
             if (min_y.matrix[0][1] - matrix_area[0][1] > a.size.height) {
-              console.log('tem espaço em cima')
+              // console.log('tem espaço em cima')
               espacos.push([matrix_area[0],
                            [matrix_area[1][0],min_y.matrix[0][1]-a.size.height]])
-              console.log(espacos)
+              // console.log(espacos)
+              // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [matrix_area[0],[matrix_area[1][0],min_y.matrix[0][1]-a.size.height]]})
             } 
 
             if (min_y.matrix[0][0] - matrix_area[0][0] > a.size.width) {
-              console.log('checando area a esquerda')
+              // console.log('checando area a esquerda')
               var check_area_y = _.filter(this_area, function (o) { 
                 return o.matrix[0][1] > matrix_area[0][1] 
                     && o.matrix[0][1] < min_y.matrix[1][1]
@@ -311,7 +317,7 @@
                     && o.matrix[1][0] < min_y.matrix[0][0]
               })
               if (check_area.length === 0) {
-                console.log('area a esquerda sem objetos')
+                // console.log('area a esquerda sem objetos')
                 var bot_area_y = _.filter(this_area, function (o) { 
                   return o.matrix[0][1] > min_y.matrix[1][1] 
                   && o.matrix[0][1] < min_y.matrix[1][1] + a.size.height})
@@ -320,17 +326,21 @@
                       && o.matrix[0][0] < min_y.matrix[0][0]
                       || o.matrix[1][0] > matrix_area[0][0] 
                       && o.matrix[1][0] < min_y.matrix[0][0]
+                      || o.matrix[0][0] < matrix_area[0][0] 
+                      && o.matrix[1][0] > min_y.matrix[0][0]
                 })
                 if (bot_area.length === 0) {
-                  console.log('tem espaço na esquerda e sem impedimentos em baixo')
+                  // console.log('tem espaço na esquerda e sem impedimentos em baixo')
                   if (min_y.matrix[1][1] + a.size.height > matrix_area[1][1]) {
                     espacos.push([[matrix_area[0][0],matrix_area[0][1]],
                                   [min_y.matrix[0][0]-a.size.width,matrix_area[1][1] - a.size.height]])
-                    console.log(espacos)
+                    // console.log(espacos)
+                    // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,matrix_area[1][1] - a.size.height]]})
                   } else {
                     espacos.push([[matrix_area[0][0],matrix_area[0][1]],
                                 [min_y.matrix[0][0]-a.size.width,min_y.matrix[1][1]]])
-                    console.log(espacos)
+                    // console.log(espacos)
+                    // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,min_y.matrix[1][1]]]})
                   }
                   
                 } else {
@@ -339,15 +349,16 @@
                   })
                   espacos.push([[matrix_area[0][0],matrix_area[0][1]],
                                 [min_y.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]])
-                  console.log(espacos)
+                  // console.log(espacos)
+                  // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]]})
                 }
               } else {
-                console.log('tem espaco entre os objetos?')
+                // console.log('tem espaco entre os objetos ou acima?')
                 var ob_esq = _.max(check_area, function(esq) {
                   return esq.matrix[1][0]
                 })
                 if (min_y.matrix[0][0] - ob_esq.matrix[1][0] > a.size.width) {
-                  console.log('tem!')
+                  // console.log('tem entre!')
                   var bot_area_y = _.filter(this_area, function (o) { 
                     return o.matrix[0][1] > ob_esq.matrix[1][1] 
                     && o.matrix[0][1] < ob_esq.matrix[1][1] + a.size.height })
@@ -357,54 +368,80 @@
                         || o.matrix[1][0] > ob_esq.matrix[1][0] 
                         && o.matrix[1][0] < min_y.matrix[0][0] })
                   if (bot_area.length === 0) {
+                    if (min_y.matrix[1][1] + a.size.height > matrix_area[1][1]) {
+                      var down = matrix_area[1][1] - a.size.height
+                    } else {
+                      var down = min_y.matrix[1][1] - a.size.height
+                    }
                     espacos.push([[ob_esq.matrix[1][0],matrix_area[0][1]],
-                                  [min_y.matrix[0][0]-a.size.width,min_y.matrix[1][1]]])
-                    console.log(espacos)
+                                  [min_y.matrix[0][0]-a.size.width,down]])
+                    // console.log(espacos)
+                    // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[ob_esq.matrix[1][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,down]]})
                   } else {
                     var ss = _.min(bot_area, function(b) {
                       return b.matrix[0][1]
                     })
                     espacos.push([[ob_esq.matrix[1][0],matrix_area[0][1]],
                                   [min_y.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]])
-                    console.log(espacos)
+                    // console.log(espacos)
+                    // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[ob_esq.matrix[1][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]]})
                   }
                 } else {
-                  console.log('não cabe entre os objetos')
+                  // console.log('não cabe entre os objetos')
+                }
+
+                var ob_esq_up = _.max(check_area, function(esq) {
+                  return esq.matrix[1][0]
+                })
+                if (ob_esq_up.matrix[0][1] - matrix_area[0][1] > a.size.height) {
+                  // console.log('tem acima!')
+                  espacos.push([[matrix_area[0][0],matrix_area[0][1]],
+                                [min_y.matrix[0][0]-a.size.width,ob_esq_up.matrix[0][1]-a.size.height]])
+                  // console.log(espacos)
+                  // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,ob_esq_up.matrix[0][1]-a.size.height]]})
+                } else {
+                  // console.log('não cabe em acima')
                 }
               }
             } 
 
             if (matrix_area[1][0] - min_y.matrix[1][0] > 0) {
-              console.log('checando area a direita')
+              // console.log('checando area a direita')
               var check_area_y = _.filter(this_area, function (o) { 
                 return o.matrix[0][1] > min_y.matrix[0][1] 
-                    && o.matrix[0][1] < min_y.matrix[1][1]
+                    && o.matrix[0][1] < min_y.matrix[1][1] + a.size.height
                     || o.matrix[1][1] > min_y.matrix[0][1] 
-                    && o.matrix[1][1] < min_y.matrix[1][1]
+                    && o.matrix[1][1] < min_y.matrix[1][1] + a.size.height
               })
               var check_area = _.filter(check_area_y, function (o) { 
                 return o.matrix[0][0] > min_y.matrix[1][0] 
                     && o.matrix[0][0] < matrix_area[1][0] + a.size.width
               })
               if (check_area.length === 0) {
-                console.log('area a direita sem objetos')
+                // console.log('area a direita sem objetos')
                 var bot_area_y = _.filter(this_area, function (o) { 
                   return o.matrix[0][1] > min_y.matrix[1][1] 
-                  && o.matrix[0][1] < min_y.matrix[1][1] + a.size.height})
+                      && o.matrix[0][1] < min_y.matrix[1][1] + a.size.height})
                 var bot_area = _.filter(bot_area_y, function (o) { 
                   return o.matrix[0][0] > min_y.matrix[1][0] 
-                    && o.matrix[0][0] < matrix_area[1][0] + a.size.width
+                      && o.matrix[0][0] < matrix_area[1][0] + a.size.width
+                      || o.matrix[1][0] > min_y.matrix[1][0] 
+                      && o.matrix[1][0] < matrix_area[1][0] + a.size.width
+                      || o.matrix[0][0] < min_y.matrix[1][0] 
+                      && o.matrix[1][0] > matrix_area[1][0] + a.size.width
                 })
                 if (bot_area.length === 0) {
-                  console.log('tem espaço na direita e sem impedimentos em baixo')
+                  // console.log('tem espaço na direita e sem impedimentos em baixo')
                   if (min_y.matrix[1][1] + a.size.height > matrix_area[1][1]) {
                     espacos.push([[min_y.matrix[1][0],matrix_area[0][1]],
                                   [matrix_area[1][0],matrix_area[1][1] - a.size.height]])
-                    console.log(espacos)
+                    // console.log(espacos)
+                    // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[matrix_area[1][0],matrix_area[1][1] - a.size.height]]})
                   } else {
                     espacos.push([[min_y.matrix[1][0],matrix_area[0][1]],
                                 [matrix_area[1][0],min_y.matrix[1][1]]])
-                    console.log(espacos)
+                    // console.log(espacos)
+                    // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[matrix_area[1][0],min_y.matrix[1][1]]]})
                   }
                 } else {
                   var ss = _.min(bot_area, function(b) {
@@ -412,17 +449,18 @@
                   })
                   espacos.push([[min_y.matrix[1][0],matrix_area[0][1]],
                                 [matrix_area[1][0],ss.matrix[0][1]-a.size.height]])
-                  console.log(espacos)
+                  // console.log(espacos)
+                  // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[matrix_area[1][0],ss.matrix[0][1]-a.size.height]]})
                 }
               } else {
-                console.log('tem espaco entre os objetos?')
-                var ob_dir = _.max(check_area, function(esq) {
+                // console.log('tem espaco entre os objetos?')
+                var ob_dir = _.min(check_area, function(esq) {
                   return esq.matrix[0][0]
                 })
                 if (ob_dir.matrix[0][0] - min_y.matrix[1][0] > a.size.width) {
-                  console.log('tem!')
+                  // console.log('tem entre!')
                   var bot_area_y = _.filter(this_area, function (o) { 
-                    return o.matrix[0][1] > ob_esq.matrix[1][1] 
+                    return o.matrix[0][1] > ob_dir.matrix[1][1] 
                     && o.matrix[0][1] < ob_dir.matrix[1][1] + a.size.height })
                   var bot_area = _.filter(bot_area_y, function (o) { 
                     return o.matrix[0][0] > min_y.matrix[1][0] 
@@ -430,25 +468,45 @@
                         || o.matrix[1][0] > min_y.matrix[1][0] 
                         && o.matrix[1][0] < ob_dir.matrix[0][0] })
                   if (bot_area.length === 0) {
+                    if (min_y.matrix[1][1] + a.size.height > matrix_area[1][1]) {
+                      var down = matrix_area[1][1] - a.size.height
+                    } else {
+                      var down = min_y.matrix[1][1] - a.size.height
+                    }
                     espacos.push([[min_y.matrix[1][0],matrix_area[0][1]],
-                                  [ob_dir.matrix[0][0]-a.size.width,min_y.matrix[1][1]]])
-                    console.log(espacos)
+                                  [ob_dir.matrix[0][0]-a.size.width,down]])
+                    // console.log(espacos)
+                    // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[ob_dir.matrix[0][0]-a.size.width,down]]})
                   } else {
                     var ss = _.min(bot_area, function(b) {
                       return b.matrix[0][1]
                     })
                     espacos.push([[min_y.matrix[1][0],matrix_area[0][1]],
                                   [ob_dir.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]])
-                    console.log(espacos)
+                    // console.log(espacos)
+                    // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[ob_dir.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]]})
                   }
                 } else {
-                  console.log('não cabe entre os objetos')
+                  // console.log('não cabe entre os objetos')
+                }
+
+                var ob_dir_up = _.min(check_area, function(esq) {
+                  return esq.matrix[0][1]
+                })
+                if (ob_dir_up.matrix[0][1] - matrix_area[0][1] > a.size.height) {
+                  // console.log('tem acima!')
+                  espacos.push([[min_y.matrix[1][0],matrix_area[0][1]],
+                                [matrix_area[1][0],ob_dir_up.matrix[0][1]-a.size.height]])
+                  // console.log(espacos)
+                  // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[matrix_area[1][0],ob_dir_up.matrix[0][1]-a.size.height]]})
+                } else {
+                  // console.log('não cabe em acima')
                 }
               }
             } 
 
             if (matrix_area[1][1] - min_y.matrix[1][1] > a.size.height) {
-              console.log('scanear abaixo')
+              // console.log('scanear abaixo')
               var area_baixo = _.filter(this_area, function (o) { 
                 return o.matrix[0][1] > min_y.matrix[1][1] 
                     && o.matrix[0][1] < matrix_area[1][1] + a.size.height
@@ -457,16 +515,17 @@
               if (area_baixo === 0) {
                 espacos.push([[matrix_area[0][0],min_y.matrix[1][1]],
                               [matrix_area[1][0],matrix_area[1][1] - a.size.height]])
-                console.log(espacos)
+                // console.log(espacos)
+                // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0],min_y.matrix[1][1]],[matrix_area[1][0],matrix_area[1][1] - a.size.height]]})
               } else {
-                console.log('executar novo scan')
-                console.log(espacos)
+                // console.log('executar novo scan')
+                // console.log(espacos)
                 var botArea = [[matrix_area[0][0],min_y.matrix[1][1]],
                                 [matrix_area[1][0],matrix_area[1][1]]]
                 var botEspacos = this.scanArea(botArea, a, ar)
-                console.log(botEspacos)
+                // console.log(botEspacos)
                 espacos = espacos.concat(botEspacos)
-                console.log(espacos)
+                // console.log(espacos)
               }
 
             }
@@ -484,7 +543,7 @@
         }
 
         var ar = this.media_cloud.slice(0, n)
-        console.log(ar)
+        // console.log(ar)
 
         var matrix_area = [
                             [((this.width/this.naves_array.length)*area)-(this.width/this.naves_array.length), 0 ],
@@ -493,17 +552,17 @@
         var espacos = this.scanArea(matrix_area, a, ar)
 
         if (espacos.length === 0) {
-          console.log('nenhum espaço achados')
+          // console.log('nenhum espaço achados')
         } else {
-          console.log('espaços achados')
-          console.log(espacos)
-          console.log('randomizar espaços')
+          // console.log('espaços achados')
+          // console.log(espacos)
+          // console.log('randomizar espaços')
           if (espacos.length === 1) {
             var esp_rand = 0
           } else {
             var esp_rand = parseInt(Math.random() * espacos.length)
           }
-          console.log(esp_rand)
+          // console.log(esp_rand)
           pos.x = Math.random() * (espacos[esp_rand][1][0] - espacos[esp_rand][0][0]) + espacos[esp_rand][0][0]
           pos.y = Math.random() * (espacos[esp_rand][1][1] - espacos[esp_rand][0][1]) + espacos[esp_rand][0][1]
           return pos
@@ -518,6 +577,7 @@
           },
           pos: null
         }
+        this.found=[]
 
         var area = null
         if (this.area.length === 0) {
@@ -529,17 +589,23 @@
         }
 
         if (n%2 == 0) {
-          console.log('par')
+          // console.log('par')
           a.pos = this.checkPos2(a, n, 'par', area)
         } else {
-          console.log('impar')
+          // console.log('impar')
           a.pos = this.checkPos2(a, n, 'impar', area)
         }
 
         if (a.pos == undefined && x < this.naves_array.length) {
           this.arrangeItens2(n, x+1)
         } else if (a.pos == undefined && x === this.naves_array.length) {
-          console.log('sem mais espaços')
+          // console.log('sem mais espaços')
+        } else if (n !== this.media_cloud.length - 1) {
+          this.media_cloud[n].x = a.pos.x
+          this.media_cloud[n].y = a.pos.y
+          this.media_cloud[n].matrix = [[a.pos.x, a.pos.y], [a.pos.x+a.size.width, a.pos.y+a.size.height]]
+          this.copyArray(n)
+          this.arrangeItens2(n+1, 1)
         } else {
           this.media_cloud[n].x = a.pos.x
           this.media_cloud[n].y = a.pos.y

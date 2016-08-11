@@ -79,10 +79,12 @@
 		  		<div class="rwd_local mdl-cell mdl-cell--12-col">
 
 		  			<span v-for="nave in naves">
-		  				<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--primary" :id="nave.id">
+
+		  				<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--primary" :id="nave.headers.id">
 			    			<i class="material-icons mdl-badge"> room </i>
 			    		</button>
-							<div class="mdl-tooltip" :for="nave.id"> {{nave.nome}} </div>
+							<div class="mdl-tooltip" :for="nave.headers.id"> {{nave.headers.nome}} </div>
+							
 		  			</span>
 
 		  		</div>
