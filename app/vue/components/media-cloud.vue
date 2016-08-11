@@ -7,7 +7,8 @@
   <div id="media_cloud" class="mdl-grid" style="padding: 0; overflow: hidden" @wheel="onWheel" @mouseout="mouseOut">
     <div class="rwd_content mdl-cell mdl-cell--12-col" style="margin: 0; width: 100%; perspective: 800px;">
 
-      <in-media v-for="media in medias" transition="fade" :media="media" :offset="offset" :height="height"></in-media>
+      <in-media v-for="media in medias" transition="fade" :media="media" :offset.sync="offset" :height="height" :width="width" :playing.sync="playing"></in-media>
+      <div v-if="playing !== null" style="width: 100%; height: 100%; background: rgba(0,0,0,.7); z-index: 5; position: absolute; left: 0; top: 0;"></div>
 <!--       <div v-for="areas in naves" :style="[{width: width / naves.length + 'px'}, {'background-color': 'rgb('+($index+10)*10 +','+($index+10)*10 +','+($index+10)*10+')'}, {left: (((width / naves.length) * $index) + offset) +'px'}]" style="position: absolute; height: 100%; z-index: 0;">{{$index}}</div>
       <div v-for="f in found" :style="[{width: f.matrix[1][0] - f.matrix[0][0] + 'px'}, {height: f.matrix[1][1] - f.matrix[0][1] + 'px'}, {top: f.matrix[0][1] + 'px'}, {left: (f.matrix[0][0] + offset) + 'px'}, {'background-color': f.color}]" style="z-index: 2; position: absolute;">{{$index}}</div> -->
 
@@ -33,7 +34,8 @@
         offset: 0,
         interval: 0,
         area: [],
-        found: []
+        found: [],
+        playing: null
       }
     },
     methods: {
@@ -72,9 +74,8 @@
         var h = $$$('#markers').outerHeight() + $$$('header').outerHeight() + $$$('footer').outerHeight()
         var w = $$$(window).height()
         var width = $$$(window).width()
-        this.width = 300 * this.naves.length
+        this.width = 500 * this.naves.length
         this.height = w-h
-        this.offset = - width/2
         $$$('#media_cloud').height(w-h)
       },
       copyArray: function (n) {
@@ -430,8 +431,9 @@
       },
       mouseMove: function (event) {
         var self = this
+        var width = $$$(window).width()
         var range = d3.scaleLinear()
-                      .domain([0, self.width/2])
+                      .domain([0, width])
                       .range([0, 2])
         var interval = -(range(event.clientX) - 1)
         if (interval > -0.2 && interval < 0.2) {
@@ -444,7 +446,7 @@
         this.interval = 0
       },
       onWheel: function (event) {
-        var offset = 50
+        var offset = 25
         if (event.wheelDelta > 0) {
           this.offset = this.offset + offset
         } else {
@@ -486,8 +488,8 @@
       this.changeCanvasSize()
       this.arrangeItens(0, 1)
       // window.setInterval(function(){
-      //   self.offset = self.offset + (self.interval*0.1)
-      // }, 1);
+      //   self.offset = self.offset + (self.interval*4)
+      // }, 200);
     },
     components: {
       'in-media': require('./media.vue')

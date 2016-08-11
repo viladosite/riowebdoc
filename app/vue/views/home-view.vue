@@ -1,12 +1,13 @@
 <style lang="scss">
 	.fade-transition {
-		transition: opacity .6s ease;
+		transition: opacity .6s ease .4s;
 		opacity: 1;
 	}
 	.fade-enter, .fade-leave {
 		opacity: 0;
-		position: absolute;
-		width: 100%;
+	}
+	.fade-leave {
+		transition: opacity .1s linear
 	}
 </style>
 
