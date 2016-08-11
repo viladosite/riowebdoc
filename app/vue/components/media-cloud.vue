@@ -7,7 +7,7 @@
   <div id="media_cloud" class="mdl-grid" style="padding: 0; overflow: hidden" @wheel="onWheel" @mouseout="mouseOut">
     <div class="rwd_content mdl-cell mdl-cell--12-col" style="margin: 0; width: 100%; perspective: 800px;">
 
-      <in-media v-for="media in medias" transition="fade" :media="media" :offset="offset"></in-media>
+      <in-media v-for="media in medias" transition="fade" :media="media" :offset="offset" :height="height"></in-media>
 <!--       <div v-for="areas in naves" :style="[{width: width / naves.length + 'px'}, {'background-color': 'rgb('+($index+10)*10 +','+($index+10)*10 +','+($index+10)*10+')'}, {left: (((width / naves.length) * $index) + offset) +'px'}]" style="position: absolute; height: 100%; z-index: 0;">{{$index}}</div>
       <div v-for="f in found" :style="[{width: f.matrix[1][0] - f.matrix[0][0] + 'px'}, {height: f.matrix[1][1] - f.matrix[0][1] + 'px'}, {top: f.matrix[0][1] + 'px'}, {left: (f.matrix[0][0] + offset) + 'px'}, {'background-color': f.color}]" style="z-index: 2; position: absolute;">{{$index}}</div> -->
 
@@ -79,191 +79,6 @@
       },
       copyArray: function (n) {
         this.medias = this.media_cloud.slice(0, n+1)
-      },
-      checkPos: function(a, array, n, t) {
-        var ar = array.slice(0, n)
-        var cof = true
-        var toggle = t
-        var intercessoes = []
-        var self = this
-        d3.map(ar).each(function(k, v, m) {
-          var left = Math.max(a.pos.x, k.x)
-          var right = Math.min((a.pos.x + a.size.width), (k.x + k.width))
-          var top = Math.max(a.pos.y, k.y)
-          var bottom = Math.min((a.pos.y + a.size.height), (k.y + k.height))
-          a.area = a.size.width * a.size.height 
-          k.area = k.width * k.height
-          if (left < right && bottom > top) {
-            // console.log('intercendiu')
-            var int_area = (right - left) * (bottom - top)
-            intercessoes.push(int_area)
-            console.log(intercessoes)
-            if (k.area * 0.3 < int_area || a.area * 0.3 < int_area || intercessoes.length > 1 ) {
-              if (right - left < bottom - top && right - left > 1 && toggle !== 'y' || toggle === 'x' && right - left > 1) {
-                if (a.pos.x > k.x && cof) {
-                  cof = false
-                  var o = {
-                    pos: {
-                      x: parseFloat(parseFloat(a.pos.x + (right - left)).toFixed(2)),
-                      y: a.pos.y
-                    },
-                    size: {
-                      width: a.size.width,
-                      height: a.size.height
-                    }
-                  }
-                  // console.log(right - left)
-                  // console.log(a.size.width)
-                  // console.log(k.width)
-                  // console.log(a.pos.x)
-                  // console.log(o.pos.x)
-                  // console.log('a1')
-                  self.checkPos(o, array, n, 'y')
-                } else if (a.pos.x < k.x && cof) {
-                  cof = false
-                  var o = {
-                    pos: {
-                      x: parseFloat(parseFloat(a.pos.x - (right - left)).toFixed(2)),
-                      y: a.pos.y
-                    },
-                    size: {
-                      width: a.size.width,
-                      height: a.size.height
-                    }
-                  }
-                  // console.log(right - left)
-                  // console.log(a.size.width)
-                  // console.log(k.width)
-                  // console.log(a.pos.x)
-                  // console.log(o.pos.x)
-                  // console.log('a2')
-                  self.checkPos(o, array, n, 'y')
-                }
-              } else if (right - left > bottom - top && bottom - top > 1 && toggle !== 'x' || toggle === 'y' && bottom - top > 1) {
-                if (a.pos.y > k.y && cof) {
-                  cof = false
-                  var o = {
-                    pos: {
-                      x: a.pos.x,
-                      y: parseFloat(parseFloat(a.pos.y + (bottom - top)).toFixed(2))
-                    },
-                    size: {
-                      width: a.size.width,
-                      height: a.size.height
-                    }
-                  } 
-                  if (o.pos.y + o.size.height > self.height) {
-                    // console.log(o.pos.y)
-                    // console.log(k.height)
-                    o.pos.y = o.pos.y - k.height
-                    // console.log('y maior que '+self.height)
-                    // console.log(o.pos.y)
-                  } else {
-                    // console.log(bottom - top)
-                    // console.log(a.size.height)
-                    // console.log(k.height)
-                    // console.log(a.pos.y)
-                    // console.log(o.pos.y)
-                    // console.log('a3')
-                  }
-                  self.checkPos(o, array, n, 'x')
-                } else if (a.pos.y < k.y && cof) {
-                  cof = false
-                  var o = {
-                    pos: {
-                      x: a.pos.x,
-                      y: parseFloat(parseFloat(a.pos.y - (bottom - top)).toFixed(2))
-                    },
-                    size: {
-                      width: a.size.width,
-                      height: a.size.height
-                    }
-                  }
-                  if (o.pos.y < 0) {
-                    // console.log(o.pos.y)
-                    // console.log(k.height)
-                    o.pos.y = o.pos.y + (k.height*2)
-                    // console.log('y menor que 0...')
-                    // console.log(o.pos.y)
-                  } else {
-                    // console.log(bottom - top)
-                    // console.log(a.size.height)
-                    // console.log(k.height)
-                    // console.log(a.pos.y)
-                    // console.log(o.pos.y)
-                    // console.log('a4')
-                  }
-                  self.checkPos(o, array, n, 'x')
-                }
-              } else {
-                a.pos.y = parseFloat(a.pos.y + bottom - top).toFixed(2)
-                a.pos.x = parseFloat(a.pos.x + right - left).toFixed(2)
-                self.media_cloud[n].x = a.pos.x
-                self.media_cloud[n].y = a.pos.y
-              }
-            } else {
-              self.media_cloud[n].x = a.pos.x
-              self.media_cloud[n].y = a.pos.y
-            }
-          } else {
-            if (cof === true) {
-              // console.log('nao intercendiu')
-              console.log(a.pos)
-              self.media_cloud[n].x = a.pos.x
-              self.media_cloud[n].y = a.pos.y
-            }
-          }
-        })
-      },
-      arrangeItens: function (n) {
-        var a = {
-          size: {
-            width: this.media_cloud[n].width,
-            height: this.media_cloud[n].height
-          },
-          pos: null
-        }
-        var area = null
-        if (this.area.length === 0) {
-          var temp_array = this.naves_array.filter(function() {return true})
-          this.area = this.shuffle(temp_array)
-          area = this.area.pop()
-        } else {
-          area = this.area.pop()
-        }
-        if (n%2 == 0) {
-          // console.log('par')
-          var pos = {
-            x: Math.random() * ( ((this.width/this.naves_array.length)*(area+1)) - ((this.width/this.naves_array.length)*area) ) + ((this.width/this.naves_array.length)*area),
-            y: Math.random() * (this.height/2)
-          }
-          // console.log(pos.y)
-        } else {
-          // console.log('impar')
-          var pos = {
-            x: Math.random() * ( ((this.width/this.naves_array.length)*(area+1)) - ((this.width/this.naves_array.length)*area) ) + ((this.width/this.naves_array.length)*area),
-            y: Math.random() * ((this.height - this.media_cloud[n].height) - this.height/2) + this.height/2
-          }
-          // console.log(pos.y)
-        }
-        a.pos = pos
-        a.id = this.media_cloud[n].id
-        if (n===0) {
-          // console.log(n)
-          this.media_cloud[n].x = a.pos.x
-          this.media_cloud[n].y = a.pos.y
-          this.copyArray(n)
-          // this.arrangeItens(n+1)
-        } else if (n!==this.media_cloud.length - 1 && n!== 0) {
-          // console.log(n)
-          this.checkPos(a, this.media_cloud, n, null)
-          this.copyArray(n)
-          // this.arrangeItens(n+1)
-        } else if (n===this.media_cloud.length - 1) {
-          // console.log(n)
-          this.checkPos(a, this.media_cloud, n, null)
-          this.copyArray(n)
-        }
       },
       scanArea: function (matrix_area, a, ar) {
         var espacos = []
@@ -536,7 +351,7 @@
         return espacos
 
       },
-      checkPos2: function(a, n, p, area) {
+      checkPos: function(a, n, p, area) {
         var pos = {
           x: 0,
           y: 0
@@ -569,7 +384,7 @@
         }
  
       },
-      arrangeItens2: function (n, x) {
+      arrangeItens: function (n, x) {
         var a = {
           size: {
             width: this.media_cloud[n].width,
@@ -590,14 +405,14 @@
 
         if (n%2 == 0) {
           // console.log('par')
-          a.pos = this.checkPos2(a, n, 'par', area)
+          a.pos = this.checkPos(a, n, 'par', area)
         } else {
           // console.log('impar')
-          a.pos = this.checkPos2(a, n, 'impar', area)
+          a.pos = this.checkPos(a, n, 'impar', area)
         }
 
         if (a.pos == undefined && x < this.naves_array.length) {
-          this.arrangeItens2(n, x+1)
+          this.arrangeItens(n, x+1)
         } else if (a.pos == undefined && x === this.naves_array.length) {
           // console.log('sem mais espaços')
         } else if (n !== this.media_cloud.length - 1) {
@@ -605,7 +420,7 @@
           this.media_cloud[n].y = a.pos.y
           this.media_cloud[n].matrix = [[a.pos.x, a.pos.y], [a.pos.x+a.size.width, a.pos.y+a.size.height]]
           this.copyArray(n)
-          this.arrangeItens2(n+1, 1)
+          this.arrangeItens(n+1, 1)
         } else {
           this.media_cloud[n].x = a.pos.x
           this.media_cloud[n].y = a.pos.y
@@ -648,6 +463,11 @@
           var size = this.getSize(m)
           m.width = size.width
           m.height = size.height
+          if (size.width < (($$$(window).width()/6)/3)*1.5   ) {
+            m.shadow = 4
+          } else {
+            m.shadow = 2
+          }
           m.x = 0
           m.y = 0
           this.media_cloud.push(m)
@@ -664,7 +484,7 @@
       var self = this
       componentHandler.upgradeDom()
       this.changeCanvasSize()
-      this.arrangeItens2(0, 1)
+      this.arrangeItens(0, 1)
       // window.setInterval(function(){
       //   self.offset = self.offset + (self.interval*0.1)
       // }, 1);
