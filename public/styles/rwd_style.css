@@ -110,6 +110,12 @@ body{
     text-align: right;
 }
 
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
 /*imagens do footer */
 .footer_img1{
     height: 41px;
