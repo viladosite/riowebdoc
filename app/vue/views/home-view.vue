@@ -136,7 +136,6 @@
 
   			<div class="mdl-mega-footer--middle-section">
   				
-  				<div class="mdl-mega-footer--top-section">
   				<div class="mdl-mega-footer--drop-down-section">
   					<input type="checkbox" class="mdl-mega-footer--heading-checkbox" checked>
   					<h1 class="mdl-mega-footer--heading">Realização:</h1>
@@ -191,8 +190,6 @@
   					</ul>
 
   				</div>
-
-  			</div>
 
   			</div>
 
