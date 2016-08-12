@@ -1,5 +1,6 @@
 /*cor de fundo */
 body{
+    height:100%;
 	background: url("../img/background_rwd.jpg") center/cover;
 }
 
@@ -51,13 +52,22 @@ body{
 /* Utilizada no rodapé */
 .rodape {
     width: 100%;
-    line-height: 100px;
-    background-color: darkgrey;
+    height: auto;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    position: absolute;
+    bottom: 0;
+    background-color: #666666;
+    display: flex;
+    /* flex-wrap: wrap;  */
+    align-items: center;
 }
 
 @media (max-width: 900px){
     .rodape{
-        line-height: 30px;
+        height: 30%;
+        padding-bottom: 5px;
+        padding-top: 5px;
     }
 }
 
@@ -69,9 +79,23 @@ body{
     float: left;
 }
 
+.footertitle {
+    float: left;
+    }
+
+.footerlogos {
+    clear: left;
+    }
+
+
 .clearboth {
     clear: both;
     }
+
+footer {
+    position: absolute;
+    bottom: 0;
+}
 
 
 /* janela modal */

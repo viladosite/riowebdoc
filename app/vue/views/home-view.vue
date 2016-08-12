@@ -100,9 +100,8 @@
 		  	<media-cloud :naves="naves" user.sync="user"></media-cloud>
 
     	</div>
-
-
-    	<footer>
+    
+    
 			<div id="rodape" class="rodape">
 				<div id="git" class="sessaofooter"> 
 					<a href="http://github.com/viladosite/riowebdoc" target="_blank"> Fork us at 
@@ -111,33 +110,97 @@
 				</div>
 
 				<div id="sessao1" class="sessaofooter">
-					Realização:
+					
+					<div class="footertitle">Realização:</div>
+					
+					<div class="footerlogos">
+					<a href="http://www.jardimdigital.com.br" target="_blank">
+					<img src="images/logo_jd.png" alt="Jardim Digital Logo" class="footer_img1"/>
+					</a>
+
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="http://www.viladosite.com.br" target="_blank">
+					<img src="images/logo_vila.png" alt="Vila do Site Logo" class="footer_img2"/>
+					</a>
+					</div>
+
 				</div>
 
 				<div id="sessao2" class="sessaofooter">
-					Parceria:
+					
+					<div class="footertitle">Parceria:</div>
+					
+					<div class="footerlogos">
+					<a href="http://www.jardimdigital.com.br" target="_blank">
+					<img src="images/logo_jd.png" alt="Jardim Digital Logo" class="footer_img1"/>
+					</a>
+
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="http://www.viladosite.com.br" target="_blank">
+					<img src="images/logo_vila.png" alt="Vila do Site Logo" class="footer_img2"/>
+					</a>
+					</div>
+
 				</div>
 
 				<div id="sessao3" class="sessaofooter">
-					Apoio:
+					
+					<div class="footertitle">Apoio:</div>
+					
+					<div class="footerlogos">
+					<a href="http://www.jardimdigital.com.br" target="_blank">
+					<img src="images/logo_jd.png" alt="Jardim Digital Logo" class="footer_img1"/>
+					</a>
+
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="http://www.viladosite.com.br" target="_blank">
+					<img src="images/logo_vila.png" alt="Vila do Site Logo" class="footer_img2"/>
+					</a>
+					</div>
+
 				</div>
 		        
 		        <div id="sessao4" class="sessaofooter">
-					Produção:
+
+					<div class="footertitle">Produção:</div>
+					
+					<div class="footerlogos">
+					<a href="http://www.jardimdigital.com.br" target="_blank">
+					<img src="images/logo_jd.png" alt="Jardim Digital Logo" class="footer_img1"/>
+					</a>
+
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="http://www.viladosite.com.br" target="_blank">
+					<img src="images/logo_vila.png" alt="Vila do Site Logo" class="footer_img2"/>
+					</a>
+					</div>
+
 				</div>
 				
 				<div id="sessao5" class="sessaofooter">
-		            Gestão das Naves do Conhecimento:
+
+					<div class="footertitle">Gestão das Naves do Conhecimento:</div>
+					
+					<div class="footerlogos">
+					<a href="http://www.jardimdigital.com.br" target="_blank">
+					<img src="images/logo_jd.png" alt="Jardim Digital Logo" class="footer_img1"/>
+					</a>
+
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="http://www.viladosite.com.br" target="_blank">
+					<img src="images/logo_vila.png" alt="Vila do Site Logo" class="footer_img2"/>
+					</a>
+					</div>
+
 				</div>
 
 				<div class="clearboth"></div>
 
 			</div>
-		</footer>
 
-    
-    </main>
 
+
+</main>
     
 
 	  <div class="window" id="janela1">
