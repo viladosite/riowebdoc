@@ -22,8 +22,7 @@
 			className: '',
 			webcards: [],
 			naves: [],
-			view: '',
-			card: null
+			view: ''
 		},
 		watch : {
 			
