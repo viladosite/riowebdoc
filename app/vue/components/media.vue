@@ -57,6 +57,10 @@
         transition: box-shadow $time*2, height $time*2, width $time*2, transform 1s, padding $time*2;
       }
     }
+    &.filtered {
+      opacity: 0 !important;
+      z-index: -1;
+    }
     .front {
       position: absolute; 
       backface-visibility: hidden; 
@@ -97,7 +101,7 @@
 
 <template>
 
-  <div :style="[{height: media.height+'px'},{'min-height': media.height+'px'},{width: media.width+'px'},{left: w_loop + x_offset + offset + media.x+'px'},{top: y_offset +  media.y+'px'}]" class="media_card" :id="media.id" @mouseover="mouseOver" @mouseout="mouseOut">
+  <div :style="[{height: media.height+'px'},{'min-height': media.height+'px'},{width: media.width+'px'},{left: filter_offset + w_loop + x_offset + offset + media.x+'px'},{top: y_offset +  media.y+'px'}]" class="media_card" :id="media.id" @mouseover="mouseOver" @mouseout="mouseOut">
     <div :id="media.id+'-front'" class="demo-card-wide mdl-card mdl-shadow--{{sw}}dp front" style=""  :style="[{height: h_offset + media.height+'px'},{'min-height': h_offset + media.height+'px'},{width: w_offset + media.width+'px'}]">
       <div :id="media.id+'-player'" class="mdl-card__title player"></div>
       <div v-for="img in media.imgs" class="mdl-card__title" :style="[{background: 'url('+img+') center / cover'}, {'z-index': media.imgs.length - $index}]" :id="$index+'-img-'+media.id">
@@ -147,11 +151,13 @@
     props: ['offset', 'media', 'height', 'width', 'playing'],
     data: function(){
       return {
+        filter: '',
         x_offset: 0,
         y_offset: 0,
         w_offset: 0,
         h_offset: 0,
         w_loop: 0,
+        filter_offset: 0,
         sw: 2,
         video_desc: '',
         video_title: '',
@@ -196,7 +202,7 @@
       playing: function(val, oldVal) {
         if (val === this.media.id) {
           var width = $$$(window).width()
-          var loc = this.media.x + this.offset + this.x_offset + this.w_loop
+          var loc = this.media.x + this.offset + this.x_offset + this.w_loop + this.filter_offset
           var mw = ((this.height*.9)*16)/9
           $$$('#'+this.media.id).addClass('playing')
           this.h_offset = (this.height*.9) - this.media.height
@@ -212,7 +218,28 @@
           this.x_offset = 0
           this.hover = false
           this.on = false
+          this.sw = this.media.shadow
           this.iframe.stopVideo()
+        }
+      },
+      filter: function(val, oldVal) {
+        if (val === this.media.nav && oldVal !== this.media.nav) {
+          $$$('#'+this.media.id).removeClass('filtered')
+          var width = $$$(window).width()
+          var loc = this.media.x + this.offset + this.x_offset + this.w_loop
+          var mw = ((this.height*.9)*16)/9
+          var range = d3.scaleLinear()
+                        .domain([0, this.width])
+                        .range([100, width-400])
+
+          var x_filter = range(this.media.x)
+          this.filter_offset = x_filter - loc
+        } else if (val === '') {
+          $$$('#'+this.media.id).removeClass('filtered')
+          this.filter_offset = 0
+        } else {
+          $$$('#'+this.media.id).addClass('filtered')
+          this.filter_offset = 0
         }
       }
     },
@@ -345,6 +372,14 @@
       window.setInterval(function(){
         self.changeImg()
       }, self.interval);
+
+      this.$on('filter', function(nome) {
+        if (this.filter === nome) {
+          this.filter = ''
+        } else {
+          this.filter = nome
+        }
+      })
     },
     components: {
       'media': require('./media.vue')

@@ -81,7 +81,7 @@
 
 		  			<span v-for="nave in naves">
 
-		  				<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--primary" :id="nave.headers.id">
+		  				<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--primary" :id="nave.headers.id" @click="filterNave(nave.headers.nome)">
 			    			<i class="material-icons mdl-badge"> room </i>
 			    		</button>
 							<div class="mdl-tooltip" :for="nave.headers.id"> {{nave.headers.nome}} </div>
@@ -91,7 +91,7 @@
 		  		</div>
 		  	</div>
 
-		  	<media-cloud :naves="naves" user.sync="user"></media-cloud>
+		  	<media-cloud :naves="naves" user.sync="user" :filter.sync="filter"></media-cloud>
 
     	</div>
     
@@ -189,6 +189,9 @@
 					case 'false':
 						break
 				}
+      },
+      filterNave: function(nome) {
+      	this.$broadcast('filter', nome)
       }
 		},
 		computed: {
