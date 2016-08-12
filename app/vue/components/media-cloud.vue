@@ -26,6 +26,7 @@
     props: ['naves', 'user'],
     data: function(){
       return {
+        filter: '',
         media_cloud: [],
         medias: [],
         naves_array: [],
@@ -447,10 +448,12 @@
       },
       onWheel: function (event) {
         var offset = 25
-        if (event.wheelDelta > 0) {
-          this.offset = this.offset + offset
-        } else {
-          this.offset = this.offset - offset
+        if (this.playing === null && this.filter === '') {
+          if (event.wheelDelta > 0) {
+            this.offset = this.offset + offset
+          } else {
+            this.offset = this.offset - offset
+          }
         }
       }
     },
@@ -490,6 +493,14 @@
       // window.setInterval(function(){
       //   self.offset = self.offset + (self.interval*4)
       // }, 200);
+      this.$on('filter', function(nome) {
+        if (this.filter === nome) {
+          this.filter = ''
+        } else {
+          this.filter = nome
+        }
+        return true
+      })
     },
     components: {
       'in-media': require('./media.vue')

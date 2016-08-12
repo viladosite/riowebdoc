@@ -24,7 +24,7 @@
 				<!-- Construção dos ícones indicativos no menu -->
 				<nav class="mdl-navigation">
 
-			    <a class="mdl-navigation__link" href="#janela1" rel="modal">
+			    <a class="mdl-navigation__link" href="#" @click.prevent="createWebcard" rel="modal">
 						<div id= "icon1" class="material-icons" >contact_mail</div>
 					</a>
 		      <div class="mdl-tooltip mdl-tooltip--large" for="icon1">
@@ -81,7 +81,7 @@
 
 		  			<span v-for="nave in naves">
 
-		  				<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--primary" :id="nave.headers.id">
+		  				<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--primary" :id="nave.headers.id" @click="filterNave(nave.headers.nome)">
 			    			<i class="material-icons mdl-badge"> room </i>
 			    		</button>
 							<div class="mdl-tooltip" :for="nave.headers.id"> {{nave.headers.nome}} </div>
@@ -91,7 +91,7 @@
 		  		</div>
 		  	</div>
 
-		  	<media-cloud :naves="naves" user.sync="user"></media-cloud>
+		  	<media-cloud :naves="naves" user.sync="user" :filter.sync="filter"></media-cloud>
 
     	</div>
     
@@ -127,16 +127,9 @@
 
 	  <div class="window" id="janela1">
 	    <a href="#" class="fechar"> <img src="images/icon_close.png" width="35px" height="35px" /> </a>
-	    <div id="janela2" name="janela2">
-	      <div id="janela2" name="janela2">
-		        <div id="menumodal">
-		          <a href="includes/modalp2.php" class="steps"> <img src="images/icon_next.png" width="30px" height="30px" /> </a>
-		        </div>
-			    <h4>Passo 1</h4>
-			    <p>Escreva sua mensagem.</p>
-				</div>
-	    </div>
+	    
 	  </div>
+	  <div id="mascara"></div> 
 
 	</div>
 </template>
@@ -149,6 +142,14 @@
 		props: ['naves'],
 		data: function(){
 			return {
+				webcard: {
+					videoA: null,
+					videoB: null,
+					videoC: null,
+					email_criador: null,
+					email_enviado: null,
+					menssagem: null
+				},
 				user: {
 					votos: [],
 					assistidos: []
@@ -189,6 +190,9 @@
 					case 'false':
 						break
 				}
+      },
+      filterNave: function(nome) {
+      	this.$broadcast('filter', nome)
       }
 		},
 		computed: {
