@@ -101,100 +101,39 @@
 
     	</div>
 
-    	<!--
-    	<footer class="mdl-mini-footer">
-			<div class="mdl-mini-footer__left-section">
-				<div class="mdl-logo"> 
+
+    	<footer>
+			<div id="rodape" class="rodape">
+				<div id="git" class="sessaofooter"> 
 					<a href="http://github.com/viladosite/riowebdoc" target="_blank"> Fork us at 
 						<img src="images/github512.png" alt="Github Logo" height="24" width="24"/> 
 					</a>
 				</div>
 
-        <ul class="mdl-mini-footer--link-list">
-        	<li><a href="#">patrocinador</a></li>
-        </ul>
+				<div id="sessao1" class="sessaofooter">
+					Realização:
+				</div>
+
+				<div id="sessao2" class="sessaofooter">
+					Parceria:
+				</div>
+
+				<div id="sessao3" class="sessaofooter">
+					Apoio:
+				</div>
+		        
+		        <div id="sessao4" class="sessaofooter">
+					Produção:
+				</div>
 				
-			</div>
+				<div id="sessao5" class="sessaofooter">
+		            Gestão das Naves do Conhecimento:
+				</div>
 
-			
+				<div class="clearboth"></div>
 
-			<div class="mdl-mini-footer__right-section">
-				<ul class="mdl-mini-footer--link-list">
-  			
-					<li>Desenvolvido por: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="http://www.jardimdigital.com.br" target="_blank"><img src="images/logo_jd.png" alt="Jardim Digital Logo" height="41" width="83"/></a>
-				&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-            <a href="http://www.viladosite.com.br" target="_blank"><img src="images/logo_vila.png" alt="Vila do Site Logo" height="32" width="88"/></a>
-          </li>
-				</ul>
 			</div>
 		</footer>
-		-->
-
-		<footer class="mdl-mega-footer">
-
-
-  			<div class="mdl-mega-footer--middle-section">
-  				
-  				<div class="mdl-mega-footer--drop-down-section">
-  					<input type="checkbox" class="mdl-mega-footer--heading-checkbox" checked>
-  					<h1 class="mdl-mega-footer--heading">Realização:</h1>
-  					<ul class="mdl-mega-footer--link-list">
-  						<li><a href="http://github.com/viladosite/riowebdoc" target="_blank"> Fork us at 
-						<img src="images/github512.png" alt="Github Logo" height="24" width="24"/> 
-					</a></li>
-  					</ul>
-  				</div>
-
-  				<div class="mdl-mega-footer--drop-down-section">
-  					<input type="checkbox" class="mdl-mega-footer--heading-checkbox" checked>
-  					<h1 class="mdl-mega-footer--heading">Parceria</h1>
-  					<ul class="mdl-mega-footer--link-list">
-  						<li><a href="http://www.jardimdigital.com.br" target="_blank"><img src="images/logo_jd.png" alt="Jardim Digital Logo" height="41" width="83"/></a></li>
-  						
-  					</ul>
-  				</div>
-
-  				<div class="mdl-mega-footer--drop-down-section">
-  					<input type="checkbox" class="mdl-mega-footer--heading-checkbox" checked>
-  					<h1 class="mdl-mega-footer--heading">Apoio</h1>
-  					<ul class="mdl-mega-footer--link-list">
-  						<li><a href="http://www.jardimdigital.com.br" target="_blank"><img src="images/logo_jd.png" alt="Jardim Digital Logo" height="41" width="83"/></a>
-  						&nbsp;
-  						 <a href="http://www.viladosite.com.br" target="_blank"><img src="images/logo_vila.png" alt="Vila do Site Logo" height="32" width="88"/></a>
-
-  						</li>
-
-  					</ul>
-
-  				</div>
-
-  				<div class="mdl-mega-footer--drop-down-section">
-  					<input type="checkbox" class="mdl-mega-footer--heading-checkbox" checked>
-  					<h1 class="mdl-mega-footer--heading">Produção</h1>
-  					<ul class="mdl-mega-footer--link-list">
-  						<li><a href="http://www.jardimdigital.com.br" target="_blank"><img src="images/logo_jd.png" alt="Jardim Digital Logo" height="41" width="83"/></a></li>
-  					</ul>
-  				</div>
-
-  				<div class="mdl-mega-footer--drop-down-section">
-  					<input type="checkbox" class="mdl-mega-footer--heading-checkbox" checked>
-  					<h1 class="mdl-mega-footer--heading">Gestão das Naves do Conhecimento</h1>
-  					<ul class="mdl-mega-footer--link-list">
-  						<li><a href="http://www.jardimdigital.com.br" target="_blank"><img src="images/logo_jd.png" alt="Jardim Digital Logo" height="41" width="83"/></a>
-  						&nbsp;
-  						 <a href="http://www.viladosite.com.br" target="_blank"><img src="images/logo_vila.png" alt="Vila do Site Logo" height="32" width="88"/></a>
-
-  						</li>
-
-  					</ul>
-
-  				</div>
-
-  			</div>
-
-
-  		</footer>	
 
     
     </main>

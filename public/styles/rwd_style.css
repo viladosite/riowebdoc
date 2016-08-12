@@ -48,6 +48,31 @@ body{
 }
 
 
+/* Utilizada no rodapé */
+.rodape {
+    width: 100%;
+    line-height: 100px;
+    background-color: darkgrey;
+}
+
+@media (max-width: 900px){
+    .rodape{
+        line-height: 30px;
+    }
+}
+
+/* Utilizada na div interna do rodapé */
+.sessaofooter {
+    width: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    float: left;
+}
+
+.clearboth {
+    clear: both;
+    }
+
 
 /* janela modal */
 	.window{
