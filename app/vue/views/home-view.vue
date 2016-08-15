@@ -115,7 +115,7 @@
 					
 					<div class="footerlogos">
 					<a href="http://www.jardimdigital.com.br" target="_blank">
-					<img src="images/logo_jd.png" alt="Jardim Digital Logo" class="footer_img1"/>
+					<img src="images/rio_cultura.png" alt="prefeitura Logo" class="footer_img1"/>
 					</a>
 
 					&nbsp;&nbsp;&nbsp;&nbsp;
@@ -132,10 +132,10 @@
 					
 					<div class="footerlogos">
 					<a href="http://www.jardimdigital.com.br" target="_blank">
-					<img src="images/logo_jd.png" alt="Jardim Digital Logo" class="footer_img1"/>
+					<img src="images/grupo_ccr.png" alt="grupo ccr Logo" class="footer_img1"/>
 					</a>
 
-					&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp; &nbsp; &nbsp; &nbsp;
 					<a href="http://www.viladosite.com.br" target="_blank">
 					<img src="images/logo_vila.png" alt="Vila do Site Logo" class="footer_img2"/>
 					</a>
@@ -149,12 +149,12 @@
 					
 					<div class="footerlogos">
 					<a href="http://www.jardimdigital.com.br" target="_blank">
-					<img src="images/logo_jd.png" alt="Jardim Digital Logo" class="footer_img1"/>
+					<img src="images/rio_onibus.jpg" alt="rio onibus Logo" class="footer_img1"/>
 					</a>
 
 					&nbsp;&nbsp;&nbsp;&nbsp;
 					<a href="http://www.viladosite.com.br" target="_blank">
-					<img src="images/logo_vila.png" alt="Vila do Site Logo" class="footer_img2"/>
+					<img src="images/riofilme.png" alt="Vila do Site Logo" class="footer_img2"/>
 					</a>
 					</div>
 
@@ -166,7 +166,7 @@
 					
 					<div class="footerlogos">
 					<a href="http://www.jardimdigital.com.br" target="_blank">
-					<img src="images/logo_jd.png" alt="Jardim Digital Logo" class="footer_img1"/>
+					<img src="images/mpc.jpg" alt="Jardim Digital Logo" class="footer_img1"/>
 					</a>
 
 					&nbsp;&nbsp;&nbsp;&nbsp;
@@ -183,12 +183,12 @@
 					
 					<div class="footerlogos">
 					<a href="http://www.jardimdigital.com.br" target="_blank">
-					<img src="images/logo_jd.png" alt="Jardim Digital Logo" class="footer_img1"/>
+					<img src="images/cecip.jpg" alt="Jardim Digital Logo" class="footer_img1"/>
 					</a>
 
 					&nbsp;&nbsp;&nbsp;&nbsp;
 					<a href="http://www.viladosite.com.br" target="_blank">
-					<img src="images/logo_vila.png" alt="Vila do Site Logo" class="footer_img2"/>
+					<img src="images/logo_redeh.gif" alt="Vila do Site Logo" class="footer_img2"/>
 					</a>
 					</div>
 

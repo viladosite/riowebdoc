@@ -47,6 +47,12 @@ body{
     float: left;
     position: relative;
 }
+@media (max-width: 700px){
+    .logo {
+        width: 40%;
+    }
+}
+
 
 
 /* Utilizada no rodapé */
@@ -167,8 +173,8 @@ footer{
 
 /*imagens do footer */
 .footer_img1{
-    height: 41px;
-    width: 83px;
+    height: 35px;
+    width: 50px;
 }
 
 .footer_img2{
@@ -178,8 +184,8 @@ footer{
 
 @media (max-width: 400px){
     .footer_img1{
-    height: 33px;
-    width: 67px;
+    height: 35px;
+    width: 45px;
     }
 
 .footer_img2{
