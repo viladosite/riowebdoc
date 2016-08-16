@@ -119,9 +119,7 @@
 					</a>
 
 					&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href="http://www.viladosite.com.br" target="_blank">
-					<img src="images/logo_vila.png" alt="Vila do Site Logo" class="footer_img2"/>
-					</a>
+					
 					</div>
 
 				</div>
@@ -136,9 +134,7 @@
 					</a>
 
 					&nbsp; &nbsp; &nbsp; &nbsp;
-					<a href="http://www.viladosite.com.br" target="_blank">
-					<img src="images/logo_vila.png" alt="Vila do Site Logo" class="footer_img2"/>
-					</a>
+					
 					</div>
 
 				</div>
@@ -170,9 +166,7 @@
 					</a>
 
 					&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href="http://www.viladosite.com.br" target="_blank">
-					<img src="images/logo_vila.png" alt="Vila do Site Logo" class="footer_img2"/>
-					</a>
+					
 					</div>
 
 				</div>
