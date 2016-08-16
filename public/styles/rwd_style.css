@@ -47,6 +47,12 @@ body{
     float: left;
     position: relative;
 }
+@media (max-width: 700px){
+    .logo {
+        width: 40%;
+    }
+}
+
 
 
 /* Utilizada no rodapé */
@@ -167,24 +173,24 @@ footer{
 
 /*imagens do footer */
 .footer_img1{
-    height: 41px;
-    width: 83px;
+    height: 36px;
+    width: auto;
 }
 
 .footer_img2{
-    height: 32px;
-    width: 88px;    
+    height: 36px;
+    width: auto;    
 }
 
 @media (max-width: 400px){
     .footer_img1{
-    height: 33px;
-    width: 67px;
+    height: 30px;
+    width: auto;
     }
 
 .footer_img2{
-    height: 26px;
-    width: 72px;    
+    height: 30px;
+    width: auto;    
     }
             }
 
