@@ -34,6 +34,7 @@
 		</header>
     
 
+<!-- drawer		
     <div class="mdl-layout__drawer">
 	   	<span class="mdl-layout-title">Riowebdoc</span>
 
@@ -69,6 +70,7 @@
 	    	</nav>
 	    </div>
 	  </div>
+-->	  
     
    
     <main class="mdl-layout__content">
@@ -115,7 +117,7 @@
 					
 					<div class="footerlogos">
 					<a href="http://www.jardimdigital.com.br" target="_blank">
-					<img src="images/rio_cultura.png" alt="prefeitura Logo" class="footer_img1"/>
+					<img src="images/rio_pref.png" alt="prefeitura Logo" class="footer_img1"/>
 					</a>
 
 					&nbsp;&nbsp;&nbsp;&nbsp;
@@ -145,7 +147,7 @@
 					
 					<div class="footerlogos">
 					<a href="http://www.jardimdigital.com.br" target="_blank">
-					<img src="images/rio_onibus.jpg" alt="rio onibus Logo" class="footer_img1"/>
+					<img src="images/rio_onibus.png" alt="rio onibus Logo" class="footer_img1"/>
 					</a>
 
 					&nbsp;&nbsp;&nbsp;&nbsp;
@@ -162,7 +164,7 @@
 					
 					<div class="footerlogos">
 					<a href="http://www.jardimdigital.com.br" target="_blank">
-					<img src="images/mpc.jpg" alt="Jardim Digital Logo" class="footer_img1"/>
+					<img src="images/mpc_logo.png" alt="Jardim Digital Logo" class="footer_img1"/>
 					</a>
 
 					&nbsp;&nbsp;&nbsp;&nbsp;
@@ -177,12 +179,12 @@
 					
 					<div class="footerlogos">
 					<a href="http://www.jardimdigital.com.br" target="_blank">
-					<img src="images/cecip.jpg" alt="Jardim Digital Logo" class="footer_img1"/>
+					<img src="images/cecip_logo.png" alt="Jardim Digital Logo" class="footer_img1"/>
 					</a>
 
 					&nbsp;&nbsp;&nbsp;&nbsp;
 					<a href="http://www.viladosite.com.br" target="_blank">
-					<img src="images/logo_redeh.gif" alt="Vila do Site Logo" class="footer_img2"/>
+					<img src="images/redeh_logo.png" alt="Vila do Site Logo" class="footer_img2"/>
 					</a>
 					</div>
 
