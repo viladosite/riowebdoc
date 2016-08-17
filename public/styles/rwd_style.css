@@ -63,10 +63,11 @@ body{
     padding-top: 20px;
     position: absolute;
     bottom: 0;
-    background-color: #666666;
+    background-color: #333333;
     display: flex;
     /* flex-wrap: wrap;  */
     align-items: center;
+    color: #bdbdbd;
 }
 
 @media (max-width: 900px){
@@ -98,10 +99,7 @@ body{
     clear: both;
     }
 
-footer {
-    position: absolute;
-    bottom: 0;
-}
+
 
 
 /* janela modal */
@@ -165,31 +163,26 @@ footer {
     text-align: right;
 }
 
-footer{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
 
 /*imagens do footer */
 .footer_img1{
-    height: 36px;
+    height: 42px;
     width: auto;
 }
 
 .footer_img2{
-    height: 36px;
+    height: 42px;
     width: auto;    
 }
 
 @media (max-width: 400px){
     .footer_img1{
-    height: 30px;
+    height: 34px;
     width: auto;
     }
 
 .footer_img2{
-    height: 30px;
+    height: 34px;
     width: auto;    
     }
             }
