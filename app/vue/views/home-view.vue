@@ -91,7 +91,7 @@
 		  		</div>
 		  	</div>
 
-		  	<media-cloud :naves="naves" user.sync="user" :filter.sync="filter"></media-cloud>
+		  	<media-cloud :naves="naves" user="user" :filter.sync="filter"></media-cloud>
 
     	</div>
     

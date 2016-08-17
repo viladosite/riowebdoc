@@ -473,6 +473,24 @@
           } else {
             m.shadow = 2
           }
+          var votado = _.find(this.user.votos, function(id) {
+            return id === this.naves[i].media[o].id
+          })
+          if (votado === undefined) {
+            m.votado = false
+          } else {
+            m.votado = true
+          }
+
+          var assistido = _.find(this.user.assistidos, function(id) {
+            return id === this.naves[i].media[o].id
+          })
+          if (assistido === undefined) {
+            m.assistido = false
+          } else {
+            m.assistido = true
+          }
+
           m.x = 0
           m.y = 0
           this.media_cloud.push(m)
