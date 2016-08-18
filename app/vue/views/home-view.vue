@@ -9,6 +9,9 @@
 	.fade-leave {
 		transition: opacity .1s linear
 	}
+	#navegacao {
+		padding-top: 30px;
+	}
 </style>
 
 <template>
@@ -29,14 +32,6 @@
 				<a class="mdl-navigation__link" href="">EQUIPE</a>
 				<a class="mdl-navigation__link" href="">CONTATO</a>
 				<a class="mdl-navigation__link" href="">BLOG</a>
-				
-				<a class="mdl-navigation__link" href="#" @click.prevent="createWebcard" rel="modal">
-					<div id= "icon1" class="material-icons" >contact_mail</div>
-				</a>
-
-		    <div class="mdl-tooltip mdl-tooltip--large" for="icon1">
-					Envie um Webcard
-				</div>
 
 				</nav>
 			</div>
@@ -47,31 +42,34 @@
     
     	<div id="content">
     		
-    		<div id="logo" class="logo">
-    			<img src="images/logo.png" class="logoimg">
-    		</div>
+    		<div id="navegacao">
+    			<div id="logo" class="logo">
+	    			<img src="images/logo.png" class="logoimg">
+	    		</div>
 
 
-    		<div id="markers" class="markers">
-		  		<div class="rwd_local">
-		  			<span v-for="nave in naves">
+	    		<div id="markers" class="markers">
+			  		<div class="rwd_local">
+			  			<span v-for="nave in naves">
 
-		  				<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--primary" :id="nave.headers.id" @click="filterNave(nave.headers.nome)">
-			    			<i class="material-icons mdl-badge"> room </i>
-			    		</button>
-							<div class="mdl-tooltip" :for="nave.headers.id"> {{nave.headers.nome}} </div>
+			  				<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--primary" :id="nave.headers.id" @click="filterNave(nave.headers.nome)">
+				    			<i class="material-icons mdl-badge"> room </i>
+				    		</button>
+								<div class="mdl-tooltip" :for="nave.headers.id"> {{nave.headers.nome}} </div>
+								
+			  			</span>
+			  			<div style="clear: both"></div>
+			  		</div>
+			  	</div>
+
+			  	<div id="selo" class="selo">
+			  		<a class="mdl-navigation__link" href="#janela1" rel="modal">
 							
-		  			</span>
-		  			<div style="clear: both"></div>
-		  		</div>
-		  	</div>
-
-		  	<div id="selo" class="selo">
-		  		<a class="mdl-navigation__link" href="#janela1" rel="modal">
-						
-						<img src="images/selo.png" class="seloimg" id= "icon1">
-				</a>	
+							<img src="images/selo.png" class="seloimg" id= "icon1">
+					  </a>	
+	    		</div>
     		</div>
+    		
 
 		  	<media-cloud :naves="naves" user.sync="user" :filter.sync="filter"></media-cloud>
 

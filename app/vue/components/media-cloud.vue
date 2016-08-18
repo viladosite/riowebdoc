@@ -72,7 +72,7 @@
         return size;
       },
       changeCanvasSize: function () {
-        var h = $$$('#markers').outerHeight() + $$$('header').outerHeight() + $$$('footer').outerHeight()
+        var h = $$$('#navegacao').outerHeight() + $$$('header').outerHeight() + $$$('#rodape').outerHeight()
         var w = $$$(window).height()
         var width = $$$(window).width()
         this.width = 500 * this.naves.length
