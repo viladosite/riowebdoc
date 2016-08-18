@@ -1225,7 +1225,8 @@ if (module.hot) {(function () {  module.hot.accept()
 })()}
 },{"jquery":44,"marked":45,"vue":87,"vue-hot-reload-api":86,"vueify/lib/insert-css":88}],6:[function(require,module,exports){
 var __vueify_insert__ = require("vueify/lib/insert-css")
-var __vueify_style__ = __vueify_insert__.insert("/* line 3, stdin */\n.video-card.escolhido {\n  background-color: green; }\n")
+var __vueify_style__ = __vueify_insert__.insert("/* line 2, stdin */\n.video-card {\n  border: 3px solid white; }\n  /* line 4, stdin */\n  .video-card.escolhido {\n    border: 3px solid red !important; }\n")
+
 
 
 
@@ -1255,7 +1256,8 @@ module.exports = {
   props: ['webcard'],
   data: function(){
     return {
-      videos: 3 - this.webcard.videos.length
+      videos: 3 - this.webcard.videos.length,
+      imgs: []
     }
   },
   watch: {
@@ -1301,13 +1303,13 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"mdl-grid\">\n  <div class=\"mdl-cell mdl-cell--12-col\">   \n    <h3>Passo 2 - {{webcard.nave_nome}}</h3>\n    <p>Escolha {{videos}} vídeos que aparecerão em seu Webcard.</p>\n\n    <div v-for=\"video in webcard.nave_videos\" class=\"video-card\" @click=\"choseVideo(video)\" :id=\"video+'-vid'\" :class=\"{escolhido: escolhido[$index]}\"> video {{$index}}</div>\n\n  </div>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"mdl-grid\">\n  <div class=\"mdl-cell mdl-cell--12-col\">   \n    <h3>Passo 2 - {{webcard.nave_nome}}</h3>\n    <p>Escolha {{videos}} vídeos que aparecerão em seu Webcard.</p>\n\n    <div v-for=\"video in webcard.nave_videos\" class=\"video-card\" @click=\"choseVideo(video)\" :id=\"video+'-vid'\" :class=\"{escolhido: escolhido[$index]}\" :style=\"{background: 'url(http://img.youtube.com/vi/'+video+'/1.jpg)'}\"> video {{$index}}</div>\n\n  </div>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   module.hot.dispose(function () {
-    __vueify_insert__.cache["/* line 3, stdin */\n.video-card.escolhido {\n  background-color: green; }\n"] = false
+    __vueify_insert__.cache["/* line 2, stdin */\n.video-card {\n  border: 3px solid white; }\n  /* line 4, stdin */\n  .video-card.escolhido {\n    border: 3px solid red !important; }\n"] = false
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
@@ -2152,6 +2154,14 @@ var __vueify_style__ = __vueify_insert__.insert("/* line 2, stdin */\n.fade-tran
 				}
         socket.emit('send-card', JSON.stringify(w))
         this.$broadcast('card-sent')
+        this.webcard = {
+					nave_nome: null,
+					nave_videos: null,
+					videos: [],
+					email_criador: '',
+					email_enviado: '',
+					menssagem: ''
+				}
       })
 
       this.$on('fechar-janela', function() {

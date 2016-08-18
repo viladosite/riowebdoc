@@ -1,7 +1,8 @@
 <style lang="scss">
   .video-card {
+    border: 3px solid white;
     &.escolhido {
-      background-color: green;
+      border: 3px solid red !important;
     }
   }
 </style>
@@ -12,7 +13,7 @@
       <h3>Passo 2 - {{webcard.nave_nome}}</h3>
       <p>Escolha {{videos}} vídeos que aparecerão em seu Webcard.</p>
 
-      <div v-for="video in webcard.nave_videos" class="video-card" @click="choseVideo(video)" :id="video+'-vid'" :class="{escolhido: escolhido[$index]}"> video {{$index}}</div>
+      <div v-for="video in webcard.nave_videos" class="video-card" @click="choseVideo(video)" :id="video+'-vid'" :class="{escolhido: escolhido[$index]}" :style="{background: 'url(http://img.youtube.com/vi/'+video+'/1.jpg)'}"> video {{$index}}</div>
 
     </div>
   </div>
@@ -27,7 +28,8 @@
     props: ['webcard'],
     data: function(){
       return {
-        videos: 3 - this.webcard.videos.length
+        videos: 3 - this.webcard.videos.length,
+        imgs: []
       }
     },
     watch: {

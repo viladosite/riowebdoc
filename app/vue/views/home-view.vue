@@ -253,6 +253,14 @@
 				}
         socket.emit('send-card', JSON.stringify(w))
         this.$broadcast('card-sent')
+        this.webcard = {
+					nave_nome: null,
+					nave_videos: null,
+					videos: [],
+					email_criador: '',
+					email_enviado: '',
+					menssagem: ''
+				}
       })
 
       this.$on('fechar-janela', function() {
