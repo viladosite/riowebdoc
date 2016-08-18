@@ -1044,9 +1044,9 @@ module.exports = {
   methods: {
     checkRegex: function checkRegex(e) {
       if (e === 0) {
-        t = this.seu_email;
+        var t = this.seu_email;
       } else if (e === 1) {
-        t = this.amigo_email;
+        var t = this.amigo_email;
       }
       var busca = t.search(/^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i);
       if (busca > -1) {
