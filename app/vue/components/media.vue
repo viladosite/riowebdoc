@@ -121,9 +121,9 @@
       <div v-for="img in media.imgs" class="mdl-card__title" :style="[{background: 'url('+img+') center / cover'}, {'z-index': media.imgs.length - $index}]" :id="$index+'-img-'+media.id">
       </div>
       <div style="z-index: 3; position: absolute; width: 100%; padding-left: 42%; padding-top: 22%;" v-if="on" transition="fade">
-        <button v-if="playing === null" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" style="overflow: visible;" @click="playThis" transition="fade">
+        <a v-if="playing === null" :href="'/#/home/'+media.id" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" style="overflow: visible;" transition="fade">
           <i class="material-icons" style="font-size: 60px;">play_circle_outline</i>
-        </button>
+        </a>
       </div>
       <div class="mdl-card__menu" v-if="on" transition="fade">
         <span v-if="playing !== null">{{votos}}</span>
@@ -136,9 +136,9 @@
         <button :id="media.id+'-desc'" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" @click="flip(media.id)">
           <i class="material-icons">description</i>
         </button>
-        <button v-if="playing !== null" :id="media.id+'-close'" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" @click="closeMedia">
+        <a v-if="playing !== null" href="/#/home" :id="media.id+'-close'" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
           <i class="material-icons">clear</i>
-        </button>
+        </a>
       </div>
     </div>
     <div :id="media.id+'-back'" class="demo-card-wide mdl-card mdl-shadow--{{sw}}dp back" :style="[{height: h_offset + media.height+'px'},{'min-height': h_offset + media.height+'px'},{width: w_offset + media.width+'px'}]">
@@ -152,9 +152,9 @@
         <button :id="media.id+'-photo'" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" @click="unFlip(media.id)">
           <i class="material-icons">photo</i>
         </button>
-        <button v-if="playing !== null" :id="media.id+'-close'" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" @click="closeMedia">
+        <a v-if="playing !== null" href="/#/home" :id="media.id+'-close'" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
           <i class="material-icons">clear</i>
-        </button>
+        </a>
       </div>
     </div>
   </div>  
@@ -240,6 +240,7 @@
           this.hover = false
           this.on = false
           this.sw = this.media.shadow
+          this.iframe.destroy()
         }
       },
       filter: function(val, oldVal) {
@@ -358,7 +359,6 @@
       },
       closeMedia: function() {
         this.playing = null
-        this.iframe.destroy()
       },
       playVideo: function(event) {
         event.target.playVideo()
@@ -367,7 +367,6 @@
         var self = this
         if (event.data == YT.PlayerState.ENDED) {
           self.playing = null
-          self.iframe.destroy()
         }
       },
       votar: function(event) {
@@ -422,6 +421,10 @@
           this.filter = nome
         }
       })
+      
+      if (this._uid === this.$parent.media_cloud.length + 2) {
+        this.$dispatch('home-ready')
+      }
     },
     components: {
       'media': require('./media.vue')
