@@ -33,45 +33,6 @@
 			</div>
 		</header>
     
-
-<!-- drawer		
-    <div class="mdl-layout__drawer">
-	   	<span class="mdl-layout-title">Riowebdoc</span>
-
-			<div id="menu" name="menu">
-	      <nav class="mdl-navigation">
-
-					<a class="mdl-navigation__link" href="#">
-	          <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>
-	          Início
-	        </a>
-
-		    	<div class="rwd_watched">
-		    		<a class="mdl-navigation__link" href="#">
-		          <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">ondemand_video</i>
-		          Assistidos
-		        </a>
-	          <div class="rwd_wdvideos">
-	            Os vídeos entram aqui!!
-	          </div>        
-		    	</div>
-		     
-
-		    	<div class="rwd_liked">        
-		    		<a class="mdl-navigation__link" href="#">
-		          <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">thumb_up</i>
-		          Gostei
-		        </a>
-		        <div class="rwd_lkvideos">
-		          Os vídeos entram aqui!!
-		        </div>   
-		    	</div>
-	            
-	    	</nav>
-	    </div>
-	  </div>
--->	  
-    
    
     <main class="mdl-layout__content">
     
@@ -105,92 +66,91 @@
     
     
 			<div id="rodape" class="rodape">
-				<div id="git" class="sessaofooter"> 
-					<a href="http://github.com/viladosite/riowebdoc" target="_blank"> Fork us at 
-						<img src="images/github512.png" alt="Github Logo" height="24" width="24"/> 
-					</a>
+
+				<div id="rwdrodape" class="rwdrodape">
+						
+						<div id="git" class="sessaofooter"> 
+							<a href="http://github.com/viladosite/riowebdoc" target="_blank"> Fork us at 
+								<img src="images/github512.png" alt="Github Logo" height="24" width="24"/> 
+							</a>
+						</div>
+
+						<div id="sessao1" class="sessaofooter">
+							
+							<div class="footertitle">Realização:</div>
+							
+							<div class="footerlogos">
+							<a href="http://www.jardimdigital.com.br" target="_blank">
+							<img src="images/rio_pref.png" alt="prefeitura Logo" class="footer_img1"/></a>
+
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							
+							</div>
+
+						</div>
+
+						<div id="sessao2" class="sessaofooter">
+							
+							<div class="footertitle">Parceria:</div>
+							
+							<div class="footerlogos">
+							<a href="http://www.jardimdigital.com.br" target="_blank">
+							<img src="images/grupo_ccr.png" alt="grupo ccr Logo" class="footer_img1"/></a>
+
+							&nbsp; &nbsp; &nbsp; &nbsp;
+							
+							</div>
+
+						</div>
+
+						<div id="sessao3" class="sessaofooter">
+							
+							<div class="footertitle">Apoio:</div>
+							
+							<div class="footerlogos">
+							<a href="http://www.jardimdigital.com.br" target="_blank">
+							<img src="images/rio_onibus.png" alt="rio onibus Logo" class="footer_img1"/></a>
+
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="http://www.viladosite.com.br" target="_blank">
+							<img src="images/riofilme.png" alt="Vila do Site Logo" class="footer_img2"/></a>
+							</div>
+
+						</div>
+				        
+				        <div id="sessao4" class="sessaofooter">
+
+							<div class="footertitle">Produção:</div>
+							
+							<div class="footerlogos">
+							<a href="http://www.jardimdigital.com.br" target="_blank">
+							<img src="images/mpc_logo.png" alt="Jardim Digital Logo" class="footer_img1"/></a>
+
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							
+							</div>
+
+						</div>
+						
+						<div id="sessao5" class="sessaofooter">
+
+							<div class="footertitle">Gestão das Naves do Conhecimento:</div>
+							
+							<div class="footerlogos">
+							<a href="http://www.jardimdigital.com.br" target="_blank">
+							<img src="images/cecip_logo.png" alt="Jardim Digital Logo" class="footer_img1"/></a>
+
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="http://www.viladosite.com.br" target="_blank">
+							<img src="images/redeh_logo.png" alt="Vila do Site Logo" class="footer_img2"/>
+							</a>
+							</div>
+
+						</div>
+
+						<div class="clearboth"></div>
+
 				</div>
-
-				<div id="sessao1" class="sessaofooter">
-					
-					<div class="footertitle">Realização:</div>
-					
-					<div class="footerlogos">
-					<a href="http://www.jardimdigital.com.br" target="_blank">
-					<img src="images/rio_pref.png" alt="prefeitura Logo" class="footer_img1"/>
-					</a>
-
-					&nbsp;&nbsp;&nbsp;&nbsp;
-					
-					</div>
-
-				</div>
-
-				<div id="sessao2" class="sessaofooter">
-					
-					<div class="footertitle">Parceria:</div>
-					
-					<div class="footerlogos">
-					<a href="http://www.jardimdigital.com.br" target="_blank">
-					<img src="images/grupo_ccr.png" alt="grupo ccr Logo" class="footer_img1"/>
-					</a>
-
-					&nbsp; &nbsp; &nbsp; &nbsp;
-					
-					</div>
-
-				</div>
-
-				<div id="sessao3" class="sessaofooter">
-					
-					<div class="footertitle">Apoio:</div>
-					
-					<div class="footerlogos">
-					<a href="http://www.jardimdigital.com.br" target="_blank">
-					<img src="images/rio_onibus.png" alt="rio onibus Logo" class="footer_img1"/>
-					</a>
-
-					&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href="http://www.viladosite.com.br" target="_blank">
-					<img src="images/riofilme.png" alt="Vila do Site Logo" class="footer_img2"/>
-					</a>
-					</div>
-
-				</div>
-		        
-		        <div id="sessao4" class="sessaofooter">
-
-					<div class="footertitle">Produção:</div>
-					
-					<div class="footerlogos">
-					<a href="http://www.jardimdigital.com.br" target="_blank">
-					<img src="images/mpc_logo.png" alt="Jardim Digital Logo" class="footer_img1"/>
-					</a>
-
-					&nbsp;&nbsp;&nbsp;&nbsp;
-					
-					</div>
-
-				</div>
-				
-				<div id="sessao5" class="sessaofooter">
-
-					<div class="footertitle">Gestão das Naves do Conhecimento:</div>
-					
-					<div class="footerlogos">
-					<a href="http://www.jardimdigital.com.br" target="_blank">
-					<img src="images/cecip_logo.png" alt="Jardim Digital Logo" class="footer_img1"/>
-					</a>
-
-					&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href="http://www.viladosite.com.br" target="_blank">
-					<img src="images/redeh_logo.png" alt="Vila do Site Logo" class="footer_img2"/>
-					</a>
-					</div>
-
-				</div>
-
-				<div class="clearboth"></div>
 
 			</div>
 
