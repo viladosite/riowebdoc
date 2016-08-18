@@ -37,7 +37,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"./views/card-view.vue":11,"./views/home-view.vue":12,"blueimp-md5":13,"jquery":20,"perfect-scrollbar":22,"underscore":87,"vue":89,"vue-hot-reload-api":88}],2:[function(require,module,exports){
+},{"./views/card-view.vue":15,"./views/home-view.vue":16,"blueimp-md5":17,"jquery":24,"perfect-scrollbar":26,"underscore":91,"vue":93,"vue-hot-reload-api":92}],2:[function(require,module,exports){
 'use strict';
 
 var $$$ = require('jquery');
@@ -114,7 +114,131 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"../components/passo-0.vue":5,"../components/passo-1.vue":6,"../components/passo-2.vue":7,"../components/passo-3.vue":8,"../components/passo-4.vue":9,"jquery":20,"marked":21,"vue":89,"vue-hot-reload-api":88}],3:[function(require,module,exports){
+},{"../components/passo-0.vue":9,"../components/passo-1.vue":10,"../components/passo-2.vue":11,"../components/passo-3.vue":12,"../components/passo-4.vue":13,"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92}],3:[function(require,module,exports){
+'use strict';
+
+var $$$ = require('jquery');
+var marked = require('marked');
+module.exports = {
+  replace: true,
+  props: [],
+  data: function data() {
+    return {};
+  },
+  methods: {},
+  computed: {},
+  attached: function attached() {
+    componentHandler.upgradeDom();
+  },
+  components: {},
+  filters: {}
+};
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div class=\"mdl-grid\">\n    <div class=\"mdl-cell mdl-cell--12-col\">   \n      <h3>Contato</h3>\n      <p>Cras ac maximus risus. Donec eget congue justo. Nam quis rutrum nunc, quis finibus nunc. Ut tristique ex sed nulla dapibus, id euismod nunc ultrices. Duis vehicula tempor felis at viverra. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla non purus non turpis dictum fringilla in nec nulla. Duis at pharetra quam. Integer quis ante commodo, tristique quam non, dapibus magna. Integer urna ligula, iaculis eget nisi et, rhoncus sodales metus. Nulla rhoncus, purus id maximus convallis, odio massa volutpat nunc, in tincidunt ante turpis ut nibh.</p>\n      <p>In ut mauris nisl. Fusce interdum lobortis velit, et feugiat eros cursus ac. Praesent sit amet odio lacinia, dignissim enim eget, porta neque. In iaculis, sapien vitae placerat ultricies, neque odio vestibulum mi, venenatis sagittis sapien felis varius tellus. Fusce massa lectus, mollis ut molestie sed, posuere vitae eros. In pellentesque diam eu metus rhoncus, eu varius turpis dapibus. Donec commodo urna et erat tristique ultricies. Aliquam molestie orci sed eros lacinia, ac sagittis tellus accumsan.</p>\n\n    </div>\n  </div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  var id = "/media/bambuzal/Softwares/riowebdoc/app/vue/components/janela-contato.vue"
+  if (!module.hot.data) {
+    hotAPI.createRecord(id, module.exports)
+  } else {
+    hotAPI.update(id, module.exports, module.exports.template)
+  }
+})()}
+},{"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92}],4:[function(require,module,exports){
+'use strict';
+
+var $$$ = require('jquery');
+var marked = require('marked');
+module.exports = {
+  replace: true,
+  props: [],
+  data: function data() {
+    return {};
+  },
+  methods: {},
+  computed: {},
+  attached: function attached() {
+    componentHandler.upgradeDom();
+  },
+  components: {},
+  filters: {}
+};
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div class=\"mdl-grid\">\n    <div class=\"mdl-cell mdl-cell--12-col\">   \n      <h3>Equipe</h3>\n      <p>Cras ac maximus risus. Donec eget congue justo. Nam quis rutrum nunc, quis finibus nunc. Ut tristique ex sed nulla dapibus, id euismod nunc ultrices. Duis vehicula tempor felis at viverra. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla non purus non turpis dictum fringilla in nec nulla. Duis at pharetra quam. Integer quis ante commodo, tristique quam non, dapibus magna. Integer urna ligula, iaculis eget nisi et, rhoncus sodales metus. Nulla rhoncus, purus id maximus convallis, odio massa volutpat nunc, in tincidunt ante turpis ut nibh.</p>\n      <p>In ut mauris nisl. Fusce interdum lobortis velit, et feugiat eros cursus ac. Praesent sit amet odio lacinia, dignissim enim eget, porta neque. In iaculis, sapien vitae placerat ultricies, neque odio vestibulum mi, venenatis sagittis sapien felis varius tellus. Fusce massa lectus, mollis ut molestie sed, posuere vitae eros. In pellentesque diam eu metus rhoncus, eu varius turpis dapibus. Donec commodo urna et erat tristique ultricies. Aliquam molestie orci sed eros lacinia, ac sagittis tellus accumsan.</p>\n\n    </div>\n  </div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  var id = "/media/bambuzal/Softwares/riowebdoc/app/vue/components/janela-equipe.vue"
+  if (!module.hot.data) {
+    hotAPI.createRecord(id, module.exports)
+  } else {
+    hotAPI.update(id, module.exports, module.exports.template)
+  }
+})()}
+},{"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92}],5:[function(require,module,exports){
+'use strict';
+
+var $$$ = require('jquery');
+var marked = require('marked');
+module.exports = {
+  replace: true,
+  props: [],
+  data: function data() {
+    return {};
+  },
+  methods: {},
+  computed: {},
+  attached: function attached() {
+    componentHandler.upgradeDom();
+  },
+  components: {},
+  filters: {}
+};
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div class=\"mdl-grid\">\n    <div class=\"mdl-cell mdl-cell--12-col\">   \n      <h3>O Projeto</h3>\n      <p>Cras ac maximus risus. Donec eget congue justo. Nam quis rutrum nunc, quis finibus nunc. Ut tristique ex sed nulla dapibus, id euismod nunc ultrices. Duis vehicula tempor felis at viverra. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla non purus non turpis dictum fringilla in nec nulla. Duis at pharetra quam. Integer quis ante commodo, tristique quam non, dapibus magna. Integer urna ligula, iaculis eget nisi et, rhoncus sodales metus. Nulla rhoncus, purus id maximus convallis, odio massa volutpat nunc, in tincidunt ante turpis ut nibh.</p>\n      <p>In ut mauris nisl. Fusce interdum lobortis velit, et feugiat eros cursus ac. Praesent sit amet odio lacinia, dignissim enim eget, porta neque. In iaculis, sapien vitae placerat ultricies, neque odio vestibulum mi, venenatis sagittis sapien felis varius tellus. Fusce massa lectus, mollis ut molestie sed, posuere vitae eros. In pellentesque diam eu metus rhoncus, eu varius turpis dapibus. Donec commodo urna et erat tristique ultricies. Aliquam molestie orci sed eros lacinia, ac sagittis tellus accumsan.</p>\n\n    </div>\n  </div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  var id = "/media/bambuzal/Softwares/riowebdoc/app/vue/components/janela-projeto.vue"
+  if (!module.hot.data) {
+    hotAPI.createRecord(id, module.exports)
+  } else {
+    hotAPI.update(id, module.exports, module.exports.template)
+  }
+})()}
+},{"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92}],6:[function(require,module,exports){
+'use strict';
+
+var $$$ = require('jquery');
+var marked = require('marked');
+module.exports = {
+  replace: true,
+  props: [],
+  data: function data() {
+    return {};
+  },
+  methods: {},
+  computed: {},
+  attached: function attached() {
+    componentHandler.upgradeDom();
+  },
+  components: {},
+  filters: {}
+};
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div class=\"mdl-grid\">\n    <div class=\"mdl-cell mdl-cell--12-col\">   \n      <h3>Realização</h3>\n      <p>Cras ac maximus risus. Donec eget congue justo. Nam quis rutrum nunc, quis finibus nunc. Ut tristique ex sed nulla dapibus, id euismod nunc ultrices. Duis vehicula tempor felis at viverra. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla non purus non turpis dictum fringilla in nec nulla. Duis at pharetra quam. Integer quis ante commodo, tristique quam non, dapibus magna. Integer urna ligula, iaculis eget nisi et, rhoncus sodales metus. Nulla rhoncus, purus id maximus convallis, odio massa volutpat nunc, in tincidunt ante turpis ut nibh.</p>\n      <p>In ut mauris nisl. Fusce interdum lobortis velit, et feugiat eros cursus ac. Praesent sit amet odio lacinia, dignissim enim eget, porta neque. In iaculis, sapien vitae placerat ultricies, neque odio vestibulum mi, venenatis sagittis sapien felis varius tellus. Fusce massa lectus, mollis ut molestie sed, posuere vitae eros. In pellentesque diam eu metus rhoncus, eu varius turpis dapibus. Donec commodo urna et erat tristique ultricies. Aliquam molestie orci sed eros lacinia, ac sagittis tellus accumsan.</p>\n\n    </div>\n  </div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  var id = "/media/bambuzal/Softwares/riowebdoc/app/vue/components/janela-realizacao.vue"
+  if (!module.hot.data) {
+    hotAPI.createRecord(id, module.exports)
+  } else {
+    hotAPI.update(id, module.exports, module.exports.template)
+  }
+})()}
+},{"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92}],7:[function(require,module,exports){
 'use strict';
 
 var $$$ = require('jquery');
@@ -571,7 +695,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"./media.vue":4,"jquery":20,"marked":21,"underscore":87,"vue":89,"vue-hot-reload-api":88}],4:[function(require,module,exports){
+},{"./media.vue":8,"jquery":24,"marked":25,"underscore":91,"vue":93,"vue-hot-reload-api":92}],8:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 4, stdin */\n.media_card {\n  position: absolute;\n  -webkit-transform-style: preserve-3d;\n          transform-style: preserve-3d;\n  -webkit-transition: left .2s, top .2s, -webkit-transform .3s;\n  transition: left .2s, top .2s, -webkit-transform .3s;\n  transition: transform .3s, left .2s, top .2s;\n  transition: transform .3s, left .2s, top .2s, -webkit-transform .3s;\n  z-index: 1;\n  -webkit-perspective: 800px;\n          perspective: 800px;\n  cursor: pointer; }\n  /* line 11, stdin */\n  .media_card:hover {\n    z-index: 3 !important; }\n  /* line 14, stdin */\n  .media_card.in-trans {\n    -webkit-transition: none;\n    transition: none; }\n  /* line 17, stdin */\n  .media_card.hover {\n    z-index: 2;\n    -webkit-transition: left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s;\n    transition: left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s;\n    transition: transform 0.3s, left 0.2s linear, top 0.2s linear;\n    transition: transform 0.3s, left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s; }\n    /* line 20, stdin */\n    .media_card.hover .mdl-card {\n      -webkit-transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, padding 0.2s linear, -webkit-transform 0.5s;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, padding 0.2s linear, -webkit-transform 0.5s;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, transform 0.5s, padding 0.2s linear;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, transform 0.5s, padding 0.2s linear, -webkit-transform 0.5s; }\n    /* line 23, stdin */\n    .media_card.hover .mdl-card__title {\n      height: 95%;\n      width: 97%;\n      -webkit-transition: opacity 0.6s, height 0.2s linear, min-height 0.2s linear, width 0.2s linear;\n      transition: opacity 0.6s, height 0.2s linear, min-height 0.2s linear, width 0.2s linear; }\n    /* line 28, stdin */\n    .media_card.hover .front {\n      padding: 6px; }\n  /* line 32, stdin */\n  .media_card.playing {\n    z-index: 6 !important;\n    -webkit-transition: left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    transition: left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    transition: transform 0.3s, left 0.4s, top 0.4s;\n    transition: transform 0.3s, left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    -webkit-perspective: 500px;\n            perspective: 500px;\n    cursor: default; }\n    /* line 37, stdin */\n    .media_card.playing .mdl-card__title {\n      height: 98%;\n      width: 98.8%;\n      -webkit-transition: opacity 0.6s, height 0.4s, min-height 0.4s linear, width 0.4s;\n      transition: opacity 0.6s, height 0.4s, min-height 0.4s linear, width 0.4s; }\n      /* line 41, stdin */\n      .media_card.playing .mdl-card__title.player {\n        z-index: 5;\n        padding: 30px;\n        background: white; }\n    /* line 47, stdin */\n    .media_card.playing .mdl-card__menu {\n      z-index: 6;\n      right: 10px;\n      top: 4px; }\n    /* line 53, stdin */\n    .media_card.playing .front .material-icons {\n      color: black; }\n    /* line 57, stdin */\n    .media_card.playing .mdl-card {\n      -webkit-transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, padding 0.4s, -webkit-transform 1s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, padding 0.4s, -webkit-transform 1s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, transform 1s, padding 0.4s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, transform 1s, padding 0.4s, -webkit-transform 1s; }\n  /* line 61, stdin */\n  .media_card.filtered {\n    opacity: 0 !important;\n    z-index: -1; }\n  /* line 65, stdin */\n  .media_card .front {\n    position: absolute;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    -webkit-transform-style: preserve-3d;\n            transform-style: preserve-3d;\n    padding: 2%; }\n    /* line 70, stdin */\n    .media_card .front .material-icons {\n      color: white; }\n  /* line 74, stdin */\n  .media_card .mdl-card {\n    border-radius: 1px;\n    -webkit-transition: box-shadow .2s, height .2s, width .2s, padding .2s, -webkit-transform 1s;\n    transition: box-shadow .2s, height .2s, width .2s, padding .2s, -webkit-transform 1s;\n    transition: box-shadow .2s, height .2s, width .2s, transform 1s, padding .2s;\n    transition: box-shadow .2s, height .2s, width .2s, transform 1s, padding .2s, -webkit-transform 1s; }\n  /* line 78, stdin */\n  .media_card .mdl-card__title {\n    height: 93%;\n    width: 96%;\n    color: white;\n    position: absolute;\n    -webkit-transition: opacity .6s, height .2s, width .2s;\n    transition: opacity .6s, height .2s, width .2s;\n    opacity: 1; }\n  /* line 86, stdin */\n  .media_card .mdl-card__menu {\n    z-index: 3; }\n  /* line 89, stdin */\n  .media_card .back {\n    -webkit-transform: rotateY(180deg);\n            transform: rotateY(180deg);\n    position: absolute;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    -webkit-transform-style: preserve-3d;\n            transform-style: preserve-3d; }\n  /* line 96, stdin */\n  .media_card .mdl-button:hover, .media_card .mdl-button:focus {\n    background: transparent; }\n  /* line 100, stdin */\n  .media_card .assistido {\n    height: 100%;\n    width: 100%;\n    background: rgba(0, 0, 0, 0.5);\n    position: absolute;\n    z-index: 5; }\n  /* line 108, stdin */\n  .media_card .votado .material-icons {\n    color: red !important; }\n")
 'use strict';
 
@@ -862,7 +986,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"./media.vue":4,"jquery":20,"marked":21,"vue":89,"vue-hot-reload-api":88,"vueify-insert-css":90}],5:[function(require,module,exports){
+},{"./media.vue":8,"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92,"vueify-insert-css":94}],9:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 3, stdin */\n.video-card.nav {\n  width: 15%; }\n")
 'use strict';
 
@@ -913,7 +1037,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":20,"marked":21,"vue":89,"vue-hot-reload-api":88,"vueify-insert-css":90}],6:[function(require,module,exports){
+},{"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92,"vueify-insert-css":94}],10:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.video-card {\n  border: 3px solid white; }\n  /* line 4, stdin */\n  .video-card.escolhido {\n    border: 3px solid red !important; }\n")
 'use strict';
 
@@ -982,7 +1106,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":20,"marked":21,"underscore":87,"vue":89,"vue-hot-reload-api":88,"vueify-insert-css":90}],7:[function(require,module,exports){
+},{"jquery":24,"marked":25,"underscore":91,"vue":93,"vue-hot-reload-api":92,"vueify-insert-css":94}],11:[function(require,module,exports){
 'use strict';
 
 var $$$ = require('jquery');
@@ -1019,7 +1143,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":20,"marked":21,"vue":89,"vue-hot-reload-api":88}],8:[function(require,module,exports){
+},{"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92}],12:[function(require,module,exports){
 'use strict';
 
 var $$$ = require('jquery');
@@ -1079,7 +1203,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":20,"marked":21,"vue":89,"vue-hot-reload-api":88}],9:[function(require,module,exports){
+},{"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92}],13:[function(require,module,exports){
 'use strict';
 
 var $$$ = require('jquery');
@@ -1114,7 +1238,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":20,"marked":21,"vue":89,"vue-hot-reload-api":88}],10:[function(require,module,exports){
+},{"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92}],14:[function(require,module,exports){
 (function(){
 	var _ = require('underscore')
 	var Vue = require('vue')
@@ -1135,9 +1259,18 @@ if (module.hot) {(function () {  module.hot.accept()
 			},
 			'/janela/:id': {
 				on: function (id) {
+					console.log(id)
 					var exec = function() {
-						if (id = 'card') {
+						if (id === 'card') {
 							app.$refs.view.janela = 'janela-card'
+						} else if (id === 'projeto') {
+							app.$refs.view.janela = 'janela-projeto'
+						} else if (id === 'realizacao') {
+							app.$refs.view.janela = 'janela-realizacao'
+						} else if (id === 'contato') {
+							app.$refs.view.janela = 'janela-contato'
+						} else if (id ==='equipe') {
+							app.$refs.view.janela = 'janela-equipe'
 						} else {
 							router.notfound()
 						}
@@ -1324,7 +1457,7 @@ if (module.hot) {(function () {  module.hot.accept()
 
 })()
 
-},{"./app.vue":1,"director":17,"underscore":87,"vue":89}],11:[function(require,module,exports){
+},{"./app.vue":1,"director":21,"underscore":91,"vue":93}],15:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 3, stdin */\n#content.card {\n  padding: 15px;\n  position: relative;\n  background-color: white;\n  box-sizing: border-box; }\n\n/* line 10, stdin */\n#protect {\n  position: absolute;\n  z-index: 5;\n  left: 0;\n  top: 0;\n  height: 100%;\n  width: 100%; }\n  /* line 17, stdin */\n  #protect .menssagem {\n    position: absolute;\n    right: 0;\n    width: 40%;\n    height: 100%;\n    top: 0; }\n    /* line 23, stdin */\n    #protect .menssagem h2 {\n      margin-top: 50px;\n      color: white;\n      text-align: center; }\n")
 'use strict';
 
@@ -1410,7 +1543,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":20,"marked":21,"vue":89,"vue-hot-reload-api":88,"vueify-insert-css":90}],12:[function(require,module,exports){
+},{"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92,"vueify-insert-css":94}],16:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.fade-transition {\n  -webkit-transition: opacity .6s ease .4s;\n  transition: opacity .6s ease .4s;\n  opacity: 1; }\n\n/* line 6, stdin */\n.fade-enter, .fade-leave {\n  opacity: 0; }\n\n/* line 9, stdin */\n.fade-leave {\n  -webkit-transition: opacity .1s linear;\n  transition: opacity .1s linear; }\n\n/* line 12, stdin */\n#navegacao {\n  padding-top: 30px; }\n\n/* line 15, stdin */\n.fade2-transition {\n  -webkit-transition: opacity .4s ease;\n  transition: opacity .4s ease;\n  opacity: 1; }\n\n/* line 19, stdin */\n.fade2-enter, .fade2-leave {\n  opacity: 0; }\n")
 'use strict';
 
@@ -1475,9 +1608,6 @@ module.exports = {
 		filterNave: function filterNave(nome) {
 			this.$broadcast('filter', nome);
 		},
-		createWebcard: function createWebcard() {
-			this.janela = 'janela-card';
-		},
 		closeJanela: function closeJanela() {
 			window.location.hash = '/home';
 		}
@@ -1541,7 +1671,11 @@ module.exports = {
 	},
 	components: {
 		'media-cloud': require('../components/media-cloud.vue'),
-		'janela-card': require('../components/janela-card.vue')
+		'janela-card': require('../components/janela-card.vue'),
+		'janela-projeto': require('../components/janela-projeto.vue'),
+		'janela-realizacao': require('../components/janela-realizacao.vue'),
+		'janela-contato': require('../components/janela-contato.vue'),
+		'janela-equipe': require('../components/janela-equipe.vue')
 	},
 	filters: {
 		marked: function marked(value) {
@@ -1549,7 +1683,7 @@ module.exports = {
 		}
 	}
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div class=\" mdl-layout mdl-js-layout mdl-layout--fixed-header\">\n\n    <header class=\"rwd_header mdl-layout__header \">\n\t\t\t<div class=\"mdl-layout__header-row\">\n\n\t\t\t\t<!-- Class destinada a dar um espaçamento grande -->\n\t\t\t\t<div class=\"mdl-layout-spacer\"></div>\n\n\t\t\t\t<!-- Construção dos ícones indicativos no menu -->\n\t\t\t\t<nav class=\"mdl-navigation\">\n\t\t\t    \n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"\">PROJETO</a>\n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"\">REALIZAÇÃO</a>\n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"\">EQUIPE</a>\n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"\">CONTATO</a>\n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"\">BLOG</a>\n\n\t\t\t\t</nav>\n\t\t\t</div>\n\t\t</header>\n    \n   \n    <main class=\"mdl-layout__content\">\n    \n    \t<div id=\"content\">\n    \t\t\n    \t\t<div id=\"navegacao\">\n    \t\t\t<div id=\"logo\" class=\"logo\">\n\t    \t\t\t<img src=\"images/logo.png\" class=\"logoimg\">\n\t    \t\t</div>\n\n\n\t    \t\t<div id=\"markers\" class=\"markers\">\n\t\t\t  \t\t<div class=\"rwd_local\">\n\t\t\t  \t\t\t<span v-for=\"nave in naves\">\n\n\t\t\t  \t\t\t\t<button class=\"mdl-button mdl-js-button mdl-button--icon mdl-button--primary\" :id=\"nave.headers.id\" @click=\"filterNave(nave.headers.nome)\">\n\t\t\t\t    \t\t\t<i class=\"material-icons mdl-badge\"> room </i>\n\t\t\t\t    \t\t</button>\n\t\t\t\t\t\t\t\t<div class=\"mdl-tooltip\" :for=\"nave.headers.id\"> {{nave.headers.nome}} </div>\n\t\t\t\t\t\t\t\t\n\t\t\t  \t\t\t</span>\n\t\t\t  \t\t\t<div style=\"clear: both\"></div>\n\t\t\t  \t\t</div>\n\t\t\t  \t</div>\n\n\t\t\t  \t<div id=\"selo\" class=\"selo\">\n\t\t\t  \t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/card\" rel=\"modal\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<img src=\"images/selo.png\" class=\"seloimg\" id=\"icon1\">\n\t\t\t\t\t  </a>\t\n\t    \t\t</div>\n    \t\t</div>\n    \t\t\n\n\t\t  \t<media-cloud :naves=\"naves\" :user.sync=\"user\" :filter.sync=\"filter\"></media-cloud>\n\n    \t</div>\n    \n    \n\t\t\t<div id=\"rodape\" class=\"rodape\">\n\n\t\t\t\t<div id=\"rwdrodape\" class=\"rwdrodape\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div id=\"git\" class=\"sessaofooter\"> \n\t\t\t\t\t\t\t<a href=\"http://github.com/viladosite/riowebdoc\" target=\"_blank\"> Fork us at \n\t\t\t\t\t\t\t\t<img src=\"images/github512.png\" alt=\"Github Logo\" height=\"24\" width=\"24\"> \n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div id=\"sessao1\" class=\"sessaofooter\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footertitle\">Realização:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"http://www.jardimdigital.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/rio_pref.png\" alt=\"prefeitura Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div id=\"sessao2\" class=\"sessaofooter\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footertitle\">Parceria:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"http://www.jardimdigital.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/grupo_ccr.png\" alt=\"grupo ccr Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp; &nbsp; &nbsp; &nbsp;\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div id=\"sessao3\" class=\"sessaofooter\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footertitle\">Apoio:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"http://www.jardimdigital.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/rio_onibus.png\" alt=\"rio onibus Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t\t\t\t<a href=\"http://www.viladosite.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/riofilme.png\" alt=\"Vila do Site Logo\" class=\"footer_img2\"></a>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t        \n\t\t\t\t        <div id=\"sessao4\" class=\"sessaofooter\">\n\n\t\t\t\t\t\t\t<div class=\"footertitle\">Produção:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"http://www.jardimdigital.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/mpc_logo.png\" alt=\"Jardim Digital Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div id=\"sessao5\" class=\"sessaofooter\">\n\n\t\t\t\t\t\t\t<div class=\"footertitle\">Gestão das Naves do Conhecimento:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"http://www.jardimdigital.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/cecip_logo.png\" alt=\"Jardim Digital Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t\t\t\t<a href=\"http://www.viladosite.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/redeh_logo.png\" alt=\"Vila do Site Logo\" class=\"footer_img2\">\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"clearboth\"></div>\n\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\n\n</main>\n    \n\n\t  <div v-if=\"janela !== null\" transition=\"fade2\" class=\"window\" id=\"janela1\">\n\t    <a href=\"/#/home\" class=\"fechar\"> <img src=\"images/icon_close.png\" width=\"35px\" height=\"35px\"> </a>\n\t    <div id=\"janela2\" name=\"janela2\">\n\t    \t<div :is=\"janela\" :janela.sync=\"janela\" :webcard=\"webcard\" :naves=\"naves\" v-ref:janela=\"\"></div>\n\t\t</div>\n\t  </div>\n\t  <div v-if=\"janela !== null\" transition=\"fade2\" id=\"mascara\" @click=\"closeJanela\"></div> \n\n\t</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div class=\" mdl-layout mdl-js-layout mdl-layout--fixed-header\">\n\n    <header class=\"rwd_header mdl-layout__header \">\n\t\t\t<div class=\"mdl-layout__header-row\">\n\n\t\t\t\t<!-- Class destinada a dar um espaçamento grande -->\n\t\t\t\t<div class=\"mdl-layout-spacer\"></div>\n\n\t\t\t\t<!-- Construção dos ícones indicativos no menu -->\n\t\t\t\t<nav class=\"mdl-navigation\">\n\t\t\t    \n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/projeto\">PROJETO</a>\n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/realizacao\">REALIZAÇÃO</a>\n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/equipe\">EQUIPE</a>\n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/contato\">CONTATO</a>\n\t\t\t\t<!-- <a class=\"mdl-navigation__link\" href=\"\">BLOG</a> -->\n\n\t\t\t\t</nav>\n\t\t\t</div>\n\t\t</header>\n    \n   \n    <main class=\"mdl-layout__content\">\n    \n    \t<div id=\"content\">\n    \t\t\n    \t\t<div id=\"navegacao\">\n    \t\t\t<div id=\"logo\" class=\"logo\">\n\t    \t\t\t<img src=\"images/logo.png\" class=\"logoimg\">\n\t    \t\t</div>\n\n\n\t    \t\t<div id=\"markers\" class=\"markers\">\n\t\t\t  \t\t<div class=\"rwd_local\">\n\t\t\t  \t\t\t<span v-for=\"nave in naves\">\n\n\t\t\t  \t\t\t\t<button class=\"mdl-button mdl-js-button mdl-button--icon mdl-button--primary\" :id=\"nave.headers.id\" @click=\"filterNave(nave.headers.nome)\">\n\t\t\t\t    \t\t\t<i class=\"material-icons mdl-badge\"> room </i>\n\t\t\t\t    \t\t</button>\n\t\t\t\t\t\t\t\t<div class=\"mdl-tooltip\" :for=\"nave.headers.id\"> {{nave.headers.nome}} </div>\n\t\t\t\t\t\t\t\t\n\t\t\t  \t\t\t</span>\n\t\t\t  \t\t\t<div style=\"clear: both\"></div>\n\t\t\t  \t\t</div>\n\t\t\t  \t</div>\n\n\t\t\t  \t<div id=\"selo\" class=\"selo\">\n\t\t\t  \t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/card\" rel=\"modal\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<img src=\"images/selo.png\" class=\"seloimg\" id=\"icon1\">\n\t\t\t\t\t  </a>\t\n\t    \t\t</div>\n    \t\t</div>\n    \t\t\n\n\t\t  \t<media-cloud :naves=\"naves\" :user.sync=\"user\" :filter.sync=\"filter\"></media-cloud>\n\n    \t</div>\n    \n    \n\t\t\t<div id=\"rodape\" class=\"rodape\">\n\n\t\t\t\t<div id=\"rwdrodape\" class=\"rwdrodape\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div id=\"git\" class=\"sessaofooter\"> \n\t\t\t\t\t\t\t<a href=\"http://github.com/viladosite/riowebdoc\" target=\"_blank\"> Fork us at \n\t\t\t\t\t\t\t\t<img src=\"images/github512.png\" alt=\"Github Logo\" height=\"24\" width=\"24\"> \n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div id=\"sessao1\" class=\"sessaofooter\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footertitle\">Realização:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"http://www.jardimdigital.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/rio_pref.png\" alt=\"prefeitura Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div id=\"sessao2\" class=\"sessaofooter\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footertitle\">Parceria:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"http://www.jardimdigital.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/grupo_ccr.png\" alt=\"grupo ccr Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp; &nbsp; &nbsp; &nbsp;\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div id=\"sessao3\" class=\"sessaofooter\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footertitle\">Apoio:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"http://www.jardimdigital.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/rio_onibus.png\" alt=\"rio onibus Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t\t\t\t<a href=\"http://www.viladosite.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/riofilme.png\" alt=\"Vila do Site Logo\" class=\"footer_img2\"></a>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t        \n\t\t\t\t        <div id=\"sessao4\" class=\"sessaofooter\">\n\n\t\t\t\t\t\t\t<div class=\"footertitle\">Produção:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"http://www.jardimdigital.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/mpc_logo.png\" alt=\"Jardim Digital Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div id=\"sessao5\" class=\"sessaofooter\">\n\n\t\t\t\t\t\t\t<div class=\"footertitle\">Gestão das Naves do Conhecimento:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"http://www.jardimdigital.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/cecip_logo.png\" alt=\"Jardim Digital Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t\t\t\t<a href=\"http://www.viladosite.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/redeh_logo.png\" alt=\"Vila do Site Logo\" class=\"footer_img2\">\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"clearboth\"></div>\n\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\n\n</main>\n    \n\n\t  <div v-if=\"janela !== null\" transition=\"fade2\" class=\"window\" id=\"janela1\">\n\t    <a href=\"/#/home\" class=\"fechar\"> <img src=\"images/icon_close.png\" width=\"35px\" height=\"35px\"> </a>\n\t    <div id=\"janela2\" name=\"janela2\">\n\t    \t<div :is=\"janela\" :janela.sync=\"janela\" :webcard=\"webcard\" :naves=\"naves\" v-ref:janela=\"\"></div>\n\t\t</div>\n\t  </div>\n\t  <div v-if=\"janela !== null\" transition=\"fade2\" id=\"mascara\" @click=\"closeJanela\"></div> \n\n\t</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -1565,7 +1699,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"../components/janela-card.vue":2,"../components/media-cloud.vue":3,"jquery":20,"marked":21,"socket.io-client":43,"vue":89,"vue-hot-reload-api":88,"vueify-insert-css":90}],13:[function(require,module,exports){
+},{"../components/janela-card.vue":2,"../components/janela-contato.vue":3,"../components/janela-equipe.vue":4,"../components/janela-projeto.vue":5,"../components/janela-realizacao.vue":6,"../components/media-cloud.vue":7,"jquery":24,"marked":25,"socket.io-client":47,"vue":93,"vue-hot-reload-api":92,"vueify-insert-css":94}],17:[function(require,module,exports){
 /*
  * JavaScript MD5
  * https://github.com/blueimp/JavaScript-MD5
@@ -1846,7 +1980,7 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 }(this))
 
-},{}],14:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 
 /**
  * This is the web browser implementation of `debug()`.
@@ -2016,7 +2150,7 @@ function localstorage(){
   } catch (e) {}
 }
 
-},{"./debug":15}],15:[function(require,module,exports){
+},{"./debug":19}],19:[function(require,module,exports){
 
 /**
  * This is the common logic for both the Node.js and web browser
@@ -2215,7 +2349,7 @@ function coerce(val) {
   return val;
 }
 
-},{"ms":16}],16:[function(require,module,exports){
+},{"ms":20}],20:[function(require,module,exports){
 /**
  * Helpers.
  */
@@ -2342,7 +2476,7 @@ function plural(ms, n, name) {
   return Math.ceil(ms / n) + ' ' + name + 's';
 }
 
-},{}],17:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 
 
 //
@@ -3068,9 +3202,9 @@ Router.prototype.mount = function(routes, path) {
 
 
 }(typeof exports === "object" ? exports : window));
-},{}],18:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 
-},{}],19:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -3135,7 +3269,7 @@ process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
 };
 
-},{}],20:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.2.4
  * http://jquery.com/
@@ -12951,7 +13085,7 @@ if ( !noGlobal ) {
 return jQuery;
 }));
 
-},{}],21:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 (function (global){
 /**
  * marked - a markdown parser
@@ -14241,12 +14375,12 @@ if (typeof module !== 'undefined' && typeof exports === 'object') {
 }());
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],22:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 'use strict';
 
 module.exports = require('./src/js/main');
 
-},{"./src/js/main":28}],23:[function(require,module,exports){
+},{"./src/js/main":32}],27:[function(require,module,exports){
 'use strict';
 
 function oldAdd(element, className) {
@@ -14290,7 +14424,7 @@ exports.list = function (element) {
   }
 };
 
-},{}],24:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 'use strict';
 
 var DOM = {};
@@ -14376,7 +14510,7 @@ DOM.queryChildren = function (element, selector) {
 
 module.exports = DOM;
 
-},{}],25:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 'use strict';
 
 var EventElement = function (element) {
@@ -14449,7 +14583,7 @@ EventManager.prototype.once = function (element, eventName, handler) {
 
 module.exports = EventManager;
 
-},{}],26:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 'use strict';
 
 module.exports = (function () {
@@ -14464,7 +14598,7 @@ module.exports = (function () {
   };
 })();
 
-},{}],27:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 'use strict';
 
 var cls = require('./class');
@@ -14549,7 +14683,7 @@ exports.env = {
   supportsIePointer: window.navigator.msMaxTouchPoints !== null
 };
 
-},{"./class":23,"./dom":24}],28:[function(require,module,exports){
+},{"./class":27,"./dom":28}],32:[function(require,module,exports){
 'use strict';
 
 var destroy = require('./plugin/destroy');
@@ -14562,7 +14696,7 @@ module.exports = {
   destroy: destroy
 };
 
-},{"./plugin/destroy":30,"./plugin/initialize":38,"./plugin/update":42}],29:[function(require,module,exports){
+},{"./plugin/destroy":34,"./plugin/initialize":42,"./plugin/update":46}],33:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -14581,7 +14715,7 @@ module.exports = {
   theme: 'default'
 };
 
-},{}],30:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 'use strict';
 
 var _ = require('../lib/helper');
@@ -14605,7 +14739,7 @@ module.exports = function (element) {
   instances.remove(element);
 };
 
-},{"../lib/dom":24,"../lib/helper":27,"./instances":39}],31:[function(require,module,exports){
+},{"../lib/dom":28,"../lib/helper":31,"./instances":43}],35:[function(require,module,exports){
 'use strict';
 
 var _ = require('../../lib/helper');
@@ -14667,7 +14801,7 @@ module.exports = function (element) {
   bindClickRailHandler(element, i);
 };
 
-},{"../../lib/helper":27,"../instances":39,"../update-geometry":40,"../update-scroll":41}],32:[function(require,module,exports){
+},{"../../lib/helper":31,"../instances":43,"../update-geometry":44,"../update-scroll":45}],36:[function(require,module,exports){
 'use strict';
 
 var _ = require('../../lib/helper');
@@ -14772,7 +14906,7 @@ module.exports = function (element) {
   bindMouseScrollYHandler(element, i);
 };
 
-},{"../../lib/dom":24,"../../lib/helper":27,"../instances":39,"../update-geometry":40,"../update-scroll":41}],33:[function(require,module,exports){
+},{"../../lib/dom":28,"../../lib/helper":31,"../instances":43,"../update-geometry":44,"../update-scroll":45}],37:[function(require,module,exports){
 'use strict';
 
 var _ = require('../../lib/helper');
@@ -14904,7 +15038,7 @@ module.exports = function (element) {
   bindKeyboardHandler(element, i);
 };
 
-},{"../../lib/dom":24,"../../lib/helper":27,"../instances":39,"../update-geometry":40,"../update-scroll":41}],34:[function(require,module,exports){
+},{"../../lib/dom":28,"../../lib/helper":31,"../instances":43,"../update-geometry":44,"../update-scroll":45}],38:[function(require,module,exports){
 'use strict';
 
 var instances = require('../instances');
@@ -15042,7 +15176,7 @@ module.exports = function (element) {
   bindMouseWheelHandler(element, i);
 };
 
-},{"../instances":39,"../update-geometry":40,"../update-scroll":41}],35:[function(require,module,exports){
+},{"../instances":43,"../update-geometry":44,"../update-scroll":45}],39:[function(require,module,exports){
 'use strict';
 
 var instances = require('../instances');
@@ -15059,7 +15193,7 @@ module.exports = function (element) {
   bindNativeScrollHandler(element, i);
 };
 
-},{"../instances":39,"../update-geometry":40}],36:[function(require,module,exports){
+},{"../instances":43,"../update-geometry":44}],40:[function(require,module,exports){
 'use strict';
 
 var _ = require('../../lib/helper');
@@ -15170,7 +15304,7 @@ module.exports = function (element) {
   bindSelectionHandler(element, i);
 };
 
-},{"../../lib/helper":27,"../instances":39,"../update-geometry":40,"../update-scroll":41}],37:[function(require,module,exports){
+},{"../../lib/helper":31,"../instances":43,"../update-geometry":44,"../update-scroll":45}],41:[function(require,module,exports){
 'use strict';
 
 var _ = require('../../lib/helper');
@@ -15348,7 +15482,7 @@ module.exports = function (element) {
   bindTouchHandler(element, i, _.env.supportsTouch, _.env.supportsIePointer);
 };
 
-},{"../../lib/helper":27,"../instances":39,"../update-geometry":40,"../update-scroll":41}],38:[function(require,module,exports){
+},{"../../lib/helper":31,"../instances":43,"../update-geometry":44,"../update-scroll":45}],42:[function(require,module,exports){
 'use strict';
 
 var _ = require('../lib/helper');
@@ -15387,7 +15521,7 @@ module.exports = function (element, userSettings) {
   updateGeometry(element);
 };
 
-},{"../lib/class":23,"../lib/helper":27,"./handler/click-rail":31,"./handler/drag-scrollbar":32,"./handler/keyboard":33,"./handler/mouse-wheel":34,"./handler/native-scroll":35,"./handler/selection":36,"./handler/touch":37,"./instances":39,"./update-geometry":40}],39:[function(require,module,exports){
+},{"../lib/class":27,"../lib/helper":31,"./handler/click-rail":35,"./handler/drag-scrollbar":36,"./handler/keyboard":37,"./handler/mouse-wheel":38,"./handler/native-scroll":39,"./handler/selection":40,"./handler/touch":41,"./instances":43,"./update-geometry":44}],43:[function(require,module,exports){
 'use strict';
 
 var _ = require('../lib/helper');
@@ -15496,7 +15630,7 @@ exports.get = function (element) {
   return instances[getId(element)];
 };
 
-},{"../lib/class":23,"../lib/dom":24,"../lib/event-manager":25,"../lib/guid":26,"../lib/helper":27,"./default-setting":29}],40:[function(require,module,exports){
+},{"../lib/class":27,"../lib/dom":28,"../lib/event-manager":29,"../lib/guid":30,"../lib/helper":31,"./default-setting":33}],44:[function(require,module,exports){
 'use strict';
 
 var _ = require('../lib/helper');
@@ -15624,7 +15758,7 @@ module.exports = function (element) {
   }
 };
 
-},{"../lib/class":23,"../lib/dom":24,"../lib/helper":27,"./instances":39,"./update-scroll":41}],41:[function(require,module,exports){
+},{"../lib/class":27,"../lib/dom":28,"../lib/helper":31,"./instances":43,"./update-scroll":45}],45:[function(require,module,exports){
 'use strict';
 
 var instances = require('./instances');
@@ -15738,7 +15872,7 @@ module.exports = function (element, axis, value) {
 
 };
 
-},{"./instances":39}],42:[function(require,module,exports){
+},{"./instances":43}],46:[function(require,module,exports){
 'use strict';
 
 var _ = require('../lib/helper');
@@ -15777,7 +15911,7 @@ module.exports = function (element) {
   dom.css(i.scrollbarYRail, 'display', '');
 };
 
-},{"../lib/dom":24,"../lib/helper":27,"./instances":39,"./update-geometry":40,"./update-scroll":41}],43:[function(require,module,exports){
+},{"../lib/dom":28,"../lib/helper":31,"./instances":43,"./update-geometry":44,"./update-scroll":45}],47:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -15871,7 +16005,7 @@ exports.connect = lookup;
 exports.Manager = require('./manager');
 exports.Socket = require('./socket');
 
-},{"./manager":44,"./socket":46,"./url":47,"debug":14,"socket.io-parser":81}],44:[function(require,module,exports){
+},{"./manager":48,"./socket":50,"./url":51,"debug":18,"socket.io-parser":85}],48:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -16430,7 +16564,7 @@ Manager.prototype.onreconnect = function(){
   this.emitAll('reconnect', attempt);
 };
 
-},{"./on":45,"./socket":46,"backo2":48,"component-bind":49,"component-emitter":50,"debug":14,"engine.io-client":51,"indexof":78,"socket.io-parser":81}],45:[function(require,module,exports){
+},{"./on":49,"./socket":50,"backo2":52,"component-bind":53,"component-emitter":54,"debug":18,"engine.io-client":55,"indexof":82,"socket.io-parser":85}],49:[function(require,module,exports){
 
 /**
  * Module exports.
@@ -16456,7 +16590,7 @@ function on(obj, ev, fn) {
   };
 }
 
-},{}],46:[function(require,module,exports){
+},{}],50:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -16870,7 +17004,7 @@ Socket.prototype.compress = function(compress){
   return this;
 };
 
-},{"./on":45,"component-bind":49,"component-emitter":50,"debug":14,"has-binary":76,"socket.io-parser":81,"to-array":86}],47:[function(require,module,exports){
+},{"./on":49,"component-bind":53,"component-emitter":54,"debug":18,"has-binary":80,"socket.io-parser":85,"to-array":90}],51:[function(require,module,exports){
 (function (global){
 
 /**
@@ -16950,7 +17084,7 @@ function url(uri, loc){
 }
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"debug":14,"parseuri":79}],48:[function(require,module,exports){
+},{"debug":18,"parseuri":83}],52:[function(require,module,exports){
 
 /**
  * Expose `Backoff`.
@@ -17037,7 +17171,7 @@ Backoff.prototype.setJitter = function(jitter){
 };
 
 
-},{}],49:[function(require,module,exports){
+},{}],53:[function(require,module,exports){
 /**
  * Slice reference.
  */
@@ -17062,7 +17196,7 @@ module.exports = function(obj, fn){
   }
 };
 
-},{}],50:[function(require,module,exports){
+},{}],54:[function(require,module,exports){
 
 /**
  * Expose `Emitter`.
@@ -17225,11 +17359,11 @@ Emitter.prototype.hasListeners = function(event){
   return !! this.listeners(event).length;
 };
 
-},{}],51:[function(require,module,exports){
+},{}],55:[function(require,module,exports){
 
 module.exports =  require('./lib/');
 
-},{"./lib/":52}],52:[function(require,module,exports){
+},{"./lib/":56}],56:[function(require,module,exports){
 
 module.exports = require('./socket');
 
@@ -17241,7 +17375,7 @@ module.exports = require('./socket');
  */
 module.exports.parser = require('engine.io-parser');
 
-},{"./socket":53,"engine.io-parser":63}],53:[function(require,module,exports){
+},{"./socket":57,"engine.io-parser":67}],57:[function(require,module,exports){
 (function (global){
 /**
  * Module dependencies.
@@ -17973,7 +18107,7 @@ Socket.prototype.filterUpgrades = function (upgrades) {
 };
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./transport":54,"./transports":55,"component-emitter":61,"debug":14,"engine.io-parser":63,"indexof":78,"parsejson":73,"parseqs":74,"parseuri":79}],54:[function(require,module,exports){
+},{"./transport":58,"./transports":59,"component-emitter":65,"debug":18,"engine.io-parser":67,"indexof":82,"parsejson":77,"parseqs":78,"parseuri":83}],58:[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -18130,7 +18264,7 @@ Transport.prototype.onClose = function () {
   this.emit('close');
 };
 
-},{"component-emitter":61,"engine.io-parser":63}],55:[function(require,module,exports){
+},{"component-emitter":65,"engine.io-parser":67}],59:[function(require,module,exports){
 (function (global){
 /**
  * Module dependencies
@@ -18187,7 +18321,7 @@ function polling(opts){
 }
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./polling-jsonp":56,"./polling-xhr":57,"./websocket":59,"xmlhttprequest-ssl":60}],56:[function(require,module,exports){
+},{"./polling-jsonp":60,"./polling-xhr":61,"./websocket":63,"xmlhttprequest-ssl":64}],60:[function(require,module,exports){
 (function (global){
 
 /**
@@ -18429,7 +18563,7 @@ JSONPPolling.prototype.doWrite = function (data, fn) {
 };
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./polling":58,"component-inherit":62}],57:[function(require,module,exports){
+},{"./polling":62,"component-inherit":66}],61:[function(require,module,exports){
 (function (global){
 /**
  * Module requirements.
@@ -18845,7 +18979,7 @@ function unloadHandler() {
 }
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./polling":58,"component-emitter":61,"component-inherit":62,"debug":14,"xmlhttprequest-ssl":60}],58:[function(require,module,exports){
+},{"./polling":62,"component-emitter":65,"component-inherit":66,"debug":18,"xmlhttprequest-ssl":64}],62:[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -19094,7 +19228,7 @@ Polling.prototype.uri = function(){
   return schema + '://' + (ipv6 ? '[' + this.hostname + ']' : this.hostname) + port + this.path + query;
 };
 
-},{"../transport":54,"component-inherit":62,"debug":14,"engine.io-parser":63,"parseqs":74,"xmlhttprequest-ssl":60,"yeast":75}],59:[function(require,module,exports){
+},{"../transport":58,"component-inherit":66,"debug":18,"engine.io-parser":67,"parseqs":78,"xmlhttprequest-ssl":64,"yeast":79}],63:[function(require,module,exports){
 (function (global){
 /**
  * Module dependencies.
@@ -19386,7 +19520,7 @@ WS.prototype.check = function(){
 };
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../transport":54,"component-inherit":62,"debug":14,"engine.io-parser":63,"parseqs":74,"ws":18,"yeast":75}],60:[function(require,module,exports){
+},{"../transport":58,"component-inherit":66,"debug":18,"engine.io-parser":67,"parseqs":78,"ws":22,"yeast":79}],64:[function(require,module,exports){
 // browser shim for xmlhttprequest module
 var hasCORS = require('has-cors');
 
@@ -19424,7 +19558,7 @@ module.exports = function(opts) {
   }
 }
 
-},{"has-cors":72}],61:[function(require,module,exports){
+},{"has-cors":76}],65:[function(require,module,exports){
 
 /**
  * Expose `Emitter`.
@@ -19590,7 +19724,7 @@ Emitter.prototype.hasListeners = function(event){
   return !! this.listeners(event).length;
 };
 
-},{}],62:[function(require,module,exports){
+},{}],66:[function(require,module,exports){
 
 module.exports = function(a, b){
   var fn = function(){};
@@ -19598,7 +19732,7 @@ module.exports = function(a, b){
   a.prototype = new fn;
   a.prototype.constructor = a;
 };
-},{}],63:[function(require,module,exports){
+},{}],67:[function(require,module,exports){
 (function (global){
 /**
  * Module dependencies.
@@ -20196,7 +20330,7 @@ exports.decodePayloadAsBinary = function (data, binaryType, callback) {
 };
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./keys":64,"after":65,"arraybuffer.slice":66,"base64-arraybuffer":67,"blob":68,"has-binary":69,"utf8":71}],64:[function(require,module,exports){
+},{"./keys":68,"after":69,"arraybuffer.slice":70,"base64-arraybuffer":71,"blob":72,"has-binary":73,"utf8":75}],68:[function(require,module,exports){
 
 /**
  * Gets the keys for an object.
@@ -20217,7 +20351,7 @@ module.exports = Object.keys || function keys (obj){
   return arr;
 };
 
-},{}],65:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 module.exports = after
 
 function after(count, callback, err_cb) {
@@ -20247,7 +20381,7 @@ function after(count, callback, err_cb) {
 
 function noop() {}
 
-},{}],66:[function(require,module,exports){
+},{}],70:[function(require,module,exports){
 /**
  * An abstraction for slicing an arraybuffer even when
  * ArrayBuffer.prototype.slice is not supported
@@ -20278,7 +20412,7 @@ module.exports = function(arraybuffer, start, end) {
   return result.buffer;
 };
 
-},{}],67:[function(require,module,exports){
+},{}],71:[function(require,module,exports){
 /*
  * base64-arraybuffer
  * https://github.com/niklasvh/base64-arraybuffer
@@ -20339,7 +20473,7 @@ module.exports = function(arraybuffer, start, end) {
   };
 })("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/");
 
-},{}],68:[function(require,module,exports){
+},{}],72:[function(require,module,exports){
 (function (global){
 /**
  * Create a blob builder even when vendor prefixes exist
@@ -20439,7 +20573,7 @@ module.exports = (function() {
 })();
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],69:[function(require,module,exports){
+},{}],73:[function(require,module,exports){
 (function (global){
 
 /*
@@ -20501,12 +20635,12 @@ function hasBinary(data) {
 }
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"isarray":70}],70:[function(require,module,exports){
+},{"isarray":74}],74:[function(require,module,exports){
 module.exports = Array.isArray || function (arr) {
   return Object.prototype.toString.call(arr) == '[object Array]';
 };
 
-},{}],71:[function(require,module,exports){
+},{}],75:[function(require,module,exports){
 (function (global){
 /*! https://mths.be/utf8js v2.0.0 by @mathias */
 ;(function(root) {
@@ -20754,7 +20888,7 @@ module.exports = Array.isArray || function (arr) {
 }(this));
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],72:[function(require,module,exports){
+},{}],76:[function(require,module,exports){
 
 /**
  * Module exports.
@@ -20773,7 +20907,7 @@ try {
   module.exports = false;
 }
 
-},{}],73:[function(require,module,exports){
+},{}],77:[function(require,module,exports){
 (function (global){
 /**
  * JSON parse.
@@ -20808,7 +20942,7 @@ module.exports = function parsejson(data) {
   }
 };
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],74:[function(require,module,exports){
+},{}],78:[function(require,module,exports){
 /**
  * Compiles a querystring
  * Returns string representation of the object
@@ -20847,7 +20981,7 @@ exports.decode = function(qs){
   return qry;
 };
 
-},{}],75:[function(require,module,exports){
+},{}],79:[function(require,module,exports){
 'use strict';
 
 var alphabet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_'.split('')
@@ -20917,7 +21051,7 @@ yeast.encode = encode;
 yeast.decode = decode;
 module.exports = yeast;
 
-},{}],76:[function(require,module,exports){
+},{}],80:[function(require,module,exports){
 (function (global){
 
 /*
@@ -20980,9 +21114,9 @@ function hasBinary(data) {
 }
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"isarray":77}],77:[function(require,module,exports){
-module.exports=require(70)
-},{}],78:[function(require,module,exports){
+},{"isarray":81}],81:[function(require,module,exports){
+module.exports=require(74)
+},{}],82:[function(require,module,exports){
 
 var indexOf = [].indexOf;
 
@@ -20993,7 +21127,7 @@ module.exports = function(arr, obj){
   }
   return -1;
 };
-},{}],79:[function(require,module,exports){
+},{}],83:[function(require,module,exports){
 /**
  * Parses an URI
  *
@@ -21034,7 +21168,7 @@ module.exports = function parseuri(str) {
     return uri;
 };
 
-},{}],80:[function(require,module,exports){
+},{}],84:[function(require,module,exports){
 (function (global){
 /*global Blob,File*/
 
@@ -21179,7 +21313,7 @@ exports.removeBlobs = function(data, callback) {
 };
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./is-buffer":82,"isarray":84}],81:[function(require,module,exports){
+},{"./is-buffer":86,"isarray":88}],85:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -21581,7 +21715,7 @@ function error(data){
   };
 }
 
-},{"./binary":80,"./is-buffer":82,"component-emitter":83,"debug":14,"isarray":84,"json3":85}],82:[function(require,module,exports){
+},{"./binary":84,"./is-buffer":86,"component-emitter":87,"debug":18,"isarray":88,"json3":89}],86:[function(require,module,exports){
 (function (global){
 
 module.exports = isBuf;
@@ -21598,11 +21732,11 @@ function isBuf(obj) {
 }
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],83:[function(require,module,exports){
-module.exports=require(61)
-},{}],84:[function(require,module,exports){
-module.exports=require(70)
-},{}],85:[function(require,module,exports){
+},{}],87:[function(require,module,exports){
+module.exports=require(65)
+},{}],88:[function(require,module,exports){
+module.exports=require(74)
+},{}],89:[function(require,module,exports){
 (function (global){
 /*! JSON v3.3.2 | http://bestiejs.github.io/json3 | Copyright 2012-2014, Kit Cambridge | http://kit.mit-license.org */
 ;(function () {
@@ -22508,7 +22642,7 @@ module.exports=require(70)
 }).call(this);
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],86:[function(require,module,exports){
+},{}],90:[function(require,module,exports){
 module.exports = toArray
 
 function toArray(list, index) {
@@ -22523,7 +22657,7 @@ function toArray(list, index) {
     return array
 }
 
-},{}],87:[function(require,module,exports){
+},{}],91:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -24073,7 +24207,7 @@ function toArray(list, index) {
   }
 }.call(this));
 
-},{}],88:[function(require,module,exports){
+},{}],92:[function(require,module,exports){
 var Vue // late bind
 var map = Object.create(null)
 var shimmed = false
@@ -24374,7 +24508,7 @@ function format (id) {
   return match ? match[0] : id
 }
 
-},{}],89:[function(require,module,exports){
+},{}],93:[function(require,module,exports){
 (function (process,global){
 /*!
  * Vue.js v1.0.26
@@ -34451,7 +34585,7 @@ setTimeout(function () {
 
 module.exports = Vue;
 }).call(this,require("oMfpAn"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"oMfpAn":19}],90:[function(require,module,exports){
+},{"oMfpAn":23}],94:[function(require,module,exports){
 var inserted = exports.cache = {}
 
 exports.insert = function (css) {
@@ -34471,4 +34605,4 @@ exports.insert = function (css) {
   return elem
 }
 
-},{}]},{},[10])
+},{}]},{},[14])

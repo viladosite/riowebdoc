@@ -18,9 +18,18 @@
 			},
 			'/janela/:id': {
 				on: function (id) {
+					console.log(id)
 					var exec = function() {
-						if (id = 'card') {
+						if (id === 'card') {
 							app.$refs.view.janela = 'janela-card'
+						} else if (id === 'projeto') {
+							app.$refs.view.janela = 'janela-projeto'
+						} else if (id === 'realizacao') {
+							app.$refs.view.janela = 'janela-realizacao'
+						} else if (id === 'contato') {
+							app.$refs.view.janela = 'janela-contato'
+						} else if (id ==='equipe') {
+							app.$refs.view.janela = 'janela-equipe'
 						} else {
 							router.notfound()
 						}

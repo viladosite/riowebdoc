@@ -33,11 +33,11 @@
 				<!-- Construção dos ícones indicativos no menu -->
 				<nav class="mdl-navigation">
 			    
-				<a class="mdl-navigation__link" href="">PROJETO</a>
-				<a class="mdl-navigation__link" href="">REALIZAÇÃO</a>
-				<a class="mdl-navigation__link" href="">EQUIPE</a>
-				<a class="mdl-navigation__link" href="">CONTATO</a>
-				<a class="mdl-navigation__link" href="">BLOG</a>
+				<a class="mdl-navigation__link" href="/#/home/janela/projeto">PROJETO</a>
+				<a class="mdl-navigation__link" href="/#/home/janela/realizacao">REALIZAÇÃO</a>
+				<a class="mdl-navigation__link" href="/#/home/janela/equipe">EQUIPE</a>
+				<a class="mdl-navigation__link" href="/#/home/janela/contato">CONTATO</a>
+				<!-- <a class="mdl-navigation__link" href="">BLOG</a> -->
 
 				</nav>
 			</div>
@@ -249,9 +249,6 @@
       filterNave: function(nome) {
       	this.$broadcast('filter', nome)
       },
-      createWebcard: function() {
-      	this.janela = 'janela-card'
-      },
       closeJanela: function() {
       	window.location.hash = '/home'
       }
@@ -318,7 +315,11 @@
 		},
 		components: {
 			'media-cloud': require('../components/media-cloud.vue'),
-			'janela-card': require('../components/janela-card.vue')
+			'janela-card': require('../components/janela-card.vue'),
+			'janela-projeto': require('../components/janela-projeto.vue'),
+			'janela-realizacao': require('../components/janela-realizacao.vue'),
+			'janela-contato': require('../components/janela-contato.vue'),
+			'janela-equipe': require('../components/janela-equipe.vue')
 		},
 		filters: {
       marked: function(value) {
