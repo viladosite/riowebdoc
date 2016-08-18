@@ -13,7 +13,7 @@
 <template>
 	<div class=" mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
-    <header class=" mdl-layout__header mdl-layout__header--transparent">
+    <header class="rwd_header mdl-layout__header ">
 			<div class="mdl-layout__header-row">
 
 				<!-- Class destinada a dar um espaçamento grande -->
@@ -22,9 +22,13 @@
 				<!-- Construção dos ícones indicativos no menu -->
 				<nav class="mdl-navigation">
 
-			    <a class="mdl-navigation__link" href="#janela1" rel="modal">
-						<div id= "icon1" class="material-icons" >contact_mail</div>
-					</a>
+				<a class="mdl-navigation__link" href="">PROJETO</a>
+				<a class="mdl-navigation__link" href="">REALIZAÇÃO</a>
+				<a class="mdl-navigation__link" href="">EQUIPE</a>
+				<a class="mdl-navigation__link" href="">CONTATO</a>
+				<a class="mdl-navigation__link" href="">BLOG</a>
+
+			    
 		      	<div class="mdl-tooltip mdl-tooltip--large" for="icon1">
 						Envie um Webcard
 				</div>
@@ -39,7 +43,7 @@
     	<div id="content">
     		
     		<div id="logo" class="logo">
-    			<img src="images/logo.png">
+    			<img src="images/logo.png" class="logoimg">
     		</div>
 
 
@@ -59,6 +63,13 @@
 		  			<div style="clear: both"></div>
 		  		</div>
 		  	</div>
+
+		  	<div id="selo" class="selo">
+		  		<a class="mdl-navigation__link" href="#janela1" rel="modal">
+						
+						<img src="images/selo.png" class="seloimg" id= "icon1">
+				</a>	
+    		</div>
 
 		  	<media-cloud :naves="naves" user.sync="user"></media-cloud>
 

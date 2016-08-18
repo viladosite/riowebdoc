@@ -35,14 +35,15 @@ body{
 
 /* Utilizada na div de pins de localização */
 .markers {
-    width: 80%;
+    width: 60%;
     float: left;
     position: relative;
+    margin-left: 3%;
 }
 
 /* Utilizada na div de pins de localização */
 .logo {
-    width: 20%;
+    width: 15%;
     text-align: center;
     float: left;
     position: relative;
@@ -53,6 +54,35 @@ body{
     }
 }
 
+/* tratamento da imagem do logo */
+.logoimg{
+    height: 100px;
+}
+
+/* div que comporta o link do selo */
+div#selo {
+    width: 15%;
+    display: inline-block;
+    text-align: right;
+    }
+
+/* imagem do selo */
+.seloimg{
+    height: 100px;
+}    
+
+/* proporção do header */
+.rwd_header{
+    background-color: #111013;
+    min-height: 35px;
+}
+.mdl-layout__header-row {
+    height: 25px;
+}
+
+div#content{
+    margin-top: 30px;
+}
 
 
 /* Utilizada no rodapé */
