@@ -18,12 +18,12 @@
       z-index: 2;
       transition: transform .3s, left $time linear, top $time linear;
       .mdl-card {
-        transition: box-shadow $time linear, height $time linear, width $time linear, transform 1s, padding $time linear;
+        transition: box-shadow $time linear, height $time linear, min-height $time linear, width $time linear, transform .5s, padding $time linear;
       }
       .mdl-card__title {
         height: 95%;
         width: 97%;
-        transition: opacity .6s, height $time linear, width $time linear;
+        transition: opacity .6s, height $time linear, min-height $time linear, width $time linear;
       }
       .front {
         padding: 6px;
@@ -33,10 +33,11 @@
       z-index: 6 !important;
       transition: transform .3s, left $time*2, top $time*2;
       perspective: 500px;
+      cursor: default;
       .mdl-card__title {
         height: 98%;
         width: 98.8%;
-        transition: opacity .6s, height $time*2, width $time*2;
+        transition: opacity .6s, height $time*2, min-height $time*2 linear, width $time*2;
         &.player {
           z-index: 5;
           padding: 30px;
@@ -54,7 +55,7 @@
         }
       }
       .mdl-card {
-        transition: box-shadow $time*2, height $time*2, width $time*2, transform 1s, padding $time*2;
+        transition: box-shadow $time*2, height $time*2, min-height $time*2 linear, width $time*2, transform 1s, padding $time*2;
       }
     }
     &.filtered {
@@ -92,8 +93,20 @@
       transform-style: preserve-3d; 
     }
     .mdl-button {
-      &:hover {
+      &:hover, &:focus {
         background: transparent;
+      }
+    }
+    .assistido {
+      height: 100%;
+      width: 100%;
+      background: rgba(0,0,0,.5);
+      position: absolute;
+      z-index: 5;
+    }
+    .votado {
+      .material-icons {
+        color: red !important;
       }
     }
   }
@@ -102,6 +115,7 @@
 <template>
 
   <div :style="[{height: media.height+'px'},{'min-height': media.height+'px'},{width: media.width+'px'},{left: filter_offset + w_loop + x_offset + offset + media.x+'px'},{top: y_offset +  media.y+'px'}]" class="media_card" :id="media.id" @mouseover="mouseOver" @mouseout="mouseOut">
+    <div v-if="assistido && !hover && !on" class="assistido" transition="fade"></div>
     <div :id="media.id+'-front'" class="demo-card-wide mdl-card mdl-shadow--{{sw}}dp front" style=""  :style="[{height: h_offset + media.height+'px'},{'min-height': h_offset + media.height+'px'},{width: w_offset + media.width+'px'}]">
       <div :id="media.id+'-player'" class="mdl-card__title player"></div>
       <div v-for="img in media.imgs" class="mdl-card__title" :style="[{background: 'url('+img+') center / cover'}, {'z-index': media.imgs.length - $index}]" :id="$index+'-img-'+media.id">
@@ -112,6 +126,10 @@
         </button>
       </div>
       <div class="mdl-card__menu" v-if="on" transition="fade">
+        <span v-if="playing !== null">{{votos}}</span>
+        <button v-if="playing !== null" :id="media.id+'-voto'" :class="{votado: votado}" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" @click="votar">
+          <i class="material-icons">thumb_up</i>
+        </button>
         <a :id="media.id+'-front-map'" :href="media.mapa" target="_blank" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
           <i class="material-icons">room</i>
         </a>
@@ -166,7 +184,10 @@
         img_now: 0,
         button: false,
         hover: false,
-        on: false
+        on: false,
+        assistido: false,
+        votado: false,
+        votos: 0
       }
     },
     watch: {
@@ -219,7 +240,6 @@
           this.hover = false
           this.on = false
           this.sw = this.media.shadow
-          this.iframe.stopVideo()
         }
       },
       filter: function(val, oldVal) {
@@ -332,9 +352,13 @@
             'onStateChange': this.videoFim
           }
         })
+        document.cookie = "ass-"+this.media.id+"=true"
+        this.$dispatch('assistido', this.media.id)
+        this.assistido = true
       },
       closeMedia: function() {
         this.playing = null
+        this.iframe.destroy()
       },
       playVideo: function(event) {
         event.target.playVideo()
@@ -343,15 +367,33 @@
         var self = this
         if (event.data == YT.PlayerState.ENDED) {
           self.playing = null
+          self.iframe.destroy()
+        }
+      },
+      votar: function(event) {
+        if (this.votado) {
+          this.$dispatch('des-votado', this.media.id)
+          document.cookie = "voto-"+this.media.id+"=false"
+          this.votado = false
+          this.votos = this.votos - 1
+        } else {
+          this.$dispatch('votado', this.media.id)
+          document.cookie = "voto-"+this.media.id+"=true"
+          this.votado = true
+          this.votos = this.votos + 1
         }
       }
-    },
-    computed: {
-      
     },
     created: function () {
       this.interval = parseInt((Math.random() * 10000)+3000)
       this.sw = this.media.shadow
+      this.votos = this.media.votes.length
+      if(this.media.assistido) {
+        this.assistido = true
+      }
+      if(this.media.votado) {
+        this.votado = true
+      }
       var self = this
 
       var playlistUrl = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + this.media.video + '&key=AIzaSyCwNv14d5bNQ4MwaodqT6z45-6A5y4kzus'

@@ -91,7 +91,7 @@
 		  		</div>
 		  	</div>
 
-		  	<media-cloud :naves="naves" user="user" :filter.sync="filter"></media-cloud>
+		  	<media-cloud :naves="naves" :user.sync="user" :filter.sync="filter"></media-cloud>
 
     	</div>
     
@@ -137,12 +137,14 @@
 <script>
 	var $$$ = require('jquery')
 	var marked = require('marked')
+	var io = require('socket.io-client')
 	module.exports = {
 		replace: true,
 		props: ['naves'],
 		data: function(){
 			return {
 				webcard: {
+					nave_videos: null,
 					videoA: null,
 					videoB: null,
 					videoC: null,
@@ -208,6 +210,26 @@
 		},
 		attached: function () {
 			componentHandler.upgradeDom()
+
+			var socket = io.connect('http://aovivonaweb.tv:1620')
+
+      this.$on('assistido', function(id) {
+        this.user.assistidos.push(id)
+      })
+
+      this.$on('votado', function(id) {
+        this.user.votos.push(id)
+        socket.emit('voto', id)
+      })
+
+      this.$on('des-votado', function(id) {
+        this.user.votos.push(id)
+        socket.emit('des-voto', id)
+      })
+
+      socket.on('resp', function(data) {
+      	console.log(data)
+      })
 		},
 		components: {
 			'media-cloud': require('../components/media-cloud.vue')
