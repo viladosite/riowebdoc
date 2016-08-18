@@ -607,23 +607,16 @@ module.exports = {
       var self = this;
       var width = $$$(window).width();
       var range = d3.scaleLinear().domain([0, width]).range([0, 2]);
-      var interval = -(range(event.clientX) - 1);
-      if (interval > -0.2 && interval < 0.2) {
-        self.interval = 0;
-      } else {
-        self.interval = -(range(event.clientX) - 1);
-      }
-    },
-    mouseOut: function mouseOut(event) {
-      this.interval = 0;
+      var interval = Math.abs(range(event.clientX) - 1);
+      this.interval = interval * 50;
     },
     onWheel: function onWheel(event) {
       var offset = 25;
       if (this.playing === null && this.filter === '') {
         if (event.wheelDelta > 0) {
-          this.offset = this.offset + offset;
+          this.offset = this.offset + offset + this.interval;
         } else {
-          this.offset = this.offset - offset;
+          this.offset = this.offset - offset - this.interval;
         }
       }
     }
@@ -683,7 +676,7 @@ module.exports = {
     }
   }
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\n  <div id=\"media_cloud\" class=\"mdl-grid\" style=\"padding: 0; overflow: hidden\" @wheel=\"onWheel\" @mouseout=\"mouseOut\">\n    <div class=\"rwd_content mdl-cell mdl-cell--12-col\" style=\"margin: 0; width: 100%; perspective: 800px;\">\n\n      <in-media v-for=\"media in medias\" transition=\"fade\" :media=\"media\" :offset.sync=\"offset\" :height=\"height\" :width=\"width\" :playing.sync=\"playing\"></in-media>\n      <div v-if=\"playing !== null\" style=\"width: 100%; height: 100%; background: rgba(0,0,0,.7); z-index: 5; position: absolute; left: 0; top: 0;\"></div>\n<!--       <div v-for=\"areas in naves\" :style=\"[{width: width / naves.length + 'px'}, {'background-color': 'rgb('+($index+10)*10 +','+($index+10)*10 +','+($index+10)*10+')'}, {left: (((width / naves.length) * $index) + offset) +'px'}]\" style=\"position: absolute; height: 100%; z-index: 0;\">{{$index}}</div>\n      <div v-for=\"f in found\" :style=\"[{width: f.matrix[1][0] - f.matrix[0][0] + 'px'}, {height: f.matrix[1][1] - f.matrix[0][1] + 'px'}, {top: f.matrix[0][1] + 'px'}, {left: (f.matrix[0][0] + offset) + 'px'}, {'background-color': f.color}]\" style=\"z-index: 2; position: absolute;\">{{$index}}</div> -->\n\n    </div>  \n  </div>  \n\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\n  <div id=\"media_cloud\" class=\"mdl-grid\" style=\"padding: 0; overflow: hidden\" @wheel=\"onWheel\" @mousemove=\"mouseMove\">\n    <div class=\"rwd_content mdl-cell mdl-cell--12-col\" style=\"margin: 0; width: 100%; perspective: 800px;\">\n\n      <in-media v-for=\"media in medias\" transition=\"fade\" :media=\"media\" :offset.sync=\"offset\" :height=\"height\" :width=\"width\" :playing.sync=\"playing\"></in-media>\n      <div v-if=\"playing !== null\" style=\"width: 100%; height: 100%; background: rgba(0,0,0,.7); z-index: 5; position: absolute; left: 0; top: 0;\"></div>\n<!--       <div v-for=\"areas in naves\" :style=\"[{width: width / naves.length + 'px'}, {'background-color': 'rgb('+($index+10)*10 +','+($index+10)*10 +','+($index+10)*10+')'}, {left: (((width / naves.length) * $index) + offset) +'px'}]\" style=\"position: absolute; height: 100%; z-index: 0;\">{{$index}}</div>\n      <div v-for=\"f in found\" :style=\"[{width: f.matrix[1][0] - f.matrix[0][0] + 'px'}, {height: f.matrix[1][1] - f.matrix[0][1] + 'px'}, {top: f.matrix[0][1] + 'px'}, {left: (f.matrix[0][0] + offset) + 'px'}, {'background-color': f.color}]\" style=\"z-index: 2; position: absolute;\">{{$index}}</div> -->\n\n    </div>  \n  </div>  \n\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
