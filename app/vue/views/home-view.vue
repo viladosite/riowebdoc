@@ -12,6 +12,13 @@
 	#navegacao {
 		padding-top: 30px;
 	}
+	.fade2-transition {
+		transition: opacity .4s ease;
+		opacity: 1;
+	}
+	.fade2-enter, .fade2-leave {
+		opacity: 0;
+	}
 </style>
 
 <template>
@@ -25,7 +32,6 @@
 
 				<!-- Construção dos ícones indicativos no menu -->
 				<nav class="mdl-navigation">
-
 			    
 				<a class="mdl-navigation__link" href="">PROJETO</a>
 				<a class="mdl-navigation__link" href="">REALIZAÇÃO</a>
@@ -63,7 +69,7 @@
 			  	</div>
 
 			  	<div id="selo" class="selo">
-			  		<a class="mdl-navigation__link" href="#janela1" rel="modal">
+			  		<a class="mdl-navigation__link" href="/#/home/janela/card" rel="modal">
 							
 							<img src="images/selo.png" class="seloimg" id= "icon1">
 					  </a>	
@@ -71,7 +77,7 @@
     		</div>
     		
 
-		  	<media-cloud :naves="naves" user.sync="user" :filter.sync="filter"></media-cloud>
+		  	<media-cloud :naves="naves" :user.sync="user" :filter.sync="filter"></media-cloud>
 
     	</div>
     
@@ -170,11 +176,13 @@
 </main>
     
 
-	  <div class="window" id="janela1">
-	    <a href="#" class="fechar"> <img src="images/icon_close.png" width="35px" height="35px" /> </a>
-	    
+	  <div v-if="janela !== null" transition="fade2" class="window" id="janela1">
+	    <a href="/#/home" class="fechar" > <img src="images/icon_close.png" width="35px" height="35px" /> </a>
+	    <div id="janela2" name="janela2">
+	    	<div :is="janela" :janela.sync="janela" :webcard="webcard" :naves="naves" v-ref:janela></div>
+		</div>
 	  </div>
-	  <div id="mascara"></div> 
+	  <div v-if="janela !== null" transition="fade2" id="mascara" @click="closeJanela"></div> 
 
 	</div>
 </template>
@@ -182,23 +190,25 @@
 <script>
 	var $$$ = require('jquery')
 	var marked = require('marked')
+	var io = require('socket.io-client')
 	module.exports = {
 		replace: true,
 		props: ['naves'],
 		data: function(){
 			return {
 				webcard: {
-					videoA: null,
-					videoB: null,
-					videoC: null,
-					email_criador: null,
-					email_enviado: null,
-					menssagem: null
+					nave_nome: null,
+					nave_videos: null,
+					videos: [],
+					email_criador: '',
+					email_enviado: '',
+					menssagem: ''
 				},
 				user: {
 					votos: [],
 					assistidos: []
-				}
+				},
+				janela: null
 			}
 		},
 		methods: {
@@ -238,6 +248,12 @@
       },
       filterNave: function(nome) {
       	this.$broadcast('filter', nome)
+      },
+      createWebcard: function() {
+      	this.janela = 'janela-card'
+      },
+      closeJanela: function() {
+      	window.location.hash = '/home'
       }
 		},
 		computed: {
@@ -253,9 +269,56 @@
 		},
 		attached: function () {
 			componentHandler.upgradeDom()
+
+			var socket = io.connect('http://aovivonaweb.tv:1620')
+
+      this.$on('assistido', function(id) {
+        this.user.assistidos.push(id)
+      })
+
+      this.$on('votado', function(id) {
+        this.user.votos.push(id)
+        socket.emit('voto', id)
+      })
+
+      this.$on('des-votado', function(id) {
+        this.user.votos.push(id)
+        socket.emit('des-voto', id)
+      })
+
+      this.$on('send-card', function() {
+      	var w = {
+					nave_nome: this.webcard.nave_nome,
+					nave_videos: this.webcard.nave_videos,
+					videos: this.webcard.videos,
+					email_criador: this.webcard.email_criador,
+					email_enviado: this.webcard.email_enviado,
+					menssagem: this.webcard.menssagem
+				}
+        socket.emit('send-card', JSON.stringify(w))
+        this.$broadcast('card-sent')
+        this.webcard = {
+					nave_nome: null,
+					nave_videos: null,
+					videos: [],
+					email_criador: '',
+					email_enviado: '',
+					menssagem: ''
+				}
+      })
+
+      this.$on('fechar-janela', function() {
+      	this.closeJanela()
+      })
+
+      socket.on('resp', function(data) {
+      	console.log(data)
+      })
+
 		},
 		components: {
-			'media-cloud': require('../components/media-cloud.vue')
+			'media-cloud': require('../components/media-cloud.vue'),
+			'janela-card': require('../components/janela-card.vue')
 		},
 		filters: {
       marked: function(value) {

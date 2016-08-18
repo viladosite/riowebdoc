@@ -473,6 +473,10 @@
           } else {
             m.shadow = 2
           }
+
+          m.assistido = _.contains(this.user.assistidos, this.naves[i].media[o].id)
+          m.votado = _.contains(this.user.votos, this.naves[i].media[o].id)
+
           m.x = 0
           m.y = 0
           this.media_cloud.push(m)

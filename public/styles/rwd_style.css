@@ -145,12 +145,11 @@ div#selo {
 
 /* janela modal */
 	.window{
-    display:none;
     width:55%;
     height:70%;
     position:absolute;
-    left:0;
-    top:0;
+    left:22.5%;
+    top:15%;
     background:#FFF;
     z-index:10000;
     padding:10px;
@@ -177,12 +176,13 @@ div#selo {
 
  
 #mascara{
-    display:none;
     position:absolute;
     left:0;
     top:0;
     z-index:9000;
-    background-color:#000;
+    background-color:rgba(0,0,0,.7);
+    width: 100%;
+    height: 100%;
 }
  
 .fechar{
@@ -234,7 +234,7 @@ div#selo {
     height: 25%!important;
     padding: 2%;
     margin: 2%;
-    background-color: #ff0000;
+    background-color: green;
     color: #fff;
     display: inline-block;
 }
