@@ -5,8 +5,9 @@ body{
 }
 
 /*cor de fundo das divs de conteudo */
-.rwd_local , .rwd_content{
-	
+.conteudo {
+   min-height:100%;
+   position:relative;
 }
 
 /* alinhar ao centro os icones de localização */
@@ -14,8 +15,12 @@ body{
     text-align: center;
 }
 
+.rwd_pintitle {
+    color: #666666;
+}
+
 /* Utilizada nas divs de pin de localização */
-.markerbox {
+.rwd_pinbox {
     display: inline-block;
     position: relative;
     text-align: center;
@@ -23,18 +28,8 @@ body{
     margin-right: 10px;
 }
 
-/* Utilizada nos nomes de pin de localização */
-.markername {
-
-}
-
-/* Utilizada nos ícones de pin de localização */
-.markericon {
-
-}
-
 /* Utilizada na div de pins de localização */
-.markers {
+.rwd_pins {
     width: 60%;
     float: left;
     position: relative;
@@ -91,7 +86,7 @@ div#selo {
     height: 12%;
     padding-bottom: 20px;
     padding-top: 20px;
-    position: absolute;
+    position: relative;
     bottom: 0;
     background-image: url("../img/rodape_bg.jpg");
     display: flex;
@@ -242,6 +237,7 @@ div#selo {
 .rwd_p2{
     align:center;
 }
+
 
 /* tamanho da caixa de texto do passo2 */
 .mdl-textfield.mdl-js-textfield.rwd_txtmsg.is-upgraded {

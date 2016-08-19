@@ -41,7 +41,7 @@
 
 				</nav>
 			</div>
-		</header>
+	</header>
     
    
     <main class="mdl-layout__content">
@@ -54,14 +54,22 @@
 	    		</div>
 
 
-	    		<div id="markers" class="markers">
+	    		<div id="pins" class="rwd_pins">
 			  		<div class="rwd_local">
 			  			<span v-for="nave in naves">
 
-			  				<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--primary" :id="nave.headers.id" @click="filterNave(nave.headers.nome)">
-				    			<i class="material-icons mdl-badge"> room </i>
-				    		</button>
-								<div class="mdl-tooltip" :for="nave.headers.id"> {{nave.headers.nome}} </div>
+			  				<div class="rwd_pinbox">
+
+				  				<div>
+					  				<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--primary" :id="nave.headers.id" @click="filterNave(nave.headers.nome)">
+						    			<i class="material-icons mdl-badge"> room </i>
+						    		</button>
+									<div class="mdl-tooltip" :for="nave.headers.id"> {{nave.headers.nome}} </div>
+								</div>
+
+								<div class="rwd_pintitle" :for="nave.headers.id"> {{nave.headers.nome}} </div>
+
+							</div>
 								
 			  			</span>
 			  			<div style="clear: both"></div>
@@ -170,10 +178,13 @@
 				</div>
 
 			</div>
+	</main>
+
+<div class="clearboth"></div>
+
+</div>
 
 
-
-</main>
     
 
 	  <div v-if="janela !== null" transition="fade2" class="window" id="janela1">
