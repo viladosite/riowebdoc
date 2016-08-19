@@ -78,10 +78,12 @@
 
 			  	<div id="selo" class="selo">
 			  		<a class="mdl-navigation__link" href="/#/home/janela/card" rel="modal">
-							
-							<img src="images/selo.png" class="seloimg" id= "icon1">
-					  </a>	
+					<img src="images/selo.png" class="seloimg" id= "icon1">
+					</a>
 	    		</div>
+
+	    		<div class="mdl-tooltip mdl-tooltip--left" for="icon1"> Enviar um webcard </div>
+
     		</div>
     		
 
