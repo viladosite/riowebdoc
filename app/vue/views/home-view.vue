@@ -25,6 +25,7 @@
 	<div class=" mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
     <header class="rwd_header mdl-layout__header ">
+    	<div class="header_cover">
 			<div class="mdl-layout__header-row">
 
 				<!-- Class destinada a dar um espaçamento grande -->
@@ -41,6 +42,7 @@
 
 				</nav>
 			</div>
+		</div>	
 	</header>
     
    

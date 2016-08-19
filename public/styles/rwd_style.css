@@ -83,6 +83,10 @@ div#selo {
     height: 35px;
 }
 
+.header_cover{
+   background-image: url("../img/rodape_bg.jpg"); 
+}
+
 // div#content{
 //     margin-top: 30px;
 // }
