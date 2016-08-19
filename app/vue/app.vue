@@ -19,6 +19,7 @@
 	module.exports = {
 		el: '#app',
 		data: {
+			card: null,
 			className: '',
 			webcards: [],
 			naves: [],

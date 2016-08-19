@@ -15,52 +15,91 @@
 				Vue.nextTick(function () {
 					app.$data.view = 'home-view'
 				})
+			},
+			'/janela/:id': {
+				on: function (id) {
+					console.log(id)
+					var exec = function() {
+						if (id === 'card') {
+							app.$refs.view.janela = 'janela-card'
+						} else if (id === 'projeto') {
+							app.$refs.view.janela = 'janela-projeto'
+						} else if (id === 'realizacao') {
+							app.$refs.view.janela = 'janela-realizacao'
+						} else if (id === 'contato') {
+							app.$refs.view.janela = 'janela-contato'
+						} else if (id ==='equipe') {
+							app.$refs.view.janela = 'janela-equipe'
+						} else {
+							router.notfound()
+						}
+					}
+					if (app.$refs.view) {
+						exec()
+					} else {
+						app.$once('home-ready', function() {
+							exec()
+						})
+					}
+				},
+				after: function (id) {
+					app.$refs.view.janela = null
+				}
+			},
+			'/:id': {
+				on: function (id) {
+					var exec = function() {
+						var teste = _.findIndex(app.$refs.view.$children[0].$children, function(i) {
+							return i.media.id === id
+						})
+						if (teste === -1) {
+							router.notfound()
+						} else {
+							app.$refs.view.$children[0].$children[teste].hover = true
+							app.$refs.view.$children[0].$children[teste].on = true
+							app.$refs.view.$children[0].$children[teste].playThis()
+						}
+					}
+					if (app.$refs.view) {
+						exec()
+					} else {
+						app.$once('home-ready', function() {
+							exec()
+						})
+					}
+				},
+				after: function (id) {
+					app.$refs.view.$children[0].playing = null
+				}
 			}
 		},
-		'/:id': {
+		'/webcard/:id': {
 			on: function (id) {
-				// var ids = []
-				// for (var i = 0; i < app.$data.database.length; i++) {
-				// 	ids.push(app.$data.database[i].headers.id)
-				// }
-				// // console.log(ids)
-				// var validation = _.indexOf(ids, id)
+				var ids = []
+				for (var i = 0; i < app.$data.webcards.length; i++) {
+					ids.push(app.$data.webcards[i].id)
+				}
+				// console.log(ids)
+				var validation = _.indexOf(ids, id)
 
-				// var self = this
-				// var last_route = app.$data.params.route
-				// var cur_route = app.$data.params.route = self.getRoute()
+				var self = this
 
-				// if (app.$data.view === 'video-view' && app.$data.params.video === id && validation !== -1) {
-				// 	ga('send', 'event', 'EventoInfo', 'close', id + '::info-' + last_route)
-					
-				// 	// conditions
-				// 	var last_is_info = last_route.length > 1 && last_route[1] == 'info';
-				// 	var current_is_info = cur_route.length > 1 && cur_route[1] == 'info';
+				if (validation !== -1) {
 
-				// 	if(last_is_info && !current_is_info){
-				// 		app.$refs.view.infoClose()
-				// 	}
+					app.$data.view = ''
 
-				// 	return // prevent transition on the same id
+					Vue.nextTick(function () {
+						// console.log('video-view')
+						ga('send', 'pageview', '/webcard/'+id)
+						app.$data.view = 'card-view'
+						app.$data.className = 'is-card'
+						app.$data.card = app.$data.webcards[validation]
+					})
 
-				// } else if(validation === -1){
-				// 	console.log('not-found')
-				// 	router.notfound()
-				// }
-
-				// // force transition
-
-				// app.$data.view = ''
-
-				// Vue.nextTick(function () {
-				// 	// console.log('video-view')
-				// 	ga('send', 'pageview', '/'+id)
-				// 	app.$data.home = false
-				// 	app.$data.db = app.$data.database[validation]
-				// 	app.$data.view = 'video-view'
-				// 	app.$data.params.video = id
-				// 	app.$data.className = 'is-video'
-				// })
+				} else if(validation === -1){
+					console.log('not-found')
+					router.notfound()
+				}
 				
 			}
 		}
@@ -149,7 +188,9 @@
 	var getWebcards = function (webcards) {
 		Trello.get("/lists/"+webcards[0].id+"/cards", function(hip) {
 			for (var i = 0; i < hip.length; i++) {
-				app.$data.webcards.push(getData(hip[i].desc))
+				var card = getData(hip[i].desc)
+				card.id = hip[i].id
+				app.$data.webcards.push(card)
 			}
 		})
 	}

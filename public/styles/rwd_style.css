@@ -1,12 +1,19 @@
-/*cor de fundo */
+/* inserção da fonte treta */
+@font-face{
+    font-family: 'treta';
+    src: url("../font/treta_.ttf");
+}
+
+
+/* Definições do body */
 body{
     height:100%;
 	background: url("../img/background_rwd_novo.jpg") center/cover;
 }
 
-/*cor de fundo das divs de conteudo */
-.rwd_local , .rwd_content{
-	
+.rwd_conteudo {
+    height: 100%;
+    position: relative;
 }
 
 /* alinhar ao centro os icones de localização */
@@ -14,8 +21,13 @@ body{
     text-align: center;
 }
 
+.rwd_pintitle {
+    color: #666666;
+    font-family: 'treta',sans-serif;
+}
+
 /* Utilizada nas divs de pin de localização */
-.markerbox {
+.rwd_pinbox {
     display: inline-block;
     position: relative;
     text-align: center;
@@ -23,28 +35,19 @@ body{
     margin-right: 10px;
 }
 
-/* Utilizada nos nomes de pin de localização */
-.markername {
-
-}
-
-/* Utilizada nos ícones de pin de localização */
-.markericon {
-
-}
-
 /* Utilizada na div de pins de localização */
-.markers {
+.rwd_pins {
     width: 60%;
     float: left;
     position: relative;
-    margin-left: 3%;
+    margin-left: 30px;
 }
 
 /* Utilizada na div de pins de localização */
 .logo {
     width: 15%;
     text-align: center;
+    margin-left: 30px;
     float: left;
     position: relative;
 }
@@ -60,7 +63,7 @@ body{
 }
 
 /* div que comporta o link do selo */
-div#selo {
+.selo {
     width: 15%;
     display: inline-block;
     text-align: right;
@@ -77,12 +80,19 @@ div#selo {
     min-height: 35px;
 }
 .mdl-layout__header-row {
-    height: 25px;
+    height: 35px;
 }
 
-// div#content{
-//     margin-top: 30px;
-// }
+.header_cover{
+   background-image: url("../img/rodape_bg.jpg"); 
+}
+
+
+.rwd_cloud {
+    position: relative;
+    clear: left;
+    height: auto;
+}
 
 
 /* Utilizada no rodapé */
@@ -145,12 +155,11 @@ div#selo {
 
 /* janela modal */
 	.window{
-    display:none;
     width:55%;
     height:70%;
     position:absolute;
-    left:0;
-    top:0;
+    left:22.5%;
+    top:15%;
     background:#FFF;
     z-index:10000;
     padding:10px;
@@ -177,12 +186,13 @@ div#selo {
 
  
 #mascara{
-    display:none;
     position:absolute;
     left:0;
     top:0;
     z-index:9000;
-    background-color:#000;
+    background-color:rgba(0,0,0,.7);
+    width: 100%;
+    height: 100%;
 }
  
 .fechar{
@@ -234,7 +244,7 @@ div#selo {
     height: 25%!important;
     padding: 2%;
     margin: 2%;
-    background-color: #ff0000;
+    background-color: green;
     color: #fff;
     display: inline-block;
 }
@@ -242,6 +252,7 @@ div#selo {
 .rwd_p2{
     align:center;
 }
+
 
 /* tamanho da caixa de texto do passo2 */
 .mdl-textfield.mdl-js-textfield.rwd_txtmsg.is-upgraded {

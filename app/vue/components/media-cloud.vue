@@ -4,7 +4,7 @@
 
 <template>
 
-  <div id="media_cloud" class="mdl-grid" style="padding: 0; overflow: hidden" @wheel="onWheel" @mouseout="mouseOut">
+  <div id="media_cloud" class="mdl-grid" style="padding: 0; overflow: hidden" @wheel="onWheel" @mousemove="mouseMove">
     <div class="rwd_content mdl-cell mdl-cell--12-col" style="margin: 0; width: 100%; perspective: 800px;">
 
       <in-media v-for="media in medias" transition="fade" :media="media" :offset.sync="offset" :height="height" :width="width" :playing.sync="playing"></in-media>
@@ -436,23 +436,16 @@
         var range = d3.scaleLinear()
                       .domain([0, width])
                       .range([0, 2])
-        var interval = -(range(event.clientX) - 1)
-        if (interval > -0.2 && interval < 0.2) {
-          self.interval = 0
-        } else {
-          self.interval = -(range(event.clientX) - 1)
-        }
-      },
-      mouseOut: function (event) {
-        this.interval = 0
+        var interval = Math.abs(range(event.clientX) - 1)
+        this.interval = interval*50
       },
       onWheel: function (event) {
         var offset = 25
         if (this.playing === null && this.filter === '') {
           if (event.wheelDelta > 0) {
-            this.offset = this.offset + offset
+            this.offset = this.offset + offset + this.interval
           } else {
-            this.offset = this.offset - offset
+            this.offset = this.offset - offset - this.interval
           }
         }
       }
@@ -473,6 +466,10 @@
           } else {
             m.shadow = 2
           }
+
+          m.assistido = _.contains(this.user.assistidos, this.naves[i].media[o].id)
+          m.votado = _.contains(this.user.votos, this.naves[i].media[o].id)
+
           m.x = 0
           m.y = 0
           this.media_cloud.push(m)
