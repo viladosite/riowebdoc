@@ -1,3 +1,10 @@
+/* inserção da fonte treta */
+@font-face{
+    font-family: 'treta';
+    src: url("../font/treta_.ttf");
+}
+
+
 /*cor de fundo */
 body{
     height:100%;
@@ -17,6 +24,7 @@ body{
 
 .rwd_pintitle {
     color: #666666;
+    font-family: 'treta',sans-serif;
 }
 
 /* Utilizada nas divs de pin de localização */
@@ -72,7 +80,7 @@ div#selo {
     min-height: 35px;
 }
 .mdl-layout__header-row {
-    height: 25px;
+    height: 35px;
 }
 
 // div#content{
