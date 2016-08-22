@@ -84,7 +84,7 @@
         event.target.playVideo()
       },
       loadVideo: function(event) {
-        this.done = false
+        this.done = true
         if (this.index === 2) {
           this.index = 0
         } else {
@@ -99,7 +99,8 @@
       videoFim: function(event) {
         var self = this
         if (event.data == YT.PlayerState.PLAYING && this.done) {
-          setTimeout(self.loadVideo, 10000);
+          setTimeout(self.loadVideo, 10000)
+          this.done = false
         } else if (event.data == YT.PlayerState.ENDED) {
           this.loadVideo()
         }

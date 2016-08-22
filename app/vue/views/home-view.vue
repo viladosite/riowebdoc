@@ -300,6 +300,7 @@
 			componentHandler.upgradeDom()
 
 			var socket = io.connect('http://aovivonaweb.tv:1620')
+			var self = this
 
       this.$on('assistido', function(id) {
         this.user.assistidos.push(id)
@@ -325,7 +326,6 @@
 					menssagem: this.webcard.menssagem
 				}
         socket.emit('send-card', JSON.stringify(w))
-        this.$broadcast('card-sent')
         this.webcard = {
 					nave_nome: null,
 					nave_videos: null,
@@ -342,6 +342,12 @@
 
       socket.on('resp', function(data) {
       	console.log(data)
+      	var desc = JSON.parse(data.desc)
+      	if (data.idList === "5797d3393ae93636227efd5f") {
+      		self.$broadcast('card-sent')
+      		emailjs.send("gmail","webcard_envio",{id: data.id, to_email: desc.email_criador});
+      		emailjs.send("gmail","webcard_recebido",{id: data.id, from_email: desc.email_criador, to_email: desc.email_enviado});
+      	}
       })
 
 		},
