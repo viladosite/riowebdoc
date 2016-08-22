@@ -468,18 +468,18 @@ module.exports = {
     },
     scanArea: function (matrix_area, a, ar) {
       var espacos = []
-      // console.log(matrix_area)
+      console.log(matrix_area)
       var in_area = _.filter(ar, function (o) { 
         return o.matrix[0][0] > matrix_area[0][0] 
             && o.matrix[0][0] < matrix_area[1][0] + a.size.width 
             || o.matrix[1][0] > matrix_area[0][0] 
             && o.matrix[1][0] < matrix_area[1][0] })
-      // console.log(in_area)
+      console.log(in_area)
       if (in_area.length === 0) {
         espacos.push([[matrix_area[0][0], matrix_area[0][1]],
                       [matrix_area[1][0], matrix_area[1][1] - a.size.height]])
-        // console.log(espacos)
-        // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0], matrix_area[0][1]],[matrix_area[1][0], matrix_area[1][1] - a.size.height]]})
+        console.log(espacos)
+        this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0], matrix_area[0][1]],[matrix_area[1][0], matrix_area[1][1] - a.size.height]]})
       } else {
         var this_area = _.filter(in_area, function (o) { 
           return o.matrix[0][1] > matrix_area[0][1] 
@@ -489,27 +489,29 @@ module.exports = {
         if (this_area.length === 0) {
           espacos.push([[matrix_area[0][0], matrix_area[0][1]],
                         [matrix_area[1][0], matrix_area[1][1] - a.size.height]])
-          // console.log(espacos)
-          // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0], matrix_area[0][1]],[matrix_area[1][0], matrix_area[1][1] - a.size.height]]})
+          console.log(espacos)
+          this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0], matrix_area[0][1]],[matrix_area[1][0], matrix_area[1][1] - a.size.height]]})
         } else {
           var min_y = _.min(this_area, function(min_y) {
             return min_y.matrix[0][1]
           })
           if (min_y.matrix[0][1] - matrix_area[0][1] > a.size.height) {
-            // console.log('tem espaço em cima')
+            console.log('tem espaço em cima')
             espacos.push([matrix_area[0],
                          [matrix_area[1][0],min_y.matrix[0][1]-a.size.height]])
-            // console.log(espacos)
-            // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [matrix_area[0],[matrix_area[1][0],min_y.matrix[0][1]-a.size.height]]})
+            console.log(espacos)
+            this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [matrix_area[0],[matrix_area[1][0],min_y.matrix[0][1]-a.size.height]]})
           } 
 
           if (min_y.matrix[0][0] - matrix_area[0][0] > a.size.width) {
-            // console.log('checando area a esquerda')
+            console.log('checando area a esquerda')
             var check_area_y = _.filter(this_area, function (o) { 
               return o.matrix[0][1] > matrix_area[0][1] 
                   && o.matrix[0][1] < min_y.matrix[1][1]
                   || o.matrix[1][1] > matrix_area[0][1] 
                   && o.matrix[1][1] < min_y.matrix[1][1]
+                  || o.matrix[0][1] < matrix_area[0][1] 
+                  && o.matrix[1][1] > min_y.matrix[1][1]
             })
             var check_area = _.filter(check_area_y, function (o) { 
               return o.matrix[0][0] > matrix_area[0][0] 
@@ -518,7 +520,7 @@ module.exports = {
                   && o.matrix[1][0] < min_y.matrix[0][0]
             })
             if (check_area.length === 0) {
-              // console.log('area a esquerda sem objetos')
+              console.log('area a esquerda sem objetos')
               var bot_area_y = _.filter(this_area, function (o) { 
                 return o.matrix[0][1] > min_y.matrix[1][1] 
                 && o.matrix[0][1] < min_y.matrix[1][1] + a.size.height})
@@ -531,17 +533,17 @@ module.exports = {
                     && o.matrix[1][0] > min_y.matrix[0][0]
               })
               if (bot_area.length === 0) {
-                // console.log('tem espaço na esquerda e sem impedimentos em baixo')
+                console.log('tem espaço na esquerda e sem impedimentos em baixo')
                 if (min_y.matrix[1][1] + a.size.height > matrix_area[1][1]) {
                   espacos.push([[matrix_area[0][0],matrix_area[0][1]],
                                 [min_y.matrix[0][0]-a.size.width,matrix_area[1][1] - a.size.height]])
-                  // console.log(espacos)
-                  // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,matrix_area[1][1] - a.size.height]]})
+                  console.log(espacos)
+                  this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,matrix_area[1][1] - a.size.height]]})
                 } else {
                   espacos.push([[matrix_area[0][0],matrix_area[0][1]],
                               [min_y.matrix[0][0]-a.size.width,min_y.matrix[1][1]]])
-                  // console.log(espacos)
-                  // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,min_y.matrix[1][1]]]})
+                  console.log(espacos)
+                  this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,min_y.matrix[1][1]]]})
                 }
                 
               } else {
@@ -550,16 +552,16 @@ module.exports = {
                 })
                 espacos.push([[matrix_area[0][0],matrix_area[0][1]],
                               [min_y.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]])
-                // console.log(espacos)
-                // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]]})
+                console.log(espacos)
+                this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]]})
               }
             } else {
-              // console.log('tem espaco entre os objetos ou acima?')
+              console.log('tem espaco entre os objetos ou acima?')
               var ob_esq = _.max(check_area, function(esq) {
                 return esq.matrix[1][0]
               })
               if (min_y.matrix[0][0] - ob_esq.matrix[1][0] > a.size.width) {
-                // console.log('tem entre!')
+                console.log('tem entre!')
                 var bot_area_y = _.filter(this_area, function (o) { 
                   return o.matrix[0][1] > ob_esq.matrix[1][1] 
                   && o.matrix[0][1] < ob_esq.matrix[1][1] + a.size.height })
@@ -572,42 +574,53 @@ module.exports = {
                   if (min_y.matrix[1][1] + a.size.height > matrix_area[1][1]) {
                     var down = matrix_area[1][1] - a.size.height
                   } else {
-                    var down = min_y.matrix[1][1] - a.size.height
+                    var down = min_y.matrix[1][1]
                   }
                   espacos.push([[ob_esq.matrix[1][0],matrix_area[0][1]],
                                 [min_y.matrix[0][0]-a.size.width,down]])
-                  // console.log(espacos)
-                  // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[ob_esq.matrix[1][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,down]]})
+                  console.log(espacos)
+                  this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[ob_esq.matrix[1][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,down]]})
                 } else {
                   var ss = _.min(bot_area, function(b) {
                     return b.matrix[0][1]
                   })
                   espacos.push([[ob_esq.matrix[1][0],matrix_area[0][1]],
                                 [min_y.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]])
-                  // console.log(espacos)
-                  // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[ob_esq.matrix[1][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]]})
+                  console.log(espacos)
+                  this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[ob_esq.matrix[1][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]]})
                 }
               } else {
-                // console.log('não cabe entre os objetos')
+                console.log('não cabe entre os objetos')
+              }
+
+              if (ob_esq.matrix[0][0] - matrix_area[0][0] > a.size.width) {
+                console.log('executar novo scan')
+                console.log(espacos)
+                var esqArea = [[matrix_area[0][0],matrix_area[1][1]],
+                                [min_y.matrix[1][0]-a.size.width,matrix_area[1][1]]]
+                var esqEspacos = this.scanArea(esqArea, a, ar)
+                console.log(esqEspacos)
+                espacos = espacos.concat(esqEspacos)
+                console.log(espacos)
               }
 
               var ob_esq_up = _.max(check_area, function(esq) {
                 return esq.matrix[1][0]
               })
               if (ob_esq_up.matrix[0][1] - matrix_area[0][1] > a.size.height) {
-                // console.log('tem acima!')
+                console.log('tem acima!')
                 espacos.push([[matrix_area[0][0],matrix_area[0][1]],
                               [min_y.matrix[0][0]-a.size.width,ob_esq_up.matrix[0][1]-a.size.height]])
-                // console.log(espacos)
-                // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,ob_esq_up.matrix[0][1]-a.size.height]]})
+                console.log(espacos)
+                this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,ob_esq_up.matrix[0][1]-a.size.height]]})
               } else {
-                // console.log('não cabe em acima')
+                console.log('não cabe em acima')
               }
             }
           } 
 
           if (matrix_area[1][0] - min_y.matrix[1][0] > 0) {
-            // console.log('checando area a direita')
+            console.log('checando area a direita')
             var check_area_y = _.filter(this_area, function (o) { 
               return o.matrix[0][1] > min_y.matrix[0][1] 
                   && o.matrix[0][1] < min_y.matrix[1][1] + a.size.height
@@ -619,7 +632,7 @@ module.exports = {
                   && o.matrix[0][0] < matrix_area[1][0] + a.size.width
             })
             if (check_area.length === 0) {
-              // console.log('area a direita sem objetos')
+              console.log('area a direita sem objetos')
               var bot_area_y = _.filter(this_area, function (o) { 
                 return o.matrix[0][1] > min_y.matrix[1][1] 
                     && o.matrix[0][1] < min_y.matrix[1][1] + a.size.height})
@@ -632,17 +645,17 @@ module.exports = {
                     && o.matrix[1][0] > matrix_area[1][0] + a.size.width
               })
               if (bot_area.length === 0) {
-                // console.log('tem espaço na direita e sem impedimentos em baixo')
+                console.log('tem espaço na direita e sem impedimentos em baixo')
                 if (min_y.matrix[1][1] + a.size.height > matrix_area[1][1]) {
                   espacos.push([[min_y.matrix[1][0],matrix_area[0][1]],
                                 [matrix_area[1][0],matrix_area[1][1] - a.size.height]])
-                  // console.log(espacos)
-                  // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[matrix_area[1][0],matrix_area[1][1] - a.size.height]]})
+                  console.log(espacos)
+                  this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[matrix_area[1][0],matrix_area[1][1] - a.size.height]]})
                 } else {
                   espacos.push([[min_y.matrix[1][0],matrix_area[0][1]],
                               [matrix_area[1][0],min_y.matrix[1][1]]])
-                  // console.log(espacos)
-                  // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[matrix_area[1][0],min_y.matrix[1][1]]]})
+                  console.log(espacos)
+                  this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[matrix_area[1][0],min_y.matrix[1][1]]]})
                 }
               } else {
                 var ss = _.min(bot_area, function(b) {
@@ -650,16 +663,16 @@ module.exports = {
                 })
                 espacos.push([[min_y.matrix[1][0],matrix_area[0][1]],
                               [matrix_area[1][0],ss.matrix[0][1]-a.size.height]])
-                // console.log(espacos)
-                // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[matrix_area[1][0],ss.matrix[0][1]-a.size.height]]})
+                console.log(espacos)
+                this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[matrix_area[1][0],ss.matrix[0][1]-a.size.height]]})
               }
             } else {
-              // console.log('tem espaco entre os objetos?')
+              console.log('tem espaco entre os objetos?')
               var ob_dir = _.min(check_area, function(esq) {
                 return esq.matrix[0][0]
               })
               if (ob_dir.matrix[0][0] - min_y.matrix[1][0] > a.size.width) {
-                // console.log('tem entre!')
+                console.log('tem entre!')
                 var bot_area_y = _.filter(this_area, function (o) { 
                   return o.matrix[0][1] > ob_dir.matrix[1][1] 
                   && o.matrix[0][1] < ob_dir.matrix[1][1] + a.size.height })
@@ -672,42 +685,53 @@ module.exports = {
                   if (min_y.matrix[1][1] + a.size.height > matrix_area[1][1]) {
                     var down = matrix_area[1][1] - a.size.height
                   } else {
-                    var down = min_y.matrix[1][1] - a.size.height
+                    var down = min_y.matrix[1][1]
                   }
                   espacos.push([[min_y.matrix[1][0],matrix_area[0][1]],
                                 [ob_dir.matrix[0][0]-a.size.width,down]])
-                  // console.log(espacos)
-                  // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[ob_dir.matrix[0][0]-a.size.width,down]]})
+                  console.log(espacos)
+                  this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[ob_dir.matrix[0][0]-a.size.width,down]]})
                 } else {
                   var ss = _.min(bot_area, function(b) {
                     return b.matrix[0][1]
                   })
                   espacos.push([[min_y.matrix[1][0],matrix_area[0][1]],
                                 [ob_dir.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]])
-                  // console.log(espacos)
-                  // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[ob_dir.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]]})
+                  console.log(espacos)
+                  this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[ob_dir.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]]})
                 }
               } else {
-                // console.log('não cabe entre os objetos')
+                console.log('não cabe entre os objetos')
+              }
+
+              if (ob_dir.matrix[1][0] - matrix_area[1][0] > a.size.width) {
+                console.log('executar novo scan')
+                console.log(espacos)
+                var dirArea = [[min_y.matrix[0][0],matrix_area[1][1]],
+                                [matrix_area[1][0],matrix_area[1][1]]]
+                var dirEspacos = this.scanArea(dirArea, a, ar)
+                console.log(dirEspacos)
+                espacos = espacos.concat(dirEspacos)
+                console.log(espacos)
               }
 
               var ob_dir_up = _.min(check_area, function(esq) {
                 return esq.matrix[0][1]
               })
               if (ob_dir_up.matrix[0][1] - matrix_area[0][1] > a.size.height) {
-                // console.log('tem acima!')
+                console.log('tem acima!')
                 espacos.push([[min_y.matrix[1][0],matrix_area[0][1]],
                               [matrix_area[1][0],ob_dir_up.matrix[0][1]-a.size.height]])
-                // console.log(espacos)
-                // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[matrix_area[1][0],ob_dir_up.matrix[0][1]-a.size.height]]})
+                console.log(espacos)
+                this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[matrix_area[1][0],ob_dir_up.matrix[0][1]-a.size.height]]})
               } else {
-                // console.log('não cabe em acima')
+                console.log('não cabe em acima')
               }
             }
           } 
 
           if (matrix_area[1][1] - min_y.matrix[1][1] > a.size.height) {
-            // console.log('scanear abaixo')
+            console.log('scanear abaixo')
             var area_baixo = _.filter(this_area, function (o) { 
               return o.matrix[0][1] > min_y.matrix[1][1] 
                   && o.matrix[0][1] < matrix_area[1][1] + a.size.height
@@ -716,17 +740,17 @@ module.exports = {
             if (area_baixo === 0) {
               espacos.push([[matrix_area[0][0],min_y.matrix[1][1]],
                             [matrix_area[1][0],matrix_area[1][1] - a.size.height]])
-              // console.log(espacos)
-              // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0],min_y.matrix[1][1]],[matrix_area[1][0],matrix_area[1][1] - a.size.height]]})
+              console.log(espacos)
+              this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0],min_y.matrix[1][1]],[matrix_area[1][0],matrix_area[1][1] - a.size.height]]})
             } else {
-              // console.log('executar novo scan')
-              // console.log(espacos)
+              console.log('executar novo scan')
+              console.log(espacos)
               var botArea = [[matrix_area[0][0],min_y.matrix[1][1]],
                               [matrix_area[1][0],matrix_area[1][1]]]
               var botEspacos = this.scanArea(botArea, a, ar)
-              // console.log(botEspacos)
+              console.log(botEspacos)
               espacos = espacos.concat(botEspacos)
-              // console.log(espacos)
+              console.log(espacos)
             }
 
           }
@@ -744,7 +768,7 @@ module.exports = {
       }
 
       var ar = this.media_cloud.slice(0, n)
-      // console.log(ar)
+      console.log(ar)
 
       var matrix_area = [
                           [((this.width/this.naves_array.length)*area)-(this.width/this.naves_array.length), 0 ],
@@ -753,17 +777,25 @@ module.exports = {
       var espacos = this.scanArea(matrix_area, a, ar)
 
       if (espacos.length === 0) {
-        // console.log('nenhum espaço achados')
+        console.log('nenhum espaço achados')
       } else {
-        // console.log('espaços achados')
-        // console.log(espacos)
-        // console.log('randomizar espaços')
+        console.log('espaços achados')
+        console.log(espacos)
+        console.log('randomizar espaços')
         if (espacos.length === 1) {
           var esp_rand = 0
         } else {
+          var rejected = _.filter(espacos, function(esp) {
+            return esp[1][0] - esp[0][0] < 10 || esp[1][1] - esp[0][1] < 10
+          })
+          console.log('rejected')
+          console.log(rejected)
+          espacos = _.reject(espacos, function(esp) {
+            return esp[1][0] - esp[0][0] < 10 || esp[1][1] - esp[0][1] < 10
+          })
           var esp_rand = parseInt(Math.random() * espacos.length)
         }
-        // console.log(esp_rand)
+        console.log(esp_rand)
         pos.x = Math.random() * (espacos[esp_rand][1][0] - espacos[esp_rand][0][0]) + espacos[esp_rand][0][0]
         pos.y = Math.random() * (espacos[esp_rand][1][1] - espacos[esp_rand][0][1]) + espacos[esp_rand][0][1]
         return pos
@@ -790,23 +822,23 @@ module.exports = {
       }
 
       if (n%2 == 0) {
-        // console.log('par')
+        console.log('par')
         a.pos = this.checkPos(a, n, 'par', area)
       } else {
-        // console.log('impar')
+        console.log('impar')
         a.pos = this.checkPos(a, n, 'impar', area)
       }
 
       if (a.pos == undefined && x < this.naves_array.length) {
         this.arrangeItens(n, x+1)
       } else if (a.pos == undefined && x === this.naves_array.length) {
-        // console.log('sem mais espaços')
+        console.log('sem mais espaços')
       } else if (n !== this.media_cloud.length - 1) {
         this.media_cloud[n].x = a.pos.x
         this.media_cloud[n].y = a.pos.y
         this.media_cloud[n].matrix = [[a.pos.x, a.pos.y], [a.pos.x+a.size.width, a.pos.y+a.size.height]]
         this.copyArray(n)
-        this.arrangeItens(n+1, 1)
+        // this.arrangeItens(n+1, 1)
       } else {
         this.media_cloud[n].x = a.pos.x
         this.media_cloud[n].y = a.pos.y
@@ -894,7 +926,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\n  <div id=\"media_cloud\" class=\"mdl-grid\" style=\"padding: 0; overflow: hidden\" @wheel=\"onWheel\" @mousemove=\"mouseMove\">\n    <div class=\"rwd_content mdl-cell mdl-cell--12-col\" style=\"margin: 0; width: 100%; perspective: 800px;\">\n\n      <in-media v-for=\"media in medias\" transition=\"fade\" :media=\"media\" :offset.sync=\"offset\" :height=\"height\" :width=\"width\" :playing.sync=\"playing\"></in-media>\n      <div v-if=\"playing !== null\" style=\"width: 100%; height: 100%; background: rgba(0,0,0,.7); z-index: 5; position: absolute; left: 0; top: 0;\"></div>\n<!--       <div v-for=\"areas in naves\" :style=\"[{width: width / naves.length + 'px'}, {'background-color': 'rgb('+($index+10)*10 +','+($index+10)*10 +','+($index+10)*10+')'}, {left: (((width / naves.length) * $index) + offset) +'px'}]\" style=\"position: absolute; height: 100%; z-index: 0;\">{{$index}}</div>\n      <div v-for=\"f in found\" :style=\"[{width: f.matrix[1][0] - f.matrix[0][0] + 'px'}, {height: f.matrix[1][1] - f.matrix[0][1] + 'px'}, {top: f.matrix[0][1] + 'px'}, {left: (f.matrix[0][0] + offset) + 'px'}, {'background-color': f.color}]\" style=\"z-index: 2; position: absolute;\">{{$index}}</div> -->\n\n    </div>  \n  </div>  \n\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\n<div id=\"media_cloud\" class=\"mdl-grid\" style=\"padding: 0; overflow: hidden\" @wheel=\"onWheel\" @mousemove=\"mouseMove\">\n  <div class=\"rwd_content mdl-cell mdl-cell--12-col\" style=\"margin: 0; width: 100%; perspective: 800px;\">\n\n    <in-media v-for=\"media in medias\" transition=\"fade\" :media=\"media\" :offset.sync=\"offset\" :height=\"height\" :width=\"width\" :playing.sync=\"playing\"></in-media>\n    <div v-if=\"playing !== null\" style=\"width: 100%; height: 100%; background: rgba(0,0,0,.7); z-index: 5; position: absolute; left: 0; top: 0;\"></div>\n    <div v-for=\"areas in naves\" :style=\"[{width: width / naves.length + 'px'}, {'background-color': 'rgb('+($index+10)*10 +','+($index+10)*10 +','+($index+10)*10+')'}, {left: (((width / naves.length) * $index) + offset) +'px'}]\" style=\"position: absolute; height: 100%; z-index: 0;\">{{$index}}</div>\n    <div v-for=\"f in found\" :style=\"[{width: f.matrix[1][0] - f.matrix[0][0] + 'px'}, {height: f.matrix[1][1] - f.matrix[0][1] + 'px'}, {top: f.matrix[0][1] + 'px'}, {left: (f.matrix[0][0] + offset) + 'px'}, {'background-color': f.color}]\" style=\"z-index: 2; position: absolute;\">{{$index}}</div>\n\n  </div>  \n</div>  \n\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -907,7 +939,7 @@ if (module.hot) {(function () {  module.hot.accept()
 })()}
 },{"./media.vue":8,"jquery":48,"marked":49,"underscore":88,"vue":91,"vue-hot-reload-api":90}],8:[function(require,module,exports){
 var __vueify_insert__ = require("vueify/lib/insert-css")
-var __vueify_style__ = __vueify_insert__.insert("/* line 4, stdin */\n.media_card {\n  position: absolute;\n  -webkit-transform-style: preserve-3d;\n          transform-style: preserve-3d;\n  -webkit-transition: left .2s, top .2s, opacity .4s, -webkit-transform .3s;\n  transition: left .2s, top .2s, opacity .4s, -webkit-transform .3s;\n  transition: transform .3s, left .2s, top .2s, opacity .4s;\n  transition: transform .3s, left .2s, top .2s, opacity .4s, -webkit-transform .3s;\n  z-index: 1;\n  -webkit-perspective: 800px;\n          perspective: 800px;\n  cursor: pointer; }\n  /* line 11, stdin */\n  .media_card:hover {\n    z-index: 3 !important; }\n  /* line 14, stdin */\n  .media_card.in-trans {\n    -webkit-transition: none;\n    transition: none; }\n  /* line 17, stdin */\n  .media_card.hover {\n    z-index: 2;\n    -webkit-transition: left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s;\n    transition: left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s;\n    transition: transform 0.3s, left 0.2s linear, top 0.2s linear;\n    transition: transform 0.3s, left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s; }\n    /* line 20, stdin */\n    .media_card.hover .mdl-card {\n      -webkit-transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, padding 0.2s linear, -webkit-transform 0.5s;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, padding 0.2s linear, -webkit-transform 0.5s;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, transform 0.5s, padding 0.2s linear;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, transform 0.5s, padding 0.2s linear, -webkit-transform 0.5s; }\n    /* line 23, stdin */\n    .media_card.hover .mdl-card__title {\n      height: 95%;\n      width: 97%;\n      -webkit-transition: opacity 0.6s, height 0.2s linear, min-height 0.2s linear, width 0.2s linear;\n      transition: opacity 0.6s, height 0.2s linear, min-height 0.2s linear, width 0.2s linear; }\n    /* line 28, stdin */\n    .media_card.hover .front {\n      padding: 6px; }\n  /* line 32, stdin */\n  .media_card.playing {\n    z-index: 6 !important;\n    -webkit-transition: left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    transition: left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    transition: transform 0.3s, left 0.4s, top 0.4s;\n    transition: transform 0.3s, left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    -webkit-perspective: 500px;\n            perspective: 500px;\n    cursor: default; }\n    /* line 37, stdin */\n    .media_card.playing .mdl-card__title {\n      height: 98%;\n      width: 98.8%;\n      -webkit-transition: opacity 0.6s, height 0.4s, min-height 0.4s linear, width 0.4s;\n      transition: opacity 0.6s, height 0.4s, min-height 0.4s linear, width 0.4s; }\n      /* line 41, stdin */\n      .media_card.playing .mdl-card__title.player {\n        z-index: 5;\n        padding: 30px;\n        background: white; }\n    /* line 47, stdin */\n    .media_card.playing .mdl-card__menu {\n      z-index: 6;\n      right: 10px;\n      top: 4px; }\n    /* line 53, stdin */\n    .media_card.playing .front .material-icons {\n      color: black; }\n    /* line 57, stdin */\n    .media_card.playing .mdl-card {\n      -webkit-transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, padding 0.4s, -webkit-transform 1s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, padding 0.4s, -webkit-transform 1s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, transform 1s, padding 0.4s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, transform 1s, padding 0.4s, -webkit-transform 1s; }\n  /* line 61, stdin */\n  .media_card.filtered {\n    opacity: 0 !important;\n    z-index: -1; }\n  /* line 65, stdin */\n  .media_card .front {\n    position: absolute;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    -webkit-transform-style: preserve-3d;\n            transform-style: preserve-3d;\n    padding: 2%; }\n    /* line 70, stdin */\n    .media_card .front .material-icons {\n      color: white; }\n  /* line 74, stdin */\n  .media_card .mdl-card {\n    border-radius: 1px;\n    -webkit-transition: box-shadow .2s, height .2s, width .2s, padding .2s, -webkit-transform 1s;\n    transition: box-shadow .2s, height .2s, width .2s, padding .2s, -webkit-transform 1s;\n    transition: box-shadow .2s, height .2s, width .2s, transform 1s, padding .2s;\n    transition: box-shadow .2s, height .2s, width .2s, transform 1s, padding .2s, -webkit-transform 1s; }\n  /* line 78, stdin */\n  .media_card .mdl-card__title {\n    height: 93%;\n    width: 96%;\n    color: white;\n    position: absolute;\n    -webkit-transition: opacity .6s, height .2s, width .2s;\n    transition: opacity .6s, height .2s, width .2s;\n    opacity: 1;\n    padding: 0; }\n  /* line 87, stdin */\n  .media_card .mdl-card__menu {\n    z-index: 3; }\n  /* line 90, stdin */\n  .media_card .back {\n    -webkit-transform: rotateY(180deg);\n            transform: rotateY(180deg);\n    position: absolute;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    -webkit-transform-style: preserve-3d;\n            transform-style: preserve-3d; }\n  /* line 97, stdin */\n  .media_card .mdl-button:hover, .media_card .mdl-button:focus {\n    background: transparent; }\n  /* line 101, stdin */\n  .media_card .assistido {\n    height: 100%;\n    width: 100%;\n    background: rgba(0, 0, 0, 0.5);\n    position: absolute;\n    z-index: 5; }\n  /* line 109, stdin */\n  .media_card .votado .material-icons {\n    color: red !important; }\n")
+var __vueify_style__ = __vueify_insert__.insert("/* line 4, stdin */\n.media_card {\n  position: absolute;\n  -webkit-transform-style: preserve-3d;\n          transform-style: preserve-3d;\n  -webkit-transition: left .2s linear, top .2s, opacity .4s, -webkit-transform .3s;\n  transition: left .2s linear, top .2s, opacity .4s, -webkit-transform .3s;\n  transition: transform .3s, left .2s linear, top .2s, opacity .4s;\n  transition: transform .3s, left .2s linear, top .2s, opacity .4s, -webkit-transform .3s;\n  z-index: 1;\n  -webkit-perspective: 800px;\n          perspective: 800px;\n  cursor: pointer; }\n  /* line 11, stdin */\n  .media_card:hover {\n    z-index: 3 !important; }\n  /* line 14, stdin */\n  .media_card.in-trans {\n    -webkit-transition: none;\n    transition: none; }\n  /* line 17, stdin */\n  .media_card.hover {\n    z-index: 2;\n    -webkit-transition: left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s;\n    transition: left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s;\n    transition: transform 0.3s, left 0.2s linear, top 0.2s linear;\n    transition: transform 0.3s, left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s; }\n    /* line 20, stdin */\n    .media_card.hover .mdl-card {\n      -webkit-transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, padding 0.2s linear, -webkit-transform 0.5s;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, padding 0.2s linear, -webkit-transform 0.5s;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, transform 0.5s, padding 0.2s linear;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, transform 0.5s, padding 0.2s linear, -webkit-transform 0.5s; }\n    /* line 23, stdin */\n    .media_card.hover .mdl-card__title {\n      height: 95%;\n      width: 97%;\n      -webkit-transition: opacity 0.6s, height 0.2s linear, min-height 0.2s linear, width 0.2s linear;\n      transition: opacity 0.6s, height 0.2s linear, min-height 0.2s linear, width 0.2s linear; }\n    /* line 28, stdin */\n    .media_card.hover .front {\n      padding: 6px; }\n  /* line 32, stdin */\n  .media_card.playing {\n    z-index: 6 !important;\n    -webkit-transition: left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    transition: left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    transition: transform 0.3s, left 0.4s, top 0.4s;\n    transition: transform 0.3s, left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    -webkit-perspective: 500px;\n            perspective: 500px;\n    cursor: default; }\n    /* line 37, stdin */\n    .media_card.playing .mdl-card__title {\n      height: 98%;\n      width: 98.8%;\n      -webkit-transition: opacity 0.6s, height 0.4s, min-height 0.4s linear, width 0.4s;\n      transition: opacity 0.6s, height 0.4s, min-height 0.4s linear, width 0.4s; }\n      /* line 41, stdin */\n      .media_card.playing .mdl-card__title.player {\n        z-index: 5;\n        padding: 30px;\n        background: white; }\n    /* line 47, stdin */\n    .media_card.playing .mdl-card__menu {\n      z-index: 6;\n      right: 10px;\n      top: 4px; }\n    /* line 53, stdin */\n    .media_card.playing .front .material-icons {\n      color: black; }\n    /* line 57, stdin */\n    .media_card.playing .mdl-card {\n      -webkit-transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, padding 0.4s, -webkit-transform 1s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, padding 0.4s, -webkit-transform 1s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, transform 1s, padding 0.4s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, transform 1s, padding 0.4s, -webkit-transform 1s; }\n  /* line 61, stdin */\n  .media_card.filtered {\n    opacity: 0 !important;\n    z-index: -1; }\n  /* line 65, stdin */\n  .media_card .front {\n    position: absolute;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    -webkit-transform-style: preserve-3d;\n            transform-style: preserve-3d;\n    padding: 2%; }\n    /* line 70, stdin */\n    .media_card .front .material-icons {\n      color: white; }\n  /* line 74, stdin */\n  .media_card .mdl-card {\n    border-radius: 1px;\n    -webkit-transition: box-shadow .2s, height .2s, width .2s, padding .2s, -webkit-transform 1s;\n    transition: box-shadow .2s, height .2s, width .2s, padding .2s, -webkit-transform 1s;\n    transition: box-shadow .2s, height .2s, width .2s, transform 1s, padding .2s;\n    transition: box-shadow .2s, height .2s, width .2s, transform 1s, padding .2s, -webkit-transform 1s; }\n  /* line 78, stdin */\n  .media_card .mdl-card__title {\n    height: 93%;\n    width: 96%;\n    color: white;\n    position: absolute;\n    -webkit-transition: opacity .6s, height .2s, width .2s;\n    transition: opacity .6s, height .2s, width .2s;\n    opacity: 1;\n    padding: 0; }\n  /* line 87, stdin */\n  .media_card .mdl-card__menu {\n    z-index: 3; }\n  /* line 90, stdin */\n  .media_card .back {\n    -webkit-transform: rotateY(180deg);\n            transform: rotateY(180deg);\n    position: absolute;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    -webkit-transform-style: preserve-3d;\n            transform-style: preserve-3d; }\n  /* line 97, stdin */\n  .media_card .mdl-button:hover, .media_card .mdl-button:focus {\n    background: transparent; }\n  /* line 101, stdin */\n  .media_card .assistido {\n    height: 100%;\n    width: 100%;\n    background: rgba(0, 0, 0, 0.5);\n    position: absolute;\n    z-index: 5; }\n  /* line 109, stdin */\n  .media_card .votado .material-icons {\n    color: red !important; }\n")
 
 
 
@@ -1116,7 +1148,7 @@ module.exports = {
         } else if (this.w_loop + this.offset + this.x_offset + this.media.x + this.media.width < -100) {
           $$$('#'+this.media.id).addClass('in-trans')
           $$$('#'+this.media.id).css('opacity', 0)
-          this.w_loop = this.w_loop + this.media.width + this.width + 40
+          this.w_loop = this.w_loop + this.media.width + this.width + 100
           setTimeout(function() {
             $$$('#'+self.media.id).css('opacity', 1)
             $$$('#'+self.media.id).removeClass('in-trans')
@@ -1354,7 +1386,7 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   module.hot.dispose(function () {
-    __vueify_insert__.cache["/* line 4, stdin */\n.media_card {\n  position: absolute;\n  -webkit-transform-style: preserve-3d;\n          transform-style: preserve-3d;\n  -webkit-transition: left .2s, top .2s, opacity .4s, -webkit-transform .3s;\n  transition: left .2s, top .2s, opacity .4s, -webkit-transform .3s;\n  transition: transform .3s, left .2s, top .2s, opacity .4s;\n  transition: transform .3s, left .2s, top .2s, opacity .4s, -webkit-transform .3s;\n  z-index: 1;\n  -webkit-perspective: 800px;\n          perspective: 800px;\n  cursor: pointer; }\n  /* line 11, stdin */\n  .media_card:hover {\n    z-index: 3 !important; }\n  /* line 14, stdin */\n  .media_card.in-trans {\n    -webkit-transition: none;\n    transition: none; }\n  /* line 17, stdin */\n  .media_card.hover {\n    z-index: 2;\n    -webkit-transition: left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s;\n    transition: left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s;\n    transition: transform 0.3s, left 0.2s linear, top 0.2s linear;\n    transition: transform 0.3s, left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s; }\n    /* line 20, stdin */\n    .media_card.hover .mdl-card {\n      -webkit-transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, padding 0.2s linear, -webkit-transform 0.5s;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, padding 0.2s linear, -webkit-transform 0.5s;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, transform 0.5s, padding 0.2s linear;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, transform 0.5s, padding 0.2s linear, -webkit-transform 0.5s; }\n    /* line 23, stdin */\n    .media_card.hover .mdl-card__title {\n      height: 95%;\n      width: 97%;\n      -webkit-transition: opacity 0.6s, height 0.2s linear, min-height 0.2s linear, width 0.2s linear;\n      transition: opacity 0.6s, height 0.2s linear, min-height 0.2s linear, width 0.2s linear; }\n    /* line 28, stdin */\n    .media_card.hover .front {\n      padding: 6px; }\n  /* line 32, stdin */\n  .media_card.playing {\n    z-index: 6 !important;\n    -webkit-transition: left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    transition: left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    transition: transform 0.3s, left 0.4s, top 0.4s;\n    transition: transform 0.3s, left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    -webkit-perspective: 500px;\n            perspective: 500px;\n    cursor: default; }\n    /* line 37, stdin */\n    .media_card.playing .mdl-card__title {\n      height: 98%;\n      width: 98.8%;\n      -webkit-transition: opacity 0.6s, height 0.4s, min-height 0.4s linear, width 0.4s;\n      transition: opacity 0.6s, height 0.4s, min-height 0.4s linear, width 0.4s; }\n      /* line 41, stdin */\n      .media_card.playing .mdl-card__title.player {\n        z-index: 5;\n        padding: 30px;\n        background: white; }\n    /* line 47, stdin */\n    .media_card.playing .mdl-card__menu {\n      z-index: 6;\n      right: 10px;\n      top: 4px; }\n    /* line 53, stdin */\n    .media_card.playing .front .material-icons {\n      color: black; }\n    /* line 57, stdin */\n    .media_card.playing .mdl-card {\n      -webkit-transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, padding 0.4s, -webkit-transform 1s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, padding 0.4s, -webkit-transform 1s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, transform 1s, padding 0.4s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, transform 1s, padding 0.4s, -webkit-transform 1s; }\n  /* line 61, stdin */\n  .media_card.filtered {\n    opacity: 0 !important;\n    z-index: -1; }\n  /* line 65, stdin */\n  .media_card .front {\n    position: absolute;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    -webkit-transform-style: preserve-3d;\n            transform-style: preserve-3d;\n    padding: 2%; }\n    /* line 70, stdin */\n    .media_card .front .material-icons {\n      color: white; }\n  /* line 74, stdin */\n  .media_card .mdl-card {\n    border-radius: 1px;\n    -webkit-transition: box-shadow .2s, height .2s, width .2s, padding .2s, -webkit-transform 1s;\n    transition: box-shadow .2s, height .2s, width .2s, padding .2s, -webkit-transform 1s;\n    transition: box-shadow .2s, height .2s, width .2s, transform 1s, padding .2s;\n    transition: box-shadow .2s, height .2s, width .2s, transform 1s, padding .2s, -webkit-transform 1s; }\n  /* line 78, stdin */\n  .media_card .mdl-card__title {\n    height: 93%;\n    width: 96%;\n    color: white;\n    position: absolute;\n    -webkit-transition: opacity .6s, height .2s, width .2s;\n    transition: opacity .6s, height .2s, width .2s;\n    opacity: 1;\n    padding: 0; }\n  /* line 87, stdin */\n  .media_card .mdl-card__menu {\n    z-index: 3; }\n  /* line 90, stdin */\n  .media_card .back {\n    -webkit-transform: rotateY(180deg);\n            transform: rotateY(180deg);\n    position: absolute;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    -webkit-transform-style: preserve-3d;\n            transform-style: preserve-3d; }\n  /* line 97, stdin */\n  .media_card .mdl-button:hover, .media_card .mdl-button:focus {\n    background: transparent; }\n  /* line 101, stdin */\n  .media_card .assistido {\n    height: 100%;\n    width: 100%;\n    background: rgba(0, 0, 0, 0.5);\n    position: absolute;\n    z-index: 5; }\n  /* line 109, stdin */\n  .media_card .votado .material-icons {\n    color: red !important; }\n"] = false
+    __vueify_insert__.cache["/* line 4, stdin */\n.media_card {\n  position: absolute;\n  -webkit-transform-style: preserve-3d;\n          transform-style: preserve-3d;\n  -webkit-transition: left .2s linear, top .2s, opacity .4s, -webkit-transform .3s;\n  transition: left .2s linear, top .2s, opacity .4s, -webkit-transform .3s;\n  transition: transform .3s, left .2s linear, top .2s, opacity .4s;\n  transition: transform .3s, left .2s linear, top .2s, opacity .4s, -webkit-transform .3s;\n  z-index: 1;\n  -webkit-perspective: 800px;\n          perspective: 800px;\n  cursor: pointer; }\n  /* line 11, stdin */\n  .media_card:hover {\n    z-index: 3 !important; }\n  /* line 14, stdin */\n  .media_card.in-trans {\n    -webkit-transition: none;\n    transition: none; }\n  /* line 17, stdin */\n  .media_card.hover {\n    z-index: 2;\n    -webkit-transition: left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s;\n    transition: left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s;\n    transition: transform 0.3s, left 0.2s linear, top 0.2s linear;\n    transition: transform 0.3s, left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s; }\n    /* line 20, stdin */\n    .media_card.hover .mdl-card {\n      -webkit-transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, padding 0.2s linear, -webkit-transform 0.5s;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, padding 0.2s linear, -webkit-transform 0.5s;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, transform 0.5s, padding 0.2s linear;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, transform 0.5s, padding 0.2s linear, -webkit-transform 0.5s; }\n    /* line 23, stdin */\n    .media_card.hover .mdl-card__title {\n      height: 95%;\n      width: 97%;\n      -webkit-transition: opacity 0.6s, height 0.2s linear, min-height 0.2s linear, width 0.2s linear;\n      transition: opacity 0.6s, height 0.2s linear, min-height 0.2s linear, width 0.2s linear; }\n    /* line 28, stdin */\n    .media_card.hover .front {\n      padding: 6px; }\n  /* line 32, stdin */\n  .media_card.playing {\n    z-index: 6 !important;\n    -webkit-transition: left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    transition: left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    transition: transform 0.3s, left 0.4s, top 0.4s;\n    transition: transform 0.3s, left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    -webkit-perspective: 500px;\n            perspective: 500px;\n    cursor: default; }\n    /* line 37, stdin */\n    .media_card.playing .mdl-card__title {\n      height: 98%;\n      width: 98.8%;\n      -webkit-transition: opacity 0.6s, height 0.4s, min-height 0.4s linear, width 0.4s;\n      transition: opacity 0.6s, height 0.4s, min-height 0.4s linear, width 0.4s; }\n      /* line 41, stdin */\n      .media_card.playing .mdl-card__title.player {\n        z-index: 5;\n        padding: 30px;\n        background: white; }\n    /* line 47, stdin */\n    .media_card.playing .mdl-card__menu {\n      z-index: 6;\n      right: 10px;\n      top: 4px; }\n    /* line 53, stdin */\n    .media_card.playing .front .material-icons {\n      color: black; }\n    /* line 57, stdin */\n    .media_card.playing .mdl-card {\n      -webkit-transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, padding 0.4s, -webkit-transform 1s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, padding 0.4s, -webkit-transform 1s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, transform 1s, padding 0.4s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, transform 1s, padding 0.4s, -webkit-transform 1s; }\n  /* line 61, stdin */\n  .media_card.filtered {\n    opacity: 0 !important;\n    z-index: -1; }\n  /* line 65, stdin */\n  .media_card .front {\n    position: absolute;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    -webkit-transform-style: preserve-3d;\n            transform-style: preserve-3d;\n    padding: 2%; }\n    /* line 70, stdin */\n    .media_card .front .material-icons {\n      color: white; }\n  /* line 74, stdin */\n  .media_card .mdl-card {\n    border-radius: 1px;\n    -webkit-transition: box-shadow .2s, height .2s, width .2s, padding .2s, -webkit-transform 1s;\n    transition: box-shadow .2s, height .2s, width .2s, padding .2s, -webkit-transform 1s;\n    transition: box-shadow .2s, height .2s, width .2s, transform 1s, padding .2s;\n    transition: box-shadow .2s, height .2s, width .2s, transform 1s, padding .2s, -webkit-transform 1s; }\n  /* line 78, stdin */\n  .media_card .mdl-card__title {\n    height: 93%;\n    width: 96%;\n    color: white;\n    position: absolute;\n    -webkit-transition: opacity .6s, height .2s, width .2s;\n    transition: opacity .6s, height .2s, width .2s;\n    opacity: 1;\n    padding: 0; }\n  /* line 87, stdin */\n  .media_card .mdl-card__menu {\n    z-index: 3; }\n  /* line 90, stdin */\n  .media_card .back {\n    -webkit-transform: rotateY(180deg);\n            transform: rotateY(180deg);\n    position: absolute;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    -webkit-transform-style: preserve-3d;\n            transform-style: preserve-3d; }\n  /* line 97, stdin */\n  .media_card .mdl-button:hover, .media_card .mdl-button:focus {\n    background: transparent; }\n  /* line 101, stdin */\n  .media_card .assistido {\n    height: 100%;\n    width: 100%;\n    background: rgba(0, 0, 0, 0.5);\n    position: absolute;\n    z-index: 5; }\n  /* line 109, stdin */\n  .media_card .votado .material-icons {\n    color: red !important; }\n"] = false
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {

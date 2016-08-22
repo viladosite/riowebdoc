@@ -4,7 +4,7 @@
   .media_card {
     position: absolute; 
     transform-style: preserve-3d; 
-    transition: transform .3s, left .2s, top .2s, opacity .4s; 
+    transition: transform .3s, left .2s linear, top .2s, opacity .4s; 
     z-index: 1; 
     perspective: 800px;
     cursor: pointer;
@@ -206,7 +206,7 @@
           } else if (this.w_loop + this.offset + this.x_offset + this.media.x + this.media.width < -100) {
             $$$('#'+this.media.id).addClass('in-trans')
             $$$('#'+this.media.id).css('opacity', 0)
-            this.w_loop = this.w_loop + this.media.width + this.width + 40
+            this.w_loop = this.w_loop + this.media.width + this.width + 100
             setTimeout(function() {
               $$$('#'+self.media.id).css('opacity', 1)
               $$$('#'+self.media.id).removeClass('in-trans')
