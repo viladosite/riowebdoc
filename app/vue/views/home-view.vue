@@ -114,12 +114,6 @@
 			<div id="rodape" class="rodape">
 
 				<div id="rwdrodape" class="rwdrodape">
-						
-						<div id="git" class="sessaofooter"> 
-							<a href="http://github.com/viladosite/riowebdoc" target="_blank"> Fork us at 
-								<img src="images/github512.png" alt="Github Logo" height="24" width="24"/> 
-							</a>
-						</div>
 
 						<div id="sessao1" class="sessaofooter">
 							
@@ -136,6 +130,7 @@
 						</div>
 
 						<div id="sessao2" class="sessaofooter">
+
 							
 							<div class="footertitle">Parceria:</div>
 							
@@ -195,6 +190,9 @@
 						</div>
 
 						<div class="clearboth"></div>
+
+						<a href="http://github.com/viladosite/riowebdoc"><img class="imgGit" src="images/forkme_dark_background.png" alt="Fork me on GitHub"></a>
+
 
 				</div>
 
