@@ -198,15 +198,15 @@
           if (this.w_loop + this.offset + this.x_offset + this.media.x > this.width) {
             $$$('#'+this.media.id).addClass('in-trans')
             $$$('#'+this.media.id).css('opacity', 0)
-            this.w_loop = - (this.w_loop + this.width + this.media.width + 100)
+            this.w_loop = - (this.w_loop + this.width + 250)
             setTimeout(function() {
               $$$('#'+self.media.id).css('opacity', 1)
               $$$('#'+self.media.id).removeClass('in-trans')
             }, 500)
-          } else if (this.w_loop + this.offset + this.x_offset + this.media.x + this.media.width < -100) {
+          } else if (this.w_loop + this.offset + this.x_offset + this.media.x + this.media.width < -250) {
             $$$('#'+this.media.id).addClass('in-trans')
             $$$('#'+this.media.id).css('opacity', 0)
-            this.w_loop = this.w_loop + this.media.width + this.width + 100
+            this.w_loop = this.w_loop + this.width + 250
             setTimeout(function() {
               $$$('#'+self.media.id).css('opacity', 1)
               $$$('#'+self.media.id).removeClass('in-trans')
@@ -290,10 +290,10 @@
         if (this.playing === null) {
           this.hover = true
           if (!self.on) {
-            self.w_offset = this.media.width * .05
-            self.h_offset = this.media.height * .05
-            self.x_offset = -self.w_offset/2
-            self.y_offset = -self.h_offset/2
+            // self.w_offset = this.media.width * .05
+            // self.h_offset = this.media.height * .05
+            // self.x_offset = -self.w_offset/2
+            // self.y_offset = -self.h_offset/2
             setTimeout(function() {
               if (self.hover) {
                 $$$('#'+self.media.id).addClass('hover')
@@ -310,7 +310,7 @@
                 self.sw = 8
                 self.on = true
               }
-            }, 500)
+            }, 1000)
           }
         }
       },
