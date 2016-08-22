@@ -22,7 +22,7 @@
 </style>
 
 <template>
-	<div class=" mdl-layout mdl-js-layout mdl-layout--fixed-header">
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
     <header class="rwd_header mdl-layout__header ">
     	<div class="header_cover">
@@ -48,9 +48,10 @@
    
     <main class="mdl-layout__content">
     
-    	<div id="content">
-    		
+    	<div id="rwd_conteudo">
+
     		<div id="navegacao">
+    			
     			<div id="logo" class="logo">
 	    			<img src="images/logo.png" class="logoimg">
 	    		</div>
@@ -64,32 +65,50 @@
 
 				  				<div>
 					  				<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--primary" :id="nave.headers.id" @click="filterNave(nave.headers.nome)">
-						    			<i class="material-icons mdl-badge"> room </i>
+						    			
+						    			<i class="material-icons mdl-badge">
+						    			room
+						    			</i>
+
 						    		</button>
-									<div class="mdl-tooltip" :for="nave.headers.id"> {{nave.headers.nome}} </div>
+									
+									<div class="mdl-tooltip" :for="nave.headers.id">
+									{{nave.headers.nome}}
+									</div>
+
 								</div>
 
-								<div class="rwd_pintitle" :for="nave.headers.id"> {{nave.headers.nome}} </div>
+								<div class="rwd_pintitle" :for="nave.headers.id">
+								{{nave.headers.nome}}
+								</div>
 
 							</div>
 								
 			  			</span>
-			  			<div style="clear: both"></div>
+			  			
+			  			<div style="clear: both">
+			  			</div>
+
 			  		</div>
 			  	</div>
 
 			  	<div id="selo" class="selo">
 			  		<a class="mdl-navigation__link" href="/#/home/janela/card" rel="modal">
-							
-							<img src="images/selo.png" class="seloimg" id= "icon1">
-					  </a>	
+					<img src="images/selo.png" class="seloimg" id= "icon1">
+					</a>
 	    		</div>
+
+	    		<div class="mdl-tooltip mdl-tooltip--left" for="icon1">
+	    		Enviar um webcard
+	    		</div>
+
     		</div>
     		
-
+    		<div id="cloud" class="rwd_cloud">
 		  	<media-cloud :naves="naves" :user.sync="user" :filter.sync="filter"></media-cloud>
+		  	</div>
 
-    	</div>
+    	
     
     
 			<div id="rodape" class="rodape">
@@ -180,24 +199,24 @@
 				</div>
 
 			</div>
+
+		</div>
+		
 	</main>
 
-<div class="clearboth"></div>
 
-</div>
-
-
-    
-
-	  <div v-if="janela !== null" transition="fade2" class="window" id="janela1">
+	<div v-if="janela !== null" transition="fade2" class="window" id="janela1">
 	    <a href="/#/home" class="fechar" > <img src="images/icon_close.png" width="35px" height="35px" /> </a>
 	    <div id="janela2" name="janela2">
 	    	<div :is="janela" :janela.sync="janela" :webcard="webcard" :naves="naves" v-ref:janela></div>
 		</div>
-	  </div>
-	  <div v-if="janela !== null" transition="fade2" id="mascara" @click="closeJanela"></div> 
-
 	</div>
+	<div v-if="janela !== null" transition="fade2" id="mascara" @click="closeJanela"></div> 
+
+	<div class="clearboth"></div>
+
+</div>
+
 </template>
 
 <script>

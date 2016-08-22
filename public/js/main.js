@@ -91,9 +91,9 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-9d362d14", module.exports)
+    hotAPI.createRecord("_v-dd6e1620", module.exports)
   } else {
-    hotAPI.update("_v-9d362d14", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-dd6e1620", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"./views/card-view.vue":15,"./views/home-view.vue":16,"blueimp-md5":22,"jquery":48,"perfect-scrollbar":54,"underscore":88,"vue":91,"vue-hot-reload-api":90}],2:[function(require,module,exports){
@@ -255,9 +255,9 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-bf4a2022", module.exports)
+    hotAPI.createRecord("_v-b565a396", module.exports)
   } else {
-    hotAPI.update("_v-bf4a2022", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-b565a396", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"../components/passo-0.vue":9,"../components/passo-1.vue":10,"../components/passo-2.vue":11,"../components/passo-3.vue":12,"../components/passo-4.vue":13,"jquery":48,"marked":49,"vue":91,"vue-hot-reload-api":90}],3:[function(require,module,exports){
@@ -338,9 +338,9 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-74f61fca", module.exports)
+    hotAPI.createRecord("_v-5fa1c415", module.exports)
   } else {
-    hotAPI.update("_v-74f61fca", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-5fa1c415", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"jquery":48,"marked":49,"vue":91,"vue-hot-reload-api":90}],4:[function(require,module,exports){
@@ -421,9 +421,9 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-5c28fa58", module.exports)
+    hotAPI.createRecord("_v-6347479a", module.exports)
   } else {
-    hotAPI.update("_v-5c28fa58", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-6347479a", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"jquery":48,"marked":49,"vue":91,"vue-hot-reload-api":90}],5:[function(require,module,exports){
@@ -504,9 +504,9 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-e9e01ad8", module.exports)
+    hotAPI.createRecord("_v-252cc68e", module.exports)
   } else {
-    hotAPI.update("_v-e9e01ad8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-252cc68e", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"jquery":48,"marked":49,"vue":91,"vue-hot-reload-api":90}],6:[function(require,module,exports){
@@ -587,9 +587,9 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-b4555884", module.exports)
+    hotAPI.createRecord("_v-32d574f8", module.exports)
   } else {
-    hotAPI.update("_v-b4555884", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-32d574f8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"jquery":48,"marked":49,"vue":91,"vue-hot-reload-api":90}],7:[function(require,module,exports){
@@ -1602,9 +1602,9 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-554472fe", module.exports)
+    hotAPI.createRecord("_v-4b5ff672", module.exports)
   } else {
-    hotAPI.update("_v-554472fe", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-4b5ff672", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"./media.vue":8,"jquery":48,"marked":49,"underscore":88,"vue":91,"vue-hot-reload-api":90}],8:[function(require,module,exports){
@@ -2333,9 +2333,9 @@ if (module.hot) {(function () {  module.hot.accept()
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-a20a65ce", module.exports)
+    hotAPI.createRecord("_v-261a9042", module.exports)
   } else {
-    hotAPI.update("_v-a20a65ce", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-261a9042", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"./media.vue":8,"jquery":48,"marked":49,"vue":91,"vue-hot-reload-api":90,"vueify/lib/insert-css":92}],9:[function(require,module,exports){
@@ -2449,9 +2449,9 @@ if (module.hot) {(function () {  module.hot.accept()
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-66ba8016", module.exports)
+    hotAPI.createRecord("_v-0662d15c", module.exports)
   } else {
-    hotAPI.update("_v-66ba8016", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-0662d15c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"jquery":48,"marked":49,"vue":91,"vue-hot-reload-api":90,"vueify/lib/insert-css":92}],10:[function(require,module,exports){
@@ -2598,9 +2598,9 @@ if (module.hot) {(function () {  module.hot.accept()
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-66c89797", module.exports)
+    hotAPI.createRecord("_v-0670e8dd", module.exports)
   } else {
-    hotAPI.update("_v-66c89797", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-0670e8dd", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"jquery":48,"marked":49,"underscore":88,"vue":91,"vue-hot-reload-api":90,"vueify/lib/insert-css":92}],11:[function(require,module,exports){
@@ -2692,9 +2692,9 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-66d6af18", module.exports)
+    hotAPI.createRecord("_v-067f005e", module.exports)
   } else {
-    hotAPI.update("_v-66d6af18", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-067f005e", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"jquery":48,"marked":49,"vue":91,"vue-hot-reload-api":90}],12:[function(require,module,exports){
@@ -2844,9 +2844,9 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-66e4c699", module.exports)
+    hotAPI.createRecord("_v-068d17df", module.exports)
   } else {
-    hotAPI.update("_v-66e4c699", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-068d17df", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"jquery":48,"marked":49,"vue":91,"vue-hot-reload-api":90}],13:[function(require,module,exports){
@@ -2937,9 +2937,9 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-66f2de1a", module.exports)
+    hotAPI.createRecord("_v-069b2f60", module.exports)
   } else {
-    hotAPI.update("_v-66f2de1a", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-069b2f60", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"jquery":48,"marked":49,"vue":91,"vue-hot-reload-api":90}],14:[function(require,module,exports){
@@ -3373,9 +3373,9 @@ if (module.hot) {(function () {  module.hot.accept()
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-49d105a9", module.exports)
+    hotAPI.createRecord("_v-8124abba", module.exports)
   } else {
-    hotAPI.update("_v-49d105a9", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-8124abba", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"jquery":48,"marked":49,"vue":91,"vue-hot-reload-api":90,"vueify/lib/insert-css":92}],16:[function(require,module,exports){
@@ -3865,7 +3865,7 @@ var __vueify_style__ = __vueify_insert__.insert("/* line 2, stdin */\n.fade-tran
 	}
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div class=\" mdl-layout mdl-js-layout mdl-layout--fixed-header\">\n\n    <header class=\"rwd_header mdl-layout__header \">\n    \t<div class=\"header_cover\">\n\t\t\t<div class=\"mdl-layout__header-row\">\n\n\t\t\t\t<!-- Class destinada a dar um espaçamento grande -->\n\t\t\t\t<div class=\"mdl-layout-spacer\"></div>\n\n\t\t\t\t<!-- Construção dos ícones indicativos no menu -->\n\t\t\t\t<nav class=\"mdl-navigation\">\n\t\t\t    \n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/projeto\">PROJETO</a>\n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/realizacao\">REALIZAÇÃO</a>\n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/equipe\">EQUIPE</a>\n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/contato\">CONTATO</a>\n\t\t\t\t<!-- <a class=\"mdl-navigation__link\" href=\"\">BLOG</a> -->\n\n\t\t\t\t</nav>\n\t\t\t</div>\n\t\t</div>\t\n\t</header>\n    \n   \n    <main class=\"mdl-layout__content\">\n    \n    \t<div id=\"content\">\n    \t\t\n    \t\t<div id=\"navegacao\">\n    \t\t\t<div id=\"logo\" class=\"logo\">\n\t    \t\t\t<img src=\"images/logo.png\" class=\"logoimg\">\n\t    \t\t</div>\n\n\n\t    \t\t<div id=\"pins\" class=\"rwd_pins\">\n\t\t\t  \t\t<div class=\"rwd_local\">\n\t\t\t  \t\t\t<span v-for=\"nave in naves\">\n\n\t\t\t  \t\t\t\t<div class=\"rwd_pinbox\">\n\n\t\t\t\t  \t\t\t\t<div>\n\t\t\t\t\t  \t\t\t\t<button class=\"mdl-button mdl-js-button mdl-button--icon mdl-button--primary\" :id=\"nave.headers.id\" @click=\"filterNave(nave.headers.nome)\">\n\t\t\t\t\t\t    \t\t\t<i class=\"material-icons mdl-badge\"> room </i>\n\t\t\t\t\t\t    \t\t</button>\n\t\t\t\t\t\t\t\t\t<div class=\"mdl-tooltip\" :for=\"nave.headers.id\"> {{nave.headers.nome}} </div>\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t<div class=\"rwd_pintitle\" :for=\"nave.headers.id\"> {{nave.headers.nome}} </div>\n\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\n\t\t\t  \t\t\t</span>\n\t\t\t  \t\t\t<div style=\"clear: both\"></div>\n\t\t\t  \t\t</div>\n\t\t\t  \t</div>\n\n\t\t\t  \t<div id=\"selo\" class=\"selo\">\n\t\t\t  \t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/card\" rel=\"modal\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<img src=\"images/selo.png\" class=\"seloimg\" id=\"icon1\">\n\t\t\t\t\t  </a>\t\n\t    \t\t</div>\n    \t\t</div>\n    \t\t\n\n\t\t  \t<media-cloud :naves=\"naves\" :user.sync=\"user\" :filter.sync=\"filter\"></media-cloud>\n\n    \t</div>\n    \n    \n\t\t\t<div id=\"rodape\" class=\"rodape\">\n\n\t\t\t\t<div id=\"rwdrodape\" class=\"rwdrodape\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div id=\"git\" class=\"sessaofooter\"> \n\t\t\t\t\t\t\t<a href=\"http://github.com/viladosite/riowebdoc\" target=\"_blank\"> Fork us at \n\t\t\t\t\t\t\t\t<img src=\"images/github512.png\" alt=\"Github Logo\" height=\"24\" width=\"24\"> \n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div id=\"sessao1\" class=\"sessaofooter\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footertitle\">Realização:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"http://www.jardimdigital.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/rio_pref.png\" alt=\"prefeitura Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div id=\"sessao2\" class=\"sessaofooter\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footertitle\">Parceria:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"http://www.jardimdigital.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/grupo_ccr.png\" alt=\"grupo ccr Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp; &nbsp; &nbsp; &nbsp;\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div id=\"sessao3\" class=\"sessaofooter\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footertitle\">Apoio:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"http://www.jardimdigital.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/rio_onibus.png\" alt=\"rio onibus Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t\t\t\t<a href=\"http://www.viladosite.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/riofilme.png\" alt=\"Vila do Site Logo\" class=\"footer_img2\"></a>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t        \n\t\t\t\t        <div id=\"sessao4\" class=\"sessaofooter\">\n\n\t\t\t\t\t\t\t<div class=\"footertitle\">Produção:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"http://www.jardimdigital.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/mpc_logo.png\" alt=\"Jardim Digital Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div id=\"sessao5\" class=\"sessaofooter\">\n\n\t\t\t\t\t\t\t<div class=\"footertitle\">Gestão das Naves do Conhecimento:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"http://www.jardimdigital.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/cecip_logo.png\" alt=\"Jardim Digital Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t\t\t\t<a href=\"http://www.viladosite.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/redeh_logo.png\" alt=\"Vila do Site Logo\" class=\"footer_img2\">\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"clearboth\"></div>\n\n\t\t\t\t</div>\n\n\t\t\t</div>\n\t</main>\n\n<div class=\"clearboth\"></div>\n\n</div>\n\n\n    \n\n\t  <div v-if=\"janela !== null\" transition=\"fade2\" class=\"window\" id=\"janela1\">\n\t    <a href=\"/#/home\" class=\"fechar\"> <img src=\"images/icon_close.png\" width=\"35px\" height=\"35px\"> </a>\n\t    <div id=\"janela2\" name=\"janela2\">\n\t    \t<div :is=\"janela\" :janela.sync=\"janela\" :webcard=\"webcard\" :naves=\"naves\" v-ref:janela=\"\"></div>\n\t\t</div>\n\t  </div>\n\t  <div v-if=\"janela !== null\" transition=\"fade2\" id=\"mascara\" @click=\"closeJanela\"></div> \n\n\t\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div class=\" mdl-layout mdl-js-layout mdl-layout--fixed-header\">\n\n    <header class=\"rwd_header mdl-layout__header \">\n\t\t\t<div class=\"mdl-layout__header-row\">\n\n\t\t\t\t<!-- Class destinada a dar um espaçamento grande -->\n\t\t\t\t<div class=\"mdl-layout-spacer\"></div>\n\n\t\t\t\t<!-- Construção dos ícones indicativos no menu -->\n\t\t\t\t<nav class=\"mdl-navigation\">\n\t\t\t    \n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/projeto\">PROJETO</a>\n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/realizacao\">REALIZAÇÃO</a>\n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/equipe\">EQUIPE</a>\n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/contato\">CONTATO</a>\n\t\t\t\t<!-- <a class=\"mdl-navigation__link\" href=\"\">BLOG</a> -->\n\n\t\t\t\t</nav>\n\t\t\t</div>\n\t</header>\n    \n   \n    <main class=\"mdl-layout__content\">\n    \n    \t<div id=\"content\">\n    \t\t\n    \t\t<div id=\"navegacao\">\n    \t\t\t<div id=\"logo\" class=\"logo\">\n\t    \t\t\t<img src=\"images/logo.png\" class=\"logoimg\">\n\t    \t\t</div>\n\n\n\t    \t\t<div id=\"pins\" class=\"rwd_pins\">\n\t\t\t  \t\t<div class=\"rwd_local\">\n\t\t\t  \t\t\t<span v-for=\"nave in naves\">\n\n\t\t\t  \t\t\t\t<div class=\"rwd_pinbox\">\n\n\t\t\t\t  \t\t\t\t<div>\n\t\t\t\t\t  \t\t\t\t<button class=\"mdl-button mdl-js-button mdl-button--icon mdl-button--primary\" :id=\"nave.headers.id\" @click=\"filterNave(nave.headers.nome)\">\n\t\t\t\t\t\t    \t\t\t<i class=\"material-icons mdl-badge\"> room </i>\n\t\t\t\t\t\t    \t\t</button>\n\t\t\t\t\t\t\t\t\t<div class=\"mdl-tooltip\" :for=\"nave.headers.id\"> {{nave.headers.nome}} </div>\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t<div class=\"rwd_pintitle\" :for=\"nave.headers.id\"> {{nave.headers.nome}} </div>\n\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\n\t\t\t  \t\t\t</span>\n\t\t\t  \t\t\t<div style=\"clear: both\"></div>\n\t\t\t  \t\t</div>\n\t\t\t  \t</div>\n\n\t\t\t  \t<div id=\"selo\" class=\"selo\">\n\t\t\t  \t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/card\" rel=\"modal\">\n\t\t\t\t\t<img src=\"images/selo.png\" class=\"seloimg\" id=\"icon1\">\n\t\t\t\t\t</a>\n\t    \t\t</div>\n\n\t    \t\t<div class=\"mdl-tooltip mdl-tooltip--left\" for=\"icon1\"> Enviar um webcard </div>\n\n    \t\t</div>\n    \t\t\n\n\t\t  \t<media-cloud :naves=\"naves\" :user.sync=\"user\" :filter.sync=\"filter\"></media-cloud>\n\n    \t</div>\n    \n    \n\t\t\t<div id=\"rodape\" class=\"rodape\">\n\n\t\t\t\t<div id=\"rwdrodape\" class=\"rwdrodape\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div id=\"git\" class=\"sessaofooter\"> \n\t\t\t\t\t\t\t<a href=\"http://github.com/viladosite/riowebdoc\" target=\"_blank\"> Fork us at \n\t\t\t\t\t\t\t\t<img src=\"images/github512.png\" alt=\"Github Logo\" height=\"24\" width=\"24\"> \n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div id=\"sessao1\" class=\"sessaofooter\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footertitle\">Realização:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"http://www.jardimdigital.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/rio_pref.png\" alt=\"prefeitura Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div id=\"sessao2\" class=\"sessaofooter\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footertitle\">Parceria:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"http://www.jardimdigital.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/grupo_ccr.png\" alt=\"grupo ccr Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp; &nbsp; &nbsp; &nbsp;\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div id=\"sessao3\" class=\"sessaofooter\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footertitle\">Apoio:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"http://www.jardimdigital.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/rio_onibus.png\" alt=\"rio onibus Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t\t\t\t<a href=\"http://www.viladosite.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/riofilme.png\" alt=\"Vila do Site Logo\" class=\"footer_img2\"></a>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t        \n\t\t\t\t        <div id=\"sessao4\" class=\"sessaofooter\">\n\n\t\t\t\t\t\t\t<div class=\"footertitle\">Produção:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"http://www.jardimdigital.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/mpc_logo.png\" alt=\"Jardim Digital Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div id=\"sessao5\" class=\"sessaofooter\">\n\n\t\t\t\t\t\t\t<div class=\"footertitle\">Gestão das Naves do Conhecimento:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"http://www.jardimdigital.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/cecip_logo.png\" alt=\"Jardim Digital Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t\t\t\t<a href=\"http://www.viladosite.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/redeh_logo.png\" alt=\"Vila do Site Logo\" class=\"footer_img2\">\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"clearboth\"></div>\n\n\t\t\t\t</div>\n\n\t\t\t</div>\n\t</main>\n\n<div class=\"clearboth\"></div>\n\n</div>\n\n\n    \n\n\t  <div v-if=\"janela !== null\" transition=\"fade2\" class=\"window\" id=\"janela1\">\n\t    <a href=\"/#/home\" class=\"fechar\"> <img src=\"images/icon_close.png\" width=\"35px\" height=\"35px\"> </a>\n\t    <div id=\"janela2\" name=\"janela2\">\n\t    \t<div :is=\"janela\" :janela.sync=\"janela\" :webcard=\"webcard\" :naves=\"naves\" v-ref:janela=\"\"></div>\n\t\t</div>\n\t  </div>\n\t  <div v-if=\"janela !== null\" transition=\"fade2\" id=\"mascara\" @click=\"closeJanela\"></div> \n\n\t\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -3875,9 +3875,9 @@ if (module.hot) {(function () {  module.hot.accept()
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-69e924ba", module.exports)
+    hotAPI.createRecord("_v-40f46d98", module.exports)
   } else {
-    hotAPI.update("_v-69e924ba", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-40f46d98", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"../components/janela-card.vue":2,"../components/janela-contato.vue":3,"../components/janela-equipe.vue":4,"../components/janela-projeto.vue":5,"../components/janela-realizacao.vue":6,"../components/media-cloud.vue":7,"jquery":48,"marked":49,"socket.io-client":76,"vue":91,"vue-hot-reload-api":90,"vueify/lib/insert-css":92}],17:[function(require,module,exports){
