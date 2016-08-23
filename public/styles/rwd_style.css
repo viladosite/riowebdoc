@@ -268,6 +268,12 @@ body{
     width: auto;
 }
 
+/* sublinhado da div dos pins */
 .rwd_pinbox:hover{
-    border-bottom: 4px solid #ff0000;
+    border-bottom: 4px solid #093f5b;
+}
+
+/* cor dos pins */
+.btnPin{
+    color: #093f5b;
 }
