@@ -66,7 +66,7 @@
 				  				<div>
 					  				<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--primary" :id="nave.headers.id" @click="filterNave(nave.headers.nome)">
 						    			
-						    			<i class="material-icons mdl-badge">
+						    			<i class="btnPin material-icons mdl-badge">
 						    			room
 						    			</i>
 

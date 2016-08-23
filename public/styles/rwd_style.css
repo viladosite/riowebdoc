@@ -267,3 +267,7 @@ body{
     height: 100%;
     width: auto;
 }
+
+.rwd_pinbox:hover{
+    border-bottom: 4px solid #ff0000;
+}
