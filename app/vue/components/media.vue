@@ -4,7 +4,7 @@
   .media_card {
     position: absolute; 
     transform-style: preserve-3d; 
-    transition: transform .3s, left .2s, top .2s; 
+    transition: transform .3s, left .2s linear, top .2s, opacity .4s; 
     z-index: 1; 
     perspective: 800px;
     cursor: pointer;
@@ -82,6 +82,7 @@
       position: absolute;
       transition: opacity .6s, height .2s, width .2s;
       opacity: 1;
+      padding: 0;
     }
     .mdl-card__menu {
       z-index: 3;
@@ -118,8 +119,8 @@
     <div v-if="assistido && !hover && !on" class="assistido" transition="fade"></div>
     <div :id="media.id+'-front'" class="demo-card-wide mdl-card mdl-shadow--{{sw}}dp front" style=""  :style="[{height: h_offset + media.height+'px'},{'min-height': h_offset + media.height+'px'},{width: w_offset + media.width+'px'}]">
       <div :id="media.id+'-player'" class="mdl-card__title player"></div>
-      <div v-for="img in media.imgs" class="mdl-card__title" :style="[{background: 'url('+img+') center / cover'}, {'z-index': media.imgs.length - $index}]" :id="$index+'-img-'+media.id">
-      </div>
+      <img v-for="img in media.imgs" class="mdl-card__title" :src="img" :style="[{'z-index': media.imgs.length - $index}]" :id="$index+'-img-'+media.id">
+      </img>
       <div style="z-index: 3; position: absolute; width: 100%; padding-left: 42%; padding-top: 22%;" v-if="on" transition="fade">
         <a v-if="playing === null" :href="'/#/home/'+media.id" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" style="overflow: visible;" transition="fade">
           <i class="material-icons" style="font-size: 60px;">play_circle_outline</i>
@@ -197,15 +198,15 @@
           if (this.w_loop + this.offset + this.x_offset + this.media.x > this.width) {
             $$$('#'+this.media.id).addClass('in-trans')
             $$$('#'+this.media.id).css('opacity', 0)
-            this.w_loop = - (this.w_loop + this.width + this.media.width + 100)
+            this.w_loop = - (this.w_loop + this.width + 250)
             setTimeout(function() {
               $$$('#'+self.media.id).css('opacity', 1)
               $$$('#'+self.media.id).removeClass('in-trans')
             }, 500)
-          } else if (this.w_loop + this.offset + this.x_offset + this.media.x + this.media.width < -100) {
+          } else if (this.w_loop + this.offset + this.x_offset + this.media.x + this.media.width < -250) {
             $$$('#'+this.media.id).addClass('in-trans')
             $$$('#'+this.media.id).css('opacity', 0)
-            this.w_loop = this.w_loop + this.media.width + this.width + 40
+            this.w_loop = this.w_loop + this.width + 250
             setTimeout(function() {
               $$$('#'+self.media.id).css('opacity', 1)
               $$$('#'+self.media.id).removeClass('in-trans')
@@ -289,10 +290,10 @@
         if (this.playing === null) {
           this.hover = true
           if (!self.on) {
-            self.w_offset = this.media.width * .05
-            self.h_offset = this.media.height * .05
-            self.x_offset = -self.w_offset/2
-            self.y_offset = -self.h_offset/2
+            // self.w_offset = this.media.width * .05
+            // self.h_offset = this.media.height * .05
+            // self.x_offset = -self.w_offset/2
+            // self.y_offset = -self.h_offset/2
             setTimeout(function() {
               if (self.hover) {
                 $$$('#'+self.media.id).addClass('hover')
@@ -309,7 +310,7 @@
                 self.sw = 8
                 self.on = true
               }
-            }, 500)
+            }, 1000)
           }
         }
       },
