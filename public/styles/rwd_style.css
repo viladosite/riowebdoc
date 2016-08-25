@@ -258,3 +258,22 @@ body{
 .mdl-textfield.mdl-js-textfield.rwd_txtmsg.is-upgraded {
     width: 100%;
 }
+
+.imgGit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
+    height: 100%;
+    width: auto;
+}
+
+/* sublinhado da div dos pins */
+.rwd_pinbox:hover{
+    border-bottom: 4px solid #093f5b;
+}
+
+/* cor dos pins */
+.btnPin{
+    color: #093f5b;
+}
