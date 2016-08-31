@@ -19,6 +19,41 @@
 	.fade2-enter, .fade2-leave {
 		opacity: 0;
 	}
+
+	#janela2 {
+		h3 {
+			font-family: 'treta';
+		}
+	}
+
+	.rwd_pinbox {
+		cursor: pointer;
+		&:hover {
+			.rwd_pinicon {
+				opacity: 1;
+			}
+		}
+		&.filtered {
+			border-bottom: 3px solid #d66843;
+			.rwd_pinicon {
+				opacity: 1;
+			}
+		}
+		.rwd_pinicon {
+			opacity: 0;
+			transition: opacity .2s;
+		}
+		.mdl-button {
+			background: transparent !important;
+			font-size: 30px;
+    	height: 35px;
+    	min-width: 35px;
+    	width: 35px;
+		}
+		.btnPin {
+			font-size: 30px;
+		}
+	}
 </style>
 
 <template>
@@ -61,20 +96,16 @@
 			  		<div class="rwd_local">
 			  			<span v-for="nave in naves">
 
-			  				<div class="rwd_pinbox">
+			  				<div class="rwd_pinbox" @click="filterNave(nave.headers.nome)" :class="{filtered: isFiltered[$index]}">
 
 				  				<div>
-					  				<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--primary" :id="nave.headers.id" @click="filterNave(nave.headers.nome)">
+					  				<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--primary rwd_pinicon" :id="nave.headers.id">
 						    			
 						    			<i class="btnPin material-icons mdl-badge">
 						    			room
 						    			</i>
 
 						    		</button>
-									
-									<div class="mdl-tooltip" :for="nave.headers.id">
-									{{nave.headers.nome}}
-									</div>
 
 								</div>
 
@@ -105,7 +136,7 @@
     		</div>
     		
     		<div id="cloud" class="rwd_cloud">
-		  	<media-cloud :naves="naves" :user.sync="user" :filter.sync="filter"></media-cloud>
+		  	<media-cloud :naves="naves" :user.sync="user" :filter.sync="filter" v-ref:cloud></media-cloud>
 		  	</div>
 
     	
@@ -204,7 +235,7 @@
 
 
 	<div v-if="janela !== null" transition="fade2" class="window" id="janela1">
-	    <a href="/#/home" class="fechar" > <img src="images/icon_close.png" width="35px" height="35px" /> </a>
+	    <a href="/#/home" class="fechar" > <img src="images/icon_close.png" width="25px" height="25px" /> </a>
 	    <div id="janela2" name="janela2">
 	    	<div :is="janela" :janela.sync="janela" :webcard="webcard" :naves="naves" v-ref:janela></div>
 		</div>
@@ -284,7 +315,21 @@
       }
 		},
 		computed: {
-    	
+    	isFiltered: function() {
+    		var filters = []
+    		for (var i = 0; i < this.naves.length; i++) {
+    			if (this.$refs.cloud === null) {
+    				filters.push(false)
+    			} else {
+    				if (this.naves[i].headers.nome === this.$refs.cloud.filter) {
+	    				filters.push(true)
+	    			} else {
+	    				filters.push(false)
+	    			}
+    			}
+    		}
+    		return filters
+    	}
 		},
 		created: function () {
 			for (var i = 0; i < this.naves.length; i++) {

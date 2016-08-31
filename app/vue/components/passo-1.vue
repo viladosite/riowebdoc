@@ -11,7 +11,7 @@
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--12-col">   
       <h3>Passo 2 - {{webcard.nave_nome}}</h3>
-      <p>Escolha {{videos}} vídeos que aparecerão em seu Webcard.</p>
+      <p>Escolha <strong>{{videos}}</strong> vídeos que aparecerão em seu Webcard.</p>
 
       <div v-for="video in webcard.nave_videos" class="video-card" @click="choseVideo(video)" :id="video+'-vid'" :class="{escolhido: escolhido[$index]}" :style="{background: 'url(http://img.youtube.com/vi/'+video+'/1.jpg)'}"> video {{$index}}</div>
 

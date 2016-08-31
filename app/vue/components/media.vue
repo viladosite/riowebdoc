@@ -4,7 +4,7 @@
   .media_card {
     position: absolute; 
     transform-style: preserve-3d; 
-    transition: transform .3s, left .2s linear, top .2s, opacity .4s; 
+    transition: transform .3s, left .2s, top .2s, opacity .4s; 
     z-index: 1; 
     perspective: 800px;
     cursor: pointer;

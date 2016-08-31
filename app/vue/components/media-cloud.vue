@@ -517,6 +517,7 @@
     },
     created: function () {
       for (var i = 0; i < this.naves.length; i++) {
+        console.log(this.naves.length)
         for (var o = 0; o < this.naves[i].media.length; o++) {
           var m = this.naves[i].media[o]
           m.nav = this.naves[i].headers.nome

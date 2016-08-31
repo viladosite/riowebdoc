@@ -1,240 +1,98 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+'use strict';
 
+var _ = require('underscore');
+var md5 = require('blueimp-md5');
+var $$$ = require('jquery');
+var perfectScrollbar = require('perfect-scrollbar');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	var _ = require('underscore')
-	var md5 = require('blueimp-md5')
-	var $$$ = require('jquery')
-  var perfectScrollbar = require('perfect-scrollbar')
-
-	module.exports = {
-		el: '#app',
-		data: {
-			card: null,
-			className: '',
-			webcards: [],
-			naves: [],
-			view: ''
-		},
-		watch : {
-			
-		},
-		computed: {
-      
-		},
-		methods: {
-      
-		},
-		created: function() {
-
-		},
-		attached: function() {
-			
-		},
-		components: {
-			'home-view': require('./views/home-view.vue'),
-			'card-view': require('./views/card-view.vue')
-		}
+module.exports = {
+	el: '#app',
+	data: {
+		card: null,
+		className: '',
+		webcards: [],
+		naves: [],
+		view: ''
+	},
+	watch: {},
+	computed: {},
+	methods: {},
+	created: function created() {},
+	attached: function attached() {},
+	components: {
+		'home-view': require('./views/home-view.vue'),
+		'card-view': require('./views/card-view.vue')
 	}
-
-
-if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\n<div>\n\t<main class=\"\" :is=\"view\" transition=\"fade\" :class=\"[className]\" :card=\"card\" :naves=\"naves\" :user.sync=\"user\" v-ref:view=\"\"></main>\n</div>\n\n"
+};
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\n\t<div>\n\t\t<main class=\"\" :is=\"view\" transition=\"fade\" :class=\"[className]\" :card=\"card\" :naves=\"naves\" :user.sync=\"user\" v-ref:view=\"\"></main>\n\t</div>\n\t\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
+  var id = "/media/bambuzal/Softwares/riowebdoc/app/vue/app.vue"
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-dd6e1620", module.exports)
+    hotAPI.createRecord(id, module.exports)
   } else {
-    hotAPI.update("_v-dd6e1620", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"./views/card-view.vue":15,"./views/home-view.vue":16,"blueimp-md5":22,"jquery":48,"perfect-scrollbar":54,"underscore":88,"vue":91,"vue-hot-reload-api":90}],2:[function(require,module,exports){
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var $$$ = require('jquery')
-var marked = require('marked')
+},{"./views/card-view.vue":15,"./views/home-view.vue":16,"blueimp-md5":17,"jquery":24,"perfect-scrollbar":26,"underscore":91,"vue":93,"vue-hot-reload-api":92}],2:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n#menumodal {\n  position: absolute;\n  right: 10%;\n  top: 7%; }\n\n/* line 8, stdin */\n.passo h3 {\n  margin-top: 0;\n  margin-bottom: 40px; }\n\n/* line 12, stdin */\n.passo strong {\n  font-family: 'treta';\n  font-size: 30px; }\n\n/* line 18, stdin */\n.passo .mdl-textfield--floating-label.is-focused .mdl-textfield__label {\n  color: #d66843; }\n\n/* line 23, stdin */\n.passo .mdl-textfield__input {\n  border-bottom: 2px dotted rgba(0, 0, 0, 0.12); }\n\n/* line 27, stdin */\n.passo .mdl-textfield__label:after {\n  background-color: #d66843; }\n")
+'use strict';
+
+var $$$ = require('jquery');
+var marked = require('marked');
 module.exports = {
   replace: true,
   props: ['webcard', 'janela', 'naves'],
-  data: function(){
+  data: function data() {
     return {
       passo: 0,
       ok: false
-    }
+    };
   },
   watch: {
     webcard: {
-      handler: function (val, oldVal) { 
-        this.checkPasso()
+      handler: function handler(val, oldVal) {
+        this.checkPasso();
       },
       deep: true
     }
   },
   methods: {
-    nextStep: function() {
-      this.passo = this.passo + 1
-      this.checkPasso()
+    nextStep: function nextStep() {
+      this.passo = this.passo + 1;
+      this.checkPasso();
     },
-    prevStep: function() {
-      this.passo = this.passo - 1
-      this.ok = true
+    prevStep: function prevStep() {
+      this.passo = this.passo - 1;
+      this.ok = true;
     },
-    sendWebcard: function() {
-      this.$dispatch('send-card')
+    sendWebcard: function sendWebcard() {
+      this.$dispatch('send-card');
     },
-    checkPasso: function() {
+    checkPasso: function checkPasso() {
       if (this.passo === 0 && this.webcard.nave_videos !== null) {
-        this.ok = true
+        this.ok = true;
       } else if (this.passo === 1 && this.webcard.videos.length === 3) {
-        this.ok = true
+        this.ok = true;
       } else if (this.passo === 2 && this.webcard.menssagem !== '') {
-        this.ok = true
+        this.ok = true;
       } else if (this.passo === 3 && this.webcard.email_criador !== '' && this.webcard.email_enviado !== '') {
-        this.ok = true
+        this.ok = true;
       } else {
-        this.ok = false
+        this.ok = false;
       }
     }
   },
-  computed: {
-
-  },
-  attached: function () {
-    componentHandler.upgradeDom()
-    this.$on('card-sent', function() {
-      this.passo = 4
-    })
-    this.checkPasso()
+  computed: {},
+  attached: function attached() {
+    componentHandler.upgradeDom();
+    this.$on('card-sent', function () {
+      this.passo = 4;
+    });
+    this.checkPasso();
   },
   components: {
     'passo-0': require('../components/passo-0.vue'),
@@ -243,936 +101,158 @@ module.exports = {
     'passo-3': require('../components/passo-3.vue'),
     'passo-4': require('../components/passo-4.vue')
   },
-  filters: {
-    
-  }
-}
-
-if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div id=\"menumodal\">\n  <button class=\"steps\" @click.prevent=\"nextStep\" v-if=\"passo < 3 &amp;&amp; passo !== 4\" :disabled=\"!ok\"> <i class=\"modaliconsr material-icons\">arrow_forward</i> </button>\n\n  <button class=\"steps\" @click.prevent=\"sendWebcard\" v-if=\"passo === 3\" :disabled=\"!ok\"> <i class=\"modaliconsr material-icons\">mail</i> </button>\n\n  <button class=\"steps\" @click.prevent=\"prevStep\" v-if=\"passo > 0 &amp;&amp; passo !== 4\"> <i class=\"modaliconsr material-icons\">arrow_back</i> </button>\n</div>\n<br>\n<div :is=\"'passo-' + passo\" :webcard.sync=\"webcard\" :naves=\"naves\" :ok.sync=\"ok\"></div>\n"
+  filters: {}
+};
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div id=\"menumodal\">\n    <button class=\"steps\" @click.prevent=\"nextStep\" v-if=\"passo < 3 &amp;&amp; passo !== 4\" :disabled=\"!ok\"> <i class=\"modaliconsr material-icons\">arrow_forward</i> </button>\n\n    <button class=\"steps\" @click.prevent=\"sendWebcard\" v-if=\"passo === 3\" :disabled=\"!ok\"> <i class=\"modaliconsr material-icons\">mail</i> </button>\n\n    <button class=\"steps\" @click.prevent=\"prevStep\" v-if=\"passo > 0 &amp;&amp; passo !== 4\"> <i class=\"modaliconsr material-icons\">arrow_back</i> </button>\n  </div>\n  <br>\n  <div :is=\"'passo-' + passo\" :webcard.sync=\"webcard\" :naves=\"naves\" :ok.sync=\"ok\" class=\"passo\"></div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
+  var id = "/media/bambuzal/Softwares/riowebdoc/app/vue/components/janela-card.vue"
+  module.hot.dispose(function () {
+    require("vueify-insert-css").cache["/* line 2, stdin */\n#menumodal {\n  position: absolute;\n  right: 10%;\n  top: 7%; }\n\n/* line 8, stdin */\n.passo h3 {\n  margin-top: 0;\n  margin-bottom: 40px; }\n\n/* line 12, stdin */\n.passo strong {\n  font-family: 'treta';\n  font-size: 30px; }\n\n/* line 18, stdin */\n.passo .mdl-textfield--floating-label.is-focused .mdl-textfield__label {\n  color: #d66843; }\n\n/* line 23, stdin */\n.passo .mdl-textfield__input {\n  border-bottom: 2px dotted rgba(0, 0, 0, 0.12); }\n\n/* line 27, stdin */\n.passo .mdl-textfield__label:after {\n  background-color: #d66843; }\n"] = false
+    document.head.removeChild(__vueify_style__)
+  })
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-b565a396", module.exports)
+    hotAPI.createRecord(id, module.exports)
   } else {
-    hotAPI.update("_v-b565a396", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"../components/passo-0.vue":9,"../components/passo-1.vue":10,"../components/passo-2.vue":11,"../components/passo-3.vue":12,"../components/passo-4.vue":13,"jquery":48,"marked":49,"vue":91,"vue-hot-reload-api":90}],3:[function(require,module,exports){
+},{"../components/passo-0.vue":9,"../components/passo-1.vue":10,"../components/passo-2.vue":11,"../components/passo-3.vue":12,"../components/passo-4.vue":13,"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92,"vueify-insert-css":94}],3:[function(require,module,exports){
+'use strict';
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var $$$ = require('jquery')
-var marked = require('marked')
+var $$$ = require('jquery');
+var marked = require('marked');
 module.exports = {
   replace: true,
   props: [],
-  data: function(){
-    return {
-      
-    }
+  data: function data() {
+    return {};
   },
-  methods: {
-
+  methods: {},
+  computed: {},
+  attached: function attached() {
+    componentHandler.upgradeDom();
   },
-  computed: {
-
-  },
-  attached: function () {
-    componentHandler.upgradeDom()
-  },
-  components: {
-
-  },
-  filters: {
-    
-  }
-}
-
-if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"rwd_janela_conteudo\">\n    <h3>Contato</h3>\n    <p>Cras ac maximus risus. Donec eget congue justo. Nam quis rutrum nunc, quis finibus nunc. Ut tristique ex sed nulla dapibus, id euismod nunc ultrices. Duis vehicula tempor felis at viverra. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla non purus non turpis dictum fringilla in nec nulla. Duis at pharetra quam. Integer quis ante commodo, tristique quam non, dapibus magna. Integer urna ligula, iaculis eget nisi et, rhoncus sodales metus. Nulla rhoncus, purus id maximus convallis, odio massa volutpat nunc, in tincidunt ante turpis ut nibh.</p>\n    <p>In ut mauris nisl. Fusce interdum lobortis velit, et feugiat eros cursus ac. Praesent sit amet odio lacinia, dignissim enim eget, porta neque. In iaculis, sapien vitae placerat ultricies, neque odio vestibulum mi, venenatis sagittis sapien felis varius tellus. Fusce massa lectus, mollis ut molestie sed, posuere vitae eros. In pellentesque diam eu metus rhoncus, eu varius turpis dapibus. Donec commodo urna et erat tristique ultricies. Aliquam molestie orci sed eros lacinia, ac sagittis tellus accumsan.</p>\n</div>\n<div class=\"rwd_janela_img\">\n  <img src=\"../img/icon_contato.png\" class=\"rwd_janela_icon\">\n</div>\n"
+  components: {},
+  filters: {}
+};
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div>\n    <div class=\"rwd_janela_conteudo\">\n      <h3>Contato</h3>\n      <p>Cras ac maximus risus. Donec eget congue justo. Nam quis rutrum nunc, quis finibus nunc. Ut tristique ex sed nulla dapibus, id euismod nunc ultrices. Duis vehicula tempor felis at viverra. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla non purus non turpis dictum fringilla in nec nulla. Duis at pharetra quam. Integer quis ante commodo, tristique quam non, dapibus magna. Integer urna ligula, iaculis eget nisi et, rhoncus sodales metus. Nulla rhoncus, purus id maximus convallis, odio massa volutpat nunc, in tincidunt ante turpis ut nibh.</p>\n      <p>In ut mauris nisl. Fusce interdum lobortis velit, et feugiat eros cursus ac. Praesent sit amet odio lacinia, dignissim enim eget, porta neque. In iaculis, sapien vitae placerat ultricies, neque odio vestibulum mi, venenatis sagittis sapien felis varius tellus. Fusce massa lectus, mollis ut molestie sed, posuere vitae eros. In pellentesque diam eu metus rhoncus, eu varius turpis dapibus. Donec commodo urna et erat tristique ultricies. Aliquam molestie orci sed eros lacinia, ac sagittis tellus accumsan.</p>\n    </div>\n    <div class=\"rwd_janela_img\">\n      <img src=\"../img/icon_contato.png\" class=\"rwd_janela_icon\">\n    </div>\n  </div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
+  var id = "/media/bambuzal/Softwares/riowebdoc/app/vue/components/janela-contato.vue"
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-5fa1c415", module.exports)
+    hotAPI.createRecord(id, module.exports)
   } else {
-    hotAPI.update("_v-5fa1c415", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":48,"marked":49,"vue":91,"vue-hot-reload-api":90}],4:[function(require,module,exports){
+},{"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92}],4:[function(require,module,exports){
+'use strict';
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var $$$ = require('jquery')
-var marked = require('marked')
+var $$$ = require('jquery');
+var marked = require('marked');
 module.exports = {
   replace: true,
   props: [],
-  data: function(){
-    return {
-      
-    }
+  data: function data() {
+    return {};
   },
-  methods: {
-
+  methods: {},
+  computed: {},
+  attached: function attached() {
+    componentHandler.upgradeDom();
   },
-  computed: {
-
-  },
-  attached: function () {
-    componentHandler.upgradeDom()
-  },
-  components: {
-
-  },
-  filters: {
-    
-  }
-}
-
-if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"rwd_janela_conteudo\">\n    <h3>Equipe</h3>\n    <p>Cras ac maximus risus. Donec eget congue justo. Nam quis rutrum nunc, quis finibus nunc. Ut tristique ex sed nulla dapibus, id euismod nunc ultrices. Duis vehicula tempor felis at viverra. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla non purus non turpis dictum fringilla in nec nulla. Duis at pharetra quam. Integer quis ante commodo, tristique quam non, dapibus magna. Integer urna ligula, iaculis eget nisi et, rhoncus sodales metus. Nulla rhoncus, purus id maximus convallis, odio massa volutpat nunc, in tincidunt ante turpis ut nibh.</p>\n    <p>In ut mauris nisl. Fusce interdum lobortis velit, et feugiat eros cursus ac. Praesent sit amet odio lacinia, dignissim enim eget, porta neque. In iaculis, sapien vitae placerat ultricies, neque odio vestibulum mi, venenatis sagittis sapien felis varius tellus. Fusce massa lectus, mollis ut molestie sed, posuere vitae eros. In pellentesque diam eu metus rhoncus, eu varius turpis dapibus. Donec commodo urna et erat tristique ultricies. Aliquam molestie orci sed eros lacinia, ac sagittis tellus accumsan.</p>\n</div>\n<div class=\"rwd_janela_img\">\n  <img src=\"../img/icon_equipe.png\" class=\"rwd_janela_icon\">\n</div>\n"
+  components: {},
+  filters: {}
+};
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div>\n    <div class=\"rwd_janela_conteudo\">\n      <h3>Equipe</h3>\n      <p>Cras ac maximus risus. Donec eget congue justo. Nam quis rutrum nunc, quis finibus nunc. Ut tristique ex sed nulla dapibus, id euismod nunc ultrices. Duis vehicula tempor felis at viverra. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla non purus non turpis dictum fringilla in nec nulla. Duis at pharetra quam. Integer quis ante commodo, tristique quam non, dapibus magna. Integer urna ligula, iaculis eget nisi et, rhoncus sodales metus. Nulla rhoncus, purus id maximus convallis, odio massa volutpat nunc, in tincidunt ante turpis ut nibh.</p>\n      <p>In ut mauris nisl. Fusce interdum lobortis velit, et feugiat eros cursus ac. Praesent sit amet odio lacinia, dignissim enim eget, porta neque. In iaculis, sapien vitae placerat ultricies, neque odio vestibulum mi, venenatis sagittis sapien felis varius tellus. Fusce massa lectus, mollis ut molestie sed, posuere vitae eros. In pellentesque diam eu metus rhoncus, eu varius turpis dapibus. Donec commodo urna et erat tristique ultricies. Aliquam molestie orci sed eros lacinia, ac sagittis tellus accumsan.</p>\n    </div>\n    <div class=\"rwd_janela_img\">\n      <img src=\"../img/icon_equipe.png\" class=\"rwd_janela_icon\">\n    </div>\n  </div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
+  var id = "/media/bambuzal/Softwares/riowebdoc/app/vue/components/janela-equipe.vue"
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-6347479a", module.exports)
+    hotAPI.createRecord(id, module.exports)
   } else {
-    hotAPI.update("_v-6347479a", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":48,"marked":49,"vue":91,"vue-hot-reload-api":90}],5:[function(require,module,exports){
+},{"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92}],5:[function(require,module,exports){
+'use strict';
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var $$$ = require('jquery')
-var marked = require('marked')
+var $$$ = require('jquery');
+var marked = require('marked');
 module.exports = {
   replace: true,
   props: [],
-  data: function(){
-    return {
-      
-    }
+  data: function data() {
+    return {};
   },
-  methods: {
-
+  methods: {},
+  computed: {},
+  attached: function attached() {
+    componentHandler.upgradeDom();
   },
-  computed: {
-
-  },
-  attached: function () {
-    componentHandler.upgradeDom()
-  },
-  components: {
-
-  },
-  filters: {
-    
-  }
-}
-
-if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"rwd_janela_conteudo\">\n    <h3>Projeto</h3>\n    <p>Cras ac maximus risus. Donec eget congue justo. Nam quis rutrum nunc, quis finibus nunc. Ut tristique ex sed nulla dapibus, id euismod nunc ultrices. Duis vehicula tempor felis at viverra. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla non purus non turpis dictum fringilla in nec nulla. Duis at pharetra quam. Integer quis ante commodo, tristique quam non, dapibus magna. Integer urna ligula, iaculis eget nisi et, rhoncus sodales metus. Nulla rhoncus, purus id maximus convallis, odio massa volutpat nunc, in tincidunt ante turpis ut nibh.</p>\n    <p>In ut mauris nisl. Fusce interdum lobortis velit, et feugiat eros cursus ac. Praesent sit amet odio lacinia, dignissim enim eget, porta neque. In iaculis, sapien vitae placerat ultricies, neque odio vestibulum mi, venenatis sagittis sapien felis varius tellus. Fusce massa lectus, mollis ut molestie sed, posuere vitae eros. In pellentesque diam eu metus rhoncus, eu varius turpis dapibus. Donec commodo urna et erat tristique ultricies. Aliquam molestie orci sed eros lacinia, ac sagittis tellus accumsan.</p>\n</div>\n<div class=\"rwd_janela_img\">\n  <img src=\"../img/icon_projeto.png\" class=\"rwd_janela_icon\">\n</div>\n"
+  components: {},
+  filters: {}
+};
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div>\n    <div class=\"rwd_janela_conteudo\">\n      <h3>Projeto</h3>\n      <p>Cras ac maximus risus. Donec eget congue justo. Nam quis rutrum nunc, quis finibus nunc. Ut tristique ex sed nulla dapibus, id euismod nunc ultrices. Duis vehicula tempor felis at viverra. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla non purus non turpis dictum fringilla in nec nulla. Duis at pharetra quam. Integer quis ante commodo, tristique quam non, dapibus magna. Integer urna ligula, iaculis eget nisi et, rhoncus sodales metus. Nulla rhoncus, purus id maximus convallis, odio massa volutpat nunc, in tincidunt ante turpis ut nibh.</p>\n      <p>In ut mauris nisl. Fusce interdum lobortis velit, et feugiat eros cursus ac. Praesent sit amet odio lacinia, dignissim enim eget, porta neque. In iaculis, sapien vitae placerat ultricies, neque odio vestibulum mi, venenatis sagittis sapien felis varius tellus. Fusce massa lectus, mollis ut molestie sed, posuere vitae eros. In pellentesque diam eu metus rhoncus, eu varius turpis dapibus. Donec commodo urna et erat tristique ultricies. Aliquam molestie orci sed eros lacinia, ac sagittis tellus accumsan.</p>\n    </div>\n    <div class=\"rwd_janela_img\">\n      <img src=\"../img/icon_projeto.png\" class=\"rwd_janela_icon\">\n    </div>\n  </div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
+  var id = "/media/bambuzal/Softwares/riowebdoc/app/vue/components/janela-projeto.vue"
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-252cc68e", module.exports)
+    hotAPI.createRecord(id, module.exports)
   } else {
-    hotAPI.update("_v-252cc68e", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":48,"marked":49,"vue":91,"vue-hot-reload-api":90}],6:[function(require,module,exports){
+},{"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92}],6:[function(require,module,exports){
+'use strict';
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var $$$ = require('jquery')
-var marked = require('marked')
+var $$$ = require('jquery');
+var marked = require('marked');
 module.exports = {
   replace: true,
   props: [],
-  data: function(){
-    return {
-      
-    }
+  data: function data() {
+    return {};
   },
-  methods: {
-
+  methods: {},
+  computed: {},
+  attached: function attached() {
+    componentHandler.upgradeDom();
   },
-  computed: {
-
-  },
-  attached: function () {
-    componentHandler.upgradeDom()
-  },
-  components: {
-
-  },
-  filters: {
-    
-  }
-}
-
-if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"rwd_janela_conteudo\">\n    <h3>Realização</h3>\n    <p>Cras ac maximus risus. Donec eget congue justo. Nam quis rutrum nunc, quis finibus nunc. Ut tristique ex sed nulla dapibus, id euismod nunc ultrices. Duis vehicula tempor felis at viverra. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla non purus non turpis dictum fringilla in nec nulla. Duis at pharetra quam. Integer quis ante commodo, tristique quam non, dapibus magna. Integer urna ligula, iaculis eget nisi et, rhoncus sodales metus. Nulla rhoncus, purus id maximus convallis, odio massa volutpat nunc, in tincidunt ante turpis ut nibh.</p>\n    <p>In ut mauris nisl. Fusce interdum lobortis velit, et feugiat eros cursus ac. Praesent sit amet odio lacinia, dignissim enim eget, porta neque. In iaculis, sapien vitae placerat ultricies, neque odio vestibulum mi, venenatis sagittis sapien felis varius tellus. Fusce massa lectus, mollis ut molestie sed, posuere vitae eros. In pellentesque diam eu metus rhoncus, eu varius turpis dapibus. Donec commodo urna et erat tristique ultricies. Aliquam molestie orci sed eros lacinia, ac sagittis tellus accumsan.</p>\n</div>\n<div class=\"rwd_janela_img\">\n  <img src=\"../img/icon_realizacao.png\" class=\"rwd_janela_icon\">\n</div>\n"
+  components: {},
+  filters: {}
+};
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div>\n    <div class=\"rwd_janela_conteudo\">\n      <h3>Realização</h3>\n      <p>Cras ac maximus risus. Donec eget congue justo. Nam quis rutrum nunc, quis finibus nunc. Ut tristique ex sed nulla dapibus, id euismod nunc ultrices. Duis vehicula tempor felis at viverra. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla non purus non turpis dictum fringilla in nec nulla. Duis at pharetra quam. Integer quis ante commodo, tristique quam non, dapibus magna. Integer urna ligula, iaculis eget nisi et, rhoncus sodales metus. Nulla rhoncus, purus id maximus convallis, odio massa volutpat nunc, in tincidunt ante turpis ut nibh.</p>\n      <p>In ut mauris nisl. Fusce interdum lobortis velit, et feugiat eros cursus ac. Praesent sit amet odio lacinia, dignissim enim eget, porta neque. In iaculis, sapien vitae placerat ultricies, neque odio vestibulum mi, venenatis sagittis sapien felis varius tellus. Fusce massa lectus, mollis ut molestie sed, posuere vitae eros. In pellentesque diam eu metus rhoncus, eu varius turpis dapibus. Donec commodo urna et erat tristique ultricies. Aliquam molestie orci sed eros lacinia, ac sagittis tellus accumsan.</p>\n    </div>\n    <div class=\"rwd_janela_img\">\n      <img src=\"../img/icon_realizacao.png\" class=\"rwd_janela_icon\">\n    </div>\n  </div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
+  var id = "/media/bambuzal/Softwares/riowebdoc/app/vue/components/janela-realizacao.vue"
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-32d574f8", module.exports)
+    hotAPI.createRecord(id, module.exports)
   } else {
-    hotAPI.update("_v-32d574f8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":48,"marked":49,"vue":91,"vue-hot-reload-api":90}],7:[function(require,module,exports){
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var $$$ = require('jquery')
-var marked = require('marked')
-var _ = require('underscore')
+},{"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92}],7:[function(require,module,exports){
+'use strict';
+
+var $$$ = require('jquery');
+var _marked = require('marked');
+var _ = require('underscore');
 module.exports = {
   replace: true,
   props: ['naves', 'user'],
-  data: function(){
+  data: function data() {
     return {
       filter: '',
       media_cloud: [],
@@ -1185,11 +265,13 @@ module.exports = {
       area: [],
       found: [],
       playing: null
-    }
+    };
   },
   methods: {
-    shuffle: function (array) {
-      var currentIndex = array.length, temporaryValue, randomIndex;
+    shuffle: function shuffle(array) {
+      var currentIndex = array.length,
+          temporaryValue,
+          randomIndex;
 
       // While there remain elements to shuffle...
       while (0 !== currentIndex) {
@@ -1206,979 +288,476 @@ module.exports = {
 
       return array;
     },
-    getSize: function (media) {
-      var width = $$$(window).width()
+    getSize: function getSize(media) {
+      var width = $$$(window).width();
       var size = {
-        width: (width/6)/3,
+        width: width / 6 / 3,
         height: 0
-      }
-      var votos = size.width * (media.votes.length/50)
-      var labels = size.width * media.labels
+      };
+      var votos = size.width * (media.votes.length / 50);
+      var labels = size.width * media.labels;
 
-      size.width = parseInt(size.width + votos + labels)
-      size.height = parseInt((size.width * 9)/16)
+      size.width = parseInt(size.width + votos + labels);
+      size.height = parseInt(size.width * 9 / 16);
       return size;
     },
-    changeCanvasSize: function () {
-      var h = $$$('#navegacao').outerHeight() + $$$('header').outerHeight() + $$$('#rodape').outerHeight()
-      var w = $$$(window).height()
-      var width = $$$(window).width()
-      this.width = 500 * this.naves.length
-      this.height = w-h
-      $$$('#media_cloud').height(w-h)
+    changeCanvasSize: function changeCanvasSize() {
+      var h = $$$('#navegacao').outerHeight() + $$$('header').outerHeight() + $$$('#rodape').outerHeight();
+      var w = $$$(window).height();
+      var width = $$$(window).width();
+      this.width = 500 * this.naves.length;
+      this.height = w - h;
+      $$$('#media_cloud').height(w - h);
     },
-    copyArray: function (n) {
-      this.medias = this.media_cloud.slice(0, n+1)
+    copyArray: function copyArray(n) {
+      this.medias = this.media_cloud.slice(0, n + 1);
     },
-    scanArea: function (matrix_area, a, ar) {
-      var espacos = []
+    scanArea: function scanArea(matrix_area, a, ar) {
+      var espacos = [];
       // console.log(matrix_area)
-      var in_area = _.filter(ar, function (o) { 
-        return o.matrix[0][0] > matrix_area[0][0] 
-            && o.matrix[0][0] < matrix_area[1][0] + a.size.width 
-            || o.matrix[1][0] > matrix_area[0][0] 
-            && o.matrix[1][0] < matrix_area[1][0]
-            || o.matrix[0][0] < matrix_area[0][0] 
-            && o.matrix[1][0] > matrix_area[1][0] })
+      var in_area = _.filter(ar, function (o) {
+        return o.matrix[0][0] > matrix_area[0][0] && o.matrix[0][0] < matrix_area[1][0] + a.size.width || o.matrix[1][0] > matrix_area[0][0] && o.matrix[1][0] < matrix_area[1][0] || o.matrix[0][0] < matrix_area[0][0] && o.matrix[1][0] > matrix_area[1][0];
+      });
       // console.log(in_area)
       if (in_area.length === 0) {
-        espacos.push([[matrix_area[0][0], matrix_area[0][1]],
-                      [matrix_area[1][0], matrix_area[1][1] - a.size.height]])
+        espacos.push([[matrix_area[0][0], matrix_area[0][1]], [matrix_area[1][0], matrix_area[1][1] - a.size.height]]);
         // console.log(espacos)
         // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0], matrix_area[0][1]],[matrix_area[1][0], matrix_area[1][1] - a.size.height]]})
       } else {
-        var this_area = _.filter(in_area, function (o) { 
-          return o.matrix[0][1] > matrix_area[0][1] 
-              && o.matrix[0][1] < matrix_area[1][1]
-              || o.matrix[1][1] > matrix_area[0][1] 
-              && o.matrix[1][1] < matrix_area[1][1] })
-        if (this_area.length === 0) {
-          espacos.push([[matrix_area[0][0], matrix_area[0][1]],
-                        [matrix_area[1][0], matrix_area[1][1] - a.size.height]])
-          // console.log(espacos)
-          // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0], matrix_area[0][1]],[matrix_area[1][0], matrix_area[1][1] - a.size.height]]})
-        } else {
-          var min_y = _.min(this_area, function(min_y) {
-            return min_y.matrix[0][1]
-          })
-          if (min_y.matrix[0][1] - matrix_area[0][1] > a.size.height) {
-            // console.log('tem espaço em cima')
-            espacos.push([matrix_area[0],
-                         [matrix_area[1][0],min_y.matrix[0][1]-a.size.height]])
+          var this_area = _.filter(in_area, function (o) {
+            return o.matrix[0][1] > matrix_area[0][1] && o.matrix[0][1] < matrix_area[1][1] || o.matrix[1][1] > matrix_area[0][1] && o.matrix[1][1] < matrix_area[1][1];
+          });
+          if (this_area.length === 0) {
+            espacos.push([[matrix_area[0][0], matrix_area[0][1]], [matrix_area[1][0], matrix_area[1][1] - a.size.height]]);
             // console.log(espacos)
-            // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [matrix_area[0],[matrix_area[1][0],min_y.matrix[0][1]-a.size.height]]})
-          } 
-
-          if (min_y.matrix[0][0] - matrix_area[0][0] > a.size.width) {
-            // console.log('checando area a esquerda')
-            var check_area_y = _.filter(this_area, function (o) { 
-              return o.matrix[0][1] > matrix_area[0][1] 
-                  && o.matrix[0][1] < min_y.matrix[1][1]
-                  || o.matrix[1][1] > matrix_area[0][1] 
-                  && o.matrix[1][1] < min_y.matrix[1][1]
-                  || o.matrix[0][1] < matrix_area[0][1] 
-                  && o.matrix[1][1] > min_y.matrix[1][1]
-            })
-            var check_area = _.filter(check_area_y, function (o) { 
-              return o.matrix[0][0] > matrix_area[0][0] 
-                  && o.matrix[0][0] < min_y.matrix[0][0]
-                  || o.matrix[1][0] > matrix_area[0][0] 
-                  && o.matrix[1][0] < min_y.matrix[0][0]
-            })
-            if (check_area.length === 0) {
-              // console.log('area a esquerda sem objetos')
-              var bot_area_y = _.filter(this_area, function (o) { 
-                return o.matrix[0][1] > min_y.matrix[1][1] 
-                && o.matrix[0][1] < min_y.matrix[1][1] + a.size.height})
-              var bot_area = _.filter(bot_area_y, function (o) { 
-                return o.matrix[0][0] > matrix_area[0][0] 
-                    && o.matrix[0][0] < min_y.matrix[0][0]
-                    || o.matrix[1][0] > matrix_area[0][0] 
-                    && o.matrix[1][0] < min_y.matrix[0][0]
-                    || o.matrix[0][0] < matrix_area[0][0] 
-                    && o.matrix[1][0] > min_y.matrix[0][0]
-              })
-              if (bot_area.length === 0) {
-                // console.log('tem espaço na esquerda e sem impedimentos em baixo')
-                if (min_y.matrix[1][1] + a.size.height > matrix_area[1][1]) {
-                  espacos.push([[matrix_area[0][0],matrix_area[0][1]],
-                                [min_y.matrix[0][0]-a.size.width,matrix_area[1][1] - a.size.height]])
-                  // console.log(espacos)
-                  // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,matrix_area[1][1] - a.size.height]]})
-                } else {
-                  espacos.push([[matrix_area[0][0],matrix_area[0][1]],
-                              [min_y.matrix[0][0]-a.size.width,min_y.matrix[1][1]]])
-                  // console.log(espacos)
-                  // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,min_y.matrix[1][1]]]})
-                }
-                
-              } else {
-                var ss = _.min(bot_area, function(b) {
-                  return b.matrix[0][1]
-                })
-                if (ss.matrix[0][1] - matrix_area[0][1] > a.size.height) {
-                  espacos.push([[matrix_area[0][0],matrix_area[0][1]],
-                                [min_y.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]])
-                  // console.log(espacos)
-                  // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]]})
-                } else {
-                  // console.log('não cabe aqui em baixo')
-                }
+            // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0], matrix_area[0][1]],[matrix_area[1][0], matrix_area[1][1] - a.size.height]]})
+          } else {
+              var min_y = _.min(this_area, function (min_y) {
+                return min_y.matrix[0][1];
+              });
+              if (min_y.matrix[0][1] - matrix_area[0][1] > a.size.height) {
+                // console.log('tem espaço em cima')
+                espacos.push([matrix_area[0], [matrix_area[1][0], min_y.matrix[0][1] - a.size.height]]);
+                // console.log(espacos)
+                // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [matrix_area[0],[matrix_area[1][0],min_y.matrix[0][1]-a.size.height]]})
               }
-            } else {
-              // console.log('tem espaco entre os objetos ou acima?')
-              var ob_esq = _.max(check_area, function(esq) {
-                return esq.matrix[1][0]
-              })
-              if (min_y.matrix[0][0] - ob_esq.matrix[1][0] > a.size.width) {
-                // console.log('tem entre!')
-                var bot_area_y = _.filter(this_area, function (o) { 
-                  return o.matrix[0][1] > min_y.matrix[1][1] 
-                  && o.matrix[0][1] < min_y.matrix[1][1] + a.size.height })
-                var bot_area = _.filter(bot_area_y, function (o) { 
-                  return o.matrix[0][0] > ob_esq.matrix[1][0] 
-                      && o.matrix[0][0] < min_y.matrix[0][0]
-                      || o.matrix[1][0] > ob_esq.matrix[1][0] 
-                      && o.matrix[1][0] < min_y.matrix[0][0] })
-                if (bot_area.length === 0) {
-                  if (min_y.matrix[1][1] + a.size.height > matrix_area[1][1]) {
-                    var down = matrix_area[1][1] - a.size.height
+
+              if (min_y.matrix[0][0] - matrix_area[0][0] > a.size.width) {
+                // console.log('checando area a esquerda')
+                var check_area_y = _.filter(this_area, function (o) {
+                  return o.matrix[0][1] > matrix_area[0][1] && o.matrix[0][1] < min_y.matrix[1][1] || o.matrix[1][1] > matrix_area[0][1] && o.matrix[1][1] < min_y.matrix[1][1] || o.matrix[0][1] < matrix_area[0][1] && o.matrix[1][1] > min_y.matrix[1][1];
+                });
+                var check_area = _.filter(check_area_y, function (o) {
+                  return o.matrix[0][0] > matrix_area[0][0] && o.matrix[0][0] < min_y.matrix[0][0] || o.matrix[1][0] > matrix_area[0][0] && o.matrix[1][0] < min_y.matrix[0][0];
+                });
+                if (check_area.length === 0) {
+                  // console.log('area a esquerda sem objetos')
+                  var bot_area_y = _.filter(this_area, function (o) {
+                    return o.matrix[0][1] > min_y.matrix[1][1] && o.matrix[0][1] < min_y.matrix[1][1] + a.size.height;
+                  });
+                  var bot_area = _.filter(bot_area_y, function (o) {
+                    return o.matrix[0][0] > matrix_area[0][0] && o.matrix[0][0] < min_y.matrix[0][0] || o.matrix[1][0] > matrix_area[0][0] && o.matrix[1][0] < min_y.matrix[0][0] || o.matrix[0][0] < matrix_area[0][0] && o.matrix[1][0] > min_y.matrix[0][0];
+                  });
+                  if (bot_area.length === 0) {
+                    // console.log('tem espaço na esquerda e sem impedimentos em baixo')
+                    if (min_y.matrix[1][1] + a.size.height > matrix_area[1][1]) {
+                      espacos.push([[matrix_area[0][0], matrix_area[0][1]], [min_y.matrix[0][0] - a.size.width, matrix_area[1][1] - a.size.height]]);
+                      // console.log(espacos)
+                      // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,matrix_area[1][1] - a.size.height]]})
+                    } else {
+                        espacos.push([[matrix_area[0][0], matrix_area[0][1]], [min_y.matrix[0][0] - a.size.width, min_y.matrix[1][1]]]);
+                        // console.log(espacos)
+                        // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,min_y.matrix[1][1]]]})
+                      }
                   } else {
-                    var down = min_y.matrix[1][1]
-                  }
-                  espacos.push([[ob_esq.matrix[1][0],matrix_area[0][1]],
-                                [min_y.matrix[0][0]-a.size.width,down]])
-                  // console.log(espacos)
-                  // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[ob_esq.matrix[1][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,down]]})
+                      var ss = _.min(bot_area, function (b) {
+                        return b.matrix[0][1];
+                      });
+                      if (ss.matrix[0][1] - matrix_area[0][1] > a.size.height) {
+                        espacos.push([[matrix_area[0][0], matrix_area[0][1]], [min_y.matrix[0][0] - a.size.width, ss.matrix[0][1] - a.size.height]]);
+                        // console.log(espacos)
+                        // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]]})
+                      } else {
+                          // console.log('não cabe aqui em baixo')
+                        }
+                    }
                 } else {
-                  var ss = _.min(bot_area, function(b) {
-                    return b.matrix[0][1]
-                  })
-                  if (ss.matrix[0][1] - matrix_area[0][1] > a.size.height) {
-                    espacos.push([[ob_esq.matrix[1][0],matrix_area[0][1]],
-                                [min_y.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]])
+                    // console.log('tem espaco entre os objetos ou acima?')
+                    var ob_esq = _.max(check_area, function (esq) {
+                      return esq.matrix[1][0];
+                    });
+                    if (min_y.matrix[0][0] - ob_esq.matrix[1][0] > a.size.width) {
+                      // console.log('tem entre!')
+                      var bot_area_y = _.filter(this_area, function (o) {
+                        return o.matrix[0][1] > min_y.matrix[1][1] && o.matrix[0][1] < min_y.matrix[1][1] + a.size.height;
+                      });
+                      var bot_area = _.filter(bot_area_y, function (o) {
+                        return o.matrix[0][0] > ob_esq.matrix[1][0] && o.matrix[0][0] < min_y.matrix[0][0] || o.matrix[1][0] > ob_esq.matrix[1][0] && o.matrix[1][0] < min_y.matrix[0][0];
+                      });
+                      if (bot_area.length === 0) {
+                        if (min_y.matrix[1][1] + a.size.height > matrix_area[1][1]) {
+                          var down = matrix_area[1][1] - a.size.height;
+                        } else {
+                          var down = min_y.matrix[1][1];
+                        }
+                        espacos.push([[ob_esq.matrix[1][0], matrix_area[0][1]], [min_y.matrix[0][0] - a.size.width, down]]);
+                        // console.log(espacos)
+                        // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[ob_esq.matrix[1][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,down]]})
+                      } else {
+                          var ss = _.min(bot_area, function (b) {
+                            return b.matrix[0][1];
+                          });
+                          if (ss.matrix[0][1] - matrix_area[0][1] > a.size.height) {
+                            espacos.push([[ob_esq.matrix[1][0], matrix_area[0][1]], [min_y.matrix[0][0] - a.size.width, ss.matrix[0][1] - a.size.height]]);
+                            // console.log(espacos)
+                            // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[ob_esq.matrix[1][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]]})
+                          } else {
+                              // console.log('não cabe aqui em baixo')
+                            }
+                        }
+                    } else {
+                        // console.log('não cabe entre os objetos')
+                      }
+
+                    if (ob_esq.matrix[0][0] - matrix_area[0][0] > a.size.width) {
+                      // console.log('executar novo scan')
+                      // console.log(espacos)
+                      var esqArea = [[matrix_area[0][0], matrix_area[0][1]], [ob_esq.matrix[0][0] - a.size.width, matrix_area[1][1]]];
+                      var esqEspacos = this.scanArea(esqArea, a, ar);
+                      // console.log(esqEspacos)
+                      espacos = espacos.concat(esqEspacos);
+                      // console.log(espacos)
+                    }
+
+                    var ob_esq_up = _.max(check_area, function (esq) {
+                      return esq.matrix[1][0];
+                    });
+                    if (ob_esq_up.matrix[0][1] - matrix_area[0][1] > a.size.height) {
+                      // console.log('tem acima!')
+                      // console.log('executar novo scan')
+                      // console.log(espacos)
+                      var upEscArea = [[matrix_area[0][0], matrix_area[0][1]], [min_y.matrix[0][0] - a.size.width, ob_esq_up.matrix[0][1]]];
+                      var upEscEspacos = this.scanArea(upEscArea, a, ar);
+                      // console.log(upEscEspacos)
+                      espacos = espacos.concat(upEscEspacos);
+                      // console.log(espacos)
+                    } else {
+                        // console.log('não cabe em acima')
+                      }
+                  }
+              }
+
+              if (matrix_area[1][0] - min_y.matrix[1][0] > 0) {
+                // console.log('checando area a direita')
+                var check_area_y = _.filter(this_area, function (o) {
+                  return o.matrix[0][1] > min_y.matrix[0][1] && o.matrix[0][1] < min_y.matrix[1][1] + a.size.height || o.matrix[1][1] > min_y.matrix[0][1] && o.matrix[1][1] < min_y.matrix[1][1] + a.size.height;
+                });
+                var check_area = _.filter(check_area_y, function (o) {
+                  return o.matrix[0][0] > min_y.matrix[1][0] && o.matrix[0][0] < matrix_area[1][0] + a.size.width;
+                });
+                if (check_area.length === 0) {
+                  // console.log('area a direita sem objetos')
+                  var bot_area_y = _.filter(this_area, function (o) {
+                    return o.matrix[0][1] > min_y.matrix[1][1] && o.matrix[0][1] < min_y.matrix[1][1] + a.size.height;
+                  });
+                  var bot_area = _.filter(bot_area_y, function (o) {
+                    return o.matrix[0][0] > min_y.matrix[1][0] && o.matrix[0][0] < matrix_area[1][0] + a.size.width || o.matrix[1][0] > min_y.matrix[1][0] && o.matrix[1][0] < matrix_area[1][0] + a.size.width || o.matrix[0][0] < min_y.matrix[1][0] && o.matrix[1][0] > matrix_area[1][0] + a.size.width;
+                  });
+                  if (bot_area.length === 0) {
+                    // console.log('tem espaço na direita e sem impedimentos em baixo')
+                    if (min_y.matrix[1][1] + a.size.height > matrix_area[1][1]) {
+                      espacos.push([[min_y.matrix[1][0], matrix_area[0][1]], [matrix_area[1][0], matrix_area[1][1] - a.size.height]]);
+                      // console.log(espacos)
+                      // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[matrix_area[1][0],matrix_area[1][1] - a.size.height]]})
+                    } else {
+                        espacos.push([[min_y.matrix[1][0], matrix_area[0][1]], [matrix_area[1][0], min_y.matrix[1][1]]]);
+                        // console.log(espacos)
+                        // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[matrix_area[1][0],min_y.matrix[1][1]]]})
+                      }
+                  } else {
+                      var ss = _.min(bot_area, function (b) {
+                        return b.matrix[0][1];
+                      });
+                      if (ss.matrix[0][1] - matrix_area[0][1] > a.size.height) {
+                        espacos.push([[min_y.matrix[1][0], matrix_area[0][1]], [matrix_area[1][0], ss.matrix[0][1] - a.size.height]]);
+                        // console.log(espacos)
+                        // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[matrix_area[1][0],ss.matrix[0][1]-a.size.height]]})
+                      } else {
+                          // console.log('não cabe aqui em baixo')
+                        }
+                    }
+                } else {
+                    // console.log('tem espaco entre os objetos?')
+                    var ob_dir = _.min(check_area, function (esq) {
+                      return esq.matrix[0][0];
+                    });
+                    if (ob_dir.matrix[0][0] - min_y.matrix[1][0] > a.size.width) {
+                      // console.log('tem entre!')
+                      var bot_area_y = _.filter(this_area, function (o) {
+                        return o.matrix[0][1] > min_y.matrix[1][1] && o.matrix[0][1] < min_y.matrix[1][1] + a.size.height;
+                      });
+                      var bot_area = _.filter(bot_area_y, function (o) {
+                        return o.matrix[0][0] > min_y.matrix[1][0] && o.matrix[0][0] < ob_dir.matrix[0][0] || o.matrix[1][0] > min_y.matrix[1][0] && o.matrix[1][0] < ob_dir.matrix[0][0];
+                      });
+                      if (bot_area.length === 0) {
+                        if (min_y.matrix[1][1] + a.size.height > matrix_area[1][1]) {
+                          var down = matrix_area[1][1] - a.size.height;
+                        } else {
+                          var down = min_y.matrix[1][1];
+                        }
+                        espacos.push([[min_y.matrix[1][0], matrix_area[0][1]], [ob_dir.matrix[0][0] - a.size.width, down]]);
+                        // console.log(espacos)
+                        // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[ob_dir.matrix[0][0]-a.size.width,down]]})
+                      } else {
+                          var ss = _.min(bot_area, function (b) {
+                            return b.matrix[0][1];
+                          });
+                          if (ss.matrix[0][1] - matrix_area[0][1] > a.size.height) {
+                            espacos.push([[min_y.matrix[1][0], matrix_area[0][1]], [ob_dir.matrix[0][0] - a.size.width, ss.matrix[0][1] - a.size.height]]);
+                            // console.log(espacos)
+                            // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[ob_dir.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]]})
+                          } else {
+                              // console.log('não cabe aqui em baixo')
+                            }
+                        }
+                    } else {
+                        // console.log('não cabe entre os objetos')
+                      }
+
+                    if (matrix_area[1][0] - ob_dir.matrix[1][0] > a.size.width) {
+                      // console.log('executar novo scan')
+                      // console.log(espacos)
+                      var dirArea = [[ob_dir.matrix[0][0], matrix_area[0][1]], [matrix_area[1][0], matrix_area[1][1]]];
+                      var dirEspacos = this.scanArea(dirArea, a, ar);
+                      // console.log(dirEspacos)
+                      espacos = espacos.concat(dirEspacos);
+                      // console.log(espacos)
+                    }
+
+                    var ob_dir_up = _.min(check_area, function (esq) {
+                      return esq.matrix[0][1];
+                    });
+                    if (ob_dir_up.matrix[0][1] - matrix_area[0][1] > a.size.height) {
+                      // console.log('tem acima!')
+                      // console.log('executar novo scan')
+                      // console.log(espacos)
+                      var upDirArea = [[min_y.matrix[1][0], matrix_area[0][1]], [matrix_area[1][0], ob_dir_up.matrix[0][1]]];
+                      var upDirEspacos = this.scanArea(upDirArea, a, ar);
+                      // console.log(upDirEspacos)
+                      espacos = espacos.concat(upDirEspacos);
+                      // console.log(espacos)
+                    } else {
+                        // console.log('não cabe em acima')
+                      }
+                  }
+              }
+
+              if (matrix_area[1][1] - min_y.matrix[1][1] > a.size.height) {
+                // console.log('scanear abaixo')
+                var area_baixo = _.filter(this_area, function (o) {
+                  return o.matrix[0][1] > min_y.matrix[1][1] && o.matrix[0][1] < matrix_area[1][1] + a.size.height;
+                });
+
+                if (area_baixo === 0) {
+                  espacos.push([[matrix_area[0][0], min_y.matrix[1][1]], [matrix_area[1][0], matrix_area[1][1] - a.size.height]]);
+                  // console.log(espacos)
+                  // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0],min_y.matrix[1][1]],[matrix_area[1][0],matrix_area[1][1] - a.size.height]]})
+                } else {
+                    // console.log('executar novo scan')
                     // console.log(espacos)
-                    // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[ob_esq.matrix[1][0],matrix_area[0][1]],[min_y.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]]})
-                  } else {
-                    // console.log('não cabe aqui em baixo')
-                  }
-                  
-                }
-              } else {
-                // console.log('não cabe entre os objetos')
-              }
-
-              if (ob_esq.matrix[0][0] - matrix_area[0][0] > a.size.width) {
-                // console.log('executar novo scan')
-                // console.log(espacos)
-                var esqArea = [[matrix_area[0][0],matrix_area[0][1]],
-                                [ob_esq.matrix[0][0]-a.size.width,matrix_area[1][1]]]
-                var esqEspacos = this.scanArea(esqArea, a, ar)
-                // console.log(esqEspacos)
-                espacos = espacos.concat(esqEspacos)
-                // console.log(espacos)
-              }
-
-              var ob_esq_up = _.max(check_area, function(esq) {
-                return esq.matrix[1][0]
-              })
-              if (ob_esq_up.matrix[0][1] - matrix_area[0][1] > a.size.height) {
-                // console.log('tem acima!')
-                // console.log('executar novo scan')
-                // console.log(espacos)
-                var upEscArea = [[matrix_area[0][0],matrix_area[0][1]],
-                                 [min_y.matrix[0][0]-a.size.width,ob_esq_up.matrix[0][1]]]
-                var upEscEspacos = this.scanArea(upEscArea, a, ar)
-                // console.log(upEscEspacos)
-                espacos = espacos.concat(upEscEspacos)
-                // console.log(espacos)
-              } else {
-                // console.log('não cabe em acima')
-              }
-            }
-          } 
-
-          if (matrix_area[1][0] - min_y.matrix[1][0] > 0) {
-            // console.log('checando area a direita')
-            var check_area_y = _.filter(this_area, function (o) { 
-              return o.matrix[0][1] > min_y.matrix[0][1] 
-                  && o.matrix[0][1] < min_y.matrix[1][1] + a.size.height
-                  || o.matrix[1][1] > min_y.matrix[0][1] 
-                  && o.matrix[1][1] < min_y.matrix[1][1] + a.size.height
-            })
-            var check_area = _.filter(check_area_y, function (o) { 
-              return o.matrix[0][0] > min_y.matrix[1][0] 
-                  && o.matrix[0][0] < matrix_area[1][0] + a.size.width
-            })
-            if (check_area.length === 0) {
-              // console.log('area a direita sem objetos')
-              var bot_area_y = _.filter(this_area, function (o) { 
-                return o.matrix[0][1] > min_y.matrix[1][1] 
-                    && o.matrix[0][1] < min_y.matrix[1][1] + a.size.height})
-              var bot_area = _.filter(bot_area_y, function (o) { 
-                return o.matrix[0][0] > min_y.matrix[1][0] 
-                    && o.matrix[0][0] < matrix_area[1][0] + a.size.width
-                    || o.matrix[1][0] > min_y.matrix[1][0] 
-                    && o.matrix[1][0] < matrix_area[1][0] + a.size.width
-                    || o.matrix[0][0] < min_y.matrix[1][0] 
-                    && o.matrix[1][0] > matrix_area[1][0] + a.size.width
-              })
-              if (bot_area.length === 0) {
-                // console.log('tem espaço na direita e sem impedimentos em baixo')
-                if (min_y.matrix[1][1] + a.size.height > matrix_area[1][1]) {
-                  espacos.push([[min_y.matrix[1][0],matrix_area[0][1]],
-                                [matrix_area[1][0],matrix_area[1][1] - a.size.height]])
-                  // console.log(espacos)
-                  // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[matrix_area[1][0],matrix_area[1][1] - a.size.height]]})
-                } else {
-                  espacos.push([[min_y.matrix[1][0],matrix_area[0][1]],
-                              [matrix_area[1][0],min_y.matrix[1][1]]])
-                  // console.log(espacos)
-                  // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[matrix_area[1][0],min_y.matrix[1][1]]]})
-                }
-              } else {
-                var ss = _.min(bot_area, function(b) {
-                  return b.matrix[0][1]
-                })
-                if (ss.matrix[0][1] - matrix_area[0][1] > a.size.height) {
-                  espacos.push([[min_y.matrix[1][0],matrix_area[0][1]],
-                                [matrix_area[1][0],ss.matrix[0][1]-a.size.height]])
-                  // console.log(espacos)
-                  // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[matrix_area[1][0],ss.matrix[0][1]-a.size.height]]})
-                } else {
-                  // console.log('não cabe aqui em baixo')
-                }
-              }
-            } else {
-              // console.log('tem espaco entre os objetos?')
-              var ob_dir = _.min(check_area, function(esq) {
-                return esq.matrix[0][0]
-              })
-              if (ob_dir.matrix[0][0] - min_y.matrix[1][0] > a.size.width) {
-                // console.log('tem entre!')
-                var bot_area_y = _.filter(this_area, function (o) { 
-                  return o.matrix[0][1] > min_y.matrix[1][1] 
-                  && o.matrix[0][1] < min_y.matrix[1][1] + a.size.height })
-                var bot_area = _.filter(bot_area_y, function (o) { 
-                  return o.matrix[0][0] > min_y.matrix[1][0] 
-                      && o.matrix[0][0] < ob_dir.matrix[0][0]
-                      || o.matrix[1][0] > min_y.matrix[1][0] 
-                      && o.matrix[1][0] < ob_dir.matrix[0][0] })
-                if (bot_area.length === 0) {
-                  if (min_y.matrix[1][1] + a.size.height > matrix_area[1][1]) {
-                    var down = matrix_area[1][1] - a.size.height
-                  } else {
-                    var down = min_y.matrix[1][1]
-                  }
-                  espacos.push([[min_y.matrix[1][0],matrix_area[0][1]],
-                                [ob_dir.matrix[0][0]-a.size.width,down]])
-                  // console.log(espacos)
-                  // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[ob_dir.matrix[0][0]-a.size.width,down]]})
-                } else {
-                  var ss = _.min(bot_area, function(b) {
-                    return b.matrix[0][1]
-                  })
-                  if (ss.matrix[0][1] - matrix_area[0][1] > a.size.height) {
-                    espacos.push([[min_y.matrix[1][0],matrix_area[0][1]],
-                                  [ob_dir.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]])
+                    var botArea = [[matrix_area[0][0], min_y.matrix[1][1]], [matrix_area[1][0], matrix_area[1][1]]];
+                    var botEspacos = this.scanArea(botArea, a, ar);
+                    // console.log(botEspacos)
+                    espacos = espacos.concat(botEspacos);
                     // console.log(espacos)
-                    // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[min_y.matrix[1][0],matrix_area[0][1]],[ob_dir.matrix[0][0]-a.size.width,ss.matrix[0][1]-a.size.height]]})
-                  } else {
-                    // console.log('não cabe aqui em baixo')
                   }
-                  
-                }
-              } else {
-                // console.log('não cabe entre os objetos')
-              }
-
-              if (matrix_area[1][0] - ob_dir.matrix[1][0] > a.size.width) {
-                // console.log('executar novo scan')
-                // console.log(espacos)
-                var dirArea = [[ob_dir.matrix[0][0],matrix_area[0][1]],
-                                [matrix_area[1][0],matrix_area[1][1]]]
-                var dirEspacos = this.scanArea(dirArea, a, ar)
-                // console.log(dirEspacos)
-                espacos = espacos.concat(dirEspacos)
-                // console.log(espacos)
-              }
-
-              var ob_dir_up = _.min(check_area, function(esq) {
-                return esq.matrix[0][1]
-              })
-              if (ob_dir_up.matrix[0][1] - matrix_area[0][1] > a.size.height) {
-                // console.log('tem acima!')
-                // console.log('executar novo scan')
-                // console.log(espacos)
-                var upDirArea = [[min_y.matrix[1][0],matrix_area[0][1]],
-                               [matrix_area[1][0],ob_dir_up.matrix[0][1]]]
-                var upDirEspacos = this.scanArea(upDirArea, a, ar)
-                // console.log(upDirEspacos)
-                espacos = espacos.concat(upDirEspacos)
-                // console.log(espacos)
-              } else {
-                // console.log('não cabe em acima')
               }
             }
-          } 
-
-          if (matrix_area[1][1] - min_y.matrix[1][1] > a.size.height) {
-            // console.log('scanear abaixo')
-            var area_baixo = _.filter(this_area, function (o) { 
-              return o.matrix[0][1] > min_y.matrix[1][1] 
-                  && o.matrix[0][1] < matrix_area[1][1] + a.size.height
-            })
-
-            if (area_baixo === 0) {
-              espacos.push([[matrix_area[0][0],min_y.matrix[1][1]],
-                            [matrix_area[1][0],matrix_area[1][1] - a.size.height]])
-              // console.log(espacos)
-              // this.found.push({color: 'rgba(' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',' + parseInt(Math.random() * 255) + ',.5)' , matrix: [[matrix_area[0][0],min_y.matrix[1][1]],[matrix_area[1][0],matrix_area[1][1] - a.size.height]]})
-            } else {
-              // console.log('executar novo scan')
-              // console.log(espacos)
-              var botArea = [[matrix_area[0][0],min_y.matrix[1][1]],
-                              [matrix_area[1][0],matrix_area[1][1]]]
-              var botEspacos = this.scanArea(botArea, a, ar)
-              // console.log(botEspacos)
-              espacos = espacos.concat(botEspacos)
-              // console.log(espacos)
-            }
-
-          }
         }
 
-      }
-
-      return espacos
-
+      return espacos;
     },
-    checkPos: function(a, n, p, area) {
+    checkPos: function checkPos(a, n, p, area) {
       var pos = {
         x: 0,
         y: 0
-      }
+      };
 
-      var ar = this.media_cloud.slice(0, n)
+      var ar = this.media_cloud.slice(0, n);
       // console.log(ar)
 
-      var matrix_area = [
-                          [((this.width/this.naves_array.length)*area)-(this.width/this.naves_array.length), 0 ],
-                          [(this.width/this.naves_array.length)*area, this.height ] 
-                        ]
-      var espacos = this.scanArea(matrix_area, a, ar)
+      var matrix_area = [[this.width / this.naves_array.length * area - this.width / this.naves_array.length, 0], [this.width / this.naves_array.length * area, this.height]];
+      var espacos = this.scanArea(matrix_area, a, ar);
 
       if (espacos.length === 0) {
         // console.log('nenhum espaço achados')
       } else {
-        // console.log('espaços achados')
-        // console.log(espacos)
-        // console.log('randomizar espaços')
-        if (espacos.length === 1) {
-          var esp_rand = 0
-        } else {
-          var rejected = _.filter(espacos, function(esp) {
-            return esp[1][0] - esp[0][0] < 10 || esp[1][1] - esp[0][1] < 10
-          })
-          // console.log('rejected')
-          // console.log(rejected)
-          if (espacos.length !== rejected.length) {
-            espacos = _.reject(espacos, function(esp) {
-              return esp[1][0] - esp[0][0] < 10 || esp[1][1] - esp[0][1] < 10
-            })
+          // console.log('espaços achados')
+          // console.log(espacos)
+          // console.log('randomizar espaços')
+          if (espacos.length === 1) {
+            var esp_rand = 0;
+          } else {
+            var rejected = _.filter(espacos, function (esp) {
+              return esp[1][0] - esp[0][0] < 10 || esp[1][1] - esp[0][1] < 10;
+            });
+            // console.log('rejected')
+            // console.log(rejected)
+            if (espacos.length !== rejected.length) {
+              espacos = _.reject(espacos, function (esp) {
+                return esp[1][0] - esp[0][0] < 10 || esp[1][1] - esp[0][1] < 10;
+              });
+            }
+            var esp_rand = parseInt(Math.random() * espacos.length);
           }
-          var esp_rand = parseInt(Math.random() * espacos.length)
+          // console.log(esp_rand)
+          pos.x = Math.random() * (espacos[esp_rand][1][0] - espacos[esp_rand][0][0]) + espacos[esp_rand][0][0];
+          pos.y = Math.random() * (espacos[esp_rand][1][1] - espacos[esp_rand][0][1]) + espacos[esp_rand][0][1];
+          return pos;
         }
-        // console.log(esp_rand)
-        pos.x = Math.random() * (espacos[esp_rand][1][0] - espacos[esp_rand][0][0]) + espacos[esp_rand][0][0]
-        pos.y = Math.random() * (espacos[esp_rand][1][1] - espacos[esp_rand][0][1]) + espacos[esp_rand][0][1]
-        return pos
-      }
-
     },
-    arrangeItens: function (n, x) {
+    arrangeItens: function arrangeItens(n, x) {
       var a = {
         size: {
           width: this.media_cloud[n].width,
           height: this.media_cloud[n].height
         },
         pos: null
-      }
+      };
       // this.found=[]
 
-      var area = null
+      var area = null;
       if (this.area.length === 0) {
-        var temp_array = this.naves_array.filter(function() {return true})
-        this.area = this.shuffle(temp_array)
-        area = this.area.pop()
+        var temp_array = this.naves_array.filter(function () {
+          return true;
+        });
+        this.area = this.shuffle(temp_array);
+        area = this.area.pop();
       } else {
-        area = this.area.pop()
+        area = this.area.pop();
       }
 
-      if (n%2 == 0) {
+      if (n % 2 == 0) {
         // console.log('par')
-        a.pos = this.checkPos(a, n, 'par', area)
+        a.pos = this.checkPos(a, n, 'par', area);
       } else {
         // console.log('impar')
-        a.pos = this.checkPos(a, n, 'impar', area)
+        a.pos = this.checkPos(a, n, 'impar', area);
       }
 
       if (a.pos == undefined && x < this.naves_array.length) {
-        this.arrangeItens(n, x+1)
+        this.arrangeItens(n, x + 1);
       } else if (a.pos == undefined && x === this.naves_array.length) {
         // console.log('sem mais espaços')
       } else if (n !== this.media_cloud.length - 1) {
-        this.media_cloud[n].x = a.pos.x
-        this.media_cloud[n].y = a.pos.y
-        this.media_cloud[n].matrix = [[a.pos.x, a.pos.y], [a.pos.x+a.size.width, a.pos.y+a.size.height]]
-        this.copyArray(n)
-        this.arrangeItens(n+1, 1)
-      } else {
-        this.media_cloud[n].x = a.pos.x
-        this.media_cloud[n].y = a.pos.y
-        this.media_cloud[n].matrix = [[a.pos.x, a.pos.y], [a.pos.x+a.size.width, a.pos.y+a.size.height]]
-        this.copyArray(n)
-      } 
+          this.media_cloud[n].x = a.pos.x;
+          this.media_cloud[n].y = a.pos.y;
+          this.media_cloud[n].matrix = [[a.pos.x, a.pos.y], [a.pos.x + a.size.width, a.pos.y + a.size.height]];
+          this.copyArray(n);
+          this.arrangeItens(n + 1, 1);
+        } else {
+          this.media_cloud[n].x = a.pos.x;
+          this.media_cloud[n].y = a.pos.y;
+          this.media_cloud[n].matrix = [[a.pos.x, a.pos.y], [a.pos.x + a.size.width, a.pos.y + a.size.height]];
+          this.copyArray(n);
+        }
     },
-    mouseMove: function (event) {
-      var self = this
-      var width = $$$(window).width()
-      var range = d3.scaleLinear()
-                    .domain([0, width])
-                    .range([0, 2])
-      var interval = Math.abs(range(event.clientX) - 1)
-      this.interval = interval*50
+    mouseMove: function mouseMove(event) {
+      var self = this;
+      var width = $$$(window).width();
+      var range = d3.scaleLinear().domain([0, width]).range([0, 2]);
+      var interval = Math.abs(range(event.clientX) - 1);
+      this.interval = interval * 50;
     },
-    onWheel: function (event) {
-      var offset = 25
+    onWheel: function onWheel(event) {
+      var offset = 25;
       if (this.playing === null && this.filter === '') {
         if (event.wheelDelta > 0) {
-          this.offset = this.offset + offset + this.interval
+          this.offset = this.offset + offset + this.interval;
         } else {
-          this.offset = this.offset - offset - this.interval
+          this.offset = this.offset - offset - this.interval;
         }
       }
     }
   },
-  computed: {
-    
-  },
-  created: function () {
+  computed: {},
+  created: function created() {
     for (var i = 0; i < this.naves.length; i++) {
+      console.log(this.naves.length);
       for (var o = 0; o < this.naves[i].media.length; o++) {
-        var m = this.naves[i].media[o]
-        m.nav = this.naves[i].headers.nome
-        var size = this.getSize(m)
-        m.width = size.width
-        m.height = size.height
-        if (size.width < (($$$(window).width()/6)/3)*1.5   ) {
-          m.shadow = 4
+        var m = this.naves[i].media[o];
+        m.nav = this.naves[i].headers.nome;
+        var size = this.getSize(m);
+        m.width = size.width;
+        m.height = size.height;
+        if (size.width < $$$(window).width() / 6 / 3 * 1.5) {
+          m.shadow = 4;
         } else {
-          m.shadow = 2
+          m.shadow = 2;
         }
 
-        m.assistido = _.contains(this.user.assistidos, this.naves[i].media[o].id)
-        m.votado = _.contains(this.user.votos, this.naves[i].media[o].id)
+        m.assistido = _.contains(this.user.assistidos, this.naves[i].media[o].id);
+        m.votado = _.contains(this.user.votos, this.naves[i].media[o].id);
 
-        m.x = 0
-        m.y = 0
-        this.media_cloud.push(m)
+        m.x = 0;
+        m.y = 0;
+        this.media_cloud.push(m);
       }
-      this.naves_array.push(i+1)
-      this.area.push(i+1)
+      this.naves_array.push(i + 1);
+      this.area.push(i + 1);
     }
-    this.media_cloud = _.sortBy(this.shuffle(this.media_cloud), 'width')
-    this.media_cloud.reverse()
-    this.shuffle(this.area)
-
+    this.media_cloud = _.sortBy(this.shuffle(this.media_cloud), 'width');
+    this.media_cloud.reverse();
+    this.shuffle(this.area);
   },
-  attached: function () {
-    var self = this
-    componentHandler.upgradeDom()
-    this.changeCanvasSize()
-    this.arrangeItens(0, 1)
+  attached: function attached() {
+    var self = this;
+    componentHandler.upgradeDom();
+    this.changeCanvasSize();
+    this.arrangeItens(0, 1);
     // window.setInterval(function(){
     //   self.offset = self.offset + (self.interval*4)
     // }, 200);
-    this.$on('filter', function(nome) {
+    this.$on('filter', function (nome) {
       if (this.filter === nome) {
-        this.filter = ''
+        this.filter = '';
       } else {
-        this.filter = nome
+        this.filter = nome;
       }
-      return true
-    })
+      return true;
+    });
   },
   components: {
     'in-media': require('./media.vue')
   },
   filters: {
-    marked: function(value) {
-      return marked(value)
+    marked: function marked(value) {
+      return _marked(value);
     }
   }
-}
-
-if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\n<div id=\"media_cloud\" class=\"mdl-grid\" style=\"padding: 0; overflow: hidden\" @wheel=\"onWheel\" @mousemove=\"mouseMove\">\n  <div class=\"rwd_content mdl-cell mdl-cell--12-col\" style=\"margin: 0; width: 100%; perspective: 800px;\">\n\n    <in-media v-for=\"media in medias\" transition=\"fade\" :media=\"media\" :offset.sync=\"offset\" :height=\"height\" :width=\"width\" :playing.sync=\"playing\"></in-media>\n    <div v-if=\"playing !== null\" style=\"width: 100%; height: 100%; background: rgba(0,0,0,.7); z-index: 5; position: absolute; left: 0; top: 0;\"></div>\n    <!-- <div v-for=\"areas in naves\" :style=\"[{width: width / naves.length + 'px'}, {'background-color': 'rgb('+($index+10)*10 +','+($index+10)*10 +','+($index+10)*10+')'}, {left: (((width / naves.length) * $index) + offset) +'px'}]\" style=\"position: absolute; height: 100%; z-index: 0;\">{{$index}}</div>\n    <div v-for=\"f in found\" :style=\"[{width: f.matrix[1][0] - f.matrix[0][0] + 'px'}, {height: f.matrix[1][1] - f.matrix[0][1] + 'px'}, {top: f.matrix[0][1] + 'px'}, {left: (f.matrix[0][0] + offset) + 'px'}, {'background-color': f.color}]\" style=\"z-index: 2; position: absolute;\">{{$index}}</div> -->\n\n  </div>  \n</div>  \n\n"
+};
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\n  <div id=\"media_cloud\" class=\"mdl-grid\" style=\"padding: 0; overflow: hidden\" @wheel=\"onWheel\" @mousemove=\"mouseMove\">\n    <div class=\"rwd_content mdl-cell mdl-cell--12-col\" style=\"margin: 0; width: 100%; perspective: 800px;\">\n\n      <in-media v-for=\"media in medias\" transition=\"fade\" :media=\"media\" :offset.sync=\"offset\" :height=\"height\" :width=\"width\" :playing.sync=\"playing\"></in-media>\n      <div v-if=\"playing !== null\" style=\"width: 100%; height: 100%; background: rgba(0,0,0,.7); z-index: 5; position: absolute; left: 0; top: 0;\"></div>\n      <!-- <div v-for=\"areas in naves\" :style=\"[{width: width / naves.length + 'px'}, {'background-color': 'rgb('+($index+10)*10 +','+($index+10)*10 +','+($index+10)*10+')'}, {left: (((width / naves.length) * $index) + offset) +'px'}]\" style=\"position: absolute; height: 100%; z-index: 0;\">{{$index}}</div>\n      <div v-for=\"f in found\" :style=\"[{width: f.matrix[1][0] - f.matrix[0][0] + 'px'}, {height: f.matrix[1][1] - f.matrix[0][1] + 'px'}, {top: f.matrix[0][1] + 'px'}, {left: (f.matrix[0][0] + offset) + 'px'}, {'background-color': f.color}]\" style=\"z-index: 2; position: absolute;\">{{$index}}</div> -->\n\n    </div>  \n  </div>  \n\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
+  var id = "/media/bambuzal/Softwares/riowebdoc/app/vue/components/media-cloud.vue"
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-4b5ff672", module.exports)
+    hotAPI.createRecord(id, module.exports)
   } else {
-    hotAPI.update("_v-4b5ff672", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"./media.vue":8,"jquery":48,"marked":49,"underscore":88,"vue":91,"vue-hot-reload-api":90}],8:[function(require,module,exports){
-var __vueify_insert__ = require("vueify/lib/insert-css")
-var __vueify_style__ = __vueify_insert__.insert("/* line 4, stdin */\n.media_card {\n  position: absolute;\n  -webkit-transform-style: preserve-3d;\n          transform-style: preserve-3d;\n  -webkit-transition: left .2s linear, top .2s, opacity .4s, -webkit-transform .3s;\n  transition: left .2s linear, top .2s, opacity .4s, -webkit-transform .3s;\n  transition: transform .3s, left .2s linear, top .2s, opacity .4s;\n  transition: transform .3s, left .2s linear, top .2s, opacity .4s, -webkit-transform .3s;\n  z-index: 1;\n  -webkit-perspective: 800px;\n          perspective: 800px;\n  cursor: pointer; }\n  /* line 11, stdin */\n  .media_card:hover {\n    z-index: 3 !important; }\n  /* line 14, stdin */\n  .media_card.in-trans {\n    -webkit-transition: none;\n    transition: none; }\n  /* line 17, stdin */\n  .media_card.hover {\n    z-index: 2;\n    -webkit-transition: left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s;\n    transition: left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s;\n    transition: transform 0.3s, left 0.2s linear, top 0.2s linear;\n    transition: transform 0.3s, left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s; }\n    /* line 20, stdin */\n    .media_card.hover .mdl-card {\n      -webkit-transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, padding 0.2s linear, -webkit-transform 0.5s;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, padding 0.2s linear, -webkit-transform 0.5s;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, transform 0.5s, padding 0.2s linear;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, transform 0.5s, padding 0.2s linear, -webkit-transform 0.5s; }\n    /* line 23, stdin */\n    .media_card.hover .mdl-card__title {\n      height: 95%;\n      width: 97%;\n      -webkit-transition: opacity 0.6s, height 0.2s linear, min-height 0.2s linear, width 0.2s linear;\n      transition: opacity 0.6s, height 0.2s linear, min-height 0.2s linear, width 0.2s linear; }\n    /* line 28, stdin */\n    .media_card.hover .front {\n      padding: 6px; }\n  /* line 32, stdin */\n  .media_card.playing {\n    z-index: 6 !important;\n    -webkit-transition: left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    transition: left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    transition: transform 0.3s, left 0.4s, top 0.4s;\n    transition: transform 0.3s, left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    -webkit-perspective: 500px;\n            perspective: 500px;\n    cursor: default; }\n    /* line 37, stdin */\n    .media_card.playing .mdl-card__title {\n      height: 98%;\n      width: 98.8%;\n      -webkit-transition: opacity 0.6s, height 0.4s, min-height 0.4s linear, width 0.4s;\n      transition: opacity 0.6s, height 0.4s, min-height 0.4s linear, width 0.4s; }\n      /* line 41, stdin */\n      .media_card.playing .mdl-card__title.player {\n        z-index: 5;\n        padding: 30px;\n        background: white; }\n    /* line 47, stdin */\n    .media_card.playing .mdl-card__menu {\n      z-index: 6;\n      right: 10px;\n      top: 4px; }\n    /* line 53, stdin */\n    .media_card.playing .front .material-icons {\n      color: black; }\n    /* line 57, stdin */\n    .media_card.playing .mdl-card {\n      -webkit-transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, padding 0.4s, -webkit-transform 1s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, padding 0.4s, -webkit-transform 1s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, transform 1s, padding 0.4s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, transform 1s, padding 0.4s, -webkit-transform 1s; }\n  /* line 61, stdin */\n  .media_card.filtered {\n    opacity: 0 !important;\n    z-index: -1; }\n  /* line 65, stdin */\n  .media_card .front {\n    position: absolute;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    -webkit-transform-style: preserve-3d;\n            transform-style: preserve-3d;\n    padding: 2%; }\n    /* line 70, stdin */\n    .media_card .front .material-icons {\n      color: white; }\n  /* line 74, stdin */\n  .media_card .mdl-card {\n    border-radius: 1px;\n    -webkit-transition: box-shadow .2s, height .2s, width .2s, padding .2s, -webkit-transform 1s;\n    transition: box-shadow .2s, height .2s, width .2s, padding .2s, -webkit-transform 1s;\n    transition: box-shadow .2s, height .2s, width .2s, transform 1s, padding .2s;\n    transition: box-shadow .2s, height .2s, width .2s, transform 1s, padding .2s, -webkit-transform 1s; }\n  /* line 78, stdin */\n  .media_card .mdl-card__title {\n    height: 93%;\n    width: 96%;\n    color: white;\n    position: absolute;\n    -webkit-transition: opacity .6s, height .2s, width .2s;\n    transition: opacity .6s, height .2s, width .2s;\n    opacity: 1;\n    padding: 0; }\n  /* line 87, stdin */\n  .media_card .mdl-card__menu {\n    z-index: 3; }\n  /* line 90, stdin */\n  .media_card .back {\n    -webkit-transform: rotateY(180deg);\n            transform: rotateY(180deg);\n    position: absolute;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    -webkit-transform-style: preserve-3d;\n            transform-style: preserve-3d; }\n  /* line 97, stdin */\n  .media_card .mdl-button:hover, .media_card .mdl-button:focus {\n    background: transparent; }\n  /* line 101, stdin */\n  .media_card .assistido {\n    height: 100%;\n    width: 100%;\n    background: rgba(0, 0, 0, 0.5);\n    position: absolute;\n    z-index: 5; }\n  /* line 109, stdin */\n  .media_card .votado .material-icons {\n    color: red !important; }\n")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var $$$ = require('jquery')
-var marked = require('marked')
+},{"./media.vue":8,"jquery":24,"marked":25,"underscore":91,"vue":93,"vue-hot-reload-api":92}],8:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("/* line 4, stdin */\n.media_card {\n  position: absolute;\n  -webkit-transform-style: preserve-3d;\n          transform-style: preserve-3d;\n  -webkit-transition: left .2s, top .2s, opacity .4s, -webkit-transform .3s;\n  transition: left .2s, top .2s, opacity .4s, -webkit-transform .3s;\n  transition: transform .3s, left .2s, top .2s, opacity .4s;\n  transition: transform .3s, left .2s, top .2s, opacity .4s, -webkit-transform .3s;\n  z-index: 1;\n  -webkit-perspective: 800px;\n          perspective: 800px;\n  cursor: pointer; }\n  /* line 11, stdin */\n  .media_card:hover {\n    z-index: 3 !important; }\n  /* line 14, stdin */\n  .media_card.in-trans {\n    -webkit-transition: none;\n    transition: none; }\n  /* line 17, stdin */\n  .media_card.hover {\n    z-index: 2;\n    -webkit-transition: left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s;\n    transition: left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s;\n    transition: transform 0.3s, left 0.2s linear, top 0.2s linear;\n    transition: transform 0.3s, left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s; }\n    /* line 20, stdin */\n    .media_card.hover .mdl-card {\n      -webkit-transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, padding 0.2s linear, -webkit-transform 0.5s;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, padding 0.2s linear, -webkit-transform 0.5s;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, transform 0.5s, padding 0.2s linear;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, transform 0.5s, padding 0.2s linear, -webkit-transform 0.5s; }\n    /* line 23, stdin */\n    .media_card.hover .mdl-card__title {\n      height: 95%;\n      width: 97%;\n      -webkit-transition: opacity 0.6s, height 0.2s linear, min-height 0.2s linear, width 0.2s linear;\n      transition: opacity 0.6s, height 0.2s linear, min-height 0.2s linear, width 0.2s linear; }\n    /* line 28, stdin */\n    .media_card.hover .front {\n      padding: 6px; }\n  /* line 32, stdin */\n  .media_card.playing {\n    z-index: 6 !important;\n    -webkit-transition: left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    transition: left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    transition: transform 0.3s, left 0.4s, top 0.4s;\n    transition: transform 0.3s, left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    -webkit-perspective: 500px;\n            perspective: 500px;\n    cursor: default; }\n    /* line 37, stdin */\n    .media_card.playing .mdl-card__title {\n      height: 98%;\n      width: 98.8%;\n      -webkit-transition: opacity 0.6s, height 0.4s, min-height 0.4s linear, width 0.4s;\n      transition: opacity 0.6s, height 0.4s, min-height 0.4s linear, width 0.4s; }\n      /* line 41, stdin */\n      .media_card.playing .mdl-card__title.player {\n        z-index: 5;\n        padding: 30px;\n        background: white; }\n    /* line 47, stdin */\n    .media_card.playing .mdl-card__menu {\n      z-index: 6;\n      right: 10px;\n      top: 4px; }\n    /* line 53, stdin */\n    .media_card.playing .front .material-icons {\n      color: black; }\n    /* line 57, stdin */\n    .media_card.playing .mdl-card {\n      -webkit-transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, padding 0.4s, -webkit-transform 1s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, padding 0.4s, -webkit-transform 1s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, transform 1s, padding 0.4s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, transform 1s, padding 0.4s, -webkit-transform 1s; }\n  /* line 61, stdin */\n  .media_card.filtered {\n    opacity: 0 !important;\n    z-index: -1; }\n  /* line 65, stdin */\n  .media_card .front {\n    position: absolute;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    -webkit-transform-style: preserve-3d;\n            transform-style: preserve-3d;\n    padding: 2%; }\n    /* line 70, stdin */\n    .media_card .front .material-icons {\n      color: white; }\n  /* line 74, stdin */\n  .media_card .mdl-card {\n    border-radius: 1px;\n    -webkit-transition: box-shadow .2s, height .2s, width .2s, padding .2s, -webkit-transform 1s;\n    transition: box-shadow .2s, height .2s, width .2s, padding .2s, -webkit-transform 1s;\n    transition: box-shadow .2s, height .2s, width .2s, transform 1s, padding .2s;\n    transition: box-shadow .2s, height .2s, width .2s, transform 1s, padding .2s, -webkit-transform 1s; }\n  /* line 78, stdin */\n  .media_card .mdl-card__title {\n    height: 93%;\n    width: 96%;\n    color: white;\n    position: absolute;\n    -webkit-transition: opacity .6s, height .2s, width .2s;\n    transition: opacity .6s, height .2s, width .2s;\n    opacity: 1;\n    padding: 0; }\n  /* line 87, stdin */\n  .media_card .mdl-card__menu {\n    z-index: 3; }\n  /* line 90, stdin */\n  .media_card .back {\n    -webkit-transform: rotateY(180deg);\n            transform: rotateY(180deg);\n    position: absolute;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    -webkit-transform-style: preserve-3d;\n            transform-style: preserve-3d; }\n  /* line 97, stdin */\n  .media_card .mdl-button:hover, .media_card .mdl-button:focus {\n    background: transparent; }\n  /* line 101, stdin */\n  .media_card .assistido {\n    height: 100%;\n    width: 100%;\n    background: rgba(0, 0, 0, 0.5);\n    position: absolute;\n    z-index: 5; }\n  /* line 109, stdin */\n  .media_card .votado .material-icons {\n    color: red !important; }\n")
+'use strict';
+
+var $$$ = require('jquery');
+var _marked = require('marked');
 module.exports = {
   replace: true,
   props: ['offset', 'media', 'height', 'width', 'playing'],
-  data: function(){
+  data: function data() {
     return {
       filter: '',
       x_offset: 0,
@@ -2199,163 +778,161 @@ module.exports = {
       assistido: false,
       votado: false,
       votos: 0
-    }
+    };
   },
   watch: {
-    offset: function(val, oldVal) {
-      var self = this
+    offset: function offset(val, oldVal) {
+      var self = this;
       if (this.playing === null) {
         if (this.w_loop + this.offset + this.x_offset + this.media.x > this.width) {
-          $$$('#'+this.media.id).addClass('in-trans')
-          $$$('#'+this.media.id).css('opacity', 0)
-          this.w_loop = - (this.w_loop + this.width + 250)
-          setTimeout(function() {
-            $$$('#'+self.media.id).css('opacity', 1)
-            $$$('#'+self.media.id).removeClass('in-trans')
-          }, 500)
+          $$$('#' + this.media.id).addClass('in-trans');
+          $$$('#' + this.media.id).css('opacity', 0);
+          this.w_loop = -(this.w_loop + this.width + 250);
+          setTimeout(function () {
+            $$$('#' + self.media.id).css('opacity', 1);
+            $$$('#' + self.media.id).removeClass('in-trans');
+          }, 500);
         } else if (this.w_loop + this.offset + this.x_offset + this.media.x + this.media.width < -250) {
-          $$$('#'+this.media.id).addClass('in-trans')
-          $$$('#'+this.media.id).css('opacity', 0)
-          this.w_loop = this.w_loop + this.width + 250
-          setTimeout(function() {
-            $$$('#'+self.media.id).css('opacity', 1)
-            $$$('#'+self.media.id).removeClass('in-trans')
-          }, 400)
+          $$$('#' + this.media.id).addClass('in-trans');
+          $$$('#' + this.media.id).css('opacity', 0);
+          this.w_loop = this.w_loop + this.width + 250;
+          setTimeout(function () {
+            $$$('#' + self.media.id).css('opacity', 1);
+            $$$('#' + self.media.id).removeClass('in-trans');
+          }, 400);
         }
       }
     },
-    on: function(val, oldVal) {
+    on: function on(val, oldVal) {
       if (oldVal === true) {
-        this.unFlip(this.media.id)
+        this.unFlip(this.media.id);
       } else {
-        componentHandler.upgradeDom()
+        componentHandler.upgradeDom();
       }
     },
-    playing: function(val, oldVal) {
+    playing: function playing(val, oldVal) {
       if (val === this.media.id) {
-        var width = $$$(window).width()
-        var loc = this.media.x + this.offset + this.x_offset + this.w_loop + this.filter_offset
-        var mw = ((this.height*.9)*16)/9
-        $$$('#'+this.media.id).addClass('playing')
-        this.h_offset = (this.height*.9) - this.media.height
-        this.w_offset = mw - this.media.width
-        this.offset = this.offset + ( ( ( width - mw ) /2) - loc )
-        this.y_offset = (this.height*.05) - this.media.y
+        var width = $$$(window).width();
+        var loc = this.media.x + this.offset + this.x_offset + this.w_loop + this.filter_offset;
+        var mw = this.height * .9 * 16 / 9;
+        $$$('#' + this.media.id).addClass('playing');
+        this.h_offset = this.height * .9 - this.media.height;
+        this.w_offset = mw - this.media.width;
+        this.offset = this.offset + ((width - mw) / 2 - loc);
+        this.y_offset = this.height * .05 - this.media.y;
       } else if (oldVal === this.media.id) {
-        $$$('#'+this.media.id).removeClass('playing')
-        $$$('#'+this.media.id).removeClass('hover')
-        this.h_offset = 0
-        this.w_offset = 0
-        this.y_offset = 0
-        this.x_offset = 0
-        this.hover = false
-        this.on = false
-        this.sw = this.media.shadow
-        this.iframe.destroy()
+        $$$('#' + this.media.id).removeClass('playing');
+        $$$('#' + this.media.id).removeClass('hover');
+        this.h_offset = 0;
+        this.w_offset = 0;
+        this.y_offset = 0;
+        this.x_offset = 0;
+        this.hover = false;
+        this.on = false;
+        this.sw = this.media.shadow;
+        this.iframe.destroy();
       }
     },
-    filter: function(val, oldVal) {
+    filter: function filter(val, oldVal) {
       if (val === this.media.nav && oldVal !== this.media.nav) {
-        $$$('#'+this.media.id).removeClass('filtered')
-        var width = $$$(window).width()
-        var loc = this.media.x + this.offset + this.x_offset + this.w_loop
-        var mw = ((this.height*.9)*16)/9
-        var range = d3.scaleLinear()
-                      .domain([0, this.width])
-                      .range([100, width-400])
+        $$$('#' + this.media.id).removeClass('filtered');
+        var width = $$$(window).width();
+        var loc = this.media.x + this.offset + this.x_offset + this.w_loop;
+        var mw = this.height * .9 * 16 / 9;
+        var range = d3.scaleLinear().domain([0, this.width]).range([100, width - 400]);
 
-        var x_filter = range(this.media.x)
-        this.filter_offset = x_filter - loc
+        var x_filter = range(this.media.x);
+        this.filter_offset = x_filter - loc;
       } else if (val === '') {
-        $$$('#'+this.media.id).removeClass('filtered')
-        this.filter_offset = 0
+        $$$('#' + this.media.id).removeClass('filtered');
+        this.filter_offset = 0;
       } else {
-        $$$('#'+this.media.id).addClass('filtered')
-        this.filter_offset = 0
+        $$$('#' + this.media.id).addClass('filtered');
+        this.filter_offset = 0;
       }
     }
   },
   methods: {
-    flip: function(id) {
-      $$$('#'+id+'-front').css('transform', 'rotateY(180deg)')
-      $$$('#'+id+'-back').css('transform', 'rotateY(0deg)')
+    flip: function flip(id) {
+      $$$('#' + id + '-front').css('transform', 'rotateY(180deg)');
+      $$$('#' + id + '-back').css('transform', 'rotateY(0deg)');
     },
-    unFlip: function(id) {
-      $$$('#'+id+'-back').css('transform', 'rotateY(180deg)')
-      $$$('#'+id+'-front').css('transform', 'rotateY(0deg)')
+    unFlip: function unFlip(id) {
+      $$$('#' + id + '-back').css('transform', 'rotateY(180deg)');
+      $$$('#' + id + '-front').css('transform', 'rotateY(0deg)');
     },
-    changeImg: function() {
+    changeImg: function changeImg() {
       if (this.img_now === this.media.imgs.length - 1) {
         for (var i = 0; i < this.img_now; i++) {
-          $$$('#'+i+'-img-'+this.media.id).css('opacity', 1)
+          $$$('#' + i + '-img-' + this.media.id).css('opacity', 1);
         }
-        this.img_now = 0
+        this.img_now = 0;
       } else {
-        $$$('#'+this.img_now+'-img-'+this.media.id).css('opacity', 0)
-        this.img_now = this.img_now + 1
+        $$$('#' + this.img_now + '-img-' + this.media.id).css('opacity', 0);
+        this.img_now = this.img_now + 1;
       }
     },
-    mouseOver: function() {
-      var self = this
+    mouseOver: function mouseOver() {
+      var self = this;
       if (this.playing === null) {
-        this.hover = true
+        this.hover = true;
         if (!self.on) {
           // self.w_offset = this.media.width * .05
           // self.h_offset = this.media.height * .05
           // self.x_offset = -self.w_offset/2
           // self.y_offset = -self.h_offset/2
-          setTimeout(function() {
+          setTimeout(function () {
             if (self.hover) {
-              $$$('#'+self.media.id).addClass('hover')
-              self.w_offset = 400 - self.media.width
-              self.h_offset = 225 - self.media.height
-              self.x_offset = -(self.w_offset/2)
-              if (self.media.matrix[0][1] - (self.h_offset/2) < 0) {
-                self.y_offset = 0
-              } else if (self.media.matrix[1][1] + (self.h_offset/2) > self.height) {
-                self.y_offset = - ((self.media.matrix[1][1] + (self.h_offset)) - self.height)
+              $$$('#' + self.media.id).addClass('hover');
+              self.w_offset = 400 - self.media.width;
+              self.h_offset = 225 - self.media.height;
+              self.x_offset = -(self.w_offset / 2);
+              if (self.media.matrix[0][1] - self.h_offset / 2 < 0) {
+                self.y_offset = 0;
+              } else if (self.media.matrix[1][1] + self.h_offset / 2 > self.height) {
+                self.y_offset = -(self.media.matrix[1][1] + self.h_offset - self.height);
               } else {
-                self.y_offset = -(self.h_offset/2) 
+                self.y_offset = -(self.h_offset / 2);
               }
-              self.sw = 8
-              self.on = true
+              self.sw = 8;
+              self.on = true;
             }
-          }, 1000)
+          }, 1000);
         }
       }
     },
-    mouseOut: function(event) {
-      var self = this
+    mouseOut: function mouseOut(event) {
+      var self = this;
       if (this.playing === null) {
-        this.hover = false
+        this.hover = false;
         if (self.on) {
-          if (this.media.matrix[0][0]+this.offset+this.x_offset >= event.x || this.media.matrix[1][0]+this.offset-this.x_offset <= event.x || this.media.matrix[0][1]+this.y_offset <= event.y || this.media.matrix[1][1]+this.y_offset+this.media.height >= event.y) {
-            setTimeout(function() {
+          if (this.media.matrix[0][0] + this.offset + this.x_offset >= event.x || this.media.matrix[1][0] + this.offset - this.x_offset <= event.x || this.media.matrix[0][1] + this.y_offset <= event.y || this.media.matrix[1][1] + this.y_offset + this.media.height >= event.y) {
+            setTimeout(function () {
               if (!self.hover) {
-                self.w_offset = 0
-                self.h_offset = 0
-                self.x_offset = 0
-                self.y_offset = 0
-                self.sw = self.media.shadow
-                self.on = false
-                $$$('#'+self.media.id).removeClass('hover')
+                self.w_offset = 0;
+                self.h_offset = 0;
+                self.x_offset = 0;
+                self.y_offset = 0;
+                self.sw = self.media.shadow;
+                self.on = false;
+                $$$('#' + self.media.id).removeClass('hover');
               }
-            }, 1500)
+            }, 1500);
           }
         } else if (!self.on) {
-          this.hover = false
-          self.w_offset = 0
-          self.h_offset = 0
-          self.x_offset = 0
-          self.y_offset = 0
-          self.sw = self.media.shadow
-          $$$('#'+self.media.id).removeClass('hover')
+          this.hover = false;
+          self.w_offset = 0;
+          self.h_offset = 0;
+          self.x_offset = 0;
+          self.y_offset = 0;
+          self.sw = self.media.shadow;
+          $$$('#' + self.media.id).removeClass('hover');
         }
       }
     },
-    playThis: function() {
-      this.playing = this.media.id
-      this.iframe = new YT.Player(this.media.id+'-player', {
+    playThis: function playThis() {
+      this.playing = this.media.id;
+      this.iframe = new YT.Player(this.media.id + '-player', {
         height: '100%',
         width: '100%',
         videoId: this.media.video,
@@ -2363,711 +940,358 @@ module.exports = {
           'onReady': this.playVideo,
           'onStateChange': this.videoFim
         }
-      })
-      document.cookie = "ass-"+this.media.id+"=true"
-      this.$dispatch('assistido', this.media.id)
-      this.assistido = true
-    },
-    closeMedia: function() {
-      this.playing = null
-    },
-    playVideo: function(event) {
-      event.target.playVideo()
-    },
-    videoFim: function(event) {
-      var self = this
-      if (event.data == YT.PlayerState.ENDED) {
-        self.playing = null
-      }
-    },
-    votar: function(event) {
-      if (this.votado) {
-        this.$dispatch('des-votado', this.media.id)
-        document.cookie = "voto-"+this.media.id+"=false"
-        this.votado = false
-        this.votos = this.votos - 1
-      } else {
-        this.$dispatch('votado', this.media.id)
-        document.cookie = "voto-"+this.media.id+"=true"
-        this.votado = true
-        this.votos = this.votos + 1
-      }
-    }
-  },
-  created: function () {
-    this.interval = parseInt((Math.random() * 10000)+3000)
-    this.sw = this.media.shadow
-    this.votos = this.media.votes.length
-    if(this.media.assistido) {
-      this.assistido = true
-    }
-    if(this.media.votado) {
-      this.votado = true
-    }
-    var self = this
-
-    var playlistUrl = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + this.media.video + '&key=AIzaSyCwNv14d5bNQ4MwaodqT6z45-6A5y4kzus'
-    var videoURL= 'http://www.youtube.com/embed/'
-    $$$.getJSON(playlistUrl, function(data) {
-      // console.log(data)
-      $$$.each(data.items, function(i, item) {
-        // console.log(item)
-        self.video_title = item.snippet.title
-        self.video_desc = item.snippet.description
       });
-    })
+      document.cookie = "ass-" + this.media.id + "=true";
+      this.$dispatch('assistido', this.media.id);
+      this.assistido = true;
+    },
+    closeMedia: function closeMedia() {
+      this.playing = null;
+    },
+    playVideo: function playVideo(event) {
+      event.target.playVideo();
+    },
+    videoFim: function videoFim(event) {
+      var self = this;
+      if (event.data == YT.PlayerState.ENDED) {
+        self.playing = null;
+      }
+    },
+    votar: function votar(event) {
+      if (this.votado) {
+        this.$dispatch('des-votado', this.media.id);
+        document.cookie = "voto-" + this.media.id + "=false";
+        this.votado = false;
+        this.votos = this.votos - 1;
+      } else {
+        this.$dispatch('votado', this.media.id);
+        document.cookie = "voto-" + this.media.id + "=true";
+        this.votado = true;
+        this.votos = this.votos + 1;
+      }
+    }
   },
-  attached: function () {
-    var self = this
-    componentHandler.upgradeDom()
+  created: function created() {
+    this.interval = parseInt(Math.random() * 10000 + 3000);
+    this.sw = this.media.shadow;
+    this.votos = this.media.votes.length;
+    if (this.media.assistido) {
+      this.assistido = true;
+    }
+    if (this.media.votado) {
+      this.votado = true;
+    }
+    var self = this;
 
-    window.setInterval(function(){
-      self.changeImg()
+    var playlistUrl = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + this.media.video + '&key=AIzaSyCwNv14d5bNQ4MwaodqT6z45-6A5y4kzus';
+    var videoURL = 'http://www.youtube.com/embed/';
+    $$$.getJSON(playlistUrl, function (data) {
+      // console.log(data)
+      $$$.each(data.items, function (i, item) {
+        // console.log(item)
+        self.video_title = item.snippet.title;
+        self.video_desc = item.snippet.description;
+      });
+    });
+  },
+  attached: function attached() {
+    var self = this;
+    componentHandler.upgradeDom();
+
+    window.setInterval(function () {
+      self.changeImg();
     }, self.interval);
 
-    this.$on('filter', function(nome) {
+    this.$on('filter', function (nome) {
       if (this.filter === nome) {
-        this.filter = ''
+        this.filter = '';
       } else {
-        this.filter = nome
+        this.filter = nome;
       }
-    })
-    
+    });
+
     if (this._uid === this.$parent.media_cloud.length + 2) {
-      this.$dispatch('home-ready')
+      this.$dispatch('home-ready');
     }
   },
   components: {
     'media': require('./media.vue')
   },
   filters: {
-    marked: function(value) {
-      return marked(value)
+    marked: function marked(value) {
+      return _marked(value);
     }
   }
-}
-
-if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\n<div :style=\"[{height: media.height+'px'},{'min-height': media.height+'px'},{width: media.width+'px'},{left: filter_offset + w_loop + x_offset + offset + media.x+'px'},{top: y_offset +  media.y+'px'}]\" class=\"media_card\" :id=\"media.id\" @mouseover=\"mouseOver\" @mouseout=\"mouseOut\">\n  <div v-if=\"assistido &amp;&amp; !hover &amp;&amp; !on\" class=\"assistido\" transition=\"fade\"></div>\n  <div :id=\"media.id+'-front'\" class=\"demo-card-wide mdl-card mdl-shadow--{{sw}}dp front\" style=\"\" :style=\"[{height: h_offset + media.height+'px'},{'min-height': h_offset + media.height+'px'},{width: w_offset + media.width+'px'}]\">\n    <div :id=\"media.id+'-player'\" class=\"mdl-card__title player\"></div>\n    <img v-for=\"img in media.imgs\" class=\"mdl-card__title\" :src=\"img\" :style=\"[{'z-index': media.imgs.length - $index}]\" :id=\"$index+'-img-'+media.id\">\n    \n    <div style=\"z-index: 3; position: absolute; width: 100%; padding-left: 42%; padding-top: 22%;\" v-if=\"on\" transition=\"fade\">\n      <a v-if=\"playing === null\" :href=\"'/#/home/'+media.id\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\" style=\"overflow: visible;\" transition=\"fade\">\n        <i class=\"material-icons\" style=\"font-size: 60px;\">play_circle_outline</i>\n      </a>\n    </div>\n    <div class=\"mdl-card__menu\" v-if=\"on\" transition=\"fade\">\n      <span v-if=\"playing !== null\">{{votos}}</span>\n      <button v-if=\"playing !== null\" :id=\"media.id+'-voto'\" :class=\"{votado: votado}\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\" @click=\"votar\">\n        <i class=\"material-icons\">thumb_up</i>\n      </button>\n      <a :id=\"media.id+'-front-map'\" :href=\"media.mapa\" target=\"_blank\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\">\n        <i class=\"material-icons\">room</i>\n      </a>\n      <button :id=\"media.id+'-desc'\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\" @click=\"flip(media.id)\">\n        <i class=\"material-icons\">description</i>\n      </button>\n      <a v-if=\"playing !== null\" href=\"/#/home\" :id=\"media.id+'-close'\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\">\n        <i class=\"material-icons\">clear</i>\n      </a>\n    </div>\n  </div>\n  <div :id=\"media.id+'-back'\" class=\"demo-card-wide mdl-card mdl-shadow--{{sw}}dp back\" :style=\"[{height: h_offset + media.height+'px'},{'min-height': h_offset + media.height+'px'},{width: w_offset + media.width+'px'}]\">\n    <div class=\"mdl-card__title\" style=\"color: black;\">\n      {{video_desc}}\n    </div>\n    <div class=\"mdl-card__menu\" v-if=\"on\" transition=\"fade\">\n      <a :id=\"media.id+'-back-map'\" :href=\"media.mapa\" target=\"_blank\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\">\n        <i class=\"material-icons\">room</i>\n      </a>\n      <button :id=\"media.id+'-photo'\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\" @click=\"unFlip(media.id)\">\n        <i class=\"material-icons\">photo</i>\n      </button>\n      <a v-if=\"playing !== null\" href=\"/#/home\" :id=\"media.id+'-close'\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\">\n        <i class=\"material-icons\">clear</i>\n      </a>\n    </div>\n  </div>\n</div>  \n\n"
+};
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\n  <div :style=\"[{height: media.height+'px'},{'min-height': media.height+'px'},{width: media.width+'px'},{left: filter_offset + w_loop + x_offset + offset + media.x+'px'},{top: y_offset +  media.y+'px'}]\" class=\"media_card\" :id=\"media.id\" @mouseover=\"mouseOver\" @mouseout=\"mouseOut\">\n    <div v-if=\"assistido &amp;&amp; !hover &amp;&amp; !on\" class=\"assistido\" transition=\"fade\"></div>\n    <div :id=\"media.id+'-front'\" class=\"demo-card-wide mdl-card mdl-shadow--{{sw}}dp front\" style=\"\" :style=\"[{height: h_offset + media.height+'px'},{'min-height': h_offset + media.height+'px'},{width: w_offset + media.width+'px'}]\">\n      <div :id=\"media.id+'-player'\" class=\"mdl-card__title player\"></div>\n      <img v-for=\"img in media.imgs\" class=\"mdl-card__title\" :src=\"img\" :style=\"[{'z-index': media.imgs.length - $index}]\" :id=\"$index+'-img-'+media.id\">\n      \n      <div style=\"z-index: 3; position: absolute; width: 100%; padding-left: 42%; padding-top: 22%;\" v-if=\"on\" transition=\"fade\">\n        <a v-if=\"playing === null\" :href=\"'/#/home/'+media.id\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\" style=\"overflow: visible;\" transition=\"fade\">\n          <i class=\"material-icons\" style=\"font-size: 60px;\">play_circle_outline</i>\n        </a>\n      </div>\n      <div class=\"mdl-card__menu\" v-if=\"on\" transition=\"fade\">\n        <span v-if=\"playing !== null\">{{votos}}</span>\n        <button v-if=\"playing !== null\" :id=\"media.id+'-voto'\" :class=\"{votado: votado}\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\" @click=\"votar\">\n          <i class=\"material-icons\">thumb_up</i>\n        </button>\n        <a :id=\"media.id+'-front-map'\" :href=\"media.mapa\" target=\"_blank\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\">\n          <i class=\"material-icons\">room</i>\n        </a>\n        <button :id=\"media.id+'-desc'\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\" @click=\"flip(media.id)\">\n          <i class=\"material-icons\">description</i>\n        </button>\n        <a v-if=\"playing !== null\" href=\"/#/home\" :id=\"media.id+'-close'\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\">\n          <i class=\"material-icons\">clear</i>\n        </a>\n      </div>\n    </div>\n    <div :id=\"media.id+'-back'\" class=\"demo-card-wide mdl-card mdl-shadow--{{sw}}dp back\" :style=\"[{height: h_offset + media.height+'px'},{'min-height': h_offset + media.height+'px'},{width: w_offset + media.width+'px'}]\">\n      <div class=\"mdl-card__title\" style=\"color: black;\">\n        {{video_desc}}\n      </div>\n      <div class=\"mdl-card__menu\" v-if=\"on\" transition=\"fade\">\n        <a :id=\"media.id+'-back-map'\" :href=\"media.mapa\" target=\"_blank\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\">\n          <i class=\"material-icons\">room</i>\n        </a>\n        <button :id=\"media.id+'-photo'\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\" @click=\"unFlip(media.id)\">\n          <i class=\"material-icons\">photo</i>\n        </button>\n        <a v-if=\"playing !== null\" href=\"/#/home\" :id=\"media.id+'-close'\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\">\n          <i class=\"material-icons\">clear</i>\n        </a>\n      </div>\n    </div>\n  </div>  \n\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
+  var id = "/media/bambuzal/Softwares/riowebdoc/app/vue/components/media.vue"
   module.hot.dispose(function () {
-    __vueify_insert__.cache["/* line 4, stdin */\n.media_card {\n  position: absolute;\n  -webkit-transform-style: preserve-3d;\n          transform-style: preserve-3d;\n  -webkit-transition: left .2s linear, top .2s, opacity .4s, -webkit-transform .3s;\n  transition: left .2s linear, top .2s, opacity .4s, -webkit-transform .3s;\n  transition: transform .3s, left .2s linear, top .2s, opacity .4s;\n  transition: transform .3s, left .2s linear, top .2s, opacity .4s, -webkit-transform .3s;\n  z-index: 1;\n  -webkit-perspective: 800px;\n          perspective: 800px;\n  cursor: pointer; }\n  /* line 11, stdin */\n  .media_card:hover {\n    z-index: 3 !important; }\n  /* line 14, stdin */\n  .media_card.in-trans {\n    -webkit-transition: none;\n    transition: none; }\n  /* line 17, stdin */\n  .media_card.hover {\n    z-index: 2;\n    -webkit-transition: left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s;\n    transition: left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s;\n    transition: transform 0.3s, left 0.2s linear, top 0.2s linear;\n    transition: transform 0.3s, left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s; }\n    /* line 20, stdin */\n    .media_card.hover .mdl-card {\n      -webkit-transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, padding 0.2s linear, -webkit-transform 0.5s;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, padding 0.2s linear, -webkit-transform 0.5s;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, transform 0.5s, padding 0.2s linear;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, transform 0.5s, padding 0.2s linear, -webkit-transform 0.5s; }\n    /* line 23, stdin */\n    .media_card.hover .mdl-card__title {\n      height: 95%;\n      width: 97%;\n      -webkit-transition: opacity 0.6s, height 0.2s linear, min-height 0.2s linear, width 0.2s linear;\n      transition: opacity 0.6s, height 0.2s linear, min-height 0.2s linear, width 0.2s linear; }\n    /* line 28, stdin */\n    .media_card.hover .front {\n      padding: 6px; }\n  /* line 32, stdin */\n  .media_card.playing {\n    z-index: 6 !important;\n    -webkit-transition: left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    transition: left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    transition: transform 0.3s, left 0.4s, top 0.4s;\n    transition: transform 0.3s, left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    -webkit-perspective: 500px;\n            perspective: 500px;\n    cursor: default; }\n    /* line 37, stdin */\n    .media_card.playing .mdl-card__title {\n      height: 98%;\n      width: 98.8%;\n      -webkit-transition: opacity 0.6s, height 0.4s, min-height 0.4s linear, width 0.4s;\n      transition: opacity 0.6s, height 0.4s, min-height 0.4s linear, width 0.4s; }\n      /* line 41, stdin */\n      .media_card.playing .mdl-card__title.player {\n        z-index: 5;\n        padding: 30px;\n        background: white; }\n    /* line 47, stdin */\n    .media_card.playing .mdl-card__menu {\n      z-index: 6;\n      right: 10px;\n      top: 4px; }\n    /* line 53, stdin */\n    .media_card.playing .front .material-icons {\n      color: black; }\n    /* line 57, stdin */\n    .media_card.playing .mdl-card {\n      -webkit-transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, padding 0.4s, -webkit-transform 1s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, padding 0.4s, -webkit-transform 1s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, transform 1s, padding 0.4s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, transform 1s, padding 0.4s, -webkit-transform 1s; }\n  /* line 61, stdin */\n  .media_card.filtered {\n    opacity: 0 !important;\n    z-index: -1; }\n  /* line 65, stdin */\n  .media_card .front {\n    position: absolute;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    -webkit-transform-style: preserve-3d;\n            transform-style: preserve-3d;\n    padding: 2%; }\n    /* line 70, stdin */\n    .media_card .front .material-icons {\n      color: white; }\n  /* line 74, stdin */\n  .media_card .mdl-card {\n    border-radius: 1px;\n    -webkit-transition: box-shadow .2s, height .2s, width .2s, padding .2s, -webkit-transform 1s;\n    transition: box-shadow .2s, height .2s, width .2s, padding .2s, -webkit-transform 1s;\n    transition: box-shadow .2s, height .2s, width .2s, transform 1s, padding .2s;\n    transition: box-shadow .2s, height .2s, width .2s, transform 1s, padding .2s, -webkit-transform 1s; }\n  /* line 78, stdin */\n  .media_card .mdl-card__title {\n    height: 93%;\n    width: 96%;\n    color: white;\n    position: absolute;\n    -webkit-transition: opacity .6s, height .2s, width .2s;\n    transition: opacity .6s, height .2s, width .2s;\n    opacity: 1;\n    padding: 0; }\n  /* line 87, stdin */\n  .media_card .mdl-card__menu {\n    z-index: 3; }\n  /* line 90, stdin */\n  .media_card .back {\n    -webkit-transform: rotateY(180deg);\n            transform: rotateY(180deg);\n    position: absolute;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    -webkit-transform-style: preserve-3d;\n            transform-style: preserve-3d; }\n  /* line 97, stdin */\n  .media_card .mdl-button:hover, .media_card .mdl-button:focus {\n    background: transparent; }\n  /* line 101, stdin */\n  .media_card .assistido {\n    height: 100%;\n    width: 100%;\n    background: rgba(0, 0, 0, 0.5);\n    position: absolute;\n    z-index: 5; }\n  /* line 109, stdin */\n  .media_card .votado .material-icons {\n    color: red !important; }\n"] = false
+    require("vueify-insert-css").cache["/* line 4, stdin */\n.media_card {\n  position: absolute;\n  -webkit-transform-style: preserve-3d;\n          transform-style: preserve-3d;\n  -webkit-transition: left .2s, top .2s, opacity .4s, -webkit-transform .3s;\n  transition: left .2s, top .2s, opacity .4s, -webkit-transform .3s;\n  transition: transform .3s, left .2s, top .2s, opacity .4s;\n  transition: transform .3s, left .2s, top .2s, opacity .4s, -webkit-transform .3s;\n  z-index: 1;\n  -webkit-perspective: 800px;\n          perspective: 800px;\n  cursor: pointer; }\n  /* line 11, stdin */\n  .media_card:hover {\n    z-index: 3 !important; }\n  /* line 14, stdin */\n  .media_card.in-trans {\n    -webkit-transition: none;\n    transition: none; }\n  /* line 17, stdin */\n  .media_card.hover {\n    z-index: 2;\n    -webkit-transition: left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s;\n    transition: left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s;\n    transition: transform 0.3s, left 0.2s linear, top 0.2s linear;\n    transition: transform 0.3s, left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s; }\n    /* line 20, stdin */\n    .media_card.hover .mdl-card {\n      -webkit-transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, padding 0.2s linear, -webkit-transform 0.5s;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, padding 0.2s linear, -webkit-transform 0.5s;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, transform 0.5s, padding 0.2s linear;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, transform 0.5s, padding 0.2s linear, -webkit-transform 0.5s; }\n    /* line 23, stdin */\n    .media_card.hover .mdl-card__title {\n      height: 95%;\n      width: 97%;\n      -webkit-transition: opacity 0.6s, height 0.2s linear, min-height 0.2s linear, width 0.2s linear;\n      transition: opacity 0.6s, height 0.2s linear, min-height 0.2s linear, width 0.2s linear; }\n    /* line 28, stdin */\n    .media_card.hover .front {\n      padding: 6px; }\n  /* line 32, stdin */\n  .media_card.playing {\n    z-index: 6 !important;\n    -webkit-transition: left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    transition: left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    transition: transform 0.3s, left 0.4s, top 0.4s;\n    transition: transform 0.3s, left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    -webkit-perspective: 500px;\n            perspective: 500px;\n    cursor: default; }\n    /* line 37, stdin */\n    .media_card.playing .mdl-card__title {\n      height: 98%;\n      width: 98.8%;\n      -webkit-transition: opacity 0.6s, height 0.4s, min-height 0.4s linear, width 0.4s;\n      transition: opacity 0.6s, height 0.4s, min-height 0.4s linear, width 0.4s; }\n      /* line 41, stdin */\n      .media_card.playing .mdl-card__title.player {\n        z-index: 5;\n        padding: 30px;\n        background: white; }\n    /* line 47, stdin */\n    .media_card.playing .mdl-card__menu {\n      z-index: 6;\n      right: 10px;\n      top: 4px; }\n    /* line 53, stdin */\n    .media_card.playing .front .material-icons {\n      color: black; }\n    /* line 57, stdin */\n    .media_card.playing .mdl-card {\n      -webkit-transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, padding 0.4s, -webkit-transform 1s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, padding 0.4s, -webkit-transform 1s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, transform 1s, padding 0.4s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, transform 1s, padding 0.4s, -webkit-transform 1s; }\n  /* line 61, stdin */\n  .media_card.filtered {\n    opacity: 0 !important;\n    z-index: -1; }\n  /* line 65, stdin */\n  .media_card .front {\n    position: absolute;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    -webkit-transform-style: preserve-3d;\n            transform-style: preserve-3d;\n    padding: 2%; }\n    /* line 70, stdin */\n    .media_card .front .material-icons {\n      color: white; }\n  /* line 74, stdin */\n  .media_card .mdl-card {\n    border-radius: 1px;\n    -webkit-transition: box-shadow .2s, height .2s, width .2s, padding .2s, -webkit-transform 1s;\n    transition: box-shadow .2s, height .2s, width .2s, padding .2s, -webkit-transform 1s;\n    transition: box-shadow .2s, height .2s, width .2s, transform 1s, padding .2s;\n    transition: box-shadow .2s, height .2s, width .2s, transform 1s, padding .2s, -webkit-transform 1s; }\n  /* line 78, stdin */\n  .media_card .mdl-card__title {\n    height: 93%;\n    width: 96%;\n    color: white;\n    position: absolute;\n    -webkit-transition: opacity .6s, height .2s, width .2s;\n    transition: opacity .6s, height .2s, width .2s;\n    opacity: 1;\n    padding: 0; }\n  /* line 87, stdin */\n  .media_card .mdl-card__menu {\n    z-index: 3; }\n  /* line 90, stdin */\n  .media_card .back {\n    -webkit-transform: rotateY(180deg);\n            transform: rotateY(180deg);\n    position: absolute;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    -webkit-transform-style: preserve-3d;\n            transform-style: preserve-3d; }\n  /* line 97, stdin */\n  .media_card .mdl-button:hover, .media_card .mdl-button:focus {\n    background: transparent; }\n  /* line 101, stdin */\n  .media_card .assistido {\n    height: 100%;\n    width: 100%;\n    background: rgba(0, 0, 0, 0.5);\n    position: absolute;\n    z-index: 5; }\n  /* line 109, stdin */\n  .media_card .votado .material-icons {\n    color: red !important; }\n"] = false
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-261a9042", module.exports)
+    hotAPI.createRecord(id, module.exports)
   } else {
-    hotAPI.update("_v-261a9042", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"./media.vue":8,"jquery":48,"marked":49,"vue":91,"vue-hot-reload-api":90,"vueify/lib/insert-css":92}],9:[function(require,module,exports){
-var __vueify_insert__ = require("vueify/lib/insert-css")
-var __vueify_style__ = __vueify_insert__.insert("/* line 3, stdin */\n.video-card.nav {\n  width: 15%; }\n")
+},{"./media.vue":8,"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92,"vueify-insert-css":94}],9:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("/* line 3, stdin */\n.video-card.nav {\n  width: 15%; }\n")
+'use strict';
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var $$$ = require('jquery')
-var marked = require('marked')
+var $$$ = require('jquery');
+var marked = require('marked');
 module.exports = {
   replace: true,
   props: ['webcard', 'naves', 'ok'],
-  data: function(){
-    return {
-      
-    }
+  data: function data() {
+    return {};
   },
   methods: {
-    escolherNave: function(index) {
-      $$$('.video-card').removeClass('escolhido')
-      this.webcard.nave_videos = this.naves[index].headers.video_cards
-      this.webcard.nave_nome = this.naves[index].headers.nome
-      $$$('#'+this.naves[index].headers.id+'-nav').addClass('escolhido')
+    escolherNave: function escolherNave(index) {
+      $$$('.video-card').removeClass('escolhido');
+      this.webcard.nave_videos = this.naves[index].headers.video_cards;
+      this.webcard.nave_nome = this.naves[index].headers.nome;
+      $$$('#' + this.naves[index].headers.id + '-nav').addClass('escolhido');
     }
   },
   computed: {
-    escolhido: function() {
-      var list = []
+    escolhido: function escolhido() {
+      var list = [];
       for (var i = 0; i < this.naves.length; i++) {
-        list.push(this.naves[i].headers.nome === this.webcard.nave_nome)
+        list.push(this.naves[i].headers.nome === this.webcard.nave_nome);
       }
-      return list
+      return list;
     }
   },
-  attached: function () {
-    componentHandler.upgradeDom()
+  attached: function attached() {
+    componentHandler.upgradeDom();
   },
-  components: {
-    
-  },
-  filters: {
-    
-  }
-}
-
-if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"mdl-grid\">\n  <div class=\"mdl-cell mdl-cell--12-col\">   \n    <h3>Passo 1</h3>\n    <p>Escolha o local que estará na capa de seu webcard.</p>\n\n    <div v-for=\"nave in naves\" class=\"video-card nav\" @click=\"escolherNave($index)\" :id=\"nave.headers.id+'-nav'\" :class=\"{escolhido: escolhido[$index]}\"> {{nave.headers.nome}} </div>\n\n  </div>\n</div>\n"
+  components: {},
+  filters: {}
+};
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div class=\"mdl-grid\">\n    <div class=\"mdl-cell mdl-cell--12-col\">   \n      <h3>Passo 1</h3>\n      <p>Escolha o local que estará na capa de seu webcard.</p>\n\n      <div v-for=\"nave in naves\" class=\"video-card nav\" @click=\"escolherNave($index)\" :id=\"nave.headers.id+'-nav'\" :class=\"{escolhido: escolhido[$index]}\"> {{nave.headers.nome}} </div>\n\n    </div>\n  </div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
+  var id = "/media/bambuzal/Softwares/riowebdoc/app/vue/components/passo-0.vue"
   module.hot.dispose(function () {
-    __vueify_insert__.cache["/* line 3, stdin */\n.video-card.nav {\n  width: 15%; }\n"] = false
+    require("vueify-insert-css").cache["/* line 3, stdin */\n.video-card.nav {\n  width: 15%; }\n"] = false
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-0662d15c", module.exports)
+    hotAPI.createRecord(id, module.exports)
   } else {
-    hotAPI.update("_v-0662d15c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":48,"marked":49,"vue":91,"vue-hot-reload-api":90,"vueify/lib/insert-css":92}],10:[function(require,module,exports){
-var __vueify_insert__ = require("vueify/lib/insert-css")
-var __vueify_style__ = __vueify_insert__.insert("/* line 2, stdin */\n.video-card {\n  border: 3px solid white; }\n  /* line 4, stdin */\n  .video-card.escolhido {\n    border: 3px solid red !important; }\n")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var $$$ = require('jquery')
-var marked = require('marked')
-var _ = require('underscore')
+},{"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92,"vueify-insert-css":94}],10:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.video-card {\n  border: 3px solid white; }\n  /* line 4, stdin */\n  .video-card.escolhido {\n    border: 3px solid red !important; }\n")
+'use strict';
+
+var $$$ = require('jquery');
+var marked = require('marked');
+var _ = require('underscore');
 module.exports = {
   replace: true,
   props: ['webcard'],
-  data: function(){
+  data: function data() {
     return {
       videos: 3 - this.webcard.videos.length,
       imgs: []
-    }
+    };
   },
   watch: {
     webcard: {
-      handler: function (val, oldVal) { 
-        this.videos = 3 - val.videos.length
+      handler: function handler(val, oldVal) {
+        this.videos = 3 - val.videos.length;
       },
       deep: true
     }
   },
   methods: {
-    choseVideo: function(video) {
-      var tem = _.contains(this.webcard.videos, video)
+    choseVideo: function choseVideo(video) {
+      var tem = _.contains(this.webcard.videos, video);
       if (this.videos !== 0 && !tem) {
-        this.webcard.videos.push(video)
-        $$$('#'+video+'-vid').addClass('escolhido')
+        this.webcard.videos.push(video);
+        $$$('#' + video + '-vid').addClass('escolhido');
       } else {
-        this.webcard.videos = _.reject(this.webcard.videos, function(id) {
-          return id === video
-        })
-        $$$('#'+video+'-vid').removeClass('escolhido')
+        this.webcard.videos = _.reject(this.webcard.videos, function (id) {
+          return id === video;
+        });
+        $$$('#' + video + '-vid').removeClass('escolhido');
       }
     }
   },
   computed: {
-    escolhido: function() {
-      var list = []
+    escolhido: function escolhido() {
+      var list = [];
       for (var i = 0; i < this.webcard.nave_videos.length; i++) {
-        list.push(_.contains(this.webcard.videos, this.webcard.nave_videos[i]))
+        list.push(_.contains(this.webcard.videos, this.webcard.nave_videos[i]));
       }
-      return list
+      return list;
     }
   },
-  attached: function () {
-    componentHandler.upgradeDom()
+  attached: function attached() {
+    componentHandler.upgradeDom();
   },
-  components: {
-    
-  },
-  filters: {
-    
-  }
-}
-
-if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"mdl-grid\">\n  <div class=\"mdl-cell mdl-cell--12-col\">   \n    <h3>Passo 2 - {{webcard.nave_nome}}</h3>\n    <p>Escolha {{videos}} vídeos que aparecerão em seu Webcard.</p>\n\n    <div v-for=\"video in webcard.nave_videos\" class=\"video-card\" @click=\"choseVideo(video)\" :id=\"video+'-vid'\" :class=\"{escolhido: escolhido[$index]}\" :style=\"{background: 'url(http://img.youtube.com/vi/'+video+'/1.jpg)'}\"> video {{$index}}</div>\n\n  </div>\n</div>\n"
+  components: {},
+  filters: {}
+};
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div class=\"mdl-grid\">\n    <div class=\"mdl-cell mdl-cell--12-col\">   \n      <h3>Passo 2 - {{webcard.nave_nome}}</h3>\n      <p>Escolha <strong>{{videos}}</strong> vídeos que aparecerão em seu Webcard.</p>\n\n      <div v-for=\"video in webcard.nave_videos\" class=\"video-card\" @click=\"choseVideo(video)\" :id=\"video+'-vid'\" :class=\"{escolhido: escolhido[$index]}\" :style=\"{background: 'url(http://img.youtube.com/vi/'+video+'/1.jpg)'}\"> video {{$index}}</div>\n\n    </div>\n  </div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
+  var id = "/media/bambuzal/Softwares/riowebdoc/app/vue/components/passo-1.vue"
   module.hot.dispose(function () {
-    __vueify_insert__.cache["/* line 2, stdin */\n.video-card {\n  border: 3px solid white; }\n  /* line 4, stdin */\n  .video-card.escolhido {\n    border: 3px solid red !important; }\n"] = false
+    require("vueify-insert-css").cache["/* line 2, stdin */\n.video-card {\n  border: 3px solid white; }\n  /* line 4, stdin */\n  .video-card.escolhido {\n    border: 3px solid red !important; }\n"] = false
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-0670e8dd", module.exports)
+    hotAPI.createRecord(id, module.exports)
   } else {
-    hotAPI.update("_v-0670e8dd", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":48,"marked":49,"underscore":88,"vue":91,"vue-hot-reload-api":90,"vueify/lib/insert-css":92}],11:[function(require,module,exports){
+},{"jquery":24,"marked":25,"underscore":91,"vue":93,"vue-hot-reload-api":92,"vueify-insert-css":94}],11:[function(require,module,exports){
+'use strict';
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var $$$ = require('jquery')
-var marked = require('marked')
+var $$$ = require('jquery');
+var marked = require('marked');
 module.exports = {
   replace: true,
   props: ['webcard'],
-  data: function(){
+  data: function data() {
     return {
       text: this.webcard.menssagem
-    }
+    };
   },
   methods: {
-    sendToWebcard: function () {
-      this.webcard.menssagem = this.text
+    sendToWebcard: function sendToWebcard() {
+      this.webcard.menssagem = this.text;
     }
   },
-  computed: {
-
+  computed: {},
+  attached: function attached() {
+    componentHandler.upgradeDom();
   },
-  attached: function () {
-    componentHandler.upgradeDom()
-  },
-  components: {
-
-  },
-  filters: {
-    
-  }
-}
-
-if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"mdl-grid\">\n  <div class=\"mdl-cell mdl-cell--12-col\">   \n    <h3>Passo 2</h3>\n    <p>Escreva sua mensagem:</p>\n\n    <!-- Floating Multiline Textfield -->\n    <form action=\"#\" class=\"rwd_p2\">\n      <div class=\"mdl-textfield mdl-js-textfield rwd_txtmsg\">\n        <textarea class=\"mdl-textfield__input  mdl-shadow--3dp\" type=\"text\" rows=\"10\" id=\"rwd_msg\" v-model=\"text\" @keyup=\"sendToWebcard\"></textarea>\n        <label class=\"mdl-textfield__label\" for=\"rwd_msg\">digite aqui sua mensagem</label>\n      </div>\n    </form>\n\n  </div>\n</div> \n"
+  components: {},
+  filters: {}
+};
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div class=\"mdl-grid\">\n    <div class=\"mdl-cell mdl-cell--12-col\">   \n      <h3>Passo 2</h3>\n      <p>Escreva sua mensagem:</p>\n\n      <!-- Floating Multiline Textfield -->\n      <form action=\"#\" class=\"rwd_p2\">\n        <div class=\"mdl-textfield mdl-js-textfield rwd_txtmsg\">\n          <textarea class=\"mdl-textfield__input  mdl-shadow--3dp\" type=\"text\" rows=\"10\" id=\"rwd_msg\" v-model=\"text\" @keyup=\"sendToWebcard\"></textarea>\n          <label class=\"mdl-textfield__label\" for=\"rwd_msg\">digite aqui sua mensagem</label>\n        </div>\n      </form>\n\n    </div>\n  </div> \n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
+  var id = "/media/bambuzal/Softwares/riowebdoc/app/vue/components/passo-2.vue"
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-067f005e", module.exports)
+    hotAPI.createRecord(id, module.exports)
   } else {
-    hotAPI.update("_v-067f005e", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":48,"marked":49,"vue":91,"vue-hot-reload-api":90}],12:[function(require,module,exports){
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var $$$ = require('jquery')
-var marked = require('marked')
+},{"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92}],12:[function(require,module,exports){
+'use strict';
+
+var $$$ = require('jquery');
+var marked = require('marked');
 module.exports = {
   replace: true,
   props: ['webcard'],
-  data: function(){
+  data: function data() {
     return {
       seu_email: this.webcard.email_criador,
       amigo_email: this.webcard.email_enviado
-    }
+    };
   },
   watch: {
-    seu_email: function(val, oldVal) {
-      this.checkRegex(0)
+    seu_email: function seu_email(val, oldVal) {
+      this.checkRegex(0);
     },
-    amigo_email: function(val, oldVal) {
-      this.checkRegex(1)
+    amigo_email: function amigo_email(val, oldVal) {
+      this.checkRegex(1);
     }
   },
   methods: {
-    checkRegex: function(e) {
-      if (e===0) {
-        var t = this.seu_email
-      } else if (e===1) {
-        var t = this.amigo_email
+    checkRegex: function checkRegex(e) {
+      if (e === 0) {
+        var t = this.seu_email;
+      } else if (e === 1) {
+        var t = this.amigo_email;
       }
-      var busca = t.search(/^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i)
+      var busca = t.search(/^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i);
       if (busca > -1) {
-        if (e===0) {
-          this.webcard.email_criador = this.seu_email
-        } else if (e===1) {
-          this.webcard.email_enviado = this.amigo_email
+        if (e === 0) {
+          this.webcard.email_criador = this.seu_email;
+        } else if (e === 1) {
+          this.webcard.email_enviado = this.amigo_email;
         }
       } else {
-        console.log('not ok')
+        console.log('not ok');
       }
     }
   },
-  computed: {
-
+  computed: {},
+  attached: function attached() {
+    componentHandler.upgradeDom();
   },
-  attached: function () {
-    componentHandler.upgradeDom()
-  },
-  components: {
-
-  },
-  filters: {
-    
-  }
-}
-
-if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"mdl-grid\">\n  <div class=\"mdl-cell mdl-cell--12-col\">   \n    <h3>Passo 3</h3>\n    <p>Escolha para quem quer enviar o cartão\n    e coloque também seu email.<br>\n    Se quiser enviar para outras pessoas use\n    o link que irá receber.<br></p>\n    <br><br>\n\n    <!-- Floating Multiline Textfield -->\n    <form action=\"#\">\n      <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n        <input class=\"mdl-textfield__input\" type=\"email\" id=\"yourmail\" v-model=\"seu_email\">\n        <label class=\"mdl-textfield__label\" for=\"yourmail\">Seu email:</label>\n      </div>\n\n      <br>\n\n      <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n        <input class=\"mdl-textfield__input\" type=\"email\" id=\"friendmail\" v-model=\"amigo_email\">\n        <label class=\"mdl-textfield__label\" for=\"friendmail\">Recipiente:</label>\n      </div>\n\n    </form>\n\n  </div>\n</div> \n"
+  components: {},
+  filters: {}
+};
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div class=\"mdl-grid\">\n    <div class=\"mdl-cell mdl-cell--12-col\">   \n      <h3>Passo 3</h3>\n      <p>Escolha para quem quer enviar o cartão\n      e coloque também seu email.<br>\n      Se quiser enviar para outras pessoas use\n      o link que irá receber.<br></p>\n      <br><br>\n\n      <!-- Floating Multiline Textfield -->\n      <form action=\"#\">\n        <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n          <input class=\"mdl-textfield__input\" type=\"email\" id=\"yourmail\" v-model=\"seu_email\">\n          <label class=\"mdl-textfield__label\" for=\"yourmail\">Seu email:</label>\n        </div>\n\n        <br>\n\n        <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n          <input class=\"mdl-textfield__input\" type=\"email\" id=\"friendmail\" v-model=\"amigo_email\">\n          <label class=\"mdl-textfield__label\" for=\"friendmail\">Recipiente:</label>\n        </div>\n\n      </form>\n\n    </div>\n  </div> \n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
+  var id = "/media/bambuzal/Softwares/riowebdoc/app/vue/components/passo-3.vue"
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-068d17df", module.exports)
+    hotAPI.createRecord(id, module.exports)
   } else {
-    hotAPI.update("_v-068d17df", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":48,"marked":49,"vue":91,"vue-hot-reload-api":90}],13:[function(require,module,exports){
+},{"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92}],13:[function(require,module,exports){
+'use strict';
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var $$$ = require('jquery')
-var marked = require('marked')
+var $$$ = require('jquery');
+var marked = require('marked');
 module.exports = {
   replace: true,
   props: ['webcard'],
-  data: function(){
-    return {
-
-    }
+  data: function data() {
+    return {};
   },
-  methods: {
-
+  methods: {},
+  computed: {},
+  attached: function attached() {
+    componentHandler.upgradeDom();
+    var self = this;
+    setTimeout(function () {
+      self.$dispatch('fechar-janela');
+    }, 5000);
   },
-  computed: {
-
-  },
-  attached: function () {
-    componentHandler.upgradeDom()
-    var self = this
-    setTimeout(function() {
-      self.$dispatch('fechar-janela')
-    }, 5000)
-  },
-  components: {
-
-  },
-  filters: {
-    
-  }
-}
-
-if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"mdl-grid\">\n  <div class=\"mdl-cell mdl-cell--12-col\">   \n    <h3>Seu webcard foi enviado!</h3>\n    <p>Cheque seu email para ver o link do webcard.<br>\n    Se quiser enviar para outras pessoas use\n    o link que está em seu email.<br></p>\n    <br><br>\n\n  </div>\n</div> \n"
+  components: {},
+  filters: {}
+};
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div class=\"mdl-grid\">\n    <div class=\"mdl-cell mdl-cell--12-col\">   \n      <h3>Seu webcard foi enviado!</h3>\n      <p>Cheque seu email para ver o link do webcard.<br>\n      Se quiser enviar para outras pessoas use\n      o link que está em seu email.<br></p>\n      <br><br>\n\n    </div>\n  </div> \n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
+  var id = "/media/bambuzal/Softwares/riowebdoc/app/vue/components/passo-4.vue"
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-069b2f60", module.exports)
+    hotAPI.createRecord(id, module.exports)
   } else {
-    hotAPI.update("_v-069b2f60", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":48,"marked":49,"vue":91,"vue-hot-reload-api":90}],14:[function(require,module,exports){
+},{"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92}],14:[function(require,module,exports){
 (function(){
 	var _ = require('underscore')
 	var Vue = require('vue')
@@ -3088,7 +1312,6 @@ if (module.hot) {(function () {  module.hot.accept()
 			},
 			'/janela/:id': {
 				on: function (id) {
-					console.log(id)
 					var exec = function() {
 						if (id === 'card') {
 							app.$refs.view.janela = 'janela-card'
@@ -3221,7 +1444,7 @@ if (module.hot) {(function () {  module.hot.accept()
 				getMedia(n+1, medias, nave, nn, naves)
 			}
 
-			if (n === medias.length - 1 && nn === naves.length - 1) {
+			if (n === medias.length - 1 && nn === 7) {
 				init()
 			}
 		})
@@ -3286,150 +1509,25 @@ if (module.hot) {(function () {  module.hot.accept()
 
 })()
 
-},{"./app.vue":1,"director":29,"underscore":88,"vue":91}],15:[function(require,module,exports){
-var __vueify_insert__ = require("vueify/lib/insert-css")
-var __vueify_style__ = __vueify_insert__.insert("/* line 3, stdin */\n#content.card {\n  padding: 15px;\n  position: relative;\n  background-color: white;\n  box-sizing: border-box; }\n\n/* line 10, stdin */\n#protect {\n  position: absolute;\n  z-index: 5;\n  left: 0;\n  top: 0;\n  height: 100%;\n  width: 100%; }\n  /* line 17, stdin */\n  #protect .menssagem {\n    position: absolute;\n    right: 0;\n    width: 40%;\n    height: 100%;\n    top: 0; }\n    /* line 23, stdin */\n    #protect .menssagem h2 {\n      margin-top: 50px;\n      color: white;\n      text-align: center; }\n")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var $$$ = require('jquery')
-var marked = require('marked')
+},{"./app.vue":1,"director":21,"underscore":91,"vue":93}],15:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("/* line 3, stdin */\n#content.card {\n  padding: 15px;\n  position: relative;\n  background-color: white;\n  box-sizing: border-box; }\n\n/* line 10, stdin */\n#protect {\n  position: absolute;\n  z-index: 5;\n  left: 0;\n  top: 0;\n  height: 100%;\n  width: 100%; }\n  /* line 17, stdin */\n  #protect .menssagem {\n    position: absolute;\n    right: 0;\n    width: 40%;\n    height: 100%;\n    top: 0; }\n    /* line 23, stdin */\n    #protect .menssagem h2 {\n      margin-top: 50px;\n      color: white;\n      text-align: center; }\n")
+'use strict';
+
+var $$$ = require('jquery');
+var marked = require('marked');
 module.exports = {
   replace: true,
   props: ['card'],
-  data: function(){
+  data: function data() {
     return {
       height: 0,
       iframe: null,
       index: 0,
       done: true
-    }
+    };
   },
   methods: {
-    playThis: function() {
+    playThis: function playThis() {
       this.iframe = new YT.Player('player', {
         height: '100%',
         width: '100%',
@@ -3443,909 +1541,240 @@ module.exports = {
           'onReady': this.playVideo,
           'onStateChange': this.videoFim
         }
-      })
+      });
     },
-    playVideo: function(event) {
-      event.target.playVideo()
+    playVideo: function playVideo(event) {
+      event.target.playVideo();
     },
-    loadVideo: function(event) {
-      this.done = true
+    loadVideo: function loadVideo(event) {
+      this.done = true;
       if (this.index === 2) {
-        this.index = 0
+        this.index = 0;
       } else {
-        this.index = this.index + 1
+        this.index = this.index + 1;
       }
       this.iframe.loadVideoById({
         videoId: this.card.videos[this.index],
         startSeconds: 0,
         endSeconds: 10
-      })
+      });
     },
-    videoFim: function(event) {
-      var self = this
+    videoFim: function videoFim(event) {
+      var self = this;
       if (event.data == YT.PlayerState.PLAYING && this.done) {
-        setTimeout(self.loadVideo, 10000)
-        this.done = false
+        setTimeout(self.loadVideo, 10000);
+        this.done = false;
       } else if (event.data == YT.PlayerState.ENDED) {
-        this.loadVideo()
+        this.loadVideo();
       }
-    },
+    }
   },
-  computed: {
-
+  computed: {},
+  attached: function attached() {
+    this.height = $$$(window).height();
+    this.playThis();
   },
-  attached: function () {
-    this.height = $$$(window).height()
-    this.playThis()
+  beforeDestroy: function beforeDestroy() {
+    this.iframe.destroy();
   },
-  beforeDestroy: function () {
-    this.iframe.destroy()
-  },
-  components: {
-    
-  },
-  filters: {
-    
-  }
-}
-
-if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\" mdl-layout mdl-js-layout mdl-layout--fixed-header\">\n\n \n  <main class=\"mdl-layout__content\">\n  \n  <div id=\"content\" class=\"card\" :style=\"{height: height+'px'}\"> \n    <div id=\"protect\">\n      <div class=\"menssagem\">\n        <h2>{{card.menssagem}}</h2>\n      </div>\n    </div>\n    <div id=\"player\"></div> \n  </div>\n  \n  </main>\n\n</div>\n"
+  components: {},
+  filters: {}
+};
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div class=\" mdl-layout mdl-js-layout mdl-layout--fixed-header\">\n\n   \n    <main class=\"mdl-layout__content\">\n    \n    <div id=\"content\" class=\"card\" :style=\"{height: height+'px'}\"> \n      <div id=\"protect\">\n        <div class=\"menssagem\">\n          <h2>{{card.menssagem}}</h2>\n        </div>\n      </div>\n      <div id=\"player\"></div> \n    </div>\n    \n    </main>\n\n  </div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
+  var id = "/media/bambuzal/Softwares/riowebdoc/app/vue/views/card-view.vue"
   module.hot.dispose(function () {
-    __vueify_insert__.cache["/* line 3, stdin */\n#content.card {\n  padding: 15px;\n  position: relative;\n  background-color: white;\n  box-sizing: border-box; }\n\n/* line 10, stdin */\n#protect {\n  position: absolute;\n  z-index: 5;\n  left: 0;\n  top: 0;\n  height: 100%;\n  width: 100%; }\n  /* line 17, stdin */\n  #protect .menssagem {\n    position: absolute;\n    right: 0;\n    width: 40%;\n    height: 100%;\n    top: 0; }\n    /* line 23, stdin */\n    #protect .menssagem h2 {\n      margin-top: 50px;\n      color: white;\n      text-align: center; }\n"] = false
+    require("vueify-insert-css").cache["/* line 3, stdin */\n#content.card {\n  padding: 15px;\n  position: relative;\n  background-color: white;\n  box-sizing: border-box; }\n\n/* line 10, stdin */\n#protect {\n  position: absolute;\n  z-index: 5;\n  left: 0;\n  top: 0;\n  height: 100%;\n  width: 100%; }\n  /* line 17, stdin */\n  #protect .menssagem {\n    position: absolute;\n    right: 0;\n    width: 40%;\n    height: 100%;\n    top: 0; }\n    /* line 23, stdin */\n    #protect .menssagem h2 {\n      margin-top: 50px;\n      color: white;\n      text-align: center; }\n"] = false
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-8124abba", module.exports)
+    hotAPI.createRecord(id, module.exports)
   } else {
-    hotAPI.update("_v-8124abba", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":48,"marked":49,"vue":91,"vue-hot-reload-api":90,"vueify/lib/insert-css":92}],16:[function(require,module,exports){
-var __vueify_insert__ = require("vueify/lib/insert-css")
-var __vueify_style__ = __vueify_insert__.insert("/* line 2, stdin */\n.fade-transition {\n  -webkit-transition: opacity .6s ease .4s;\n  transition: opacity .6s ease .4s;\n  opacity: 1; }\n\n/* line 6, stdin */\n.fade-enter, .fade-leave {\n  opacity: 0; }\n\n/* line 9, stdin */\n.fade-leave {\n  -webkit-transition: opacity .1s linear;\n  transition: opacity .1s linear; }\n\n/* line 12, stdin */\n#navegacao {\n  padding-top: 30px; }\n\n/* line 15, stdin */\n.fade2-transition {\n  -webkit-transition: opacity .4s ease;\n  transition: opacity .4s ease;\n  opacity: 1; }\n\n/* line 19, stdin */\n.fade2-enter, .fade2-leave {\n  opacity: 0; }\n")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	var $$$ = require('jquery')
-	var marked = require('marked')
-	var io = require('socket.io-client')
-	module.exports = {
-		replace: true,
-		props: ['naves'],
-		data: function(){
-			return {
-				webcard: {
-					nave_nome: null,
-					nave_videos: null,
-					videos: [],
-					email_criador: '',
-					email_enviado: '',
-					menssagem: ''
-				},
-				user: {
-					votos: [],
-					assistidos: []
-				},
-				janela: null
+},{"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92,"vueify-insert-css":94}],16:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.fade-transition {\n  -webkit-transition: opacity .6s ease .4s;\n  transition: opacity .6s ease .4s;\n  opacity: 1; }\n\n/* line 6, stdin */\n.fade-enter, .fade-leave {\n  opacity: 0; }\n\n/* line 9, stdin */\n.fade-leave {\n  -webkit-transition: opacity .1s linear;\n  transition: opacity .1s linear; }\n\n/* line 12, stdin */\n#navegacao {\n  padding-top: 30px; }\n\n/* line 15, stdin */\n.fade2-transition {\n  -webkit-transition: opacity .4s ease;\n  transition: opacity .4s ease;\n  opacity: 1; }\n\n/* line 19, stdin */\n.fade2-enter, .fade2-leave {\n  opacity: 0; }\n\n/* line 24, stdin */\n#janela2 h3 {\n  font-family: 'treta'; }\n\n/* line 29, stdin */\n.rwd_pinbox {\n  cursor: pointer; }\n  /* line 32, stdin */\n  .rwd_pinbox:hover .rwd_pinicon {\n    opacity: 1; }\n  /* line 36, stdin */\n  .rwd_pinbox.filtered {\n    border-bottom: 3px solid #d66843; }\n    /* line 38, stdin */\n    .rwd_pinbox.filtered .rwd_pinicon {\n      opacity: 1; }\n  /* line 42, stdin */\n  .rwd_pinbox .rwd_pinicon {\n    opacity: 0;\n    -webkit-transition: opacity .2s;\n    transition: opacity .2s; }\n  /* line 46, stdin */\n  .rwd_pinbox .mdl-button {\n    background: transparent !important;\n    font-size: 30px;\n    height: 35px;\n    min-width: 35px;\n    width: 35px; }\n  /* line 53, stdin */\n  .rwd_pinbox .btnPin {\n    font-size: 30px; }\n")
+'use strict';
+
+var $$$ = require('jquery');
+var _marked = require('marked');
+var io = require('socket.io-client');
+module.exports = {
+	replace: true,
+	props: ['naves'],
+	data: function data() {
+		return {
+			webcard: {
+				nave_nome: null,
+				nave_videos: null,
+				videos: [],
+				email_criador: '',
+				email_enviado: '',
+				menssagem: ''
+			},
+			user: {
+				votos: [],
+				assistidos: []
+			},
+			janela: null
+		};
+	},
+	methods: {
+		getCookie: function getCookie(cname) {
+			var name = cname + "=";
+			var ca = document.cookie.split(';');
+			for (var i = 0; i < ca.length; i++) {
+				var c = ca[i];
+				while (c.charAt(0) == ' ') c = c.substring(1);
+				if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+			}
+			return "";
+		},
+		cookieVotos: function cookieVotos(n) {
+			switch (this.getCookie('voto-' + n)) {
+				case '':
+					document.cookie = "voto-" + n + "=false";
+					break;
+				case 'true':
+					this.user.votos.push(n);
+					break;
+				case 'false':
+					break;
 			}
 		},
-		methods: {
-      getCookie: function(cname) {
-		    var name = cname + "=";
-		    var ca = document.cookie.split(';')
-		    for(var i=0; i<ca.length; i++) {
-	        var c = ca[i]
-	        while (c.charAt(0)==' ') c = c.substring(1)
-	        if (c.indexOf(name) == 0) return c.substring(name.length,c.length)
-		    }
-		    return ""
-			},
-      cookieVotos: function(n) {
-      	switch(this.getCookie('voto-'+n)) {
-					case '':
-						document.cookie = "voto-"+n+"=false"
-						break
-					case 'true':
-						this.user.votos.push(n)
-						break
-					case 'false':
-						break
-				}
-      },
-      cookieAssistidos: function(n) {
-      	switch(this.getCookie('ass-'+n)) {
-					case '':
-						document.cookie = "ass-"+n+"=false"
-						break
-					case 'true':
-						this.user.assistidos.push(n)
-						break
-					case 'false':
-						break
-				}
-      },
-      filterNave: function(nome) {
-      	this.$broadcast('filter', nome)
-      },
-      closeJanela: function() {
-      	window.location.hash = '/home'
-      }
+		cookieAssistidos: function cookieAssistidos(n) {
+			switch (this.getCookie('ass-' + n)) {
+				case '':
+					document.cookie = "ass-" + n + "=false";
+					break;
+				case 'true':
+					this.user.assistidos.push(n);
+					break;
+				case 'false':
+					break;
+			}
 		},
-		computed: {
-    	
+		filterNave: function filterNave(nome) {
+			this.$broadcast('filter', nome);
 		},
-		created: function () {
+		closeJanela: function closeJanela() {
+			window.location.hash = '/home';
+		}
+	},
+	computed: {
+		isFiltered: function isFiltered() {
+			var filters = [];
 			for (var i = 0; i < this.naves.length; i++) {
-        for (var o = 0; o < this.naves[i].media.length; o++) {
-          this.cookieVotos(this.naves[i].media[o].id)
-          this.cookieAssistidos(this.naves[i].media[o].id)
-        }
-      }
-		},
-		attached: function () {
-			componentHandler.upgradeDom()
-
-			var socket = io.connect('http://aovivonaweb.tv:1620')
-			var self = this
-
-      this.$on('assistido', function(id) {
-        this.user.assistidos.push(id)
-      })
-
-      this.$on('votado', function(id) {
-        this.user.votos.push(id)
-        socket.emit('voto', id)
-      })
-
-      this.$on('des-votado', function(id) {
-        this.user.votos.push(id)
-        socket.emit('des-voto', id)
-      })
-
-      this.$on('send-card', function() {
-      	var w = {
-					nave_nome: this.webcard.nave_nome,
-					nave_videos: this.webcard.nave_videos,
-					videos: this.webcard.videos,
-					email_criador: this.webcard.email_criador,
-					email_enviado: this.webcard.email_enviado,
-					menssagem: this.webcard.menssagem
+				if (this.$refs.cloud === null) {
+					filters.push(false);
+				} else {
+					if (this.naves[i].headers.nome === this.$refs.cloud.filter) {
+						filters.push(true);
+					} else {
+						filters.push(false);
+					}
 				}
-        socket.emit('send-card', JSON.stringify(w))
-        this.webcard = {
-					nave_nome: null,
-					nave_videos: null,
-					videos: [],
-					email_criador: '',
-					email_enviado: '',
-					menssagem: ''
-				}
-      })
+			}
+			return filters;
+		}
+	},
+	created: function created() {
+		for (var i = 0; i < this.naves.length; i++) {
+			for (var o = 0; o < this.naves[i].media.length; o++) {
+				this.cookieVotos(this.naves[i].media[o].id);
+				this.cookieAssistidos(this.naves[i].media[o].id);
+			}
+		}
+	},
+	attached: function attached() {
+		componentHandler.upgradeDom();
 
-      this.$on('fechar-janela', function() {
-      	this.closeJanela()
-      })
+		var socket = io.connect('http://aovivonaweb.tv:1620');
+		var self = this;
 
-      socket.on('resp', function(data) {
-      	console.log(data)
-      	var desc = JSON.parse(data.desc)
-      	if (data.idList === "5797d3393ae93636227efd5f") {
-      		self.$broadcast('card-sent')
-      		emailjs.send("gmail","webcard_envio",{id: data.id, to_email: desc.email_criador});
-      		emailjs.send("gmail","webcard_recebido",{id: data.id, from_email: desc.email_criador, to_email: desc.email_enviado});
-      	}
-      })
+		this.$on('assistido', function (id) {
+			this.user.assistidos.push(id);
+		});
 
-		},
-		components: {
-			'media-cloud': require('../components/media-cloud.vue'),
-			'janela-card': require('../components/janela-card.vue'),
-			'janela-projeto': require('../components/janela-projeto.vue'),
-			'janela-realizacao': require('../components/janela-realizacao.vue'),
-			'janela-contato': require('../components/janela-contato.vue'),
-			'janela-equipe': require('../components/janela-equipe.vue')
-		},
-		filters: {
-      marked: function(value) {
-      	return marked(value)
-      }
-    }
+		this.$on('votado', function (id) {
+			this.user.votos.push(id);
+			socket.emit('voto', id);
+		});
+
+		this.$on('des-votado', function (id) {
+			this.user.votos.push(id);
+			socket.emit('des-voto', id);
+		});
+
+		this.$on('send-card', function () {
+			var w = {
+				nave_nome: this.webcard.nave_nome,
+				nave_videos: this.webcard.nave_videos,
+				videos: this.webcard.videos,
+				email_criador: this.webcard.email_criador,
+				email_enviado: this.webcard.email_enviado,
+				menssagem: this.webcard.menssagem
+			};
+			socket.emit('send-card', JSON.stringify(w));
+			this.webcard = {
+				nave_nome: null,
+				nave_videos: null,
+				videos: [],
+				email_criador: '',
+				email_enviado: '',
+				menssagem: ''
+			};
+		});
+
+		this.$on('fechar-janela', function () {
+			this.closeJanela();
+		});
+
+		socket.on('resp', function (data) {
+			console.log(data);
+			var desc = JSON.parse(data.desc);
+			if (data.idList === "5797d3393ae93636227efd5f") {
+				self.$broadcast('card-sent');
+				emailjs.send("gmail", "webcard_envio", { id: data.id, to_email: desc.email_criador });
+				emailjs.send("gmail", "webcard_recebido", { id: data.id, from_email: desc.email_criador, to_email: desc.email_enviado });
+			}
+		});
+	},
+	components: {
+		'media-cloud': require('../components/media-cloud.vue'),
+		'janela-card': require('../components/janela-card.vue'),
+		'janela-projeto': require('../components/janela-projeto.vue'),
+		'janela-realizacao': require('../components/janela-realizacao.vue'),
+		'janela-contato': require('../components/janela-contato.vue'),
+		'janela-equipe': require('../components/janela-equipe.vue')
+	},
+	filters: {
+		marked: function marked(value) {
+			return _marked(value);
+		}
 	}
-
-if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div class=\"mdl-layout mdl-js-layout mdl-layout--fixed-header\">\n\n    <header class=\"rwd_header mdl-layout__header \">\n    \t<div class=\"header_cover\">\n\t\t\t<div class=\"mdl-layout__header-row\">\n\n\t\t\t\t<!-- Class destinada a dar um espaçamento grande -->\n\t\t\t\t<div class=\"mdl-layout-spacer\"></div>\n\n\t\t\t\t<!-- Construção dos ícones indicativos no menu -->\n\t\t\t\t<nav class=\"mdl-navigation\">\n\t\t\t    \n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/projeto\">PROJETO</a>\n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/realizacao\">REALIZAÇÃO</a>\n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/equipe\">EQUIPE</a>\n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/contato\">CONTATO</a>\n\t\t\t\t<!-- <a class=\"mdl-navigation__link\" href=\"\">BLOG</a> -->\n\n\t\t\t\t</nav>\n\t\t\t</div>\n\t\t</div>\t\n\t</header>\n    \n   \n    <main class=\"mdl-layout__content\">\n    \n    \t<div id=\"rwd_conteudo\">\n\n    \t\t<div id=\"navegacao\">\n    \t\t\t\n    \t\t\t<div id=\"logo\" class=\"logo\">\n\t    \t\t\t<img src=\"images/logo.png\" class=\"logoimg\">\n\t    \t\t</div>\n\n\n\t    \t\t<div id=\"pins\" class=\"rwd_pins\">\n\t\t\t  \t\t<div class=\"rwd_local\">\n\t\t\t  \t\t\t<span v-for=\"nave in naves\">\n\n\t\t\t  \t\t\t\t<div class=\"rwd_pinbox\">\n\n\t\t\t\t  \t\t\t\t<div>\n\t\t\t\t\t  \t\t\t\t<button class=\"mdl-button mdl-js-button mdl-button--icon mdl-button--primary\" :id=\"nave.headers.id\" @click=\"filterNave(nave.headers.nome)\">\n\t\t\t\t\t\t    \t\t\t\n\t\t\t\t\t\t    \t\t\t<i class=\"btnPin material-icons mdl-badge\">\n\t\t\t\t\t\t    \t\t\troom\n\t\t\t\t\t\t    \t\t\t</i>\n\n\t\t\t\t\t\t    \t\t</button>\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"mdl-tooltip\" :for=\"nave.headers.id\">\n\t\t\t\t\t\t\t\t\t{{nave.headers.nome}}\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t<div class=\"rwd_pintitle\" :for=\"nave.headers.id\">\n\t\t\t\t\t\t\t\t{{nave.headers.nome}}\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\n\t\t\t  \t\t\t</span>\n\t\t\t  \t\t\t\n\t\t\t  \t\t\t<div style=\"clear: both\">\n\t\t\t  \t\t\t</div>\n\n\t\t\t  \t\t</div>\n\t\t\t  \t</div>\n\n\t\t\t  \t<div id=\"selo\" class=\"selo\">\n\t\t\t  \t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/card\" rel=\"modal\">\n\t\t\t\t\t<img src=\"images/selo.png\" class=\"seloimg\" id=\"icon1\">\n\t\t\t\t\t</a>\n\t    \t\t</div>\n\n\t    \t\t<div class=\"mdl-tooltip mdl-tooltip--left\" for=\"icon1\">\n\t    \t\tEnviar um webcard\n\t    \t\t</div>\n\n    \t\t</div>\n    \t\t\n    \t\t<div id=\"cloud\" class=\"rwd_cloud\">\n\t\t  \t<media-cloud :naves=\"naves\" :user.sync=\"user\" :filter.sync=\"filter\"></media-cloud>\n\t\t  \t</div>\n\n    \t\n    \n    \n\t\t\t<div id=\"rodape\" class=\"rodape\">\n\n\t\t\t\t<div id=\"rwdrodape\" class=\"rwdrodape\">\n\n\t\t\t\t\t\t<div id=\"sessao1\" class=\"sessaofooter\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footertitle\">Realização:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"http://www.jardimdigital.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/rio_pref.png\" alt=\"prefeitura Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div id=\"sessao2\" class=\"sessaofooter\">\n\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footertitle\">Parceria:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"http://www.jardimdigital.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/grupo_ccr.png\" alt=\"grupo ccr Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp; &nbsp; &nbsp; &nbsp;\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div id=\"sessao3\" class=\"sessaofooter\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footertitle\">Apoio:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"http://www.jardimdigital.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/rio_onibus.png\" alt=\"rio onibus Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t\t\t\t<a href=\"http://www.viladosite.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/riofilme.png\" alt=\"Vila do Site Logo\" class=\"footer_img2\"></a>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t        \n\t\t\t\t        <div id=\"sessao4\" class=\"sessaofooter\">\n\n\t\t\t\t\t\t\t<div class=\"footertitle\">Produção:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"http://www.jardimdigital.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/mpc_logo.png\" alt=\"Jardim Digital Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div id=\"sessao5\" class=\"sessaofooter\">\n\n\t\t\t\t\t\t\t<div class=\"footertitle\">Gestão das Naves do Conhecimento:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"http://www.jardimdigital.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/cecip_logo.png\" alt=\"Jardim Digital Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t\t\t\t<a href=\"http://www.viladosite.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/redeh_logo.png\" alt=\"Vila do Site Logo\" class=\"footer_img2\">\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"clearboth\"></div>\n\n\t\t\t\t\t\t<a href=\"http://github.com/viladosite/riowebdoc\"><img class=\"imgGit\" src=\"images/forkme_dark_background.png\" alt=\"Fork me on GitHub\"></a>\n\n\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</div>\n\t\t\n\t</main>\n\n\n\t<div v-if=\"janela !== null\" transition=\"fade2\" class=\"window\" id=\"janela1\">\n\t    <a href=\"/#/home\" class=\"fechar\"> <img src=\"images/icon_close.png\" width=\"35px\" height=\"35px\"> </a>\n\t    <div id=\"janela2\" name=\"janela2\">\n\t    \t<div :is=\"janela\" :janela.sync=\"janela\" :webcard=\"webcard\" :naves=\"naves\" v-ref:janela=\"\"></div>\n\t\t</div>\n\t</div>\n\t<div v-if=\"janela !== null\" transition=\"fade2\" id=\"mascara\" @click=\"closeJanela\"></div> \n\n\t<div class=\"clearboth\"></div>\n\n</div>\n\n"
+};
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div class=\"mdl-layout mdl-js-layout mdl-layout--fixed-header\">\n\n    <header class=\"rwd_header mdl-layout__header \">\n    \t<div class=\"header_cover\">\n\t\t\t<div class=\"mdl-layout__header-row\">\n\n\t\t\t\t<!-- Class destinada a dar um espaçamento grande -->\n\t\t\t\t<div class=\"mdl-layout-spacer\"></div>\n\n\t\t\t\t<!-- Construção dos ícones indicativos no menu -->\n\t\t\t\t<nav class=\"mdl-navigation\">\n\t\t\t    \n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/projeto\">PROJETO</a>\n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/realizacao\">REALIZAÇÃO</a>\n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/equipe\">EQUIPE</a>\n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/contato\">CONTATO</a>\n\t\t\t\t<!-- <a class=\"mdl-navigation__link\" href=\"\">BLOG</a> -->\n\n\t\t\t\t</nav>\n\t\t\t</div>\n\t\t</div>\t\n\t</header>\n    \n   \n    <main class=\"mdl-layout__content\">\n    \n    \t<div id=\"rwd_conteudo\">\n\n    \t\t<div id=\"navegacao\">\n    \t\t\t\n    \t\t\t<div id=\"logo\" class=\"logo\">\n\t    \t\t\t<img src=\"images/logo.png\" class=\"logoimg\">\n\t    \t\t</div>\n\n\n\t    \t\t<div id=\"pins\" class=\"rwd_pins\">\n\t\t\t  \t\t<div class=\"rwd_local\">\n\t\t\t  \t\t\t<span v-for=\"nave in naves\">\n\n\t\t\t  \t\t\t\t<div class=\"rwd_pinbox\" @click=\"filterNave(nave.headers.nome)\" :class=\"{filtered: isFiltered[$index]}\">\n\n\t\t\t\t  \t\t\t\t<div>\n\t\t\t\t\t  \t\t\t\t<button class=\"mdl-button mdl-js-button mdl-button--icon mdl-button--primary rwd_pinicon\" :id=\"nave.headers.id\">\n\t\t\t\t\t\t    \t\t\t\n\t\t\t\t\t\t    \t\t\t<i class=\"btnPin material-icons mdl-badge\">\n\t\t\t\t\t\t    \t\t\troom\n\t\t\t\t\t\t    \t\t\t</i>\n\n\t\t\t\t\t\t    \t\t</button>\n\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t<div class=\"rwd_pintitle\" :for=\"nave.headers.id\">\n\t\t\t\t\t\t\t\t{{nave.headers.nome}}\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\n\t\t\t  \t\t\t</span>\n\t\t\t  \t\t\t\n\t\t\t  \t\t\t<div style=\"clear: both\">\n\t\t\t  \t\t\t</div>\n\n\t\t\t  \t\t</div>\n\t\t\t  \t</div>\n\n\t\t\t  \t<div id=\"selo\" class=\"selo\">\n\t\t\t  \t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/card\" rel=\"modal\">\n\t\t\t\t\t<img src=\"images/selo.png\" class=\"seloimg\" id=\"icon1\">\n\t\t\t\t\t</a>\n\t    \t\t</div>\n\n\t    \t\t<div class=\"mdl-tooltip mdl-tooltip--left\" for=\"icon1\">\n\t    \t\tEnviar um webcard\n\t    \t\t</div>\n\n    \t\t</div>\n    \t\t\n    \t\t<div id=\"cloud\" class=\"rwd_cloud\">\n\t\t  \t<media-cloud :naves=\"naves\" :user.sync=\"user\" :filter.sync=\"filter\" v-ref:cloud=\"\"></media-cloud>\n\t\t  \t</div>\n\n    \t\n    \n    \n\t\t\t<div id=\"rodape\" class=\"rodape\">\n\n\t\t\t\t<div id=\"rwdrodape\" class=\"rwdrodape\">\n\n\t\t\t\t\t\t<div id=\"sessao1\" class=\"sessaofooter\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footertitle\">Realização:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"http://www.jardimdigital.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/rio_pref.png\" alt=\"prefeitura Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div id=\"sessao2\" class=\"sessaofooter\">\n\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footertitle\">Parceria:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"http://www.jardimdigital.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/grupo_ccr.png\" alt=\"grupo ccr Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp; &nbsp; &nbsp; &nbsp;\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div id=\"sessao3\" class=\"sessaofooter\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footertitle\">Apoio:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"http://www.jardimdigital.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/rio_onibus.png\" alt=\"rio onibus Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t\t\t\t<a href=\"http://www.viladosite.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/riofilme.png\" alt=\"Vila do Site Logo\" class=\"footer_img2\"></a>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t        \n\t\t\t\t        <div id=\"sessao4\" class=\"sessaofooter\">\n\n\t\t\t\t\t\t\t<div class=\"footertitle\">Produção:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"http://www.jardimdigital.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/mpc_logo.png\" alt=\"Jardim Digital Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div id=\"sessao5\" class=\"sessaofooter\">\n\n\t\t\t\t\t\t\t<div class=\"footertitle\">Gestão das Naves do Conhecimento:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"http://www.jardimdigital.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/cecip_logo.png\" alt=\"Jardim Digital Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t\t\t\t<a href=\"http://www.viladosite.com.br\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/redeh_logo.png\" alt=\"Vila do Site Logo\" class=\"footer_img2\">\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"clearboth\"></div>\n\n\t\t\t\t\t\t<a href=\"http://github.com/viladosite/riowebdoc\"><img class=\"imgGit\" src=\"images/forkme_dark_background.png\" alt=\"Fork me on GitHub\"></a>\n\n\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</div>\n\t\t\n\t</main>\n\n\n\t<div v-if=\"janela !== null\" transition=\"fade2\" class=\"window\" id=\"janela1\">\n\t    <a href=\"/#/home\" class=\"fechar\"> <img src=\"images/icon_close.png\" width=\"25px\" height=\"25px\"> </a>\n\t    <div id=\"janela2\" name=\"janela2\">\n\t    \t<div :is=\"janela\" :janela.sync=\"janela\" :webcard=\"webcard\" :naves=\"naves\" v-ref:janela=\"\"></div>\n\t\t</div>\n\t</div>\n\t<div v-if=\"janela !== null\" transition=\"fade2\" id=\"mascara\" @click=\"closeJanela\"></div> \n\n\t<div class=\"clearboth\"></div>\n\n</div>\n\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
+  var id = "/media/bambuzal/Softwares/riowebdoc/app/vue/views/home-view.vue"
   module.hot.dispose(function () {
-    __vueify_insert__.cache["/* line 2, stdin */\n.fade-transition {\n  -webkit-transition: opacity .6s ease .4s;\n  transition: opacity .6s ease .4s;\n  opacity: 1; }\n\n/* line 6, stdin */\n.fade-enter, .fade-leave {\n  opacity: 0; }\n\n/* line 9, stdin */\n.fade-leave {\n  -webkit-transition: opacity .1s linear;\n  transition: opacity .1s linear; }\n\n/* line 12, stdin */\n#navegacao {\n  padding-top: 30px; }\n\n/* line 15, stdin */\n.fade2-transition {\n  -webkit-transition: opacity .4s ease;\n  transition: opacity .4s ease;\n  opacity: 1; }\n\n/* line 19, stdin */\n.fade2-enter, .fade2-leave {\n  opacity: 0; }\n"] = false
+    require("vueify-insert-css").cache["/* line 2, stdin */\n.fade-transition {\n  -webkit-transition: opacity .6s ease .4s;\n  transition: opacity .6s ease .4s;\n  opacity: 1; }\n\n/* line 6, stdin */\n.fade-enter, .fade-leave {\n  opacity: 0; }\n\n/* line 9, stdin */\n.fade-leave {\n  -webkit-transition: opacity .1s linear;\n  transition: opacity .1s linear; }\n\n/* line 12, stdin */\n#navegacao {\n  padding-top: 30px; }\n\n/* line 15, stdin */\n.fade2-transition {\n  -webkit-transition: opacity .4s ease;\n  transition: opacity .4s ease;\n  opacity: 1; }\n\n/* line 19, stdin */\n.fade2-enter, .fade2-leave {\n  opacity: 0; }\n\n/* line 24, stdin */\n#janela2 h3 {\n  font-family: 'treta'; }\n\n/* line 29, stdin */\n.rwd_pinbox {\n  cursor: pointer; }\n  /* line 32, stdin */\n  .rwd_pinbox:hover .rwd_pinicon {\n    opacity: 1; }\n  /* line 36, stdin */\n  .rwd_pinbox.filtered {\n    border-bottom: 3px solid #d66843; }\n    /* line 38, stdin */\n    .rwd_pinbox.filtered .rwd_pinicon {\n      opacity: 1; }\n  /* line 42, stdin */\n  .rwd_pinbox .rwd_pinicon {\n    opacity: 0;\n    -webkit-transition: opacity .2s;\n    transition: opacity .2s; }\n  /* line 46, stdin */\n  .rwd_pinbox .mdl-button {\n    background: transparent !important;\n    font-size: 30px;\n    height: 35px;\n    min-width: 35px;\n    width: 35px; }\n  /* line 53, stdin */\n  .rwd_pinbox .btnPin {\n    font-size: 30px; }\n"] = false
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-40f46d98", module.exports)
+    hotAPI.createRecord(id, module.exports)
   } else {
-    hotAPI.update("_v-40f46d98", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"../components/janela-card.vue":2,"../components/janela-contato.vue":3,"../components/janela-equipe.vue":4,"../components/janela-projeto.vue":5,"../components/janela-realizacao.vue":6,"../components/media-cloud.vue":7,"jquery":48,"marked":49,"socket.io-client":76,"vue":91,"vue-hot-reload-api":90,"vueify/lib/insert-css":92}],17:[function(require,module,exports){
-module.exports = after
-
-function after(count, callback, err_cb) {
-    var bail = false
-    err_cb = err_cb || noop
-    proxy.count = count
-
-    return (count === 0) ? callback() : proxy
-
-    function proxy(err, result) {
-        if (proxy.count <= 0) {
-            throw new Error('after called too many times')
-        }
-        --proxy.count
-
-        // after first error, rest are passed to err_cb
-        if (err) {
-            bail = true
-            callback(err)
-            // future error callbacks will go to error handler
-            callback = err_cb
-        } else if (proxy.count === 0 && !bail) {
-            callback(null, result)
-        }
-    }
-}
-
-function noop() {}
-
-},{}],18:[function(require,module,exports){
-/**
- * An abstraction for slicing an arraybuffer even when
- * ArrayBuffer.prototype.slice is not supported
- *
- * @api public
- */
-
-module.exports = function(arraybuffer, start, end) {
-  var bytes = arraybuffer.byteLength;
-  start = start || 0;
-  end = end || bytes;
-
-  if (arraybuffer.slice) { return arraybuffer.slice(start, end); }
-
-  if (start < 0) { start += bytes; }
-  if (end < 0) { end += bytes; }
-  if (end > bytes) { end = bytes; }
-
-  if (start >= bytes || start >= end || bytes === 0) {
-    return new ArrayBuffer(0);
-  }
-
-  var abv = new Uint8Array(arraybuffer);
-  var result = new Uint8Array(end - start);
-  for (var i = start, ii = 0; i < end; i++, ii++) {
-    result[ii] = abv[i];
-  }
-  return result.buffer;
-};
-
-},{}],19:[function(require,module,exports){
-
-/**
- * Expose `Backoff`.
- */
-
-module.exports = Backoff;
-
-/**
- * Initialize backoff timer with `opts`.
- *
- * - `min` initial timeout in milliseconds [100]
- * - `max` max timeout [10000]
- * - `jitter` [0]
- * - `factor` [2]
- *
- * @param {Object} opts
- * @api public
- */
-
-function Backoff(opts) {
-  opts = opts || {};
-  this.ms = opts.min || 100;
-  this.max = opts.max || 10000;
-  this.factor = opts.factor || 2;
-  this.jitter = opts.jitter > 0 && opts.jitter <= 1 ? opts.jitter : 0;
-  this.attempts = 0;
-}
-
-/**
- * Return the backoff duration.
- *
- * @return {Number}
- * @api public
- */
-
-Backoff.prototype.duration = function(){
-  var ms = this.ms * Math.pow(this.factor, this.attempts++);
-  if (this.jitter) {
-    var rand =  Math.random();
-    var deviation = Math.floor(rand * this.jitter * ms);
-    ms = (Math.floor(rand * 10) & 1) == 0  ? ms - deviation : ms + deviation;
-  }
-  return Math.min(ms, this.max) | 0;
-};
-
-/**
- * Reset the number of attempts.
- *
- * @api public
- */
-
-Backoff.prototype.reset = function(){
-  this.attempts = 0;
-};
-
-/**
- * Set the minimum duration
- *
- * @api public
- */
-
-Backoff.prototype.setMin = function(min){
-  this.ms = min;
-};
-
-/**
- * Set the maximum duration
- *
- * @api public
- */
-
-Backoff.prototype.setMax = function(max){
-  this.max = max;
-};
-
-/**
- * Set the jitter
- *
- * @api public
- */
-
-Backoff.prototype.setJitter = function(jitter){
-  this.jitter = jitter;
-};
-
-
-},{}],20:[function(require,module,exports){
-/*
- * base64-arraybuffer
- * https://github.com/niklasvh/base64-arraybuffer
- *
- * Copyright (c) 2012 Niklas von Hertzen
- * Licensed under the MIT license.
- */
-(function(chars){
-  "use strict";
-
-  exports.encode = function(arraybuffer) {
-    var bytes = new Uint8Array(arraybuffer),
-    i, len = bytes.length, base64 = "";
-
-    for (i = 0; i < len; i+=3) {
-      base64 += chars[bytes[i] >> 2];
-      base64 += chars[((bytes[i] & 3) << 4) | (bytes[i + 1] >> 4)];
-      base64 += chars[((bytes[i + 1] & 15) << 2) | (bytes[i + 2] >> 6)];
-      base64 += chars[bytes[i + 2] & 63];
-    }
-
-    if ((len % 3) === 2) {
-      base64 = base64.substring(0, base64.length - 1) + "=";
-    } else if (len % 3 === 1) {
-      base64 = base64.substring(0, base64.length - 2) + "==";
-    }
-
-    return base64;
-  };
-
-  exports.decode =  function(base64) {
-    var bufferLength = base64.length * 0.75,
-    len = base64.length, i, p = 0,
-    encoded1, encoded2, encoded3, encoded4;
-
-    if (base64[base64.length - 1] === "=") {
-      bufferLength--;
-      if (base64[base64.length - 2] === "=") {
-        bufferLength--;
-      }
-    }
-
-    var arraybuffer = new ArrayBuffer(bufferLength),
-    bytes = new Uint8Array(arraybuffer);
-
-    for (i = 0; i < len; i+=4) {
-      encoded1 = chars.indexOf(base64[i]);
-      encoded2 = chars.indexOf(base64[i+1]);
-      encoded3 = chars.indexOf(base64[i+2]);
-      encoded4 = chars.indexOf(base64[i+3]);
-
-      bytes[p++] = (encoded1 << 2) | (encoded2 >> 4);
-      bytes[p++] = ((encoded2 & 15) << 4) | (encoded3 >> 2);
-      bytes[p++] = ((encoded3 & 3) << 6) | (encoded4 & 63);
-    }
-
-    return arraybuffer;
-  };
-})("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/");
-
-},{}],21:[function(require,module,exports){
-(function (global){
-/**
- * Create a blob builder even when vendor prefixes exist
- */
-
-var BlobBuilder = global.BlobBuilder
-  || global.WebKitBlobBuilder
-  || global.MSBlobBuilder
-  || global.MozBlobBuilder;
-
-/**
- * Check if Blob constructor is supported
- */
-
-var blobSupported = (function() {
-  try {
-    var a = new Blob(['hi']);
-    return a.size === 2;
-  } catch(e) {
-    return false;
-  }
-})();
-
-/**
- * Check if Blob constructor supports ArrayBufferViews
- * Fails in Safari 6, so we need to map to ArrayBuffers there.
- */
-
-var blobSupportsArrayBufferView = blobSupported && (function() {
-  try {
-    var b = new Blob([new Uint8Array([1,2])]);
-    return b.size === 2;
-  } catch(e) {
-    return false;
-  }
-})();
-
-/**
- * Check if BlobBuilder is supported
- */
-
-var blobBuilderSupported = BlobBuilder
-  && BlobBuilder.prototype.append
-  && BlobBuilder.prototype.getBlob;
-
-/**
- * Helper function that maps ArrayBufferViews to ArrayBuffers
- * Used by BlobBuilder constructor and old browsers that didn't
- * support it in the Blob constructor.
- */
-
-function mapArrayBufferViews(ary) {
-  for (var i = 0; i < ary.length; i++) {
-    var chunk = ary[i];
-    if (chunk.buffer instanceof ArrayBuffer) {
-      var buf = chunk.buffer;
-
-      // if this is a subarray, make a copy so we only
-      // include the subarray region from the underlying buffer
-      if (chunk.byteLength !== buf.byteLength) {
-        var copy = new Uint8Array(chunk.byteLength);
-        copy.set(new Uint8Array(buf, chunk.byteOffset, chunk.byteLength));
-        buf = copy.buffer;
-      }
-
-      ary[i] = buf;
-    }
-  }
-}
-
-function BlobBuilderConstructor(ary, options) {
-  options = options || {};
-
-  var bb = new BlobBuilder();
-  mapArrayBufferViews(ary);
-
-  for (var i = 0; i < ary.length; i++) {
-    bb.append(ary[i]);
-  }
-
-  return (options.type) ? bb.getBlob(options.type) : bb.getBlob();
-};
-
-function BlobConstructor(ary, options) {
-  mapArrayBufferViews(ary);
-  return new Blob(ary, options || {});
-};
-
-module.exports = (function() {
-  if (blobSupported) {
-    return blobSupportsArrayBufferView ? global.Blob : BlobConstructor;
-  } else if (blobBuilderSupported) {
-    return BlobBuilderConstructor;
-  } else {
-    return undefined;
-  }
-})();
-
-}).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],22:[function(require,module,exports){
+},{"../components/janela-card.vue":2,"../components/janela-contato.vue":3,"../components/janela-equipe.vue":4,"../components/janela-projeto.vue":5,"../components/janela-realizacao.vue":6,"../components/media-cloud.vue":7,"jquery":24,"marked":25,"socket.io-client":47,"vue":93,"vue-hot-reload-api":92,"vueify-insert-css":94}],17:[function(require,module,exports){
 /*
  * JavaScript MD5
  * https://github.com/blueimp/JavaScript-MD5
@@ -4626,208 +2055,7 @@ module.exports = (function() {
   }
 }(this))
 
-},{}],23:[function(require,module,exports){
-
-},{}],24:[function(require,module,exports){
-/**
- * Slice reference.
- */
-
-var slice = [].slice;
-
-/**
- * Bind `obj` to `fn`.
- *
- * @param {Object} obj
- * @param {Function|String} fn or string
- * @return {Function}
- * @api public
- */
-
-module.exports = function(obj, fn){
-  if ('string' == typeof fn) fn = obj[fn];
-  if ('function' != typeof fn) throw new Error('bind() requires a function');
-  var args = slice.call(arguments, 2);
-  return function(){
-    return fn.apply(obj, args.concat(slice.call(arguments)));
-  }
-};
-
-},{}],25:[function(require,module,exports){
-
-/**
- * Expose `Emitter`.
- */
-
-module.exports = Emitter;
-
-/**
- * Initialize a new `Emitter`.
- *
- * @api public
- */
-
-function Emitter(obj) {
-  if (obj) return mixin(obj);
-};
-
-/**
- * Mixin the emitter properties.
- *
- * @param {Object} obj
- * @return {Object}
- * @api private
- */
-
-function mixin(obj) {
-  for (var key in Emitter.prototype) {
-    obj[key] = Emitter.prototype[key];
-  }
-  return obj;
-}
-
-/**
- * Listen on the given `event` with `fn`.
- *
- * @param {String} event
- * @param {Function} fn
- * @return {Emitter}
- * @api public
- */
-
-Emitter.prototype.on =
-Emitter.prototype.addEventListener = function(event, fn){
-  this._callbacks = this._callbacks || {};
-  (this._callbacks[event] = this._callbacks[event] || [])
-    .push(fn);
-  return this;
-};
-
-/**
- * Adds an `event` listener that will be invoked a single
- * time then automatically removed.
- *
- * @param {String} event
- * @param {Function} fn
- * @return {Emitter}
- * @api public
- */
-
-Emitter.prototype.once = function(event, fn){
-  var self = this;
-  this._callbacks = this._callbacks || {};
-
-  function on() {
-    self.off(event, on);
-    fn.apply(this, arguments);
-  }
-
-  on.fn = fn;
-  this.on(event, on);
-  return this;
-};
-
-/**
- * Remove the given callback for `event` or all
- * registered callbacks.
- *
- * @param {String} event
- * @param {Function} fn
- * @return {Emitter}
- * @api public
- */
-
-Emitter.prototype.off =
-Emitter.prototype.removeListener =
-Emitter.prototype.removeAllListeners =
-Emitter.prototype.removeEventListener = function(event, fn){
-  this._callbacks = this._callbacks || {};
-
-  // all
-  if (0 == arguments.length) {
-    this._callbacks = {};
-    return this;
-  }
-
-  // specific event
-  var callbacks = this._callbacks[event];
-  if (!callbacks) return this;
-
-  // remove all handlers
-  if (1 == arguments.length) {
-    delete this._callbacks[event];
-    return this;
-  }
-
-  // remove specific handler
-  var cb;
-  for (var i = 0; i < callbacks.length; i++) {
-    cb = callbacks[i];
-    if (cb === fn || cb.fn === fn) {
-      callbacks.splice(i, 1);
-      break;
-    }
-  }
-  return this;
-};
-
-/**
- * Emit `event` with the given args.
- *
- * @param {String} event
- * @param {Mixed} ...
- * @return {Emitter}
- */
-
-Emitter.prototype.emit = function(event){
-  this._callbacks = this._callbacks || {};
-  var args = [].slice.call(arguments, 1)
-    , callbacks = this._callbacks[event];
-
-  if (callbacks) {
-    callbacks = callbacks.slice(0);
-    for (var i = 0, len = callbacks.length; i < len; ++i) {
-      callbacks[i].apply(this, args);
-    }
-  }
-
-  return this;
-};
-
-/**
- * Return array of callbacks for `event`.
- *
- * @param {String} event
- * @return {Array}
- * @api public
- */
-
-Emitter.prototype.listeners = function(event){
-  this._callbacks = this._callbacks || {};
-  return this._callbacks[event] || [];
-};
-
-/**
- * Check if this emitter has `event` handlers.
- *
- * @param {String} event
- * @return {Boolean}
- * @api public
- */
-
-Emitter.prototype.hasListeners = function(event){
-  return !! this.listeners(event).length;
-};
-
-},{}],26:[function(require,module,exports){
-
-module.exports = function(a, b){
-  var fn = function(){};
-  fn.prototype = b.prototype;
-  a.prototype = new fn;
-  a.prototype.constructor = a;
-};
-},{}],27:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 
 /**
  * This is the web browser implementation of `debug()`.
@@ -4997,7 +2225,7 @@ function localstorage(){
   } catch (e) {}
 }
 
-},{"./debug":28}],28:[function(require,module,exports){
+},{"./debug":19}],19:[function(require,module,exports){
 
 /**
  * This is the common logic for both the Node.js and web browser
@@ -5196,7 +2424,134 @@ function coerce(val) {
   return val;
 }
 
-},{"ms":50}],29:[function(require,module,exports){
+},{"ms":20}],20:[function(require,module,exports){
+/**
+ * Helpers.
+ */
+
+var s = 1000;
+var m = s * 60;
+var h = m * 60;
+var d = h * 24;
+var y = d * 365.25;
+
+/**
+ * Parse or format the given `val`.
+ *
+ * Options:
+ *
+ *  - `long` verbose formatting [false]
+ *
+ * @param {String|Number} val
+ * @param {Object} options
+ * @return {String|Number}
+ * @api public
+ */
+
+module.exports = function(val, options){
+  options = options || {};
+  if ('string' == typeof val) return parse(val);
+  return options.long
+    ? long(val)
+    : short(val);
+};
+
+/**
+ * Parse the given `str` and return milliseconds.
+ *
+ * @param {String} str
+ * @return {Number}
+ * @api private
+ */
+
+function parse(str) {
+  str = '' + str;
+  if (str.length > 10000) return;
+  var match = /^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/i.exec(str);
+  if (!match) return;
+  var n = parseFloat(match[1]);
+  var type = (match[2] || 'ms').toLowerCase();
+  switch (type) {
+    case 'years':
+    case 'year':
+    case 'yrs':
+    case 'yr':
+    case 'y':
+      return n * y;
+    case 'days':
+    case 'day':
+    case 'd':
+      return n * d;
+    case 'hours':
+    case 'hour':
+    case 'hrs':
+    case 'hr':
+    case 'h':
+      return n * h;
+    case 'minutes':
+    case 'minute':
+    case 'mins':
+    case 'min':
+    case 'm':
+      return n * m;
+    case 'seconds':
+    case 'second':
+    case 'secs':
+    case 'sec':
+    case 's':
+      return n * s;
+    case 'milliseconds':
+    case 'millisecond':
+    case 'msecs':
+    case 'msec':
+    case 'ms':
+      return n;
+  }
+}
+
+/**
+ * Short format for `ms`.
+ *
+ * @param {Number} ms
+ * @return {String}
+ * @api private
+ */
+
+function short(ms) {
+  if (ms >= d) return Math.round(ms / d) + 'd';
+  if (ms >= h) return Math.round(ms / h) + 'h';
+  if (ms >= m) return Math.round(ms / m) + 'm';
+  if (ms >= s) return Math.round(ms / s) + 's';
+  return ms + 'ms';
+}
+
+/**
+ * Long format for `ms`.
+ *
+ * @param {Number} ms
+ * @return {String}
+ * @api private
+ */
+
+function long(ms) {
+  return plural(ms, d, 'day')
+    || plural(ms, h, 'hour')
+    || plural(ms, m, 'minute')
+    || plural(ms, s, 'second')
+    || ms + ' ms';
+}
+
+/**
+ * Pluralization helper.
+ */
+
+function plural(ms, n, name) {
+  if (ms < n) return;
+  if (ms < n * 1.5) return Math.floor(ms / n) + ' ' + name;
+  return Math.ceil(ms / n) + ' ' + name + 's';
+}
+
+},{}],21:[function(require,module,exports){
 
 
 //
@@ -5922,3007 +3277,91 @@ Router.prototype.mount = function(routes, path) {
 
 
 }(typeof exports === "object" ? exports : window));
-},{}],30:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 
-module.exports =  require('./lib/');
+},{}],23:[function(require,module,exports){
+// shim for using process in browser
 
-},{"./lib/":31}],31:[function(require,module,exports){
+var process = module.exports = {};
 
-module.exports = require('./socket');
+process.nextTick = (function () {
+    var canSetImmediate = typeof window !== 'undefined'
+    && window.setImmediate;
+    var canPost = typeof window !== 'undefined'
+    && window.postMessage && window.addEventListener
+    ;
 
-/**
- * Exports parser
- *
- * @api public
- *
- */
-module.exports.parser = require('engine.io-parser');
-
-},{"./socket":32,"engine.io-parser":40}],32:[function(require,module,exports){
-(function (global){
-/**
- * Module dependencies.
- */
-
-var transports = require('./transports');
-var Emitter = require('component-emitter');
-var debug = require('debug')('engine.io-client:socket');
-var index = require('indexof');
-var parser = require('engine.io-parser');
-var parseuri = require('parseuri');
-var parsejson = require('parsejson');
-var parseqs = require('parseqs');
-
-/**
- * Module exports.
- */
-
-module.exports = Socket;
-
-/**
- * Noop function.
- *
- * @api private
- */
-
-function noop(){}
-
-/**
- * Socket constructor.
- *
- * @param {String|Object} uri or options
- * @param {Object} options
- * @api public
- */
-
-function Socket(uri, opts){
-  if (!(this instanceof Socket)) return new Socket(uri, opts);
-
-  opts = opts || {};
-
-  if (uri && 'object' == typeof uri) {
-    opts = uri;
-    uri = null;
-  }
-
-  if (uri) {
-    uri = parseuri(uri);
-    opts.hostname = uri.host;
-    opts.secure = uri.protocol == 'https' || uri.protocol == 'wss';
-    opts.port = uri.port;
-    if (uri.query) opts.query = uri.query;
-  } else if (opts.host) {
-    opts.hostname = parseuri(opts.host).host;
-  }
-
-  this.secure = null != opts.secure ? opts.secure :
-    (global.location && 'https:' == location.protocol);
-
-  if (opts.hostname && !opts.port) {
-    // if no port is specified manually, use the protocol default
-    opts.port = this.secure ? '443' : '80';
-  }
-
-  this.agent = opts.agent || false;
-  this.hostname = opts.hostname ||
-    (global.location ? location.hostname : 'localhost');
-  this.port = opts.port || (global.location && location.port ?
-       location.port :
-       (this.secure ? 443 : 80));
-  this.query = opts.query || {};
-  if ('string' == typeof this.query) this.query = parseqs.decode(this.query);
-  this.upgrade = false !== opts.upgrade;
-  this.path = (opts.path || '/engine.io').replace(/\/$/, '') + '/';
-  this.forceJSONP = !!opts.forceJSONP;
-  this.jsonp = false !== opts.jsonp;
-  this.forceBase64 = !!opts.forceBase64;
-  this.enablesXDR = !!opts.enablesXDR;
-  this.timestampParam = opts.timestampParam || 't';
-  this.timestampRequests = opts.timestampRequests;
-  this.transports = opts.transports || ['polling', 'websocket'];
-  this.readyState = '';
-  this.writeBuffer = [];
-  this.policyPort = opts.policyPort || 843;
-  this.rememberUpgrade = opts.rememberUpgrade || false;
-  this.binaryType = null;
-  this.onlyBinaryUpgrades = opts.onlyBinaryUpgrades;
-  this.perMessageDeflate = false !== opts.perMessageDeflate ? (opts.perMessageDeflate || {}) : false;
-
-  if (true === this.perMessageDeflate) this.perMessageDeflate = {};
-  if (this.perMessageDeflate && null == this.perMessageDeflate.threshold) {
-    this.perMessageDeflate.threshold = 1024;
-  }
-
-  // SSL options for Node.js client
-  this.pfx = opts.pfx || null;
-  this.key = opts.key || null;
-  this.passphrase = opts.passphrase || null;
-  this.cert = opts.cert || null;
-  this.ca = opts.ca || null;
-  this.ciphers = opts.ciphers || null;
-  this.rejectUnauthorized = opts.rejectUnauthorized === undefined ? true : opts.rejectUnauthorized;
-
-  // other options for Node.js client
-  var freeGlobal = typeof global == 'object' && global;
-  if (freeGlobal.global === freeGlobal) {
-    if (opts.extraHeaders && Object.keys(opts.extraHeaders).length > 0) {
-      this.extraHeaders = opts.extraHeaders;
-    }
-  }
-
-  this.open();
-}
-
-Socket.priorWebsocketSuccess = false;
-
-/**
- * Mix in `Emitter`.
- */
-
-Emitter(Socket.prototype);
-
-/**
- * Protocol version.
- *
- * @api public
- */
-
-Socket.protocol = parser.protocol; // this is an int
-
-/**
- * Expose deps for legacy compatibility
- * and standalone browser access.
- */
-
-Socket.Socket = Socket;
-Socket.Transport = require('./transport');
-Socket.transports = require('./transports');
-Socket.parser = require('engine.io-parser');
-
-/**
- * Creates transport of the given type.
- *
- * @param {String} transport name
- * @return {Transport}
- * @api private
- */
-
-Socket.prototype.createTransport = function (name) {
-  debug('creating transport "%s"', name);
-  var query = clone(this.query);
-
-  // append engine.io protocol identifier
-  query.EIO = parser.protocol;
-
-  // transport name
-  query.transport = name;
-
-  // session id if we already have one
-  if (this.id) query.sid = this.id;
-
-  var transport = new transports[name]({
-    agent: this.agent,
-    hostname: this.hostname,
-    port: this.port,
-    secure: this.secure,
-    path: this.path,
-    query: query,
-    forceJSONP: this.forceJSONP,
-    jsonp: this.jsonp,
-    forceBase64: this.forceBase64,
-    enablesXDR: this.enablesXDR,
-    timestampRequests: this.timestampRequests,
-    timestampParam: this.timestampParam,
-    policyPort: this.policyPort,
-    socket: this,
-    pfx: this.pfx,
-    key: this.key,
-    passphrase: this.passphrase,
-    cert: this.cert,
-    ca: this.ca,
-    ciphers: this.ciphers,
-    rejectUnauthorized: this.rejectUnauthorized,
-    perMessageDeflate: this.perMessageDeflate,
-    extraHeaders: this.extraHeaders
-  });
-
-  return transport;
-};
-
-function clone (obj) {
-  var o = {};
-  for (var i in obj) {
-    if (obj.hasOwnProperty(i)) {
-      o[i] = obj[i];
-    }
-  }
-  return o;
-}
-
-/**
- * Initializes transport to use and starts probe.
- *
- * @api private
- */
-Socket.prototype.open = function () {
-  var transport;
-  if (this.rememberUpgrade && Socket.priorWebsocketSuccess && this.transports.indexOf('websocket') != -1) {
-    transport = 'websocket';
-  } else if (0 === this.transports.length) {
-    // Emit error on next tick so it can be listened to
-    var self = this;
-    setTimeout(function() {
-      self.emit('error', 'No transports available');
-    }, 0);
-    return;
-  } else {
-    transport = this.transports[0];
-  }
-  this.readyState = 'opening';
-
-  // Retry with the next transport if the transport is disabled (jsonp: false)
-  try {
-    transport = this.createTransport(transport);
-  } catch (e) {
-    this.transports.shift();
-    this.open();
-    return;
-  }
-
-  transport.open();
-  this.setTransport(transport);
-};
-
-/**
- * Sets the current transport. Disables the existing one (if any).
- *
- * @api private
- */
-
-Socket.prototype.setTransport = function(transport){
-  debug('setting transport %s', transport.name);
-  var self = this;
-
-  if (this.transport) {
-    debug('clearing existing transport %s', this.transport.name);
-    this.transport.removeAllListeners();
-  }
-
-  // set up transport
-  this.transport = transport;
-
-  // set up transport listeners
-  transport
-  .on('drain', function(){
-    self.onDrain();
-  })
-  .on('packet', function(packet){
-    self.onPacket(packet);
-  })
-  .on('error', function(e){
-    self.onError(e);
-  })
-  .on('close', function(){
-    self.onClose('transport close');
-  });
-};
-
-/**
- * Probes a transport.
- *
- * @param {String} transport name
- * @api private
- */
-
-Socket.prototype.probe = function (name) {
-  debug('probing transport "%s"', name);
-  var transport = this.createTransport(name, { probe: 1 })
-    , failed = false
-    , self = this;
-
-  Socket.priorWebsocketSuccess = false;
-
-  function onTransportOpen(){
-    if (self.onlyBinaryUpgrades) {
-      var upgradeLosesBinary = !this.supportsBinary && self.transport.supportsBinary;
-      failed = failed || upgradeLosesBinary;
-    }
-    if (failed) return;
-
-    debug('probe transport "%s" opened', name);
-    transport.send([{ type: 'ping', data: 'probe' }]);
-    transport.once('packet', function (msg) {
-      if (failed) return;
-      if ('pong' == msg.type && 'probe' == msg.data) {
-        debug('probe transport "%s" pong', name);
-        self.upgrading = true;
-        self.emit('upgrading', transport);
-        if (!transport) return;
-        Socket.priorWebsocketSuccess = 'websocket' == transport.name;
-
-        debug('pausing current transport "%s"', self.transport.name);
-        self.transport.pause(function () {
-          if (failed) return;
-          if ('closed' == self.readyState) return;
-          debug('changing transport and sending upgrade packet');
-
-          cleanup();
-
-          self.setTransport(transport);
-          transport.send([{ type: 'upgrade' }]);
-          self.emit('upgrade', transport);
-          transport = null;
-          self.upgrading = false;
-          self.flush();
-        });
-      } else {
-        debug('probe transport "%s" failed', name);
-        var err = new Error('probe error');
-        err.transport = transport.name;
-        self.emit('upgradeError', err);
-      }
-    });
-  }
-
-  function freezeTransport() {
-    if (failed) return;
-
-    // Any callback called by transport should be ignored since now
-    failed = true;
-
-    cleanup();
-
-    transport.close();
-    transport = null;
-  }
-
-  //Handle any error that happens while probing
-  function onerror(err) {
-    var error = new Error('probe error: ' + err);
-    error.transport = transport.name;
-
-    freezeTransport();
-
-    debug('probe transport "%s" failed because of error: %s', name, err);
-
-    self.emit('upgradeError', error);
-  }
-
-  function onTransportClose(){
-    onerror("transport closed");
-  }
-
-  //When the socket is closed while we're probing
-  function onclose(){
-    onerror("socket closed");
-  }
-
-  //When the socket is upgraded while we're probing
-  function onupgrade(to){
-    if (transport && to.name != transport.name) {
-      debug('"%s" works - aborting "%s"', to.name, transport.name);
-      freezeTransport();
-    }
-  }
-
-  //Remove all listeners on the transport and on self
-  function cleanup(){
-    transport.removeListener('open', onTransportOpen);
-    transport.removeListener('error', onerror);
-    transport.removeListener('close', onTransportClose);
-    self.removeListener('close', onclose);
-    self.removeListener('upgrading', onupgrade);
-  }
-
-  transport.once('open', onTransportOpen);
-  transport.once('error', onerror);
-  transport.once('close', onTransportClose);
-
-  this.once('close', onclose);
-  this.once('upgrading', onupgrade);
-
-  transport.open();
-
-};
-
-/**
- * Called when connection is deemed open.
- *
- * @api public
- */
-
-Socket.prototype.onOpen = function () {
-  debug('socket open');
-  this.readyState = 'open';
-  Socket.priorWebsocketSuccess = 'websocket' == this.transport.name;
-  this.emit('open');
-  this.flush();
-
-  // we check for `readyState` in case an `open`
-  // listener already closed the socket
-  if ('open' == this.readyState && this.upgrade && this.transport.pause) {
-    debug('starting upgrade probes');
-    for (var i = 0, l = this.upgrades.length; i < l; i++) {
-      this.probe(this.upgrades[i]);
-    }
-  }
-};
-
-/**
- * Handles a packet.
- *
- * @api private
- */
-
-Socket.prototype.onPacket = function (packet) {
-  if ('opening' == this.readyState || 'open' == this.readyState) {
-    debug('socket receive: type "%s", data "%s"', packet.type, packet.data);
-
-    this.emit('packet', packet);
-
-    // Socket is live - any packet counts
-    this.emit('heartbeat');
-
-    switch (packet.type) {
-      case 'open':
-        this.onHandshake(parsejson(packet.data));
-        break;
-
-      case 'pong':
-        this.setPing();
-        this.emit('pong');
-        break;
-
-      case 'error':
-        var err = new Error('server error');
-        err.code = packet.data;
-        this.onError(err);
-        break;
-
-      case 'message':
-        this.emit('data', packet.data);
-        this.emit('message', packet.data);
-        break;
-    }
-  } else {
-    debug('packet received with socket readyState "%s"', this.readyState);
-  }
-};
-
-/**
- * Called upon handshake completion.
- *
- * @param {Object} handshake obj
- * @api private
- */
-
-Socket.prototype.onHandshake = function (data) {
-  this.emit('handshake', data);
-  this.id = data.sid;
-  this.transport.query.sid = data.sid;
-  this.upgrades = this.filterUpgrades(data.upgrades);
-  this.pingInterval = data.pingInterval;
-  this.pingTimeout = data.pingTimeout;
-  this.onOpen();
-  // In case open handler closes socket
-  if  ('closed' == this.readyState) return;
-  this.setPing();
-
-  // Prolong liveness of socket on heartbeat
-  this.removeListener('heartbeat', this.onHeartbeat);
-  this.on('heartbeat', this.onHeartbeat);
-};
-
-/**
- * Resets ping timeout.
- *
- * @api private
- */
-
-Socket.prototype.onHeartbeat = function (timeout) {
-  clearTimeout(this.pingTimeoutTimer);
-  var self = this;
-  self.pingTimeoutTimer = setTimeout(function () {
-    if ('closed' == self.readyState) return;
-    self.onClose('ping timeout');
-  }, timeout || (self.pingInterval + self.pingTimeout));
-};
-
-/**
- * Pings server every `this.pingInterval` and expects response
- * within `this.pingTimeout` or closes connection.
- *
- * @api private
- */
-
-Socket.prototype.setPing = function () {
-  var self = this;
-  clearTimeout(self.pingIntervalTimer);
-  self.pingIntervalTimer = setTimeout(function () {
-    debug('writing ping packet - expecting pong within %sms', self.pingTimeout);
-    self.ping();
-    self.onHeartbeat(self.pingTimeout);
-  }, self.pingInterval);
-};
-
-/**
-* Sends a ping packet.
-*
-* @api private
-*/
-
-Socket.prototype.ping = function () {
-  var self = this;
-  this.sendPacket('ping', function(){
-    self.emit('ping');
-  });
-};
-
-/**
- * Called on `drain` event
- *
- * @api private
- */
-
-Socket.prototype.onDrain = function() {
-  this.writeBuffer.splice(0, this.prevBufferLen);
-
-  // setting prevBufferLen = 0 is very important
-  // for example, when upgrading, upgrade packet is sent over,
-  // and a nonzero prevBufferLen could cause problems on `drain`
-  this.prevBufferLen = 0;
-
-  if (0 === this.writeBuffer.length) {
-    this.emit('drain');
-  } else {
-    this.flush();
-  }
-};
-
-/**
- * Flush write buffers.
- *
- * @api private
- */
-
-Socket.prototype.flush = function () {
-  if ('closed' != this.readyState && this.transport.writable &&
-    !this.upgrading && this.writeBuffer.length) {
-    debug('flushing %d packets in socket', this.writeBuffer.length);
-    this.transport.send(this.writeBuffer);
-    // keep track of current length of writeBuffer
-    // splice writeBuffer and callbackBuffer on `drain`
-    this.prevBufferLen = this.writeBuffer.length;
-    this.emit('flush');
-  }
-};
-
-/**
- * Sends a message.
- *
- * @param {String} message.
- * @param {Function} callback function.
- * @param {Object} options.
- * @return {Socket} for chaining.
- * @api public
- */
-
-Socket.prototype.write =
-Socket.prototype.send = function (msg, options, fn) {
-  this.sendPacket('message', msg, options, fn);
-  return this;
-};
-
-/**
- * Sends a packet.
- *
- * @param {String} packet type.
- * @param {String} data.
- * @param {Object} options.
- * @param {Function} callback function.
- * @api private
- */
-
-Socket.prototype.sendPacket = function (type, data, options, fn) {
-  if('function' == typeof data) {
-    fn = data;
-    data = undefined;
-  }
-
-  if ('function' == typeof options) {
-    fn = options;
-    options = null;
-  }
-
-  if ('closing' == this.readyState || 'closed' == this.readyState) {
-    return;
-  }
-
-  options = options || {};
-  options.compress = false !== options.compress;
-
-  var packet = {
-    type: type,
-    data: data,
-    options: options
-  };
-  this.emit('packetCreate', packet);
-  this.writeBuffer.push(packet);
-  if (fn) this.once('flush', fn);
-  this.flush();
-};
-
-/**
- * Closes the connection.
- *
- * @api private
- */
-
-Socket.prototype.close = function () {
-  if ('opening' == this.readyState || 'open' == this.readyState) {
-    this.readyState = 'closing';
-
-    var self = this;
-
-    if (this.writeBuffer.length) {
-      this.once('drain', function() {
-        if (this.upgrading) {
-          waitForUpgrade();
-        } else {
-          close();
-        }
-      });
-    } else if (this.upgrading) {
-      waitForUpgrade();
-    } else {
-      close();
-    }
-  }
-
-  function close() {
-    self.onClose('forced close');
-    debug('socket closing - telling transport to close');
-    self.transport.close();
-  }
-
-  function cleanupAndClose() {
-    self.removeListener('upgrade', cleanupAndClose);
-    self.removeListener('upgradeError', cleanupAndClose);
-    close();
-  }
-
-  function waitForUpgrade() {
-    // wait for upgrade to finish since we can't send packets while pausing a transport
-    self.once('upgrade', cleanupAndClose);
-    self.once('upgradeError', cleanupAndClose);
-  }
-
-  return this;
-};
-
-/**
- * Called upon transport error
- *
- * @api private
- */
-
-Socket.prototype.onError = function (err) {
-  debug('socket error %j', err);
-  Socket.priorWebsocketSuccess = false;
-  this.emit('error', err);
-  this.onClose('transport error', err);
-};
-
-/**
- * Called upon transport close.
- *
- * @api private
- */
-
-Socket.prototype.onClose = function (reason, desc) {
-  if ('opening' == this.readyState || 'open' == this.readyState || 'closing' == this.readyState) {
-    debug('socket close with reason: "%s"', reason);
-    var self = this;
-
-    // clear timers
-    clearTimeout(this.pingIntervalTimer);
-    clearTimeout(this.pingTimeoutTimer);
-
-    // stop event from firing again for transport
-    this.transport.removeAllListeners('close');
-
-    // ensure transport won't stay open
-    this.transport.close();
-
-    // ignore further transport communication
-    this.transport.removeAllListeners();
-
-    // set ready state
-    this.readyState = 'closed';
-
-    // clear session id
-    this.id = null;
-
-    // emit close event
-    this.emit('close', reason, desc);
-
-    // clean buffers after, so users can still
-    // grab the buffers on `close` event
-    self.writeBuffer = [];
-    self.prevBufferLen = 0;
-  }
-};
-
-/**
- * Filters upgrades, returning only those matching client transports.
- *
- * @param {Array} server upgrades
- * @api private
- *
- */
-
-Socket.prototype.filterUpgrades = function (upgrades) {
-  var filteredUpgrades = [];
-  for (var i = 0, j = upgrades.length; i<j; i++) {
-    if (~index(this.transports, upgrades[i])) filteredUpgrades.push(upgrades[i]);
-  }
-  return filteredUpgrades;
-};
-
-}).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./transport":33,"./transports":34,"component-emitter":25,"debug":27,"engine.io-parser":40,"indexof":47,"parsejson":51,"parseqs":52,"parseuri":53}],33:[function(require,module,exports){
-/**
- * Module dependencies.
- */
-
-var parser = require('engine.io-parser');
-var Emitter = require('component-emitter');
-
-/**
- * Module exports.
- */
-
-module.exports = Transport;
-
-/**
- * Transport abstract constructor.
- *
- * @param {Object} options.
- * @api private
- */
-
-function Transport (opts) {
-  this.path = opts.path;
-  this.hostname = opts.hostname;
-  this.port = opts.port;
-  this.secure = opts.secure;
-  this.query = opts.query;
-  this.timestampParam = opts.timestampParam;
-  this.timestampRequests = opts.timestampRequests;
-  this.readyState = '';
-  this.agent = opts.agent || false;
-  this.socket = opts.socket;
-  this.enablesXDR = opts.enablesXDR;
-
-  // SSL options for Node.js client
-  this.pfx = opts.pfx;
-  this.key = opts.key;
-  this.passphrase = opts.passphrase;
-  this.cert = opts.cert;
-  this.ca = opts.ca;
-  this.ciphers = opts.ciphers;
-  this.rejectUnauthorized = opts.rejectUnauthorized;
-
-  // other options for Node.js client
-  this.extraHeaders = opts.extraHeaders;
-}
-
-/**
- * Mix in `Emitter`.
- */
-
-Emitter(Transport.prototype);
-
-/**
- * Emits an error.
- *
- * @param {String} str
- * @return {Transport} for chaining
- * @api public
- */
-
-Transport.prototype.onError = function (msg, desc) {
-  var err = new Error(msg);
-  err.type = 'TransportError';
-  err.description = desc;
-  this.emit('error', err);
-  return this;
-};
-
-/**
- * Opens the transport.
- *
- * @api public
- */
-
-Transport.prototype.open = function () {
-  if ('closed' == this.readyState || '' == this.readyState) {
-    this.readyState = 'opening';
-    this.doOpen();
-  }
-
-  return this;
-};
-
-/**
- * Closes the transport.
- *
- * @api private
- */
-
-Transport.prototype.close = function () {
-  if ('opening' == this.readyState || 'open' == this.readyState) {
-    this.doClose();
-    this.onClose();
-  }
-
-  return this;
-};
-
-/**
- * Sends multiple packets.
- *
- * @param {Array} packets
- * @api private
- */
-
-Transport.prototype.send = function(packets){
-  if ('open' == this.readyState) {
-    this.write(packets);
-  } else {
-    throw new Error('Transport not open');
-  }
-};
-
-/**
- * Called upon open
- *
- * @api private
- */
-
-Transport.prototype.onOpen = function () {
-  this.readyState = 'open';
-  this.writable = true;
-  this.emit('open');
-};
-
-/**
- * Called with data.
- *
- * @param {String} data
- * @api private
- */
-
-Transport.prototype.onData = function(data){
-  var packet = parser.decodePacket(data, this.socket.binaryType);
-  this.onPacket(packet);
-};
-
-/**
- * Called with a decoded packet.
- */
-
-Transport.prototype.onPacket = function (packet) {
-  this.emit('packet', packet);
-};
-
-/**
- * Called upon close.
- *
- * @api private
- */
-
-Transport.prototype.onClose = function () {
-  this.readyState = 'closed';
-  this.emit('close');
-};
-
-},{"component-emitter":25,"engine.io-parser":40}],34:[function(require,module,exports){
-(function (global){
-/**
- * Module dependencies
- */
-
-var XMLHttpRequest = require('xmlhttprequest-ssl');
-var XHR = require('./polling-xhr');
-var JSONP = require('./polling-jsonp');
-var websocket = require('./websocket');
-
-/**
- * Export transports.
- */
-
-exports.polling = polling;
-exports.websocket = websocket;
-
-/**
- * Polling transport polymorphic constructor.
- * Decides on xhr vs jsonp based on feature detection.
- *
- * @api private
- */
-
-function polling(opts){
-  var xhr;
-  var xd = false;
-  var xs = false;
-  var jsonp = false !== opts.jsonp;
-
-  if (global.location) {
-    var isSSL = 'https:' == location.protocol;
-    var port = location.port;
-
-    // some user agents have empty `location.port`
-    if (!port) {
-      port = isSSL ? 443 : 80;
+    if (canSetImmediate) {
+        return function (f) { return window.setImmediate(f) };
     }
 
-    xd = opts.hostname != location.hostname || port != opts.port;
-    xs = opts.secure != isSSL;
-  }
+    if (canPost) {
+        var queue = [];
+        window.addEventListener('message', function (ev) {
+            var source = ev.source;
+            if ((source === window || source === null) && ev.data === 'process-tick') {
+                ev.stopPropagation();
+                if (queue.length > 0) {
+                    var fn = queue.shift();
+                    fn();
+                }
+            }
+        }, true);
 
-  opts.xdomain = xd;
-  opts.xscheme = xs;
-  xhr = new XMLHttpRequest(opts);
-
-  if ('open' in xhr && !opts.forceJSONP) {
-    return new XHR(opts);
-  } else {
-    if (!jsonp) throw new Error('JSONP disabled');
-    return new JSONP(opts);
-  }
-}
-
-}).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./polling-jsonp":35,"./polling-xhr":36,"./websocket":38,"xmlhttprequest-ssl":39}],35:[function(require,module,exports){
-(function (global){
-
-/**
- * Module requirements.
- */
-
-var Polling = require('./polling');
-var inherit = require('component-inherit');
-
-/**
- * Module exports.
- */
-
-module.exports = JSONPPolling;
-
-/**
- * Cached regular expressions.
- */
-
-var rNewline = /\n/g;
-var rEscapedNewline = /\\n/g;
-
-/**
- * Global JSONP callbacks.
- */
-
-var callbacks;
-
-/**
- * Callbacks count.
- */
-
-var index = 0;
-
-/**
- * Noop.
- */
-
-function empty () { }
-
-/**
- * JSONP Polling constructor.
- *
- * @param {Object} opts.
- * @api public
- */
-
-function JSONPPolling (opts) {
-  Polling.call(this, opts);
-
-  this.query = this.query || {};
-
-  // define global callbacks array if not present
-  // we do this here (lazily) to avoid unneeded global pollution
-  if (!callbacks) {
-    // we need to consider multiple engines in the same page
-    if (!global.___eio) global.___eio = [];
-    callbacks = global.___eio;
-  }
-
-  // callback identifier
-  this.index = callbacks.length;
-
-  // add callback to jsonp global
-  var self = this;
-  callbacks.push(function (msg) {
-    self.onData(msg);
-  });
-
-  // append to query string
-  this.query.j = this.index;
-
-  // prevent spurious errors from being emitted when the window is unloaded
-  if (global.document && global.addEventListener) {
-    global.addEventListener('beforeunload', function () {
-      if (self.script) self.script.onerror = empty;
-    }, false);
-  }
-}
-
-/**
- * Inherits from Polling.
- */
-
-inherit(JSONPPolling, Polling);
-
-/*
- * JSONP only supports binary as base64 encoded strings
- */
-
-JSONPPolling.prototype.supportsBinary = false;
-
-/**
- * Closes the socket.
- *
- * @api private
- */
-
-JSONPPolling.prototype.doClose = function () {
-  if (this.script) {
-    this.script.parentNode.removeChild(this.script);
-    this.script = null;
-  }
-
-  if (this.form) {
-    this.form.parentNode.removeChild(this.form);
-    this.form = null;
-    this.iframe = null;
-  }
-
-  Polling.prototype.doClose.call(this);
-};
-
-/**
- * Starts a poll cycle.
- *
- * @api private
- */
-
-JSONPPolling.prototype.doPoll = function () {
-  var self = this;
-  var script = document.createElement('script');
-
-  if (this.script) {
-    this.script.parentNode.removeChild(this.script);
-    this.script = null;
-  }
-
-  script.async = true;
-  script.src = this.uri();
-  script.onerror = function(e){
-    self.onError('jsonp poll error',e);
-  };
-
-  var insertAt = document.getElementsByTagName('script')[0];
-  if (insertAt) {
-    insertAt.parentNode.insertBefore(script, insertAt);
-  }
-  else {
-    (document.head || document.body).appendChild(script);
-  }
-  this.script = script;
-
-  var isUAgecko = 'undefined' != typeof navigator && /gecko/i.test(navigator.userAgent);
-  
-  if (isUAgecko) {
-    setTimeout(function () {
-      var iframe = document.createElement('iframe');
-      document.body.appendChild(iframe);
-      document.body.removeChild(iframe);
-    }, 100);
-  }
-};
-
-/**
- * Writes with a hidden iframe.
- *
- * @param {String} data to send
- * @param {Function} called upon flush.
- * @api private
- */
-
-JSONPPolling.prototype.doWrite = function (data, fn) {
-  var self = this;
-
-  if (!this.form) {
-    var form = document.createElement('form');
-    var area = document.createElement('textarea');
-    var id = this.iframeId = 'eio_iframe_' + this.index;
-    var iframe;
-
-    form.className = 'socketio';
-    form.style.position = 'absolute';
-    form.style.top = '-1000px';
-    form.style.left = '-1000px';
-    form.target = id;
-    form.method = 'POST';
-    form.setAttribute('accept-charset', 'utf-8');
-    area.name = 'd';
-    form.appendChild(area);
-    document.body.appendChild(form);
-
-    this.form = form;
-    this.area = area;
-  }
-
-  this.form.action = this.uri();
-
-  function complete () {
-    initIframe();
-    fn();
-  }
-
-  function initIframe () {
-    if (self.iframe) {
-      try {
-        self.form.removeChild(self.iframe);
-      } catch (e) {
-        self.onError('jsonp polling iframe removal error', e);
-      }
+        return function nextTick(fn) {
+            queue.push(fn);
+            window.postMessage('process-tick', '*');
+        };
     }
 
-    try {
-      // ie6 dynamic iframes with target="" support (thanks Chris Lambacher)
-      var html = '<iframe src="javascript:0" name="'+ self.iframeId +'">';
-      iframe = document.createElement(html);
-    } catch (e) {
-      iframe = document.createElement('iframe');
-      iframe.name = self.iframeId;
-      iframe.src = 'javascript:0';
-    }
-
-    iframe.id = self.iframeId;
-
-    self.form.appendChild(iframe);
-    self.iframe = iframe;
-  }
-
-  initIframe();
-
-  // escape \n to prevent it from being converted into \r\n by some UAs
-  // double escaping is required for escaped new lines because unescaping of new lines can be done safely on server-side
-  data = data.replace(rEscapedNewline, '\\\n');
-  this.area.value = data.replace(rNewline, '\\n');
-
-  try {
-    this.form.submit();
-  } catch(e) {}
-
-  if (this.iframe.attachEvent) {
-    this.iframe.onreadystatechange = function(){
-      if (self.iframe.readyState == 'complete') {
-        complete();
-      }
+    return function nextTick(fn) {
+        setTimeout(fn, 0);
     };
-  } else {
-    this.iframe.onload = complete;
-  }
-};
-
-}).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./polling":37,"component-inherit":26}],36:[function(require,module,exports){
-(function (global){
-/**
- * Module requirements.
- */
-
-var XMLHttpRequest = require('xmlhttprequest-ssl');
-var Polling = require('./polling');
-var Emitter = require('component-emitter');
-var inherit = require('component-inherit');
-var debug = require('debug')('engine.io-client:polling-xhr');
-
-/**
- * Module exports.
- */
-
-module.exports = XHR;
-module.exports.Request = Request;
-
-/**
- * Empty function
- */
-
-function empty(){}
-
-/**
- * XHR Polling constructor.
- *
- * @param {Object} opts
- * @api public
- */
-
-function XHR(opts){
-  Polling.call(this, opts);
-
-  if (global.location) {
-    var isSSL = 'https:' == location.protocol;
-    var port = location.port;
-
-    // some user agents have empty `location.port`
-    if (!port) {
-      port = isSSL ? 443 : 80;
-    }
-
-    this.xd = opts.hostname != global.location.hostname ||
-      port != opts.port;
-    this.xs = opts.secure != isSSL;
-  } else {
-    this.extraHeaders = opts.extraHeaders;
-  }
-}
-
-/**
- * Inherits from Polling.
- */
-
-inherit(XHR, Polling);
-
-/**
- * XHR supports binary
- */
-
-XHR.prototype.supportsBinary = true;
-
-/**
- * Creates a request.
- *
- * @param {String} method
- * @api private
- */
-
-XHR.prototype.request = function(opts){
-  opts = opts || {};
-  opts.uri = this.uri();
-  opts.xd = this.xd;
-  opts.xs = this.xs;
-  opts.agent = this.agent || false;
-  opts.supportsBinary = this.supportsBinary;
-  opts.enablesXDR = this.enablesXDR;
-
-  // SSL options for Node.js client
-  opts.pfx = this.pfx;
-  opts.key = this.key;
-  opts.passphrase = this.passphrase;
-  opts.cert = this.cert;
-  opts.ca = this.ca;
-  opts.ciphers = this.ciphers;
-  opts.rejectUnauthorized = this.rejectUnauthorized;
-
-  // other options for Node.js client
-  opts.extraHeaders = this.extraHeaders;
-
-  return new Request(opts);
-};
-
-/**
- * Sends data.
- *
- * @param {String} data to send.
- * @param {Function} called upon flush.
- * @api private
- */
-
-XHR.prototype.doWrite = function(data, fn){
-  var isBinary = typeof data !== 'string' && data !== undefined;
-  var req = this.request({ method: 'POST', data: data, isBinary: isBinary });
-  var self = this;
-  req.on('success', fn);
-  req.on('error', function(err){
-    self.onError('xhr post error', err);
-  });
-  this.sendXhr = req;
-};
-
-/**
- * Starts a poll cycle.
- *
- * @api private
- */
-
-XHR.prototype.doPoll = function(){
-  debug('xhr poll');
-  var req = this.request();
-  var self = this;
-  req.on('data', function(data){
-    self.onData(data);
-  });
-  req.on('error', function(err){
-    self.onError('xhr poll error', err);
-  });
-  this.pollXhr = req;
-};
-
-/**
- * Request constructor
- *
- * @param {Object} options
- * @api public
- */
-
-function Request(opts){
-  this.method = opts.method || 'GET';
-  this.uri = opts.uri;
-  this.xd = !!opts.xd;
-  this.xs = !!opts.xs;
-  this.async = false !== opts.async;
-  this.data = undefined != opts.data ? opts.data : null;
-  this.agent = opts.agent;
-  this.isBinary = opts.isBinary;
-  this.supportsBinary = opts.supportsBinary;
-  this.enablesXDR = opts.enablesXDR;
-
-  // SSL options for Node.js client
-  this.pfx = opts.pfx;
-  this.key = opts.key;
-  this.passphrase = opts.passphrase;
-  this.cert = opts.cert;
-  this.ca = opts.ca;
-  this.ciphers = opts.ciphers;
-  this.rejectUnauthorized = opts.rejectUnauthorized;
-
-  // other options for Node.js client
-  this.extraHeaders = opts.extraHeaders;
-
-  this.create();
-}
-
-/**
- * Mix in `Emitter`.
- */
-
-Emitter(Request.prototype);
-
-/**
- * Creates the XHR object and sends the request.
- *
- * @api private
- */
-
-Request.prototype.create = function(){
-  var opts = { agent: this.agent, xdomain: this.xd, xscheme: this.xs, enablesXDR: this.enablesXDR };
-
-  // SSL options for Node.js client
-  opts.pfx = this.pfx;
-  opts.key = this.key;
-  opts.passphrase = this.passphrase;
-  opts.cert = this.cert;
-  opts.ca = this.ca;
-  opts.ciphers = this.ciphers;
-  opts.rejectUnauthorized = this.rejectUnauthorized;
-
-  var xhr = this.xhr = new XMLHttpRequest(opts);
-  var self = this;
-
-  try {
-    debug('xhr open %s: %s', this.method, this.uri);
-    xhr.open(this.method, this.uri, this.async);
-    try {
-      if (this.extraHeaders) {
-        xhr.setDisableHeaderCheck(true);
-        for (var i in this.extraHeaders) {
-          if (this.extraHeaders.hasOwnProperty(i)) {
-            xhr.setRequestHeader(i, this.extraHeaders[i]);
-          }
-        }
-      }
-    } catch (e) {}
-    if (this.supportsBinary) {
-      // This has to be done after open because Firefox is stupid
-      // http://stackoverflow.com/questions/13216903/get-binary-data-with-xmlhttprequest-in-a-firefox-extension
-      xhr.responseType = 'arraybuffer';
-    }
-
-    if ('POST' == this.method) {
-      try {
-        if (this.isBinary) {
-          xhr.setRequestHeader('Content-type', 'application/octet-stream');
-        } else {
-          xhr.setRequestHeader('Content-type', 'text/plain;charset=UTF-8');
-        }
-      } catch (e) {}
-    }
-
-    // ie6 check
-    if ('withCredentials' in xhr) {
-      xhr.withCredentials = true;
-    }
-
-    if (this.hasXDR()) {
-      xhr.onload = function(){
-        self.onLoad();
-      };
-      xhr.onerror = function(){
-        self.onError(xhr.responseText);
-      };
-    } else {
-      xhr.onreadystatechange = function(){
-        if (4 != xhr.readyState) return;
-        if (200 == xhr.status || 1223 == xhr.status) {
-          self.onLoad();
-        } else {
-          // make sure the `error` event handler that's user-set
-          // does not throw in the same tick and gets caught here
-          setTimeout(function(){
-            self.onError(xhr.status);
-          }, 0);
-        }
-      };
-    }
-
-    debug('xhr data %s', this.data);
-    xhr.send(this.data);
-  } catch (e) {
-    // Need to defer since .create() is called directly fhrom the constructor
-    // and thus the 'error' event can only be only bound *after* this exception
-    // occurs.  Therefore, also, we cannot throw here at all.
-    setTimeout(function() {
-      self.onError(e);
-    }, 0);
-    return;
-  }
-
-  if (global.document) {
-    this.index = Request.requestsCount++;
-    Request.requests[this.index] = this;
-  }
-};
-
-/**
- * Called upon successful response.
- *
- * @api private
- */
-
-Request.prototype.onSuccess = function(){
-  this.emit('success');
-  this.cleanup();
-};
-
-/**
- * Called if we have data.
- *
- * @api private
- */
-
-Request.prototype.onData = function(data){
-  this.emit('data', data);
-  this.onSuccess();
-};
-
-/**
- * Called upon error.
- *
- * @api private
- */
-
-Request.prototype.onError = function(err){
-  this.emit('error', err);
-  this.cleanup(true);
-};
-
-/**
- * Cleans up house.
- *
- * @api private
- */
-
-Request.prototype.cleanup = function(fromError){
-  if ('undefined' == typeof this.xhr || null === this.xhr) {
-    return;
-  }
-  // xmlhttprequest
-  if (this.hasXDR()) {
-    this.xhr.onload = this.xhr.onerror = empty;
-  } else {
-    this.xhr.onreadystatechange = empty;
-  }
-
-  if (fromError) {
-    try {
-      this.xhr.abort();
-    } catch(e) {}
-  }
-
-  if (global.document) {
-    delete Request.requests[this.index];
-  }
-
-  this.xhr = null;
-};
-
-/**
- * Called upon load.
- *
- * @api private
- */
-
-Request.prototype.onLoad = function(){
-  var data;
-  try {
-    var contentType;
-    try {
-      contentType = this.xhr.getResponseHeader('Content-Type').split(';')[0];
-    } catch (e) {}
-    if (contentType === 'application/octet-stream') {
-      data = this.xhr.response;
-    } else {
-      if (!this.supportsBinary) {
-        data = this.xhr.responseText;
-      } else {
-        try {
-          data = String.fromCharCode.apply(null, new Uint8Array(this.xhr.response));
-        } catch (e) {
-          var ui8Arr = new Uint8Array(this.xhr.response);
-          var dataArray = [];
-          for (var idx = 0, length = ui8Arr.length; idx < length; idx++) {
-            dataArray.push(ui8Arr[idx]);
-          }
-
-          data = String.fromCharCode.apply(null, dataArray);
-        }
-      }
-    }
-  } catch (e) {
-    this.onError(e);
-  }
-  if (null != data) {
-    this.onData(data);
-  }
-};
-
-/**
- * Check if it has XDomainRequest.
- *
- * @api private
- */
-
-Request.prototype.hasXDR = function(){
-  return 'undefined' !== typeof global.XDomainRequest && !this.xs && this.enablesXDR;
-};
-
-/**
- * Aborts the request.
- *
- * @api public
- */
-
-Request.prototype.abort = function(){
-  this.cleanup();
-};
-
-/**
- * Aborts pending requests when unloading the window. This is needed to prevent
- * memory leaks (e.g. when using IE) and to ensure that no spurious error is
- * emitted.
- */
-
-if (global.document) {
-  Request.requestsCount = 0;
-  Request.requests = {};
-  if (global.attachEvent) {
-    global.attachEvent('onunload', unloadHandler);
-  } else if (global.addEventListener) {
-    global.addEventListener('beforeunload', unloadHandler, false);
-  }
-}
-
-function unloadHandler() {
-  for (var i in Request.requests) {
-    if (Request.requests.hasOwnProperty(i)) {
-      Request.requests[i].abort();
-    }
-  }
-}
-
-}).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./polling":37,"component-emitter":25,"component-inherit":26,"debug":27,"xmlhttprequest-ssl":39}],37:[function(require,module,exports){
-/**
- * Module dependencies.
- */
-
-var Transport = require('../transport');
-var parseqs = require('parseqs');
-var parser = require('engine.io-parser');
-var inherit = require('component-inherit');
-var yeast = require('yeast');
-var debug = require('debug')('engine.io-client:polling');
-
-/**
- * Module exports.
- */
-
-module.exports = Polling;
-
-/**
- * Is XHR2 supported?
- */
-
-var hasXHR2 = (function() {
-  var XMLHttpRequest = require('xmlhttprequest-ssl');
-  var xhr = new XMLHttpRequest({ xdomain: false });
-  return null != xhr.responseType;
 })();
 
-/**
- * Polling interface.
- *
- * @param {Object} opts
- * @api private
- */
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
 
-function Polling(opts){
-  var forceBase64 = (opts && opts.forceBase64);
-  if (!hasXHR2 || forceBase64) {
-    this.supportsBinary = false;
-  }
-  Transport.call(this, opts);
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
 }
 
-/**
- * Inherits from Transport.
- */
-
-inherit(Polling, Transport);
-
-/**
- * Transport name.
- */
-
-Polling.prototype.name = 'polling';
-
-/**
- * Opens the socket (triggers polling). We write a PING message to determine
- * when the transport is open.
- *
- * @api private
- */
-
-Polling.prototype.doOpen = function(){
-  this.poll();
+// TODO(shtylman)
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
 };
 
-/**
- * Pauses polling.
- *
- * @param {Function} callback upon buffers are flushed and transport is paused
- * @api private
- */
-
-Polling.prototype.pause = function(onPause){
-  var pending = 0;
-  var self = this;
-
-  this.readyState = 'pausing';
-
-  function pause(){
-    debug('paused');
-    self.readyState = 'paused';
-    onPause();
-  }
-
-  if (this.polling || !this.writable) {
-    var total = 0;
-
-    if (this.polling) {
-      debug('we are currently polling - waiting to pause');
-      total++;
-      this.once('pollComplete', function(){
-        debug('pre-pause polling complete');
-        --total || pause();
-      });
-    }
-
-    if (!this.writable) {
-      debug('we are currently writing - waiting to pause');
-      total++;
-      this.once('drain', function(){
-        debug('pre-pause writing complete');
-        --total || pause();
-      });
-    }
-  } else {
-    pause();
-  }
-};
-
-/**
- * Starts polling cycle.
- *
- * @api public
- */
-
-Polling.prototype.poll = function(){
-  debug('polling');
-  this.polling = true;
-  this.doPoll();
-  this.emit('poll');
-};
-
-/**
- * Overloads onData to detect payloads.
- *
- * @api private
- */
-
-Polling.prototype.onData = function(data){
-  var self = this;
-  debug('polling got data %s', data);
-  var callback = function(packet, index, total) {
-    // if its the first message we consider the transport open
-    if ('opening' == self.readyState) {
-      self.onOpen();
-    }
-
-    // if its a close packet, we close the ongoing requests
-    if ('close' == packet.type) {
-      self.onClose();
-      return false;
-    }
-
-    // otherwise bypass onData and handle the message
-    self.onPacket(packet);
-  };
-
-  // decode payload
-  parser.decodePayload(data, this.socket.binaryType, callback);
-
-  // if an event did not trigger closing
-  if ('closed' != this.readyState) {
-    // if we got data we're not polling
-    this.polling = false;
-    this.emit('pollComplete');
-
-    if ('open' == this.readyState) {
-      this.poll();
-    } else {
-      debug('ignoring poll - transport state "%s"', this.readyState);
-    }
-  }
-};
-
-/**
- * For polling, send a close packet.
- *
- * @api private
- */
-
-Polling.prototype.doClose = function(){
-  var self = this;
-
-  function close(){
-    debug('writing close packet');
-    self.write([{ type: 'close' }]);
-  }
-
-  if ('open' == this.readyState) {
-    debug('transport open - closing');
-    close();
-  } else {
-    // in case we're trying to close while
-    // handshaking is in progress (GH-164)
-    debug('transport not open - deferring close');
-    this.once('open', close);
-  }
-};
-
-/**
- * Writes a packets payload.
- *
- * @param {Array} data packets
- * @param {Function} drain callback
- * @api private
- */
-
-Polling.prototype.write = function(packets){
-  var self = this;
-  this.writable = false;
-  var callbackfn = function() {
-    self.writable = true;
-    self.emit('drain');
-  };
-
-  var self = this;
-  parser.encodePayload(packets, this.supportsBinary, function(data) {
-    self.doWrite(data, callbackfn);
-  });
-};
-
-/**
- * Generates uri for connection.
- *
- * @api private
- */
-
-Polling.prototype.uri = function(){
-  var query = this.query || {};
-  var schema = this.secure ? 'https' : 'http';
-  var port = '';
-
-  // cache busting is forced
-  if (false !== this.timestampRequests) {
-    query[this.timestampParam] = yeast();
-  }
-
-  if (!this.supportsBinary && !query.sid) {
-    query.b64 = 1;
-  }
-
-  query = parseqs.encode(query);
-
-  // avoid port if default for schema
-  if (this.port && (('https' == schema && this.port != 443) ||
-     ('http' == schema && this.port != 80))) {
-    port = ':' + this.port;
-  }
-
-  // prepend ? to query
-  if (query.length) {
-    query = '?' + query;
-  }
-
-  var ipv6 = this.hostname.indexOf(':') !== -1;
-  return schema + '://' + (ipv6 ? '[' + this.hostname + ']' : this.hostname) + port + this.path + query;
-};
-
-},{"../transport":33,"component-inherit":26,"debug":27,"engine.io-parser":40,"parseqs":52,"xmlhttprequest-ssl":39,"yeast":93}],38:[function(require,module,exports){
-(function (global){
-/**
- * Module dependencies.
- */
-
-var Transport = require('../transport');
-var parser = require('engine.io-parser');
-var parseqs = require('parseqs');
-var inherit = require('component-inherit');
-var yeast = require('yeast');
-var debug = require('debug')('engine.io-client:websocket');
-var BrowserWebSocket = global.WebSocket || global.MozWebSocket;
-
-/**
- * Get either the `WebSocket` or `MozWebSocket` globals
- * in the browser or try to resolve WebSocket-compatible
- * interface exposed by `ws` for Node-like environment.
- */
-
-var WebSocket = BrowserWebSocket;
-if (!WebSocket && typeof window === 'undefined') {
-  try {
-    WebSocket = require('ws');
-  } catch (e) { }
-}
-
-/**
- * Module exports.
- */
-
-module.exports = WS;
-
-/**
- * WebSocket transport constructor.
- *
- * @api {Object} connection options
- * @api public
- */
-
-function WS(opts){
-  var forceBase64 = (opts && opts.forceBase64);
-  if (forceBase64) {
-    this.supportsBinary = false;
-  }
-  this.perMessageDeflate = opts.perMessageDeflate;
-  Transport.call(this, opts);
-}
-
-/**
- * Inherits from Transport.
- */
-
-inherit(WS, Transport);
-
-/**
- * Transport name.
- *
- * @api public
- */
-
-WS.prototype.name = 'websocket';
-
-/*
- * WebSockets support binary
- */
-
-WS.prototype.supportsBinary = true;
-
-/**
- * Opens socket.
- *
- * @api private
- */
-
-WS.prototype.doOpen = function(){
-  if (!this.check()) {
-    // let probe timeout
-    return;
-  }
-
-  var self = this;
-  var uri = this.uri();
-  var protocols = void(0);
-  var opts = {
-    agent: this.agent,
-    perMessageDeflate: this.perMessageDeflate
-  };
-
-  // SSL options for Node.js client
-  opts.pfx = this.pfx;
-  opts.key = this.key;
-  opts.passphrase = this.passphrase;
-  opts.cert = this.cert;
-  opts.ca = this.ca;
-  opts.ciphers = this.ciphers;
-  opts.rejectUnauthorized = this.rejectUnauthorized;
-  if (this.extraHeaders) {
-    opts.headers = this.extraHeaders;
-  }
-
-  this.ws = BrowserWebSocket ? new WebSocket(uri) : new WebSocket(uri, protocols, opts);
-
-  if (this.ws.binaryType === undefined) {
-    this.supportsBinary = false;
-  }
-
-  if (this.ws.supports && this.ws.supports.binary) {
-    this.supportsBinary = true;
-    this.ws.binaryType = 'buffer';
-  } else {
-    this.ws.binaryType = 'arraybuffer';
-  }
-
-  this.addEventListeners();
-};
-
-/**
- * Adds event listeners to the socket
- *
- * @api private
- */
-
-WS.prototype.addEventListeners = function(){
-  var self = this;
-
-  this.ws.onopen = function(){
-    self.onOpen();
-  };
-  this.ws.onclose = function(){
-    self.onClose();
-  };
-  this.ws.onmessage = function(ev){
-    self.onData(ev.data);
-  };
-  this.ws.onerror = function(e){
-    self.onError('websocket error', e);
-  };
-};
-
-/**
- * Override `onData` to use a timer on iOS.
- * See: https://gist.github.com/mloughran/2052006
- *
- * @api private
- */
-
-if ('undefined' != typeof navigator
-  && /iPad|iPhone|iPod/i.test(navigator.userAgent)) {
-  WS.prototype.onData = function(data){
-    var self = this;
-    setTimeout(function(){
-      Transport.prototype.onData.call(self, data);
-    }, 0);
-  };
-}
-
-/**
- * Writes data to socket.
- *
- * @param {Array} array of packets.
- * @api private
- */
-
-WS.prototype.write = function(packets){
-  var self = this;
-  this.writable = false;
-
-  // encodePacket efficient as it uses WS framing
-  // no need for encodePayload
-  var total = packets.length;
-  for (var i = 0, l = total; i < l; i++) {
-    (function(packet) {
-      parser.encodePacket(packet, self.supportsBinary, function(data) {
-        if (!BrowserWebSocket) {
-          // always create a new object (GH-437)
-          var opts = {};
-          if (packet.options) {
-            opts.compress = packet.options.compress;
-          }
-
-          if (self.perMessageDeflate) {
-            var len = 'string' == typeof data ? global.Buffer.byteLength(data) : data.length;
-            if (len < self.perMessageDeflate.threshold) {
-              opts.compress = false;
-            }
-          }
-        }
-
-        //Sometimes the websocket has already been closed but the browser didn't
-        //have a chance of informing us about it yet, in that case send will
-        //throw an error
-        try {
-          if (BrowserWebSocket) {
-            // TypeError is thrown when passing the second argument on Safari
-            self.ws.send(data);
-          } else {
-            self.ws.send(data, opts);
-          }
-        } catch (e){
-          debug('websocket closed before onclose event');
-        }
-
-        --total || done();
-      });
-    })(packets[i]);
-  }
-
-  function done(){
-    self.emit('flush');
-
-    // fake drain
-    // defer to next tick to allow Socket to clear writeBuffer
-    setTimeout(function(){
-      self.writable = true;
-      self.emit('drain');
-    }, 0);
-  }
-};
-
-/**
- * Called upon close
- *
- * @api private
- */
-
-WS.prototype.onClose = function(){
-  Transport.prototype.onClose.call(this);
-};
-
-/**
- * Closes socket.
- *
- * @api private
- */
-
-WS.prototype.doClose = function(){
-  if (typeof this.ws !== 'undefined') {
-    this.ws.close();
-  }
-};
-
-/**
- * Generates uri for connection.
- *
- * @api private
- */
-
-WS.prototype.uri = function(){
-  var query = this.query || {};
-  var schema = this.secure ? 'wss' : 'ws';
-  var port = '';
-
-  // avoid port if default for schema
-  if (this.port && (('wss' == schema && this.port != 443)
-    || ('ws' == schema && this.port != 80))) {
-    port = ':' + this.port;
-  }
-
-  // append timestamp to URI
-  if (this.timestampRequests) {
-    query[this.timestampParam] = yeast();
-  }
-
-  // communicate binary support capabilities
-  if (!this.supportsBinary) {
-    query.b64 = 1;
-  }
-
-  query = parseqs.encode(query);
-
-  // prepend ? to query
-  if (query.length) {
-    query = '?' + query;
-  }
-
-  var ipv6 = this.hostname.indexOf(':') !== -1;
-  return schema + '://' + (ipv6 ? '[' + this.hostname + ']' : this.hostname) + port + this.path + query;
-};
-
-/**
- * Feature detection for WebSocket.
- *
- * @return {Boolean} whether this transport is available.
- * @api public
- */
-
-WS.prototype.check = function(){
-  return !!WebSocket && !('__initialize' in WebSocket && this.name === WS.prototype.name);
-};
-
-}).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../transport":33,"component-inherit":26,"debug":27,"engine.io-parser":40,"parseqs":52,"ws":23,"yeast":93}],39:[function(require,module,exports){
-// browser shim for xmlhttprequest module
-var hasCORS = require('has-cors');
-
-module.exports = function(opts) {
-  var xdomain = opts.xdomain;
-
-  // scheme must be same when usign XDomainRequest
-  // http://blogs.msdn.com/b/ieinternals/archive/2010/05/13/xdomainrequest-restrictions-limitations-and-workarounds.aspx
-  var xscheme = opts.xscheme;
-
-  // XDomainRequest has a flow of not sending cookie, therefore it should be disabled as a default.
-  // https://github.com/Automattic/engine.io-client/pull/217
-  var enablesXDR = opts.enablesXDR;
-
-  // XMLHttpRequest can be disabled on IE
-  try {
-    if ('undefined' != typeof XMLHttpRequest && (!xdomain || hasCORS)) {
-      return new XMLHttpRequest();
-    }
-  } catch (e) { }
-
-  // Use XDomainRequest for IE8 if enablesXDR is true
-  // because loading bar keeps flashing when using jsonp-polling
-  // https://github.com/yujiosaka/socke.io-ie8-loading-example
-  try {
-    if ('undefined' != typeof XDomainRequest && !xscheme && enablesXDR) {
-      return new XDomainRequest();
-    }
-  } catch (e) { }
-
-  if (!xdomain) {
-    try {
-      return new ActiveXObject('Microsoft.XMLHTTP');
-    } catch(e) { }
-  }
-}
-
-},{"has-cors":46}],40:[function(require,module,exports){
-(function (global){
-/**
- * Module dependencies.
- */
-
-var keys = require('./keys');
-var hasBinary = require('has-binary');
-var sliceBuffer = require('arraybuffer.slice');
-var base64encoder = require('base64-arraybuffer');
-var after = require('after');
-var utf8 = require('utf8');
-
-/**
- * Check if we are running an android browser. That requires us to use
- * ArrayBuffer with polling transports...
- *
- * http://ghinda.net/jpeg-blob-ajax-android/
- */
-
-var isAndroid = navigator.userAgent.match(/Android/i);
-
-/**
- * Check if we are running in PhantomJS.
- * Uploading a Blob with PhantomJS does not work correctly, as reported here:
- * https://github.com/ariya/phantomjs/issues/11395
- * @type boolean
- */
-var isPhantomJS = /PhantomJS/i.test(navigator.userAgent);
-
-/**
- * When true, avoids using Blobs to encode payloads.
- * @type boolean
- */
-var dontSendBlobs = isAndroid || isPhantomJS;
-
-/**
- * Current protocol version.
- */
-
-exports.protocol = 3;
-
-/**
- * Packet types.
- */
-
-var packets = exports.packets = {
-    open:     0    // non-ws
-  , close:    1    // non-ws
-  , ping:     2
-  , pong:     3
-  , message:  4
-  , upgrade:  5
-  , noop:     6
-};
-
-var packetslist = keys(packets);
-
-/**
- * Premade error packet.
- */
-
-var err = { type: 'error', data: 'parser error' };
-
-/**
- * Create a blob api even for blob builder when vendor prefixes exist
- */
-
-var Blob = require('blob');
-
-/**
- * Encodes a packet.
- *
- *     <packet type id> [ <data> ]
- *
- * Example:
- *
- *     5hello world
- *     3
- *     4
- *
- * Binary is encoded in an identical principle
- *
- * @api private
- */
-
-exports.encodePacket = function (packet, supportsBinary, utf8encode, callback) {
-  if ('function' == typeof supportsBinary) {
-    callback = supportsBinary;
-    supportsBinary = false;
-  }
-
-  if ('function' == typeof utf8encode) {
-    callback = utf8encode;
-    utf8encode = null;
-  }
-
-  var data = (packet.data === undefined)
-    ? undefined
-    : packet.data.buffer || packet.data;
-
-  if (global.ArrayBuffer && data instanceof ArrayBuffer) {
-    return encodeArrayBuffer(packet, supportsBinary, callback);
-  } else if (Blob && data instanceof global.Blob) {
-    return encodeBlob(packet, supportsBinary, callback);
-  }
-
-  // might be an object with { base64: true, data: dataAsBase64String }
-  if (data && data.base64) {
-    return encodeBase64Object(packet, callback);
-  }
-
-  // Sending data as a utf-8 string
-  var encoded = packets[packet.type];
-
-  // data fragment is optional
-  if (undefined !== packet.data) {
-    encoded += utf8encode ? utf8.encode(String(packet.data)) : String(packet.data);
-  }
-
-  return callback('' + encoded);
-
-};
-
-function encodeBase64Object(packet, callback) {
-  // packet data is an object { base64: true, data: dataAsBase64String }
-  var message = 'b' + exports.packets[packet.type] + packet.data.data;
-  return callback(message);
-}
-
-/**
- * Encode packet helpers for binary types
- */
-
-function encodeArrayBuffer(packet, supportsBinary, callback) {
-  if (!supportsBinary) {
-    return exports.encodeBase64Packet(packet, callback);
-  }
-
-  var data = packet.data;
-  var contentArray = new Uint8Array(data);
-  var resultBuffer = new Uint8Array(1 + data.byteLength);
-
-  resultBuffer[0] = packets[packet.type];
-  for (var i = 0; i < contentArray.length; i++) {
-    resultBuffer[i+1] = contentArray[i];
-  }
-
-  return callback(resultBuffer.buffer);
-}
-
-function encodeBlobAsArrayBuffer(packet, supportsBinary, callback) {
-  if (!supportsBinary) {
-    return exports.encodeBase64Packet(packet, callback);
-  }
-
-  var fr = new FileReader();
-  fr.onload = function() {
-    packet.data = fr.result;
-    exports.encodePacket(packet, supportsBinary, true, callback);
-  };
-  return fr.readAsArrayBuffer(packet.data);
-}
-
-function encodeBlob(packet, supportsBinary, callback) {
-  if (!supportsBinary) {
-    return exports.encodeBase64Packet(packet, callback);
-  }
-
-  if (dontSendBlobs) {
-    return encodeBlobAsArrayBuffer(packet, supportsBinary, callback);
-  }
-
-  var length = new Uint8Array(1);
-  length[0] = packets[packet.type];
-  var blob = new Blob([length.buffer, packet.data]);
-
-  return callback(blob);
-}
-
-/**
- * Encodes a packet with binary data in a base64 string
- *
- * @param {Object} packet, has `type` and `data`
- * @return {String} base64 encoded message
- */
-
-exports.encodeBase64Packet = function(packet, callback) {
-  var message = 'b' + exports.packets[packet.type];
-  if (Blob && packet.data instanceof global.Blob) {
-    var fr = new FileReader();
-    fr.onload = function() {
-      var b64 = fr.result.split(',')[1];
-      callback(message + b64);
-    };
-    return fr.readAsDataURL(packet.data);
-  }
-
-  var b64data;
-  try {
-    b64data = String.fromCharCode.apply(null, new Uint8Array(packet.data));
-  } catch (e) {
-    // iPhone Safari doesn't let you apply with typed arrays
-    var typed = new Uint8Array(packet.data);
-    var basic = new Array(typed.length);
-    for (var i = 0; i < typed.length; i++) {
-      basic[i] = typed[i];
-    }
-    b64data = String.fromCharCode.apply(null, basic);
-  }
-  message += global.btoa(b64data);
-  return callback(message);
-};
-
-/**
- * Decodes a packet. Changes format to Blob if requested.
- *
- * @return {Object} with `type` and `data` (if any)
- * @api private
- */
-
-exports.decodePacket = function (data, binaryType, utf8decode) {
-  // String data
-  if (typeof data == 'string' || data === undefined) {
-    if (data.charAt(0) == 'b') {
-      return exports.decodeBase64Packet(data.substr(1), binaryType);
-    }
-
-    if (utf8decode) {
-      try {
-        data = utf8.decode(data);
-      } catch (e) {
-        return err;
-      }
-    }
-    var type = data.charAt(0);
-
-    if (Number(type) != type || !packetslist[type]) {
-      return err;
-    }
-
-    if (data.length > 1) {
-      return { type: packetslist[type], data: data.substring(1) };
-    } else {
-      return { type: packetslist[type] };
-    }
-  }
-
-  var asArray = new Uint8Array(data);
-  var type = asArray[0];
-  var rest = sliceBuffer(data, 1);
-  if (Blob && binaryType === 'blob') {
-    rest = new Blob([rest]);
-  }
-  return { type: packetslist[type], data: rest };
-};
-
-/**
- * Decodes a packet encoded in a base64 string
- *
- * @param {String} base64 encoded message
- * @return {Object} with `type` and `data` (if any)
- */
-
-exports.decodeBase64Packet = function(msg, binaryType) {
-  var type = packetslist[msg.charAt(0)];
-  if (!global.ArrayBuffer) {
-    return { type: type, data: { base64: true, data: msg.substr(1) } };
-  }
-
-  var data = base64encoder.decode(msg.substr(1));
-
-  if (binaryType === 'blob' && Blob) {
-    data = new Blob([data]);
-  }
-
-  return { type: type, data: data };
-};
-
-/**
- * Encodes multiple messages (payload).
- *
- *     <length>:data
- *
- * Example:
- *
- *     11:hello world2:hi
- *
- * If any contents are binary, they will be encoded as base64 strings. Base64
- * encoded strings are marked with a b before the length specifier
- *
- * @param {Array} packets
- * @api private
- */
-
-exports.encodePayload = function (packets, supportsBinary, callback) {
-  if (typeof supportsBinary == 'function') {
-    callback = supportsBinary;
-    supportsBinary = null;
-  }
-
-  var isBinary = hasBinary(packets);
-
-  if (supportsBinary && isBinary) {
-    if (Blob && !dontSendBlobs) {
-      return exports.encodePayloadAsBlob(packets, callback);
-    }
-
-    return exports.encodePayloadAsArrayBuffer(packets, callback);
-  }
-
-  if (!packets.length) {
-    return callback('0:');
-  }
-
-  function setLengthHeader(message) {
-    return message.length + ':' + message;
-  }
-
-  function encodeOne(packet, doneCallback) {
-    exports.encodePacket(packet, !isBinary ? false : supportsBinary, true, function(message) {
-      doneCallback(null, setLengthHeader(message));
-    });
-  }
-
-  map(packets, encodeOne, function(err, results) {
-    return callback(results.join(''));
-  });
-};
-
-/**
- * Async array map using after
- */
-
-function map(ary, each, done) {
-  var result = new Array(ary.length);
-  var next = after(ary.length, done);
-
-  var eachWithIndex = function(i, el, cb) {
-    each(el, function(error, msg) {
-      result[i] = msg;
-      cb(error, result);
-    });
-  };
-
-  for (var i = 0; i < ary.length; i++) {
-    eachWithIndex(i, ary[i], next);
-  }
-}
-
-/*
- * Decodes data when a payload is maybe expected. Possible binary contents are
- * decoded from their base64 representation
- *
- * @param {String} data, callback method
- * @api public
- */
-
-exports.decodePayload = function (data, binaryType, callback) {
-  if (typeof data != 'string') {
-    return exports.decodePayloadAsBinary(data, binaryType, callback);
-  }
-
-  if (typeof binaryType === 'function') {
-    callback = binaryType;
-    binaryType = null;
-  }
-
-  var packet;
-  if (data == '') {
-    // parser error - ignoring payload
-    return callback(err, 0, 1);
-  }
-
-  var length = ''
-    , n, msg;
-
-  for (var i = 0, l = data.length; i < l; i++) {
-    var chr = data.charAt(i);
-
-    if (':' != chr) {
-      length += chr;
-    } else {
-      if ('' == length || (length != (n = Number(length)))) {
-        // parser error - ignoring payload
-        return callback(err, 0, 1);
-      }
-
-      msg = data.substr(i + 1, n);
-
-      if (length != msg.length) {
-        // parser error - ignoring payload
-        return callback(err, 0, 1);
-      }
-
-      if (msg.length) {
-        packet = exports.decodePacket(msg, binaryType, true);
-
-        if (err.type == packet.type && err.data == packet.data) {
-          // parser error in individual packet - ignoring payload
-          return callback(err, 0, 1);
-        }
-
-        var ret = callback(packet, i + n, l);
-        if (false === ret) return;
-      }
-
-      // advance cursor
-      i += n;
-      length = '';
-    }
-  }
-
-  if (length != '') {
-    // parser error - ignoring payload
-    return callback(err, 0, 1);
-  }
-
-};
-
-/**
- * Encodes multiple messages (payload) as binary.
- *
- * <1 = binary, 0 = string><number from 0-9><number from 0-9>[...]<number
- * 255><data>
- *
- * Example:
- * 1 3 255 1 2 3, if the binary contents are interpreted as 8 bit integers
- *
- * @param {Array} packets
- * @return {ArrayBuffer} encoded payload
- * @api private
- */
-
-exports.encodePayloadAsArrayBuffer = function(packets, callback) {
-  if (!packets.length) {
-    return callback(new ArrayBuffer(0));
-  }
-
-  function encodeOne(packet, doneCallback) {
-    exports.encodePacket(packet, true, true, function(data) {
-      return doneCallback(null, data);
-    });
-  }
-
-  map(packets, encodeOne, function(err, encodedPackets) {
-    var totalLength = encodedPackets.reduce(function(acc, p) {
-      var len;
-      if (typeof p === 'string'){
-        len = p.length;
-      } else {
-        len = p.byteLength;
-      }
-      return acc + len.toString().length + len + 2; // string/binary identifier + separator = 2
-    }, 0);
-
-    var resultArray = new Uint8Array(totalLength);
-
-    var bufferIndex = 0;
-    encodedPackets.forEach(function(p) {
-      var isString = typeof p === 'string';
-      var ab = p;
-      if (isString) {
-        var view = new Uint8Array(p.length);
-        for (var i = 0; i < p.length; i++) {
-          view[i] = p.charCodeAt(i);
-        }
-        ab = view.buffer;
-      }
-
-      if (isString) { // not true binary
-        resultArray[bufferIndex++] = 0;
-      } else { // true binary
-        resultArray[bufferIndex++] = 1;
-      }
-
-      var lenStr = ab.byteLength.toString();
-      for (var i = 0; i < lenStr.length; i++) {
-        resultArray[bufferIndex++] = parseInt(lenStr[i]);
-      }
-      resultArray[bufferIndex++] = 255;
-
-      var view = new Uint8Array(ab);
-      for (var i = 0; i < view.length; i++) {
-        resultArray[bufferIndex++] = view[i];
-      }
-    });
-
-    return callback(resultArray.buffer);
-  });
-};
-
-/**
- * Encode as Blob
- */
-
-exports.encodePayloadAsBlob = function(packets, callback) {
-  function encodeOne(packet, doneCallback) {
-    exports.encodePacket(packet, true, true, function(encoded) {
-      var binaryIdentifier = new Uint8Array(1);
-      binaryIdentifier[0] = 1;
-      if (typeof encoded === 'string') {
-        var view = new Uint8Array(encoded.length);
-        for (var i = 0; i < encoded.length; i++) {
-          view[i] = encoded.charCodeAt(i);
-        }
-        encoded = view.buffer;
-        binaryIdentifier[0] = 0;
-      }
-
-      var len = (encoded instanceof ArrayBuffer)
-        ? encoded.byteLength
-        : encoded.size;
-
-      var lenStr = len.toString();
-      var lengthAry = new Uint8Array(lenStr.length + 1);
-      for (var i = 0; i < lenStr.length; i++) {
-        lengthAry[i] = parseInt(lenStr[i]);
-      }
-      lengthAry[lenStr.length] = 255;
-
-      if (Blob) {
-        var blob = new Blob([binaryIdentifier.buffer, lengthAry.buffer, encoded]);
-        doneCallback(null, blob);
-      }
-    });
-  }
-
-  map(packets, encodeOne, function(err, results) {
-    return callback(new Blob(results));
-  });
-};
-
-/*
- * Decodes data when a payload is maybe expected. Strings are decoded by
- * interpreting each byte as a key code for entries marked to start with 0. See
- * description of encodePayloadAsBinary
- *
- * @param {ArrayBuffer} data, callback method
- * @api public
- */
-
-exports.decodePayloadAsBinary = function (data, binaryType, callback) {
-  if (typeof binaryType === 'function') {
-    callback = binaryType;
-    binaryType = null;
-  }
-
-  var bufferTail = data;
-  var buffers = [];
-
-  var numberTooLong = false;
-  while (bufferTail.byteLength > 0) {
-    var tailArray = new Uint8Array(bufferTail);
-    var isString = tailArray[0] === 0;
-    var msgLength = '';
-
-    for (var i = 1; ; i++) {
-      if (tailArray[i] == 255) break;
-
-      if (msgLength.length > 310) {
-        numberTooLong = true;
-        break;
-      }
-
-      msgLength += tailArray[i];
-    }
-
-    if(numberTooLong) return callback(err, 0, 1);
-
-    bufferTail = sliceBuffer(bufferTail, 2 + msgLength.length);
-    msgLength = parseInt(msgLength);
-
-    var msg = sliceBuffer(bufferTail, 0, msgLength);
-    if (isString) {
-      try {
-        msg = String.fromCharCode.apply(null, new Uint8Array(msg));
-      } catch (e) {
-        // iPhone Safari doesn't let you apply to typed arrays
-        var typed = new Uint8Array(msg);
-        msg = '';
-        for (var i = 0; i < typed.length; i++) {
-          msg += String.fromCharCode(typed[i]);
-        }
-      }
-    }
-
-    buffers.push(msg);
-    bufferTail = sliceBuffer(bufferTail, msgLength);
-  }
-
-  var total = buffers.length;
-  buffers.forEach(function(buffer, i) {
-    callback(exports.decodePacket(buffer, binaryType, true), i, total);
-  });
-};
-
-}).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./keys":41,"after":17,"arraybuffer.slice":18,"base64-arraybuffer":20,"blob":21,"has-binary":42,"utf8":89}],41:[function(require,module,exports){
-
-/**
- * Gets the keys for an object.
- *
- * @return {Array} keys
- * @api private
- */
-
-module.exports = Object.keys || function keys (obj){
-  var arr = [];
-  var has = Object.prototype.hasOwnProperty;
-
-  for (var i in obj) {
-    if (has.call(obj, i)) {
-      arr.push(i);
-    }
-  }
-  return arr;
-};
-
-},{}],42:[function(require,module,exports){
-(function (global){
-
-/*
- * Module requirements.
- */
-
-var isArray = require('isarray');
-
-/**
- * Module exports.
- */
-
-module.exports = hasBinary;
-
-/**
- * Checks for binary data.
- *
- * Right now only Buffer and ArrayBuffer are supported..
- *
- * @param {Object} anything
- * @api public
- */
-
-function hasBinary(data) {
-
-  function _hasBinary(obj) {
-    if (!obj) return false;
-
-    if ( (global.Buffer && global.Buffer.isBuffer(obj)) ||
-         (global.ArrayBuffer && obj instanceof ArrayBuffer) ||
-         (global.Blob && obj instanceof Blob) ||
-         (global.File && obj instanceof File)
-        ) {
-      return true;
-    }
-
-    if (isArray(obj)) {
-      for (var i = 0; i < obj.length; i++) {
-          if (_hasBinary(obj[i])) {
-              return true;
-          }
-      }
-    } else if (obj && 'object' == typeof obj) {
-      if (obj.toJSON) {
-        obj = obj.toJSON();
-      }
-
-      for (var key in obj) {
-        if (Object.prototype.hasOwnProperty.call(obj, key) && _hasBinary(obj[key])) {
-          return true;
-        }
-      }
-    }
-
-    return false;
-  }
-
-  return _hasBinary(data);
-}
-
-}).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"isarray":43}],43:[function(require,module,exports){
-module.exports = Array.isArray || function (arr) {
-  return Object.prototype.toString.call(arr) == '[object Array]';
-};
-
-},{}],44:[function(require,module,exports){
-(function (global){
-
-/*
- * Module requirements.
- */
-
-var isArray = require('isarray');
-
-/**
- * Module exports.
- */
-
-module.exports = hasBinary;
-
-/**
- * Checks for binary data.
- *
- * Right now only Buffer and ArrayBuffer are supported..
- *
- * @param {Object} anything
- * @api public
- */
-
-function hasBinary(data) {
-
-  function _hasBinary(obj) {
-    if (!obj) return false;
-
-    if ( (global.Buffer && global.Buffer.isBuffer && global.Buffer.isBuffer(obj)) ||
-         (global.ArrayBuffer && obj instanceof ArrayBuffer) ||
-         (global.Blob && obj instanceof Blob) ||
-         (global.File && obj instanceof File)
-        ) {
-      return true;
-    }
-
-    if (isArray(obj)) {
-      for (var i = 0; i < obj.length; i++) {
-          if (_hasBinary(obj[i])) {
-              return true;
-          }
-      }
-    } else if (obj && 'object' == typeof obj) {
-      // see: https://github.com/Automattic/has-binary/pull/4
-      if (obj.toJSON && 'function' == typeof obj.toJSON) {
-        obj = obj.toJSON();
-      }
-
-      for (var key in obj) {
-        if (Object.prototype.hasOwnProperty.call(obj, key) && _hasBinary(obj[key])) {
-          return true;
-        }
-      }
-    }
-
-    return false;
-  }
-
-  return _hasBinary(data);
-}
-
-}).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"isarray":45}],45:[function(require,module,exports){
-module.exports=require(43)
-},{}],46:[function(require,module,exports){
-
-/**
- * Module exports.
- *
- * Logic borrowed from Modernizr:
- *
- *   - https://github.com/Modernizr/Modernizr/blob/master/feature-detects/cors.js
- */
-
-try {
-  module.exports = typeof XMLHttpRequest !== 'undefined' &&
-    'withCredentials' in new XMLHttpRequest();
-} catch (err) {
-  // if XMLHttp support is disabled in IE then it will throw
-  // when trying to create
-  module.exports = false;
-}
-
-},{}],47:[function(require,module,exports){
-
-var indexOf = [].indexOf;
-
-module.exports = function(arr, obj){
-  if (indexOf) return arr.indexOf(obj);
-  for (var i = 0; i < arr.length; ++i) {
-    if (arr[i] === obj) return i;
-  }
-  return -1;
-};
-},{}],48:[function(require,module,exports){
-/*eslint-disable no-unused-vars*/
+},{}],24:[function(require,module,exports){
 /*!
- * jQuery JavaScript Library v3.1.0
- * https://jquery.com/
+ * jQuery JavaScript Library v2.2.4
+ * http://jquery.com/
  *
  * Includes Sizzle.js
- * https://sizzlejs.com/
+ * http://sizzlejs.com/
  *
  * Copyright jQuery Foundation and other contributors
  * Released under the MIT license
- * https://jquery.org/license
+ * http://jquery.org/license
  *
- * Date: 2016-07-07T21:44Z
+ * Date: 2016-05-20T17:23Z
  */
-( function( global, factory ) {
 
-	"use strict";
+(function( global, factory ) {
 
 	if ( typeof module === "object" && typeof module.exports === "object" ) {
-
 		// For CommonJS and CommonJS-like environments where a proper `window`
 		// is present, execute the factory and get jQuery.
 		// For environments that do not have a `window` with a `document`
@@ -8943,19 +3382,16 @@ module.exports = function(arr, obj){
 	}
 
 // Pass this if window is not defined yet
-} )( typeof window !== "undefined" ? window : this, function( window, noGlobal ) {
+}(typeof window !== "undefined" ? window : this, function( window, noGlobal ) {
 
-// Edge <= 12 - 13+, Firefox <=18 - 45+, IE 10 - 11, Safari 5.1 - 9+, iOS 6 - 9.1
-// throw exceptions when non-strict code (e.g., ASP.NET 4.5) accesses strict mode
-// arguments.callee.caller (trac-13335). But as of jQuery 3.0 (2016), strict mode should be common
-// enough that all such attempts are guarded in a try block.
-"use strict";
-
+// Support: Firefox 18+
+// Can't be in strict mode, several libs including ASP.NET trace
+// the stack via arguments.caller.callee and Firefox dies if
+// you try to trace through "use strict" call chains. (#13335)
+//"use strict";
 var arr = [];
 
 var document = window.document;
-
-var getProto = Object.getPrototypeOf;
 
 var slice = arr.slice;
 
@@ -8971,30 +3407,12 @@ var toString = class2type.toString;
 
 var hasOwn = class2type.hasOwnProperty;
 
-var fnToString = hasOwn.toString;
-
-var ObjectFunctionString = fnToString.call( Object );
-
 var support = {};
 
 
 
-	function DOMEval( code, doc ) {
-		doc = doc || document;
-
-		var script = doc.createElement( "script" );
-
-		script.text = code;
-		doc.head.appendChild( script ).parentNode.removeChild( script );
-	}
-/* global Symbol */
-// Defining this global in .eslintrc would create a danger of using the global
-// unguarded in another place, it seems safer to define global only for this module
-
-
-
 var
-	version = "3.1.0",
+	version = "2.2.4",
 
 	// Define a local copy of jQuery
 	jQuery = function( selector, context ) {
@@ -9004,13 +3422,13 @@ var
 		return new jQuery.fn.init( selector, context );
 	},
 
-	// Support: Android <=4.0 only
+	// Support: Android<4.1
 	// Make sure we trim BOM and NBSP
 	rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,
 
 	// Matches dashed string for camelizing
 	rmsPrefix = /^-ms-/,
-	rdashAlpha = /-([a-z])/g,
+	rdashAlpha = /-([\da-z])/gi,
 
 	// Used by jQuery.camelCase as callback to replace()
 	fcamelCase = function( all, letter ) {
@@ -9023,6 +3441,9 @@ jQuery.fn = jQuery.prototype = {
 	jquery: version,
 
 	constructor: jQuery,
+
+	// Start with an empty selector
+	selector: "",
 
 	// The default length of a jQuery object is 0
 	length: 0,
@@ -9052,6 +3473,7 @@ jQuery.fn = jQuery.prototype = {
 
 		// Add the old object onto the stack (as a reference)
 		ret.prevObject = this;
+		ret.context = this.context;
 
 		// Return the newly-formed element set
 		return ret;
@@ -9192,45 +3614,41 @@ jQuery.extend( {
 
 	isNumeric: function( obj ) {
 
-		// As of jQuery 3.0, isNumeric is limited to
-		// strings and numbers (primitives or objects)
-		// that can be coerced to finite numbers (gh-2662)
-		var type = jQuery.type( obj );
-		return ( type === "number" || type === "string" ) &&
-
-			// parseFloat NaNs numeric-cast false positives ("")
-			// ...but misinterprets leading-number strings, particularly hex literals ("0x...")
-			// subtraction forces infinities to NaN
-			!isNaN( obj - parseFloat( obj ) );
+		// parseFloat NaNs numeric-cast false positives (null|true|false|"")
+		// ...but misinterprets leading-number strings, particularly hex literals ("0x...")
+		// subtraction forces infinities to NaN
+		// adding 1 corrects loss of precision from parseFloat (#15100)
+		var realStringObj = obj && obj.toString();
+		return !jQuery.isArray( obj ) && ( realStringObj - parseFloat( realStringObj ) + 1 ) >= 0;
 	},
 
 	isPlainObject: function( obj ) {
-		var proto, Ctor;
+		var key;
 
-		// Detect obvious negatives
-		// Use toString instead of jQuery.type to catch host objects
-		if ( !obj || toString.call( obj ) !== "[object Object]" ) {
+		// Not plain objects:
+		// - Any object or value whose internal [[Class]] property is not "[object Object]"
+		// - DOM nodes
+		// - window
+		if ( jQuery.type( obj ) !== "object" || obj.nodeType || jQuery.isWindow( obj ) ) {
 			return false;
 		}
 
-		proto = getProto( obj );
-
-		// Objects with no prototype (e.g., `Object.create( null )`) are plain
-		if ( !proto ) {
-			return true;
+		// Not own constructor property must be Object
+		if ( obj.constructor &&
+				!hasOwn.call( obj, "constructor" ) &&
+				!hasOwn.call( obj.constructor.prototype || {}, "isPrototypeOf" ) ) {
+			return false;
 		}
 
-		// Objects with prototype are plain iff they were constructed by a global Object function
-		Ctor = hasOwn.call( proto, "constructor" ) && proto.constructor;
-		return typeof Ctor === "function" && fnToString.call( Ctor ) === ObjectFunctionString;
+		// Own properties are enumerated firstly, so to speed up,
+		// if last one is own, then all properties are own
+		for ( key in obj ) {}
+
+		return key === undefined || hasOwn.call( obj, key );
 	},
 
 	isEmptyObject: function( obj ) {
-
-		/* eslint-disable no-unused-vars */
-		// See https://github.com/eslint/eslint/issues/6125
 		var name;
-
 		for ( name in obj ) {
 			return false;
 		}
@@ -9242,7 +3660,7 @@ jQuery.extend( {
 			return obj + "";
 		}
 
-		// Support: Android <=2.3 only (functionish RegExp)
+		// Support: Android<4.0, iOS<6 (functionish RegExp)
 		return typeof obj === "object" || typeof obj === "function" ?
 			class2type[ toString.call( obj ) ] || "object" :
 			typeof obj;
@@ -9250,11 +3668,32 @@ jQuery.extend( {
 
 	// Evaluates a script in a global context
 	globalEval: function( code ) {
-		DOMEval( code );
+		var script,
+			indirect = eval;
+
+		code = jQuery.trim( code );
+
+		if ( code ) {
+
+			// If the code includes a valid, prologue position
+			// strict mode pragma, execute code by injecting a
+			// script tag into the document.
+			if ( code.indexOf( "use strict" ) === 1 ) {
+				script = document.createElement( "script" );
+				script.text = code;
+				document.head.appendChild( script ).parentNode.removeChild( script );
+			} else {
+
+				// Otherwise, avoid the DOM node creation, insertion
+				// and removal by using an indirect global eval
+
+				indirect( code );
+			}
+		}
 	},
 
 	// Convert dashed to camelCase; used by the css and data modules
-	// Support: IE <=9 - 11, Edge 12 - 13
+	// Support: IE9-11+
 	// Microsoft forgot to hump their vendor prefix (#9572)
 	camelCase: function( string ) {
 		return string.replace( rmsPrefix, "ms-" ).replace( rdashAlpha, fcamelCase );
@@ -9285,7 +3724,7 @@ jQuery.extend( {
 		return obj;
 	},
 
-	// Support: Android <=4.0 only
+	// Support: Android<4.1
 	trim: function( text ) {
 		return text == null ?
 			"" :
@@ -9314,8 +3753,6 @@ jQuery.extend( {
 		return arr == null ? -1 : indexOf.call( arr, elem, i );
 	},
 
-	// Support: Android <=4.0 only, PhantomJS 1 only
-	// push.apply(_, arraylike) throws on ancient WebKit
 	merge: function( first, second ) {
 		var len = +second.length,
 			j = 0,
@@ -9420,9 +3857,15 @@ jQuery.extend( {
 	support: support
 } );
 
+// JSHint would error on this code due to the Symbol not being defined in ES5.
+// Defining this global in .jshintrc would create a danger of using the global
+// unguarded in another place, it seems safer to just disable JSHint for these
+// three lines.
+/* jshint ignore: start */
 if ( typeof Symbol === "function" ) {
 	jQuery.fn[ Symbol.iterator ] = arr[ Symbol.iterator ];
 }
+/* jshint ignore: end */
 
 // Populate the class2type map
 jQuery.each( "Boolean Number String Function Array Date RegExp Object Error Symbol".split( " " ),
@@ -9432,7 +3875,7 @@ function( i, name ) {
 
 function isArrayLike( obj ) {
 
-	// Support: real iOS 8.2 only (not reproducible in simulator)
+	// Support: iOS 8.2 (not reproducible in simulator)
 	// `in` check used to prevent JIT error (gh-2145)
 	// hasOwn isn't used here due to false negatives
 	// regarding Nodelist length in IE
@@ -9448,14 +3891,14 @@ function isArrayLike( obj ) {
 }
 var Sizzle =
 /*!
- * Sizzle CSS Selector Engine v2.3.0
- * https://sizzlejs.com/
+ * Sizzle CSS Selector Engine v2.2.1
+ * http://sizzlejs.com/
  *
  * Copyright jQuery Foundation and other contributors
  * Released under the MIT license
  * http://jquery.org/license
  *
- * Date: 2016-01-04
+ * Date: 2015-10-17
  */
 (function( window ) {
 
@@ -9496,6 +3939,9 @@ var i,
 		return 0;
 	},
 
+	// General-purpose constants
+	MAX_NEGATIVE = 1 << 31,
+
 	// Instance methods
 	hasOwn = ({}).hasOwnProperty,
 	arr = [],
@@ -9504,7 +3950,7 @@ var i,
 	push = arr.push,
 	slice = arr.slice,
 	// Use a stripped-down indexOf as it's faster than native
-	// https://jsperf.com/thor-indexof-vs-for/5
+	// http://jsperf.com/thor-indexof-vs-for/5
 	indexOf = function( list, elem ) {
 		var i = 0,
 			len = list.length;
@@ -9524,7 +3970,7 @@ var i,
 	whitespace = "[\\x20\\t\\r\\n\\f]",
 
 	// http://www.w3.org/TR/CSS21/syndata.html#value-def-identifier
-	identifier = "(?:\\\\.|[\\w-]|[^\0-\\xa0])+",
+	identifier = "(?:\\\\.|[\\w-]|[^\\x00-\\xa0])+",
 
 	// Attribute selectors: http://www.w3.org/TR/selectors/#attribute-selectors
 	attributes = "\\[" + whitespace + "*(" + identifier + ")(?:" + whitespace +
@@ -9581,9 +4027,9 @@ var i,
 	rquickExpr = /^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,
 
 	rsibling = /[+~]/,
+	rescape = /'|\\/g,
 
-	// CSS escapes
-	// http://www.w3.org/TR/CSS21/syndata.html#escaped-characters
+	// CSS escapes http://www.w3.org/TR/CSS21/syndata.html#escaped-characters
 	runescape = new RegExp( "\\\\([\\da-f]{1,6}" + whitespace + "?|(" + whitespace + ")|.)", "ig" ),
 	funescape = function( _, escaped, escapedWhitespace ) {
 		var high = "0x" + escaped - 0x10000;
@@ -9599,39 +4045,13 @@ var i,
 				String.fromCharCode( high >> 10 | 0xD800, high & 0x3FF | 0xDC00 );
 	},
 
-	// CSS string/identifier serialization
-	// https://drafts.csswg.org/cssom/#common-serializing-idioms
-	rcssescape = /([\0-\x1f\x7f]|^-?\d)|^-$|[^\x80-\uFFFF\w-]/g,
-	fcssescape = function( ch, asCodePoint ) {
-		if ( asCodePoint ) {
-
-			// U+0000 NULL becomes U+FFFD REPLACEMENT CHARACTER
-			if ( ch === "\0" ) {
-				return "\uFFFD";
-			}
-
-			// Control characters and (dependent upon position) numbers get escaped as code points
-			return ch.slice( 0, -1 ) + "\\" + ch.charCodeAt( ch.length - 1 ).toString( 16 ) + " ";
-		}
-
-		// Other potentially-special ASCII characters get backslash-escaped
-		return "\\" + ch;
-	},
-
 	// Used for iframes
 	// See setDocument()
 	// Removing the function wrapper causes a "Permission Denied"
 	// error in IE
 	unloadHandler = function() {
 		setDocument();
-	},
-
-	disabledAncestor = addCombinator(
-		function( elem ) {
-			return elem.disabled === true;
-		},
-		{ dir: "parentNode", next: "legend" }
-	);
+	};
 
 // Optimize for push.apply( _, NodeList )
 try {
@@ -9663,7 +4083,7 @@ try {
 }
 
 function Sizzle( selector, context, results, seed ) {
-	var m, i, elem, nid, match, groups, newSelector,
+	var m, i, elem, nid, nidselect, match, groups, newSelector,
 		newContext = context && context.ownerDocument,
 
 		// nodeType defaults to 9, since context defaults to document
@@ -9756,7 +4176,7 @@ function Sizzle( selector, context, results, seed ) {
 
 					// Capture the context ID, setting it first if necessary
 					if ( (nid = context.getAttribute( "id" )) ) {
-						nid = nid.replace( rcssescape, fcssescape );
+						nid = nid.replace( rescape, "\\$&" );
 					} else {
 						context.setAttribute( "id", (nid = expando) );
 					}
@@ -9764,8 +4184,9 @@ function Sizzle( selector, context, results, seed ) {
 					// Prefix every selector in the list
 					groups = tokenize( selector );
 					i = groups.length;
+					nidselect = ridentifier.test( nid ) ? "#" + nid : "[id='" + nid + "']";
 					while ( i-- ) {
-						groups[i] = "#" + nid + " " + toSelector( groups[i] );
+						groups[i] = nidselect + " " + toSelector( groups[i] );
 					}
 					newSelector = groups.join( "," );
 
@@ -9826,22 +4247,22 @@ function markFunction( fn ) {
 
 /**
  * Support testing using an element
- * @param {Function} fn Passed the created element and returns a boolean result
+ * @param {Function} fn Passed the created div and expects a boolean result
  */
 function assert( fn ) {
-	var el = document.createElement("fieldset");
+	var div = document.createElement("div");
 
 	try {
-		return !!fn( el );
+		return !!fn( div );
 	} catch (e) {
 		return false;
 	} finally {
 		// Remove from its parent by default
-		if ( el.parentNode ) {
-			el.parentNode.removeChild( el );
+		if ( div.parentNode ) {
+			div.parentNode.removeChild( div );
 		}
 		// release memory in IE
-		el = null;
+		div = null;
 	}
 }
 
@@ -9868,7 +4289,8 @@ function addHandle( attrs, handler ) {
 function siblingCheck( a, b ) {
 	var cur = b && a,
 		diff = cur && a.nodeType === 1 && b.nodeType === 1 &&
-			a.sourceIndex - b.sourceIndex;
+			( ~b.sourceIndex || MAX_NEGATIVE ) -
+			( ~a.sourceIndex || MAX_NEGATIVE );
 
 	// Use IE sourceIndex if available on both nodes
 	if ( diff ) {
@@ -9906,34 +4328,6 @@ function createButtonPseudo( type ) {
 	return function( elem ) {
 		var name = elem.nodeName.toLowerCase();
 		return (name === "input" || name === "button") && elem.type === type;
-	};
-}
-
-/**
- * Returns a function to use in pseudos for :enabled/:disabled
- * @param {Boolean} disabled true for :disabled; false for :enabled
- */
-function createDisabledPseudo( disabled ) {
-	// Known :disabled false positives:
-	// IE: *[disabled]:not(button, input, select, textarea, optgroup, option, menuitem, fieldset)
-	// not IE: fieldset[disabled] > legend:nth-of-type(n+2) :can-disable
-	return function( elem ) {
-
-		// Check form elements and option elements for explicit disabling
-		return "label" in elem && elem.disabled === disabled ||
-			"form" in elem && elem.disabled === disabled ||
-
-			// Check non-disabled form elements for fieldset[disabled] ancestors
-			"form" in elem && elem.disabled === false && (
-				// Support: IE6-11+
-				// Ancestry is covered for us
-				elem.isDisabled === disabled ||
-
-				// Otherwise, assume any non-<option> under fieldset[disabled] is disabled
-				/* jshint -W018 */
-				elem.isDisabled !== !disabled &&
-					("label" in elem || !disabledAncestor( elem )) !== disabled
-			);
 	};
 }
 
@@ -9989,7 +4383,7 @@ isXML = Sizzle.isXML = function( elem ) {
  * @returns {Object} Returns the current document
  */
 setDocument = Sizzle.setDocument = function( node ) {
-	var hasCompare, subWindow,
+	var hasCompare, parent,
 		doc = node ? node.ownerDocument || node : preferredDoc;
 
 	// Return early if doc is invalid or already selected
@@ -10004,16 +4398,14 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 	// Support: IE 9-11, Edge
 	// Accessing iframe documents after unload throws "permission denied" errors (jQuery #13936)
-	if ( preferredDoc !== document &&
-		(subWindow = document.defaultView) && subWindow.top !== subWindow ) {
-
-		// Support: IE 11, Edge
-		if ( subWindow.addEventListener ) {
-			subWindow.addEventListener( "unload", unloadHandler, false );
+	if ( (parent = document.defaultView) && parent.top !== parent ) {
+		// Support: IE 11
+		if ( parent.addEventListener ) {
+			parent.addEventListener( "unload", unloadHandler, false );
 
 		// Support: IE 9 - 10 only
-		} else if ( subWindow.attachEvent ) {
-			subWindow.attachEvent( "onunload", unloadHandler );
+		} else if ( parent.attachEvent ) {
+			parent.attachEvent( "onunload", unloadHandler );
 		}
 	}
 
@@ -10023,18 +4415,18 @@ setDocument = Sizzle.setDocument = function( node ) {
 	// Support: IE<8
 	// Verify that getAttribute really returns attributes and not properties
 	// (excepting IE8 booleans)
-	support.attributes = assert(function( el ) {
-		el.className = "i";
-		return !el.getAttribute("className");
+	support.attributes = assert(function( div ) {
+		div.className = "i";
+		return !div.getAttribute("className");
 	});
 
 	/* getElement(s)By*
 	---------------------------------------------------------------------- */
 
 	// Check if getElementsByTagName("*") returns only elements
-	support.getElementsByTagName = assert(function( el ) {
-		el.appendChild( document.createComment("") );
-		return !el.getElementsByTagName("*").length;
+	support.getElementsByTagName = assert(function( div ) {
+		div.appendChild( document.createComment("") );
+		return !div.getElementsByTagName("*").length;
 	});
 
 	// Support: IE<9
@@ -10042,10 +4434,10 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 	// Support: IE<10
 	// Check if getElementById returns elements by name
-	// The broken getElementById methods don't pick up programmatically-set names,
+	// The broken getElementById methods don't pick up programatically-set names,
 	// so use a roundabout getElementsByName test
-	support.getById = assert(function( el ) {
-		docElem.appendChild( el ).id = expando;
+	support.getById = assert(function( div ) {
+		docElem.appendChild( div ).id = expando;
 		return !document.getElementsByName || !document.getElementsByName( expando ).length;
 	});
 
@@ -10129,87 +4521,77 @@ setDocument = Sizzle.setDocument = function( node ) {
 	// We allow this because of a bug in IE8/9 that throws an error
 	// whenever `document.activeElement` is accessed on an iframe
 	// So, we allow :focus to pass through QSA all the time to avoid the IE error
-	// See https://bugs.jquery.com/ticket/13378
+	// See http://bugs.jquery.com/ticket/13378
 	rbuggyQSA = [];
 
 	if ( (support.qsa = rnative.test( document.querySelectorAll )) ) {
 		// Build QSA regex
 		// Regex strategy adopted from Diego Perini
-		assert(function( el ) {
+		assert(function( div ) {
 			// Select is set to empty string on purpose
 			// This is to test IE's treatment of not explicitly
 			// setting a boolean content attribute,
 			// since its presence should be enough
-			// https://bugs.jquery.com/ticket/12359
-			docElem.appendChild( el ).innerHTML = "<a id='" + expando + "'></a>" +
+			// http://bugs.jquery.com/ticket/12359
+			docElem.appendChild( div ).innerHTML = "<a id='" + expando + "'></a>" +
 				"<select id='" + expando + "-\r\\' msallowcapture=''>" +
 				"<option selected=''></option></select>";
 
 			// Support: IE8, Opera 11-12.16
 			// Nothing should be selected when empty strings follow ^= or $= or *=
 			// The test attribute must be unknown in Opera but "safe" for WinRT
-			// https://msdn.microsoft.com/en-us/library/ie/hh465388.aspx#attribute_section
-			if ( el.querySelectorAll("[msallowcapture^='']").length ) {
+			// http://msdn.microsoft.com/en-us/library/ie/hh465388.aspx#attribute_section
+			if ( div.querySelectorAll("[msallowcapture^='']").length ) {
 				rbuggyQSA.push( "[*^$]=" + whitespace + "*(?:''|\"\")" );
 			}
 
 			// Support: IE8
 			// Boolean attributes and "value" are not treated correctly
-			if ( !el.querySelectorAll("[selected]").length ) {
+			if ( !div.querySelectorAll("[selected]").length ) {
 				rbuggyQSA.push( "\\[" + whitespace + "*(?:value|" + booleans + ")" );
 			}
 
 			// Support: Chrome<29, Android<4.4, Safari<7.0+, iOS<7.0+, PhantomJS<1.9.8+
-			if ( !el.querySelectorAll( "[id~=" + expando + "-]" ).length ) {
+			if ( !div.querySelectorAll( "[id~=" + expando + "-]" ).length ) {
 				rbuggyQSA.push("~=");
 			}
 
 			// Webkit/Opera - :checked should return selected option elements
 			// http://www.w3.org/TR/2011/REC-css3-selectors-20110929/#checked
 			// IE8 throws error here and will not see later tests
-			if ( !el.querySelectorAll(":checked").length ) {
+			if ( !div.querySelectorAll(":checked").length ) {
 				rbuggyQSA.push(":checked");
 			}
 
 			// Support: Safari 8+, iOS 8+
 			// https://bugs.webkit.org/show_bug.cgi?id=136851
-			// In-page `selector#id sibling-combinator selector` fails
-			if ( !el.querySelectorAll( "a#" + expando + "+*" ).length ) {
+			// In-page `selector#id sibing-combinator selector` fails
+			if ( !div.querySelectorAll( "a#" + expando + "+*" ).length ) {
 				rbuggyQSA.push(".#.+[+~]");
 			}
 		});
 
-		assert(function( el ) {
-			el.innerHTML = "<a href='' disabled='disabled'></a>" +
-				"<select disabled='disabled'><option/></select>";
-
+		assert(function( div ) {
 			// Support: Windows 8 Native Apps
 			// The type and name attributes are restricted during .innerHTML assignment
 			var input = document.createElement("input");
 			input.setAttribute( "type", "hidden" );
-			el.appendChild( input ).setAttribute( "name", "D" );
+			div.appendChild( input ).setAttribute( "name", "D" );
 
 			// Support: IE8
 			// Enforce case-sensitivity of name attribute
-			if ( el.querySelectorAll("[name=d]").length ) {
+			if ( div.querySelectorAll("[name=d]").length ) {
 				rbuggyQSA.push( "name" + whitespace + "*[*^$|!~]?=" );
 			}
 
 			// FF 3.5 - :enabled/:disabled and hidden elements (hidden elements are still enabled)
 			// IE8 throws error here and will not see later tests
-			if ( el.querySelectorAll(":enabled").length !== 2 ) {
-				rbuggyQSA.push( ":enabled", ":disabled" );
-			}
-
-			// Support: IE9-11+
-			// IE's :disabled selector does not pick up the children of disabled fieldsets
-			docElem.appendChild( el ).disabled = true;
-			if ( el.querySelectorAll(":disabled").length !== 2 ) {
+			if ( !div.querySelectorAll(":enabled").length ) {
 				rbuggyQSA.push( ":enabled", ":disabled" );
 			}
 
 			// Opera 10-11 does not throw on post-comma invalid pseudos
-			el.querySelectorAll("*,:x");
+			div.querySelectorAll("*,:x");
 			rbuggyQSA.push(",.*:");
 		});
 	}
@@ -10220,14 +4602,14 @@ setDocument = Sizzle.setDocument = function( node ) {
 		docElem.oMatchesSelector ||
 		docElem.msMatchesSelector) )) ) {
 
-		assert(function( el ) {
+		assert(function( div ) {
 			// Check to see if it's possible to do matchesSelector
 			// on a disconnected node (IE 9)
-			support.disconnectedMatch = matches.call( el, "*" );
+			support.disconnectedMatch = matches.call( div, "div" );
 
 			// This should fail with an exception
 			// Gecko does not error, returns false instead
-			matches.call( el, "[s!='']:x" );
+			matches.call( div, "[s!='']:x" );
 			rbuggyMatches.push( "!=", pseudos );
 		});
 	}
@@ -10427,10 +4809,6 @@ Sizzle.attr = function( elem, name ) {
 			(val = elem.getAttributeNode(name)) && val.specified ?
 				val.value :
 				null;
-};
-
-Sizzle.escape = function( sel ) {
-	return (sel + "").replace( rcssescape, fcssescape );
 };
 
 Sizzle.error = function( msg ) {
@@ -10900,8 +5278,13 @@ Expr = Sizzle.selectors = {
 		},
 
 		// Boolean properties
-		"enabled": createDisabledPseudo( false ),
-		"disabled": createDisabledPseudo( true ),
+		"enabled": function( elem ) {
+			return elem.disabled === false;
+		},
+
+		"disabled": function( elem ) {
+			return elem.disabled === true;
+		},
 
 		"checked": function( elem ) {
 			// In CSS3, :checked should return both checked and selected elements
@@ -11103,9 +5486,7 @@ function toSelector( tokens ) {
 
 function addCombinator( matcher, combinator, base ) {
 	var dir = combinator.dir,
-		skip = combinator.next,
-		key = skip || dir,
-		checkNonElements = base && key === "parentNode",
+		checkNonElements = base && dir === "parentNode",
 		doneName = done++;
 
 	return combinator.first ?
@@ -11141,16 +5522,14 @@ function addCombinator( matcher, combinator, base ) {
 						// Defend against cloned attroperties (jQuery gh-1709)
 						uniqueCache = outerCache[ elem.uniqueID ] || (outerCache[ elem.uniqueID ] = {});
 
-						if ( skip && skip === elem.nodeName.toLowerCase() ) {
-							elem = elem[ dir ] || elem;
-						} else if ( (oldCache = uniqueCache[ key ]) &&
+						if ( (oldCache = uniqueCache[ dir ]) &&
 							oldCache[ 0 ] === dirruns && oldCache[ 1 ] === doneName ) {
 
 							// Assign to newCache so results back-propagate to previous elements
 							return (newCache[ 2 ] = oldCache[ 2 ]);
 						} else {
 							// Reuse newcache so results back-propagate to previous elements
-							uniqueCache[ key ] = newCache;
+							uniqueCache[ dir ] = newCache;
 
 							// A match means we're done; a fail means we have to keep checking
 							if ( (newCache[ 2 ] = matcher( elem, context, xml )) ) {
@@ -11593,17 +5972,17 @@ setDocument();
 
 // Support: Webkit<537.32 - Safari 6.0.3/Chrome 25 (fixed in Chrome 27)
 // Detached nodes confoundingly follow *each other*
-support.sortDetached = assert(function( el ) {
+support.sortDetached = assert(function( div1 ) {
 	// Should return 1, but returns 4 (following)
-	return el.compareDocumentPosition( document.createElement("fieldset") ) & 1;
+	return div1.compareDocumentPosition( document.createElement("div") ) & 1;
 });
 
 // Support: IE<8
 // Prevent attribute/property "interpolation"
-// https://msdn.microsoft.com/en-us/library/ms536429%28VS.85%29.aspx
-if ( !assert(function( el ) {
-	el.innerHTML = "<a href='#'></a>";
-	return el.firstChild.getAttribute("href") === "#" ;
+// http://msdn.microsoft.com/en-us/library/ms536429%28VS.85%29.aspx
+if ( !assert(function( div ) {
+	div.innerHTML = "<a href='#'></a>";
+	return div.firstChild.getAttribute("href") === "#" ;
 }) ) {
 	addHandle( "type|href|height|width", function( elem, name, isXML ) {
 		if ( !isXML ) {
@@ -11614,10 +5993,10 @@ if ( !assert(function( el ) {
 
 // Support: IE<9
 // Use defaultValue in place of getAttribute("value")
-if ( !support.attributes || !assert(function( el ) {
-	el.innerHTML = "<input/>";
-	el.firstChild.setAttribute( "value", "" );
-	return el.firstChild.getAttribute( "value" ) === "";
+if ( !support.attributes || !assert(function( div ) {
+	div.innerHTML = "<input/>";
+	div.firstChild.setAttribute( "value", "" );
+	return div.firstChild.getAttribute( "value" ) === "";
 }) ) {
 	addHandle( "value", function( elem, name, isXML ) {
 		if ( !isXML && elem.nodeName.toLowerCase() === "input" ) {
@@ -11628,8 +6007,8 @@ if ( !support.attributes || !assert(function( el ) {
 
 // Support: IE<9
 // Use getAttributeNode to fetch booleans when getAttribute lies
-if ( !assert(function( el ) {
-	return el.getAttribute("disabled") == null;
+if ( !assert(function( div ) {
+	return div.getAttribute("disabled") == null;
 }) ) {
 	addHandle( booleans, function( elem, name, isXML ) {
 		var val;
@@ -11650,15 +6029,11 @@ return Sizzle;
 
 jQuery.find = Sizzle;
 jQuery.expr = Sizzle.selectors;
-
-// Deprecated
 jQuery.expr[ ":" ] = jQuery.expr.pseudos;
 jQuery.uniqueSort = jQuery.unique = Sizzle.uniqueSort;
 jQuery.text = Sizzle.getText;
 jQuery.isXMLDoc = Sizzle.isXML;
 jQuery.contains = Sizzle.contains;
-jQuery.escapeSelector = Sizzle.escape;
-
 
 
 
@@ -11693,7 +6068,7 @@ var siblings = function( n, elem ) {
 
 var rneedsContext = jQuery.expr.match.needsContext;
 
-var rsingleTag = ( /^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i );
+var rsingleTag = ( /^<([\w-]+)\s*\/?>(?:<\/\1>|)$/ );
 
 
 
@@ -11703,6 +6078,7 @@ var risSimple = /^.[^:#\[\.,]*$/;
 function winnow( elements, qualifier, not ) {
 	if ( jQuery.isFunction( qualifier ) ) {
 		return jQuery.grep( elements, function( elem, i ) {
+			/* jshint -W018 */
 			return !!qualifier.call( elem, i, elem ) !== not;
 		} );
 
@@ -11724,7 +6100,7 @@ function winnow( elements, qualifier, not ) {
 	}
 
 	return jQuery.grep( elements, function( elem ) {
-		return ( indexOf.call( qualifier, elem ) > -1 ) !== not && elem.nodeType === 1;
+		return ( indexOf.call( qualifier, elem ) > -1 ) !== not;
 	} );
 }
 
@@ -11744,8 +6120,9 @@ jQuery.filter = function( expr, elems, not ) {
 
 jQuery.fn.extend( {
 	find: function( selector ) {
-		var i, ret,
+		var i,
 			len = this.length,
+			ret = [],
 			self = this;
 
 		if ( typeof selector !== "string" ) {
@@ -11758,13 +6135,14 @@ jQuery.fn.extend( {
 			} ) );
 		}
 
-		ret = this.pushStack( [] );
-
 		for ( i = 0; i < len; i++ ) {
 			jQuery.find( selector, self[ i ], ret );
 		}
 
-		return len > 1 ? jQuery.uniqueSort( ret ) : ret;
+		// Needed because $( selector, context ) becomes $( context ).find( selector )
+		ret = this.pushStack( len > 1 ? jQuery.unique( ret ) : ret );
+		ret.selector = this.selector ? this.selector + " " + selector : selector;
+		return ret;
 	},
 	filter: function( selector ) {
 		return this.pushStack( winnow( this, selector || [], false ) );
@@ -11796,8 +6174,7 @@ var rootjQuery,
 	// A simple way to check for HTML strings
 	// Prioritize #id over <tag> to avoid XSS via location.hash (#9521)
 	// Strict HTML recognition (#11290: must start with <)
-	// Shortcut simple #id case for speed
-	rquickExpr = /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]+))$/,
+	rquickExpr = /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]*))$/,
 
 	init = jQuery.fn.init = function( selector, context, root ) {
 		var match, elem;
@@ -11860,12 +6237,17 @@ var rootjQuery,
 				} else {
 					elem = document.getElementById( match[ 2 ] );
 
-					if ( elem ) {
+					// Support: Blackberry 4.6
+					// gEBID returns nodes no longer in the document (#6963)
+					if ( elem && elem.parentNode ) {
 
 						// Inject the element directly into the jQuery object
-						this[ 0 ] = elem;
 						this.length = 1;
+						this[ 0 ] = elem;
 					}
+
+					this.context = document;
+					this.selector = selector;
 					return this;
 				}
 
@@ -11881,7 +6263,7 @@ var rootjQuery,
 
 		// HANDLE: $(DOMElement)
 		} else if ( selector.nodeType ) {
-			this[ 0 ] = selector;
+			this.context = this[ 0 ] = selector;
 			this.length = 1;
 			return this;
 
@@ -11893,6 +6275,11 @@ var rootjQuery,
 
 				// Execute immediately if ready is not present
 				selector( jQuery );
+		}
+
+		if ( selector.selector !== undefined ) {
+			this.selector = selector.selector;
+			this.context = selector.context;
 		}
 
 		return jQuery.makeArray( selector, this );
@@ -11935,24 +6322,23 @@ jQuery.fn.extend( {
 			i = 0,
 			l = this.length,
 			matched = [],
-			targets = typeof selectors !== "string" && jQuery( selectors );
+			pos = rneedsContext.test( selectors ) || typeof selectors !== "string" ?
+				jQuery( selectors, context || this.context ) :
+				0;
 
-		// Positional selectors never match, since there's no _selection_ context
-		if ( !rneedsContext.test( selectors ) ) {
-			for ( ; i < l; i++ ) {
-				for ( cur = this[ i ]; cur && cur !== context; cur = cur.parentNode ) {
+		for ( ; i < l; i++ ) {
+			for ( cur = this[ i ]; cur && cur !== context; cur = cur.parentNode ) {
 
-					// Always skip document fragments
-					if ( cur.nodeType < 11 && ( targets ?
-						targets.index( cur ) > -1 :
+				// Always skip document fragments
+				if ( cur.nodeType < 11 && ( pos ?
+					pos.index( cur ) > -1 :
 
-						// Don't pass non-elements to Sizzle
-						cur.nodeType === 1 &&
-							jQuery.find.matchesSelector( cur, selectors ) ) ) {
+					// Don't pass non-elements to Sizzle
+					cur.nodeType === 1 &&
+						jQuery.find.matchesSelector( cur, selectors ) ) ) {
 
-						matched.push( cur );
-						break;
-					}
+					matched.push( cur );
+					break;
 				}
 			}
 		}
@@ -12259,7 +6645,7 @@ jQuery.Callbacks = function( options ) {
 			// Abort any pending executions
 			lock: function() {
 				locked = queue = [];
-				if ( !memory && !firing ) {
+				if ( !memory ) {
 					list = memory = "";
 				}
 				return this;
@@ -12297,58 +6683,15 @@ jQuery.Callbacks = function( options ) {
 };
 
 
-function Identity( v ) {
-	return v;
-}
-function Thrower( ex ) {
-	throw ex;
-}
-
-function adoptValue( value, resolve, reject ) {
-	var method;
-
-	try {
-
-		// Check for promise aspect first to privilege synchronous behavior
-		if ( value && jQuery.isFunction( ( method = value.promise ) ) ) {
-			method.call( value ).done( resolve ).fail( reject );
-
-		// Other thenables
-		} else if ( value && jQuery.isFunction( ( method = value.then ) ) ) {
-			method.call( value, resolve, reject );
-
-		// Other non-thenables
-		} else {
-
-			// Support: Android 4.0 only
-			// Strict mode functions invoked without .call/.apply get global-object context
-			resolve.call( undefined, value );
-		}
-
-	// For Promises/A+, convert exceptions into rejections
-	// Since jQuery.when doesn't unwrap thenables, we can skip the extra checks appearing in
-	// Deferred#then to conditionally suppress rejection.
-	} catch ( value ) {
-
-		// Support: Android 4.0 only
-		// Strict mode functions invoked without .call/.apply get global-object context
-		reject.call( undefined, value );
-	}
-}
-
 jQuery.extend( {
 
 	Deferred: function( func ) {
 		var tuples = [
 
-				// action, add listener, callbacks,
-				// ... .then handlers, argument index, [final state]
-				[ "notify", "progress", jQuery.Callbacks( "memory" ),
-					jQuery.Callbacks( "memory" ), 2 ],
-				[ "resolve", "done", jQuery.Callbacks( "once memory" ),
-					jQuery.Callbacks( "once memory" ), 0, "resolved" ],
-				[ "reject", "fail", jQuery.Callbacks( "once memory" ),
-					jQuery.Callbacks( "once memory" ), 1, "rejected" ]
+				// action, add listener, listener list, final state
+				[ "resolve", "done", jQuery.Callbacks( "once memory" ), "resolved" ],
+				[ "reject", "fail", jQuery.Callbacks( "once memory" ), "rejected" ],
+				[ "notify", "progress", jQuery.Callbacks( "memory" ) ]
 			],
 			state = "pending",
 			promise = {
@@ -12359,23 +6702,13 @@ jQuery.extend( {
 					deferred.done( arguments ).fail( arguments );
 					return this;
 				},
-				"catch": function( fn ) {
-					return promise.then( null, fn );
-				},
-
-				// Keep pipe for back-compat
-				pipe: function( /* fnDone, fnFail, fnProgress */ ) {
+				then: function( /* fnDone, fnFail, fnProgress */ ) {
 					var fns = arguments;
-
 					return jQuery.Deferred( function( newDefer ) {
 						jQuery.each( tuples, function( i, tuple ) {
+							var fn = jQuery.isFunction( fns[ i ] ) && fns[ i ];
 
-							// Map tuples (progress, done, fail) to arguments (done, fail, progress)
-							var fn = jQuery.isFunction( fns[ tuple[ 4 ] ] ) && fns[ tuple[ 4 ] ];
-
-							// deferred.progress(function() { bind to newDefer or newDefer.notify })
-							// deferred.done(function() { bind to newDefer or newDefer.resolve })
-							// deferred.fail(function() { bind to newDefer or newDefer.reject })
+							// deferred[ done | fail | progress ] for forwarding actions to newDefer
 							deferred[ tuple[ 1 ] ]( function() {
 								var returned = fn && fn.apply( this, arguments );
 								if ( returned && jQuery.isFunction( returned.promise ) ) {
@@ -12385,177 +6718,13 @@ jQuery.extend( {
 										.fail( newDefer.reject );
 								} else {
 									newDefer[ tuple[ 0 ] + "With" ](
-										this,
+										this === promise ? newDefer.promise() : this,
 										fn ? [ returned ] : arguments
 									);
 								}
 							} );
 						} );
 						fns = null;
-					} ).promise();
-				},
-				then: function( onFulfilled, onRejected, onProgress ) {
-					var maxDepth = 0;
-					function resolve( depth, deferred, handler, special ) {
-						return function() {
-							var that = this,
-								args = arguments,
-								mightThrow = function() {
-									var returned, then;
-
-									// Support: Promises/A+ section 2.3.3.3.3
-									// https://promisesaplus.com/#point-59
-									// Ignore double-resolution attempts
-									if ( depth < maxDepth ) {
-										return;
-									}
-
-									returned = handler.apply( that, args );
-
-									// Support: Promises/A+ section 2.3.1
-									// https://promisesaplus.com/#point-48
-									if ( returned === deferred.promise() ) {
-										throw new TypeError( "Thenable self-resolution" );
-									}
-
-									// Support: Promises/A+ sections 2.3.3.1, 3.5
-									// https://promisesaplus.com/#point-54
-									// https://promisesaplus.com/#point-75
-									// Retrieve `then` only once
-									then = returned &&
-
-										// Support: Promises/A+ section 2.3.4
-										// https://promisesaplus.com/#point-64
-										// Only check objects and functions for thenability
-										( typeof returned === "object" ||
-											typeof returned === "function" ) &&
-										returned.then;
-
-									// Handle a returned thenable
-									if ( jQuery.isFunction( then ) ) {
-
-										// Special processors (notify) just wait for resolution
-										if ( special ) {
-											then.call(
-												returned,
-												resolve( maxDepth, deferred, Identity, special ),
-												resolve( maxDepth, deferred, Thrower, special )
-											);
-
-										// Normal processors (resolve) also hook into progress
-										} else {
-
-											// ...and disregard older resolution values
-											maxDepth++;
-
-											then.call(
-												returned,
-												resolve( maxDepth, deferred, Identity, special ),
-												resolve( maxDepth, deferred, Thrower, special ),
-												resolve( maxDepth, deferred, Identity,
-													deferred.notifyWith )
-											);
-										}
-
-									// Handle all other returned values
-									} else {
-
-										// Only substitute handlers pass on context
-										// and multiple values (non-spec behavior)
-										if ( handler !== Identity ) {
-											that = undefined;
-											args = [ returned ];
-										}
-
-										// Process the value(s)
-										// Default process is resolve
-										( special || deferred.resolveWith )( that, args );
-									}
-								},
-
-								// Only normal processors (resolve) catch and reject exceptions
-								process = special ?
-									mightThrow :
-									function() {
-										try {
-											mightThrow();
-										} catch ( e ) {
-
-											if ( jQuery.Deferred.exceptionHook ) {
-												jQuery.Deferred.exceptionHook( e,
-													process.stackTrace );
-											}
-
-											// Support: Promises/A+ section 2.3.3.3.4.1
-											// https://promisesaplus.com/#point-61
-											// Ignore post-resolution exceptions
-											if ( depth + 1 >= maxDepth ) {
-
-												// Only substitute handlers pass on context
-												// and multiple values (non-spec behavior)
-												if ( handler !== Thrower ) {
-													that = undefined;
-													args = [ e ];
-												}
-
-												deferred.rejectWith( that, args );
-											}
-										}
-									};
-
-							// Support: Promises/A+ section 2.3.3.3.1
-							// https://promisesaplus.com/#point-57
-							// Re-resolve promises immediately to dodge false rejection from
-							// subsequent errors
-							if ( depth ) {
-								process();
-							} else {
-
-								// Call an optional hook to record the stack, in case of exception
-								// since it's otherwise lost when execution goes async
-								if ( jQuery.Deferred.getStackHook ) {
-									process.stackTrace = jQuery.Deferred.getStackHook();
-								}
-								window.setTimeout( process );
-							}
-						};
-					}
-
-					return jQuery.Deferred( function( newDefer ) {
-
-						// progress_handlers.add( ... )
-						tuples[ 0 ][ 3 ].add(
-							resolve(
-								0,
-								newDefer,
-								jQuery.isFunction( onProgress ) ?
-									onProgress :
-									Identity,
-								newDefer.notifyWith
-							)
-						);
-
-						// fulfilled_handlers.add( ... )
-						tuples[ 1 ][ 3 ].add(
-							resolve(
-								0,
-								newDefer,
-								jQuery.isFunction( onFulfilled ) ?
-									onFulfilled :
-									Identity
-							)
-						);
-
-						// rejected_handlers.add( ... )
-						tuples[ 2 ][ 3 ].add(
-							resolve(
-								0,
-								newDefer,
-								jQuery.isFunction( onRejected ) ?
-									onRejected :
-									Thrower
-							)
-						);
 					} ).promise();
 				},
 
@@ -12567,51 +6736,33 @@ jQuery.extend( {
 			},
 			deferred = {};
 
+		// Keep pipe for back-compat
+		promise.pipe = promise.then;
+
 		// Add list-specific methods
 		jQuery.each( tuples, function( i, tuple ) {
 			var list = tuple[ 2 ],
-				stateString = tuple[ 5 ];
+				stateString = tuple[ 3 ];
 
-			// promise.progress = list.add
-			// promise.done = list.add
-			// promise.fail = list.add
+			// promise[ done | fail | progress ] = list.add
 			promise[ tuple[ 1 ] ] = list.add;
 
 			// Handle state
 			if ( stateString ) {
-				list.add(
-					function() {
+				list.add( function() {
 
-						// state = "resolved" (i.e., fulfilled)
-						// state = "rejected"
-						state = stateString;
-					},
+					// state = [ resolved | rejected ]
+					state = stateString;
 
-					// rejected_callbacks.disable
-					// fulfilled_callbacks.disable
-					tuples[ 3 - i ][ 2 ].disable,
-
-					// progress_callbacks.lock
-					tuples[ 0 ][ 2 ].lock
-				);
+				// [ reject_list | resolve_list ].disable; progress_list.lock
+				}, tuples[ i ^ 1 ][ 2 ].disable, tuples[ 2 ][ 2 ].lock );
 			}
 
-			// progress_handlers.fire
-			// fulfilled_handlers.fire
-			// rejected_handlers.fire
-			list.add( tuple[ 3 ].fire );
-
-			// deferred.notify = function() { deferred.notifyWith(...) }
-			// deferred.resolve = function() { deferred.resolveWith(...) }
-			// deferred.reject = function() { deferred.rejectWith(...) }
+			// deferred[ resolve | reject | notify ]
 			deferred[ tuple[ 0 ] ] = function() {
-				deferred[ tuple[ 0 ] + "With" ]( this === deferred ? undefined : this, arguments );
+				deferred[ tuple[ 0 ] + "With" ]( this === deferred ? promise : this, arguments );
 				return this;
 			};
-
-			// deferred.notifyWith = list.fireWith
-			// deferred.resolveWith = list.fireWith
-			// deferred.rejectWith = list.fireWith
 			deferred[ tuple[ 0 ] + "With" ] = list.fireWith;
 		} );
 
@@ -12628,94 +6779,68 @@ jQuery.extend( {
 	},
 
 	// Deferred helper
-	when: function( singleValue ) {
-		var
-
-			// count of uncompleted subordinates
-			remaining = arguments.length,
-
-			// count of unprocessed arguments
-			i = remaining,
-
-			// subordinate fulfillment data
-			resolveContexts = Array( i ),
+	when: function( subordinate /* , ..., subordinateN */ ) {
+		var i = 0,
 			resolveValues = slice.call( arguments ),
+			length = resolveValues.length,
 
-			// the master Deferred
-			master = jQuery.Deferred(),
+			// the count of uncompleted subordinates
+			remaining = length !== 1 ||
+				( subordinate && jQuery.isFunction( subordinate.promise ) ) ? length : 0,
 
-			// subordinate callback factory
-			updateFunc = function( i ) {
+			// the master Deferred.
+			// If resolveValues consist of only a single Deferred, just use that.
+			deferred = remaining === 1 ? subordinate : jQuery.Deferred(),
+
+			// Update function for both resolve and progress values
+			updateFunc = function( i, contexts, values ) {
 				return function( value ) {
-					resolveContexts[ i ] = this;
-					resolveValues[ i ] = arguments.length > 1 ? slice.call( arguments ) : value;
-					if ( !( --remaining ) ) {
-						master.resolveWith( resolveContexts, resolveValues );
+					contexts[ i ] = this;
+					values[ i ] = arguments.length > 1 ? slice.call( arguments ) : value;
+					if ( values === progressValues ) {
+						deferred.notifyWith( contexts, values );
+					} else if ( !( --remaining ) ) {
+						deferred.resolveWith( contexts, values );
 					}
 				};
-			};
+			},
 
-		// Single- and empty arguments are adopted like Promise.resolve
-		if ( remaining <= 1 ) {
-			adoptValue( singleValue, master.done( updateFunc( i ) ).resolve, master.reject );
+			progressValues, progressContexts, resolveContexts;
 
-			// Use .then() to unwrap secondary thenables (cf. gh-3000)
-			if ( master.state() === "pending" ||
-				jQuery.isFunction( resolveValues[ i ] && resolveValues[ i ].then ) ) {
-
-				return master.then();
+		// Add listeners to Deferred subordinates; treat others as resolved
+		if ( length > 1 ) {
+			progressValues = new Array( length );
+			progressContexts = new Array( length );
+			resolveContexts = new Array( length );
+			for ( ; i < length; i++ ) {
+				if ( resolveValues[ i ] && jQuery.isFunction( resolveValues[ i ].promise ) ) {
+					resolveValues[ i ].promise()
+						.progress( updateFunc( i, progressContexts, progressValues ) )
+						.done( updateFunc( i, resolveContexts, resolveValues ) )
+						.fail( deferred.reject );
+				} else {
+					--remaining;
+				}
 			}
 		}
 
-		// Multiple arguments are aggregated like Promise.all array elements
-		while ( i-- ) {
-			adoptValue( resolveValues[ i ], updateFunc( i ), master.reject );
+		// If we're not waiting on anything, resolve the master
+		if ( !remaining ) {
+			deferred.resolveWith( resolveContexts, resolveValues );
 		}
 
-		return master.promise();
+		return deferred.promise();
 	}
 } );
 
 
-// These usually indicate a programmer mistake during development,
-// warn about them ASAP rather than swallowing them by default.
-var rerrorNames = /^(Eval|Internal|Range|Reference|Syntax|Type|URI)Error$/;
-
-jQuery.Deferred.exceptionHook = function( error, stack ) {
-
-	// Support: IE 8 - 9 only
-	// Console exists when dev tools are open, which can happen at any time
-	if ( window.console && window.console.warn && error && rerrorNames.test( error.name ) ) {
-		window.console.warn( "jQuery.Deferred exception: " + error.message, error.stack, stack );
-	}
-};
-
-
-
-
-jQuery.readyException = function( error ) {
-	window.setTimeout( function() {
-		throw error;
-	} );
-};
-
-
-
-
 // The deferred used on DOM ready
-var readyList = jQuery.Deferred();
+var readyList;
 
 jQuery.fn.ready = function( fn ) {
 
-	readyList
-		.then( fn )
-
-		// Wrap jQuery.readyException in a function so that the lookup
-		// happens at the time of error handling instead of callback
-		// registration.
-		.catch( function( error ) {
-			jQuery.readyException( error );
-		} );
+	// Add the callback
+	jQuery.ready.promise().done( fn );
 
 	return this;
 };
@@ -12756,36 +6881,53 @@ jQuery.extend( {
 
 		// If there are functions bound, to execute
 		readyList.resolveWith( document, [ jQuery ] );
+
+		// Trigger any bound ready events
+		if ( jQuery.fn.triggerHandler ) {
+			jQuery( document ).triggerHandler( "ready" );
+			jQuery( document ).off( "ready" );
+		}
 	}
 } );
 
-jQuery.ready.then = readyList.then;
-
-// The ready event handler and self cleanup method
+/**
+ * The ready event handler and self cleanup method
+ */
 function completed() {
 	document.removeEventListener( "DOMContentLoaded", completed );
 	window.removeEventListener( "load", completed );
 	jQuery.ready();
 }
 
-// Catch cases where $(document).ready() is called
-// after the browser event has already occurred.
-// Support: IE <=9 - 10 only
-// Older IE sometimes signals "interactive" too soon
-if ( document.readyState === "complete" ||
-	( document.readyState !== "loading" && !document.documentElement.doScroll ) ) {
+jQuery.ready.promise = function( obj ) {
+	if ( !readyList ) {
 
-	// Handle it asynchronously to allow scripts the opportunity to delay ready
-	window.setTimeout( jQuery.ready );
+		readyList = jQuery.Deferred();
 
-} else {
+		// Catch cases where $(document).ready() is called
+		// after the browser event has already occurred.
+		// Support: IE9-10 only
+		// Older IE sometimes signals "interactive" too soon
+		if ( document.readyState === "complete" ||
+			( document.readyState !== "loading" && !document.documentElement.doScroll ) ) {
 
-	// Use the handy event callback
-	document.addEventListener( "DOMContentLoaded", completed );
+			// Handle it asynchronously to allow scripts the opportunity to delay ready
+			window.setTimeout( jQuery.ready );
 
-	// A fallback to window.onload, that will always work
-	window.addEventListener( "load", completed );
-}
+		} else {
+
+			// Use the handy event callback
+			document.addEventListener( "DOMContentLoaded", completed );
+
+			// A fallback to window.onload, that will always work
+			window.addEventListener( "load", completed );
+		}
+	}
+	return readyList.promise( obj );
+};
+
+// Kick off the DOM ready check even if the user does not
+jQuery.ready.promise();
 
 
 
@@ -12855,6 +6997,7 @@ var acceptData = function( owner ) {
 	//    - Node.DOCUMENT_NODE
 	//  - Object
 	//    - Any
+	/* jshint -W018 */
 	return owner.nodeType === 1 || owner.nodeType === 9 || !( +owner.nodeType );
 };
 
@@ -12869,7 +7012,34 @@ Data.uid = 1;
 
 Data.prototype = {
 
+	register: function( owner, initial ) {
+		var value = initial || {};
+
+		// If it is a node unlikely to be stringify-ed or looped over
+		// use plain assignment
+		if ( owner.nodeType ) {
+			owner[ this.expando ] = value;
+
+		// Otherwise secure it in a non-enumerable, non-writable property
+		// configurability must be true to allow the property to be
+		// deleted with the delete operator
+		} else {
+			Object.defineProperty( owner, this.expando, {
+				value: value,
+				writable: true,
+				configurable: true
+			} );
+		}
+		return owner[ this.expando ];
+	},
 	cache: function( owner ) {
+
+		// We can accept data for non-element nodes in modern browsers,
+		// but we should not, see #8335.
+		// Always return an empty object.
+		if ( !acceptData( owner ) ) {
+			return {};
+		}
 
 		// Check if the owner object already has a cache
 		var value = owner[ this.expando ];
@@ -12907,16 +7077,15 @@ Data.prototype = {
 			cache = this.cache( owner );
 
 		// Handle: [ owner, key, value ] args
-		// Always use camelCase key (gh-2257)
 		if ( typeof data === "string" ) {
-			cache[ jQuery.camelCase( data ) ] = value;
+			cache[ data ] = value;
 
 		// Handle: [ owner, { properties } ] args
 		} else {
 
 			// Copy the properties one-by-one to the cache object
 			for ( prop in data ) {
-				cache[ jQuery.camelCase( prop ) ] = data[ prop ];
+				cache[ prop ] = data[ prop ];
 			}
 		}
 		return cache;
@@ -12924,11 +7093,10 @@ Data.prototype = {
 	get: function( owner, key ) {
 		return key === undefined ?
 			this.cache( owner ) :
-
-			// Always use camelCase key (gh-2257)
-			owner[ this.expando ] && owner[ this.expando ][ jQuery.camelCase( key ) ];
+			owner[ this.expando ] && owner[ this.expando ][ key ];
 	},
 	access: function( owner, key, value ) {
+		var stored;
 
 		// In cases where either:
 		//
@@ -12944,7 +7112,10 @@ Data.prototype = {
 		if ( key === undefined ||
 				( ( key && typeof key === "string" ) && value === undefined ) ) {
 
-			return this.get( owner, key );
+			stored = this.get( owner, key );
+
+			return stored !== undefined ?
+				stored : this.get( owner, jQuery.camelCase( key ) );
 		}
 
 		// When the key is not a string, or both a key and value
@@ -12960,45 +7131,58 @@ Data.prototype = {
 		return value !== undefined ? value : key;
 	},
 	remove: function( owner, key ) {
-		var i,
+		var i, name, camel,
 			cache = owner[ this.expando ];
 
 		if ( cache === undefined ) {
 			return;
 		}
 
-		if ( key !== undefined ) {
+		if ( key === undefined ) {
+			this.register( owner );
+
+		} else {
 
 			// Support array or space separated string of keys
 			if ( jQuery.isArray( key ) ) {
 
-				// If key is an array of keys...
-				// We always set camelCase keys, so remove that.
-				key = key.map( jQuery.camelCase );
+				// If "name" is an array of keys...
+				// When data is initially created, via ("key", "val") signature,
+				// keys will be converted to camelCase.
+				// Since there is no way to tell _how_ a key was added, remove
+				// both plain key and camelCase key. #12786
+				// This will only penalize the array argument path.
+				name = key.concat( key.map( jQuery.camelCase ) );
 			} else {
-				key = jQuery.camelCase( key );
+				camel = jQuery.camelCase( key );
 
-				// If a key with the spaces exists, use it.
-				// Otherwise, create an array by matching non-whitespace
-				key = key in cache ?
-					[ key ] :
-					( key.match( rnotwhite ) || [] );
+				// Try the string as a key before any manipulation
+				if ( key in cache ) {
+					name = [ key, camel ];
+				} else {
+
+					// If a key with the spaces exists, use it.
+					// Otherwise, create an array by matching non-whitespace
+					name = camel;
+					name = name in cache ?
+						[ name ] : ( name.match( rnotwhite ) || [] );
+				}
 			}
 
-			i = key.length;
+			i = name.length;
 
 			while ( i-- ) {
-				delete cache[ key[ i ] ];
+				delete cache[ name[ i ] ];
 			}
 		}
 
 		// Remove the expando if there's no more data
 		if ( key === undefined || jQuery.isEmptyObject( cache ) ) {
 
-			// Support: Chrome <=35 - 45
+			// Support: Chrome <= 35-45+
 			// Webkit & Blink performance suffers when deleting properties
 			// from DOM nodes, so set to undefined instead
-			// https://bugs.chromium.org/p/chromium/issues/detail?id=378607 (bug restricted)
+			// https://code.google.com/p/chromium/issues/detail?id=378607
 			if ( owner.nodeType ) {
 				owner[ this.expando ] = undefined;
 			} else {
@@ -13047,7 +7231,7 @@ function dataAttr( elem, key, data ) {
 
 					// Only convert to a number if it doesn't change the string
 					+data + "" === data ? +data :
-					rbrace.test( data ) ? JSON.parse( data ) :
+					rbrace.test( data ) ? jQuery.parseJSON( data ) :
 					data;
 			} catch ( e ) {}
 
@@ -13099,7 +7283,7 @@ jQuery.fn.extend( {
 					i = attrs.length;
 					while ( i-- ) {
 
-						// Support: IE 11 only
+						// Support: IE11+
 						// The attrs elements can be null (#14894)
 						if ( attrs[ i ] ) {
 							name = attrs[ i ].name;
@@ -13124,7 +7308,7 @@ jQuery.fn.extend( {
 		}
 
 		return access( this, function( value ) {
-			var data;
+			var data, camelKey;
 
 			// The calling jQuery object (element matches) is not empty
 			// (and therefore has an element appears at this[ 0 ]) and the
@@ -13134,15 +7318,29 @@ jQuery.fn.extend( {
 			if ( elem && value === undefined ) {
 
 				// Attempt to get data from the cache
-				// The key will always be camelCased in Data
-				data = dataUser.get( elem, key );
+				// with the key as-is
+				data = dataUser.get( elem, key ) ||
+
+					// Try to find dashed key if it exists (gh-2779)
+					// This is for 2.2.x only
+					dataUser.get( elem, key.replace( rmultiDash, "-$&" ).toLowerCase() );
+
+				if ( data !== undefined ) {
+					return data;
+				}
+
+				camelKey = jQuery.camelCase( key );
+
+				// Attempt to get data from the cache
+				// with the key camelized
+				data = dataUser.get( elem, camelKey );
 				if ( data !== undefined ) {
 					return data;
 				}
 
 				// Attempt to "discover" the data in
 				// HTML5 custom data-* attrs
-				data = dataAttr( elem, key );
+				data = dataAttr( elem, camelKey, undefined );
 				if ( data !== undefined ) {
 					return data;
 				}
@@ -13152,10 +7350,24 @@ jQuery.fn.extend( {
 			}
 
 			// Set the data...
+			camelKey = jQuery.camelCase( key );
 			this.each( function() {
 
-				// We always store the camelCased key
-				dataUser.set( this, key, value );
+				// First, attempt to store a copy or reference of any
+				// data that might've been store with a camelCased key.
+				var data = dataUser.get( this, camelKey );
+
+				// For HTML5 data-* attribute interop, we have to
+				// store property names with dashes in a camelCase form.
+				// This might not apply to all properties...*
+				dataUser.set( this, camelKey, value );
+
+				// *... In the case of properties that might _actually_
+				// have dashes, we need to also store a copy of that
+				// unchanged property.
+				if ( key.indexOf( "-" ) > -1 && data !== undefined ) {
+					dataUser.set( this, key, value );
+				}
 			} );
 		}, null, value, arguments.length > 1, null, true );
 	},
@@ -13308,45 +7520,14 @@ var rcssNum = new RegExp( "^(?:([+-])=|)(" + pnum + ")([a-z%]*)$", "i" );
 
 var cssExpand = [ "Top", "Right", "Bottom", "Left" ];
 
-var isHiddenWithinTree = function( elem, el ) {
+var isHidden = function( elem, el ) {
 
-		// isHiddenWithinTree might be called from jQuery#filter function;
+		// isHidden might be called from jQuery#filter function;
 		// in that case, element will be second argument
 		elem = el || elem;
-
-		// Inline style trumps all
-		return elem.style.display === "none" ||
-			elem.style.display === "" &&
-
-			// Otherwise, check computed style
-			// Support: Firefox <=43 - 45
-			// Disconnected elements can have computed display: none, so first confirm that elem is
-			// in the document.
-			jQuery.contains( elem.ownerDocument, elem ) &&
-
-			jQuery.css( elem, "display" ) === "none";
+		return jQuery.css( elem, "display" ) === "none" ||
+			!jQuery.contains( elem.ownerDocument, elem );
 	};
-
-var swap = function( elem, options, callback, args ) {
-	var ret, name,
-		old = {};
-
-	// Remember the old values, and insert the new ones
-	for ( name in options ) {
-		old[ name ] = elem.style[ name ];
-		elem.style[ name ] = options[ name ];
-	}
-
-	ret = callback.apply( elem, args || [] );
-
-	// Revert the old values
-	for ( name in options ) {
-		elem.style[ name ] = old[ name ];
-	}
-
-	return ret;
-};
-
 
 
 
@@ -13355,12 +7536,8 @@ function adjustCSS( elem, prop, valueParts, tween ) {
 		scale = 1,
 		maxIterations = 20,
 		currentValue = tween ?
-			function() {
-				return tween.cur();
-			} :
-			function() {
-				return jQuery.css( elem, prop, "" );
-			},
+			function() { return tween.cur(); } :
+			function() { return jQuery.css( elem, prop, "" ); },
 		initial = currentValue(),
 		unit = valueParts && valueParts[ 3 ] || ( jQuery.cssNumber[ prop ] ? "" : "px" ),
 
@@ -13411,105 +7588,9 @@ function adjustCSS( elem, prop, valueParts, tween ) {
 	}
 	return adjusted;
 }
-
-
-var defaultDisplayMap = {};
-
-function getDefaultDisplay( elem ) {
-	var temp,
-		doc = elem.ownerDocument,
-		nodeName = elem.nodeName,
-		display = defaultDisplayMap[ nodeName ];
-
-	if ( display ) {
-		return display;
-	}
-
-	temp = doc.body.appendChild( doc.createElement( nodeName ) ),
-	display = jQuery.css( temp, "display" );
-
-	temp.parentNode.removeChild( temp );
-
-	if ( display === "none" ) {
-		display = "block";
-	}
-	defaultDisplayMap[ nodeName ] = display;
-
-	return display;
-}
-
-function showHide( elements, show ) {
-	var display, elem,
-		values = [],
-		index = 0,
-		length = elements.length;
-
-	// Determine new display value for elements that need to change
-	for ( ; index < length; index++ ) {
-		elem = elements[ index ];
-		if ( !elem.style ) {
-			continue;
-		}
-
-		display = elem.style.display;
-		if ( show ) {
-
-			// Since we force visibility upon cascade-hidden elements, an immediate (and slow)
-			// check is required in this first loop unless we have a nonempty display value (either
-			// inline or about-to-be-restored)
-			if ( display === "none" ) {
-				values[ index ] = dataPriv.get( elem, "display" ) || null;
-				if ( !values[ index ] ) {
-					elem.style.display = "";
-				}
-			}
-			if ( elem.style.display === "" && isHiddenWithinTree( elem ) ) {
-				values[ index ] = getDefaultDisplay( elem );
-			}
-		} else {
-			if ( display !== "none" ) {
-				values[ index ] = "none";
-
-				// Remember what we're overwriting
-				dataPriv.set( elem, "display", display );
-			}
-		}
-	}
-
-	// Set the display of the elements in a second loop to avoid constant reflow
-	for ( index = 0; index < length; index++ ) {
-		if ( values[ index ] != null ) {
-			elements[ index ].style.display = values[ index ];
-		}
-	}
-
-	return elements;
-}
-
-jQuery.fn.extend( {
-	show: function() {
-		return showHide( this, true );
-	},
-	hide: function() {
-		return showHide( this );
-	},
-	toggle: function( state ) {
-		if ( typeof state === "boolean" ) {
-			return state ? this.show() : this.hide();
-		}
-
-		return this.each( function() {
-			if ( isHiddenWithinTree( this ) ) {
-				jQuery( this ).show();
-			} else {
-				jQuery( this ).hide();
-			}
-		} );
-	}
-} );
 var rcheckableType = ( /^(?:checkbox|radio)$/i );
 
-var rtagName = ( /<([a-z][^\/\0>\x20\t\r\n\f]+)/i );
+var rtagName = ( /<([\w:-]+)/ );
 
 var rscriptType = ( /^$|\/(?:java|ecma)script/i );
 
@@ -13518,7 +7599,7 @@ var rscriptType = ( /^$|\/(?:java|ecma)script/i );
 // We have to close these tags to support XHTML (#13200)
 var wrapMap = {
 
-	// Support: IE <=9 only
+	// Support: IE9
 	option: [ 1, "<select multiple='multiple'>", "</select>" ],
 
 	// XHTML parsers do not magically insert elements in the
@@ -13532,7 +7613,7 @@ var wrapMap = {
 	_default: [ 0, "", "" ]
 };
 
-// Support: IE <=9 only
+// Support: IE9
 wrapMap.optgroup = wrapMap.option;
 
 wrapMap.tbody = wrapMap.tfoot = wrapMap.colgroup = wrapMap.caption = wrapMap.thead;
@@ -13541,7 +7622,7 @@ wrapMap.th = wrapMap.td;
 
 function getAll( context, tag ) {
 
-	// Support: IE <=9 - 11 only
+	// Support: IE9-11+
 	// Use typeof to avoid zero-argument method invocation on host objects (#15151)
 	var ret = typeof context.getElementsByTagName !== "undefined" ?
 			context.getElementsByTagName( tag || "*" ) :
@@ -13587,7 +7668,7 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 			// Add nodes directly
 			if ( jQuery.type( elem ) === "object" ) {
 
-				// Support: Android <=4.0 only, PhantomJS 1 only
+				// Support: Android<4.1, PhantomJS<2
 				// push.apply(_, arraylike) throws on ancient WebKit
 				jQuery.merge( nodes, elem.nodeType ? [ elem ] : elem );
 
@@ -13610,7 +7691,7 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 					tmp = tmp.lastChild;
 				}
 
-				// Support: Android <=4.0 only, PhantomJS 1 only
+				// Support: Android<4.1, PhantomJS<2
 				// push.apply(_, arraylike) throws on ancient WebKit
 				jQuery.merge( nodes, tmp.childNodes );
 
@@ -13667,7 +7748,7 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 		div = fragment.appendChild( document.createElement( "div" ) ),
 		input = document.createElement( "input" );
 
-	// Support: Android 4.0 - 4.3 only
+	// Support: Android 4.0-4.3, Safari<=5.1
 	// Check state lost if the name is set (#11217)
 	// Support: Windows Web Apps (WWA)
 	// `name` and `type` must use .setAttribute for WWA (#14901)
@@ -13677,17 +7758,15 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 
 	div.appendChild( input );
 
-	// Support: Android <=4.1 only
+	// Support: Safari<=5.1, Android<4.2
 	// Older WebKit doesn't clone checked state correctly in fragments
 	support.checkClone = div.cloneNode( true ).cloneNode( true ).lastChild.checked;
 
-	// Support: IE <=11 only
+	// Support: IE<=11+
 	// Make sure textarea (and checkbox) defaultValue is properly cloned
 	div.innerHTML = "<textarea>x</textarea>";
 	support.noCloneChecked = !!div.cloneNode( true ).lastChild.defaultValue;
 } )();
-var documentElement = document.documentElement;
-
 
 
 var
@@ -13703,7 +7782,7 @@ function returnFalse() {
 	return false;
 }
 
-// Support: IE <=9 only
+// Support: IE9
 // See #13393 for more info
 function safeActiveElement() {
 	try {
@@ -13797,12 +7876,6 @@ jQuery.event = {
 			handleObjIn = handler;
 			handler = handleObjIn.handler;
 			selector = handleObjIn.selector;
-		}
-
-		// Ensure that invalid selectors throw exceptions at attach time
-		// Evaluate against documentElement in case elem is a non-element node (e.g., document)
-		if ( selector ) {
-			jQuery.find.matchesSelector( documentElement, selector );
 		}
 
 		// Make sure that the handler has a unique ID, used to find/remove it later
@@ -13968,23 +8041,19 @@ jQuery.event = {
 		}
 	},
 
-	dispatch: function( nativeEvent ) {
+	dispatch: function( event ) {
 
 		// Make a writable jQuery.Event from the native event object
-		var event = jQuery.event.fix( nativeEvent );
+		event = jQuery.event.fix( event );
 
-		var i, j, ret, matched, handleObj, handlerQueue,
-			args = new Array( arguments.length ),
+		var i, j, ret, matched, handleObj,
+			handlerQueue = [],
+			args = slice.call( arguments ),
 			handlers = ( dataPriv.get( this, "events" ) || {} )[ event.type ] || [],
 			special = jQuery.event.special[ event.type ] || {};
 
 		// Use the fix-ed jQuery.Event rather than the (read-only) native event
 		args[ 0 ] = event;
-
-		for ( i = 1; i < arguments.length; i++ ) {
-			args[ i ] = arguments[ i ];
-		}
-
 		event.delegateTarget = this;
 
 		// Call the preDispatch hook for the mapped type, and let it bail if desired
@@ -14038,11 +8107,11 @@ jQuery.event = {
 			delegateCount = handlers.delegateCount,
 			cur = event.target;
 
-		// Support: IE <=9
+		// Support (at least): Chrome, IE9
 		// Find delegate handlers
 		// Black-hole SVG <use> instance trees (#13180)
 		//
-		// Support: Firefox <=42
+		// Support: Firefox<=42+
 		// Avoid non-left-click in FF but don't block IE radio events (#3861, gh-2343)
 		if ( delegateCount && cur.nodeType &&
 			( event.type !== "click" || isNaN( event.button ) || event.button < 1 ) ) {
@@ -14083,38 +8152,96 @@ jQuery.event = {
 		return handlerQueue;
 	},
 
-	addProp: function( name, hook ) {
-		Object.defineProperty( jQuery.Event.prototype, name, {
-			enumerable: true,
-			configurable: true,
+	// Includes some event props shared by KeyEvent and MouseEvent
+	props: ( "altKey bubbles cancelable ctrlKey currentTarget detail eventPhase " +
+		"metaKey relatedTarget shiftKey target timeStamp view which" ).split( " " ),
 
-			get: jQuery.isFunction( hook ) ?
-				function() {
-					if ( this.originalEvent ) {
-							return hook( this.originalEvent );
-					}
-				} :
-				function() {
-					if ( this.originalEvent ) {
-							return this.originalEvent[ name ];
-					}
-				},
+	fixHooks: {},
 
-			set: function( value ) {
-				Object.defineProperty( this, name, {
-					enumerable: true,
-					configurable: true,
-					writable: true,
-					value: value
-				} );
+	keyHooks: {
+		props: "char charCode key keyCode".split( " " ),
+		filter: function( event, original ) {
+
+			// Add which for key events
+			if ( event.which == null ) {
+				event.which = original.charCode != null ? original.charCode : original.keyCode;
 			}
-		} );
+
+			return event;
+		}
 	},
 
-	fix: function( originalEvent ) {
-		return originalEvent[ jQuery.expando ] ?
-			originalEvent :
-			new jQuery.Event( originalEvent );
+	mouseHooks: {
+		props: ( "button buttons clientX clientY offsetX offsetY pageX pageY " +
+			"screenX screenY toElement" ).split( " " ),
+		filter: function( event, original ) {
+			var eventDoc, doc, body,
+				button = original.button;
+
+			// Calculate pageX/Y if missing and clientX/Y available
+			if ( event.pageX == null && original.clientX != null ) {
+				eventDoc = event.target.ownerDocument || document;
+				doc = eventDoc.documentElement;
+				body = eventDoc.body;
+
+				event.pageX = original.clientX +
+					( doc && doc.scrollLeft || body && body.scrollLeft || 0 ) -
+					( doc && doc.clientLeft || body && body.clientLeft || 0 );
+				event.pageY = original.clientY +
+					( doc && doc.scrollTop  || body && body.scrollTop  || 0 ) -
+					( doc && doc.clientTop  || body && body.clientTop  || 0 );
+			}
+
+			// Add which for click: 1 === left; 2 === middle; 3 === right
+			// Note: button is not normalized, so don't use it
+			if ( !event.which && button !== undefined ) {
+				event.which = ( button & 1 ? 1 : ( button & 2 ? 3 : ( button & 4 ? 2 : 0 ) ) );
+			}
+
+			return event;
+		}
+	},
+
+	fix: function( event ) {
+		if ( event[ jQuery.expando ] ) {
+			return event;
+		}
+
+		// Create a writable copy of the event object and normalize some properties
+		var i, prop, copy,
+			type = event.type,
+			originalEvent = event,
+			fixHook = this.fixHooks[ type ];
+
+		if ( !fixHook ) {
+			this.fixHooks[ type ] = fixHook =
+				rmouseEvent.test( type ) ? this.mouseHooks :
+				rkeyEvent.test( type ) ? this.keyHooks :
+				{};
+		}
+		copy = fixHook.props ? this.props.concat( fixHook.props ) : this.props;
+
+		event = new jQuery.Event( originalEvent );
+
+		i = copy.length;
+		while ( i-- ) {
+			prop = copy[ i ];
+			event[ prop ] = originalEvent[ prop ];
+		}
+
+		// Support: Cordova 2.5 (WebKit) (#13255)
+		// All events should have a target; Cordova deviceready doesn't
+		if ( !event.target ) {
+			event.target = document;
+		}
+
+		// Support: Safari 6.0+, Chrome<28
+		// Target should not be a text node (#504, #13143)
+		if ( event.target.nodeType === 3 ) {
+			event.target = event.target.parentNode;
+		}
+
+		return fixHook.filter ? fixHook.filter( event, originalEvent ) : event;
 	},
 
 	special: {
@@ -14197,20 +8324,10 @@ jQuery.Event = function( src, props ) {
 		this.isDefaultPrevented = src.defaultPrevented ||
 				src.defaultPrevented === undefined &&
 
-				// Support: Android <=2.3 only
+				// Support: Android<4.0
 				src.returnValue === false ?
 			returnTrue :
 			returnFalse;
-
-		// Create target properties
-		// Support: Safari <=6 - 7 only
-		// Target should not be a text node (#504, #13143)
-		this.target = ( src.target && src.target.nodeType === 3 ) ?
-			src.target.parentNode :
-			src.target;
-
-		this.currentTarget = src.currentTarget;
-		this.relatedTarget = src.relatedTarget;
 
 	// Event type
 	} else {
@@ -14230,7 +8347,7 @@ jQuery.Event = function( src, props ) {
 };
 
 // jQuery.Event is based on DOM3 Events as specified by the ECMAScript Language Binding
-// https://www.w3.org/TR/2003/WD-DOM-Level-3-Events-20030331/ecma-script-binding.html
+// http://www.w3.org/TR/2003/WD-DOM-Level-3-Events-20030331/ecma-script-binding.html
 jQuery.Event.prototype = {
 	constructor: jQuery.Event,
 	isDefaultPrevented: returnFalse,
@@ -14269,62 +8386,13 @@ jQuery.Event.prototype = {
 	}
 };
 
-// Includes all common event props including KeyEvent and MouseEvent specific props
-jQuery.each( {
-	altKey: true,
-	bubbles: true,
-	cancelable: true,
-	changedTouches: true,
-	ctrlKey: true,
-	detail: true,
-	eventPhase: true,
-	metaKey: true,
-	pageX: true,
-	pageY: true,
-	shiftKey: true,
-	view: true,
-	"char": true,
-	charCode: true,
-	key: true,
-	keyCode: true,
-	button: true,
-	buttons: true,
-	clientX: true,
-	clientY: true,
-	offsetX: true,
-	offsetY: true,
-	pointerId: true,
-	pointerType: true,
-	screenX: true,
-	screenY: true,
-	targetTouches: true,
-	toElement: true,
-	touches: true,
-
-	which: function( event ) {
-		var button = event.button;
-
-		// Add which for key events
-		if ( event.which == null && rkeyEvent.test( event.type ) ) {
-			return event.charCode != null ? event.charCode : event.keyCode;
-		}
-
-		// Add which for click: 1 === left; 2 === middle; 3 === right
-		if ( !event.which && button !== undefined && rmouseEvent.test( event.type ) ) {
-			return ( button & 1 ? 1 : ( button & 2 ? 3 : ( button & 4 ? 2 : 0 ) ) );
-		}
-
-		return event.which;
-	}
-}, jQuery.event.addProp );
-
 // Create mouseenter/leave events using mouseover/out and event-time checks
 // so that event delegation works in jQuery.
 // Do the same for pointerenter/pointerleave and pointerover/pointerout
 //
 // Support: Safari 7 only
 // Safari sends mouseenter too often; see:
-// https://bugs.chromium.org/p/chromium/issues/detail?id=470258
+// https://code.google.com/p/chromium/issues/detail?id=470258
 // for the description of the bug (it existed in older Chrome versions as well).
 jQuery.each( {
 	mouseenter: "mouseover",
@@ -14355,7 +8423,6 @@ jQuery.each( {
 } );
 
 jQuery.fn.extend( {
-
 	on: function( types, selector, data, fn ) {
 		return on( this, types, selector, data, fn );
 	},
@@ -14402,15 +8469,9 @@ jQuery.fn.extend( {
 
 
 var
+	rxhtmlTag = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([\w:-]+)[^>]*)\/>/gi,
 
-	/* eslint-disable max-len */
-
-	// See https://github.com/eslint/eslint/issues/3229
-	rxhtmlTag = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([a-z][^\/\0>\x20\t\r\n\f]*)[^>]*)\/>/gi,
-
-	/* eslint-enable */
-
-	// Support: IE <=10 - 11, Edge 12 - 13
+	// Support: IE 10-11, Edge 10240+
 	// In IE/Edge using regex groups here causes severe slowdowns.
 	// See https://connect.microsoft.com/IE/feedback/details/1736512/
 	rnoInnerhtml = /<script|<style|<link/i,
@@ -14420,14 +8481,14 @@ var
 	rscriptTypeMasked = /^true\/(.*)/,
 	rcleanScript = /^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g;
 
+// Manipulating tables requires a tbody
 function manipulationTarget( elem, content ) {
-	if ( jQuery.nodeName( elem, "table" ) &&
-		jQuery.nodeName( content.nodeType !== 11 ? content : content.firstChild, "tr" ) ) {
+	return jQuery.nodeName( elem, "table" ) &&
+		jQuery.nodeName( content.nodeType !== 11 ? content : content.firstChild, "tr" ) ?
 
-		return elem.getElementsByTagName( "tbody" )[ 0 ] || elem;
-	}
-
-	return elem;
+		elem.getElementsByTagName( "tbody" )[ 0 ] ||
+			elem.appendChild( elem.ownerDocument.createElement( "tbody" ) ) :
+		elem;
 }
 
 // Replace/restore the type attribute of script elements for safe DOM manipulation
@@ -14545,7 +8606,7 @@ function domManip( collection, args, callback, ignored ) {
 					// Keep references to cloned scripts for later restoration
 					if ( hasScripts ) {
 
-						// Support: Android <=4.0 only, PhantomJS 1 only
+						// Support: Android<4.1, PhantomJS<2
 						// push.apply(_, arraylike) throws on ancient WebKit
 						jQuery.merge( scripts, getAll( node, "script" ) );
 					}
@@ -14574,7 +8635,7 @@ function domManip( collection, args, callback, ignored ) {
 								jQuery._evalUrl( node.src );
 							}
 						} else {
-							DOMEval( node.textContent.replace( rcleanScript, "" ), doc );
+							jQuery.globalEval( node.textContent.replace( rcleanScript, "" ) );
 						}
 					}
 				}
@@ -14620,7 +8681,7 @@ jQuery.extend( {
 		if ( !support.noCloneChecked && ( elem.nodeType === 1 || elem.nodeType === 11 ) &&
 				!jQuery.isXMLDoc( elem ) ) {
 
-			// We eschew Sizzle here for performance reasons: https://jsperf.com/getall-vs-sizzle/2
+			// We eschew Sizzle here for performance reasons: http://jsperf.com/getall-vs-sizzle/2
 			destElements = getAll( clone );
 			srcElements = getAll( elem );
 
@@ -14673,13 +8734,13 @@ jQuery.extend( {
 						}
 					}
 
-					// Support: Chrome <=35 - 45+
+					// Support: Chrome <= 35-45+
 					// Assign undefined instead of using delete, see Data#remove
 					elem[ dataPriv.expando ] = undefined;
 				}
 				if ( elem[ dataUser.expando ] ) {
 
-					// Support: Chrome <=35 - 45+
+					// Support: Chrome <= 35-45+
 					// Assign undefined instead of using delete, see Data#remove
 					elem[ dataUser.expando ] = undefined;
 				}
@@ -14689,6 +8750,10 @@ jQuery.extend( {
 } );
 
 jQuery.fn.extend( {
+
+	// Keep domManip exposed until 3.0 (gh-2225)
+	domManip: domManip,
+
 	detach: function( selector ) {
 		return remove( this, selector, true );
 	},
@@ -14846,21 +8911,86 @@ jQuery.each( {
 			elems = i === last ? this : this.clone( true );
 			jQuery( insert[ i ] )[ original ]( elems );
 
-			// Support: Android <=4.0 only, PhantomJS 1 only
-			// .get() because push.apply(_, arraylike) throws on ancient WebKit
+			// Support: QtWebKit
+			// .get() because push.apply(_, arraylike) throws
 			push.apply( ret, elems.get() );
 		}
 
 		return this.pushStack( ret );
 	};
 } );
+
+
+var iframe,
+	elemdisplay = {
+
+		// Support: Firefox
+		// We have to pre-define these values for FF (#10227)
+		HTML: "block",
+		BODY: "block"
+	};
+
+/**
+ * Retrieve the actual display of a element
+ * @param {String} name nodeName of the element
+ * @param {Object} doc Document object
+ */
+
+// Called only from within defaultDisplay
+function actualDisplay( name, doc ) {
+	var elem = jQuery( doc.createElement( name ) ).appendTo( doc.body ),
+
+		display = jQuery.css( elem[ 0 ], "display" );
+
+	// We don't have any data stored on the element,
+	// so use "detach" method as fast way to get rid of the element
+	elem.detach();
+
+	return display;
+}
+
+/**
+ * Try to determine the default display value of an element
+ * @param {String} nodeName
+ */
+function defaultDisplay( nodeName ) {
+	var doc = document,
+		display = elemdisplay[ nodeName ];
+
+	if ( !display ) {
+		display = actualDisplay( nodeName, doc );
+
+		// If the simple way fails, read from inside an iframe
+		if ( display === "none" || !display ) {
+
+			// Use the already-created iframe if possible
+			iframe = ( iframe || jQuery( "<iframe frameborder='0' width='0' height='0'/>" ) )
+				.appendTo( doc.documentElement );
+
+			// Always write a new HTML skeleton so Webkit and Firefox don't choke on reuse
+			doc = iframe[ 0 ].contentDocument;
+
+			// Support: IE
+			doc.write();
+			doc.close();
+
+			display = actualDisplay( nodeName, doc );
+			iframe.detach();
+		}
+
+		// Store the correct default display
+		elemdisplay[ nodeName ] = display;
+	}
+
+	return display;
+}
 var rmargin = ( /^margin/ );
 
 var rnumnonpx = new RegExp( "^(" + pnum + ")(?!px)[a-z%]+$", "i" );
 
 var getStyles = function( elem ) {
 
-		// Support: IE <=11 only, Firefox <=30 (#15098, #14150)
+		// Support: IE<=11+, Firefox<=30+ (#15098, #14150)
 		// IE throws on elements created in popups
 		// FF meanwhile throws on frame elements through "defaultView.getComputedStyle"
 		var view = elem.ownerDocument.defaultView;
@@ -14872,46 +9002,32 @@ var getStyles = function( elem ) {
 		return view.getComputedStyle( elem );
 	};
 
+var swap = function( elem, options, callback, args ) {
+	var ret, name,
+		old = {};
+
+	// Remember the old values, and insert the new ones
+	for ( name in options ) {
+		old[ name ] = elem.style[ name ];
+		elem.style[ name ] = options[ name ];
+	}
+
+	ret = callback.apply( elem, args || [] );
+
+	// Revert the old values
+	for ( name in options ) {
+		elem.style[ name ] = old[ name ];
+	}
+
+	return ret;
+};
+
+
+var documentElement = document.documentElement;
+
 
 
 ( function() {
-
-	// Executing both pixelPosition & boxSizingReliable tests require only one layout
-	// so they're executed at the same time to save the second computation.
-	function computeStyleTests() {
-
-		// This is a singleton, we need to execute it only once
-		if ( !div ) {
-			return;
-		}
-
-		div.style.cssText =
-			"box-sizing:border-box;" +
-			"position:relative;display:block;" +
-			"margin:auto;border:1px;padding:1px;" +
-			"top:1%;width:50%";
-		div.innerHTML = "";
-		documentElement.appendChild( container );
-
-		var divStyle = window.getComputedStyle( div );
-		pixelPositionVal = divStyle.top !== "1%";
-
-		// Support: Android 4.0 - 4.3 only, Firefox <=3 - 44
-		reliableMarginLeftVal = divStyle.marginLeft === "2px";
-		boxSizingReliableVal = divStyle.width === "4px";
-
-		// Support: Android 4.0 - 4.3 only
-		// Some styles come back with percentage values, even though they shouldn't
-		div.style.marginRight = "50%";
-		pixelMarginRightVal = divStyle.marginRight === "4px";
-
-		documentElement.removeChild( container );
-
-		// Nullify the div so it wouldn't be stored in the memory and
-		// it will also be a sign that checks already performed
-		div = null;
-	}
-
 	var pixelPositionVal, boxSizingReliableVal, pixelMarginRightVal, reliableMarginLeftVal,
 		container = document.createElement( "div" ),
 		div = document.createElement( "div" );
@@ -14921,7 +9037,7 @@ var getStyles = function( elem ) {
 		return;
 	}
 
-	// Support: IE <=9 - 11 only
+	// Support: IE9-11+
 	// Style of cloned element affects source element cloned (#8908)
 	div.style.backgroundClip = "content-box";
 	div.cloneNode( true ).style.backgroundClip = "";
@@ -14931,22 +9047,93 @@ var getStyles = function( elem ) {
 		"padding:0;margin-top:1px;position:absolute";
 	container.appendChild( div );
 
+	// Executing both pixelPosition & boxSizingReliable tests require only one layout
+	// so they're executed at the same time to save the second computation.
+	function computeStyleTests() {
+		div.style.cssText =
+
+			// Support: Firefox<29, Android 2.3
+			// Vendor-prefix box-sizing
+			"-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;" +
+			"position:relative;display:block;" +
+			"margin:auto;border:1px;padding:1px;" +
+			"top:1%;width:50%";
+		div.innerHTML = "";
+		documentElement.appendChild( container );
+
+		var divStyle = window.getComputedStyle( div );
+		pixelPositionVal = divStyle.top !== "1%";
+		reliableMarginLeftVal = divStyle.marginLeft === "2px";
+		boxSizingReliableVal = divStyle.width === "4px";
+
+		// Support: Android 4.0 - 4.3 only
+		// Some styles come back with percentage values, even though they shouldn't
+		div.style.marginRight = "50%";
+		pixelMarginRightVal = divStyle.marginRight === "4px";
+
+		documentElement.removeChild( container );
+	}
+
 	jQuery.extend( support, {
 		pixelPosition: function() {
+
+			// This test is executed only once but we still do memoizing
+			// since we can use the boxSizingReliable pre-computing.
+			// No need to check if the test was already performed, though.
 			computeStyleTests();
 			return pixelPositionVal;
 		},
 		boxSizingReliable: function() {
-			computeStyleTests();
+			if ( boxSizingReliableVal == null ) {
+				computeStyleTests();
+			}
 			return boxSizingReliableVal;
 		},
 		pixelMarginRight: function() {
-			computeStyleTests();
+
+			// Support: Android 4.0-4.3
+			// We're checking for boxSizingReliableVal here instead of pixelMarginRightVal
+			// since that compresses better and they're computed together anyway.
+			if ( boxSizingReliableVal == null ) {
+				computeStyleTests();
+			}
 			return pixelMarginRightVal;
 		},
 		reliableMarginLeft: function() {
-			computeStyleTests();
+
+			// Support: IE <=8 only, Android 4.0 - 4.3 only, Firefox <=3 - 37
+			if ( boxSizingReliableVal == null ) {
+				computeStyleTests();
+			}
 			return reliableMarginLeftVal;
+		},
+		reliableMarginRight: function() {
+
+			// Support: Android 2.3
+			// Check if div with explicit width and no margin-right incorrectly
+			// gets computed margin-right based on width of container. (#3333)
+			// WebKit Bug 13343 - getComputedStyle returns wrong value for margin-right
+			// This support function is only executed once so no memoizing is needed.
+			var ret,
+				marginDiv = div.appendChild( document.createElement( "div" ) );
+
+			// Reset CSS: box-sizing; display; margin; border; padding
+			marginDiv.style.cssText = div.style.cssText =
+
+				// Support: Android 2.3
+				// Vendor-prefix box-sizing
+				"-webkit-box-sizing:content-box;box-sizing:content-box;" +
+				"display:block;margin:0;border:0;padding:0";
+			marginDiv.style.marginRight = marginDiv.style.width = "0";
+			div.style.width = "1px";
+			documentElement.appendChild( container );
+
+			ret = !parseFloat( window.getComputedStyle( marginDiv ).marginRight );
+
+			documentElement.removeChild( container );
+			div.removeChild( marginDiv );
+
+			return ret;
 		}
 	} );
 } )();
@@ -14957,21 +9144,24 @@ function curCSS( elem, name, computed ) {
 		style = elem.style;
 
 	computed = computed || getStyles( elem );
+	ret = computed ? computed.getPropertyValue( name ) || computed[ name ] : undefined;
 
-	// Support: IE <=9 only
+	// Support: Opera 12.1x only
+	// Fall back to style even without computed
+	// computed is undefined for elems on document fragments
+	if ( ( ret === "" || ret === undefined ) && !jQuery.contains( elem.ownerDocument, elem ) ) {
+		ret = jQuery.style( elem, name );
+	}
+
+	// Support: IE9
 	// getPropertyValue is only needed for .css('filter') (#12537)
 	if ( computed ) {
-		ret = computed.getPropertyValue( name ) || computed[ name ];
-
-		if ( ret === "" && !jQuery.contains( elem.ownerDocument, elem ) ) {
-			ret = jQuery.style( elem, name );
-		}
 
 		// A tribute to the "awesome hack by Dean Edwards"
 		// Android Browser returns percentage for some values,
 		// but width seems to be reliably pixels.
 		// This is against the CSSOM draft spec:
-		// https://drafts.csswg.org/cssom/#resolved-values
+		// http://dev.w3.org/csswg/cssom/#resolved-values
 		if ( !support.pixelMarginRight() && rnumnonpx.test( ret ) && rmargin.test( name ) ) {
 
 			// Remember the original values
@@ -14992,7 +9182,7 @@ function curCSS( elem, name, computed ) {
 
 	return ret !== undefined ?
 
-		// Support: IE <=9 - 11 only
+		// Support: IE9-11+
 		// IE returns zIndex value as an integer.
 		ret + "" :
 		ret;
@@ -15025,13 +9215,14 @@ var
 	// except "table", "table-cell", or "table-caption"
 	// See here for display values: https://developer.mozilla.org/en-US/docs/CSS/display
 	rdisplayswap = /^(none|table(?!-c[ea]).+)/,
+
 	cssShow = { position: "absolute", visibility: "hidden", display: "block" },
 	cssNormalTransform = {
 		letterSpacing: "0",
 		fontWeight: "400"
 	},
 
-	cssPrefixes = [ "Webkit", "Moz", "ms" ],
+	cssPrefixes = [ "Webkit", "O", "Moz", "ms" ],
 	emptyStyle = document.createElement( "div" ).style;
 
 // Return a css property mapped to a potentially vendor prefixed property
@@ -15113,17 +9304,10 @@ function augmentWidthOrHeight( elem, name, extra, isBorderBox, styles ) {
 function getWidthOrHeight( elem, name, extra ) {
 
 	// Start with offset property, which is equivalent to the border-box value
-	var val,
-		valueIsBorderBox = true,
+	var valueIsBorderBox = true,
+		val = name === "width" ? elem.offsetWidth : elem.offsetHeight,
 		styles = getStyles( elem ),
 		isBorderBox = jQuery.css( elem, "boxSizing", false, styles ) === "border-box";
-
-	// Support: IE <=11 only
-	// Running getBoundingClientRect on a disconnected node
-	// in IE throws an error.
-	if ( elem.getClientRects().length ) {
-		val = elem.getBoundingClientRect()[ name ];
-	}
 
 	// Some non-html elements return undefined for offsetWidth, so check for null/undefined
 	// svg - https://bugzilla.mozilla.org/show_bug.cgi?id=649285
@@ -15160,6 +9344,66 @@ function getWidthOrHeight( elem, name, extra ) {
 			styles
 		)
 	) + "px";
+}
+
+function showHide( elements, show ) {
+	var display, elem, hidden,
+		values = [],
+		index = 0,
+		length = elements.length;
+
+	for ( ; index < length; index++ ) {
+		elem = elements[ index ];
+		if ( !elem.style ) {
+			continue;
+		}
+
+		values[ index ] = dataPriv.get( elem, "olddisplay" );
+		display = elem.style.display;
+		if ( show ) {
+
+			// Reset the inline display of this element to learn if it is
+			// being hidden by cascaded rules or not
+			if ( !values[ index ] && display === "none" ) {
+				elem.style.display = "";
+			}
+
+			// Set elements which have been overridden with display: none
+			// in a stylesheet to whatever the default browser style is
+			// for such an element
+			if ( elem.style.display === "" && isHidden( elem ) ) {
+				values[ index ] = dataPriv.access(
+					elem,
+					"olddisplay",
+					defaultDisplay( elem.nodeName )
+				);
+			}
+		} else {
+			hidden = isHidden( elem );
+
+			if ( display !== "none" || !hidden ) {
+				dataPriv.set(
+					elem,
+					"olddisplay",
+					hidden ? display : jQuery.css( elem, "display" )
+				);
+			}
+		}
+	}
+
+	// Set the display of most of the elements in a second loop
+	// to avoid the constant reflow
+	for ( index = 0; index < length; index++ ) {
+		elem = elements[ index ];
+		if ( !elem.style ) {
+			continue;
+		}
+		if ( !show || elem.style.display === "none" || elem.style.display === "" ) {
+			elem.style.display = show ? values[ index ] || "" : "none";
+		}
+	}
+
+	return elements;
 }
 
 jQuery.extend( {
@@ -15243,6 +9487,7 @@ jQuery.extend( {
 				value += ret && ret[ 3 ] || ( jQuery.cssNumber[ origName ] ? "" : "px" );
 			}
 
+			// Support: IE9-11+
 			// background-* props affect original clone's values
 			if ( !support.clearCloneStyle && value === "" && name.indexOf( "background" ) === 0 ) {
 				style[ name ] = "inherit";
@@ -15312,14 +9557,7 @@ jQuery.each( [ "height", "width" ], function( i, name ) {
 				// Certain elements can have dimension info if we invisibly show them
 				// but it must have a current display style that would benefit
 				return rdisplayswap.test( jQuery.css( elem, "display" ) ) &&
-
-					// Support: Safari 8+
-					// Table columns in Safari have non-zero offsetWidth & zero
-					// getBoundingClientRect().width unless display is changed.
-					// Support: IE <=11 only
-					// Running getBoundingClientRect on a disconnected node
-					// in IE throws an error.
-					( !elem.getClientRects().length || !elem.getBoundingClientRect().width ) ?
+					elem.offsetWidth === 0 ?
 						swap( elem, cssShow, function() {
 							return getWidthOrHeight( elem, name, extra );
 						} ) :
@@ -15360,6 +9598,16 @@ jQuery.cssHooks.marginLeft = addGetHookIf( support.reliableMarginLeft,
 						return elem.getBoundingClientRect().left;
 					} )
 				) + "px";
+		}
+	}
+);
+
+// Support: Android 2.3
+jQuery.cssHooks.marginRight = addGetHookIf( support.reliableMarginRight,
+	function( elem, computed ) {
+		if ( computed ) {
+			return swap( elem, { "display": "inline-block" },
+				curCSS, [ elem, "marginRight" ] );
 		}
 	}
 );
@@ -15414,6 +9662,25 @@ jQuery.fn.extend( {
 				jQuery.style( elem, name, value ) :
 				jQuery.css( elem, name );
 		}, name, value, arguments.length > 1 );
+	},
+	show: function() {
+		return showHide( this, true );
+	},
+	hide: function() {
+		return showHide( this );
+	},
+	toggle: function( state ) {
+		if ( typeof state === "boolean" ) {
+			return state ? this.show() : this.hide();
+		}
+
+		return this.each( function() {
+			if ( isHidden( this ) ) {
+				jQuery( this ).show();
+			} else {
+				jQuery( this ).hide();
+			}
+		} );
 	}
 } );
 
@@ -15508,7 +9775,7 @@ Tween.propHooks = {
 	}
 };
 
-// Support: IE <=9 only
+// Support: IE9
 // Panic based approach to setting things on disconnected nodes
 Tween.propHooks.scrollTop = Tween.propHooks.scrollLeft = {
 	set: function( tween ) {
@@ -15530,7 +9797,7 @@ jQuery.easing = {
 
 jQuery.fx = Tween.prototype.init;
 
-// Back compat <1.8 extension point
+// Back Compat <1.8 extension point
 jQuery.fx.step = {};
 
 
@@ -15540,13 +9807,6 @@ var
 	fxNow, timerId,
 	rfxtypes = /^(?:toggle|show|hide)$/,
 	rrun = /queueHooks$/;
-
-function raf() {
-	if ( timerId ) {
-		window.requestAnimationFrame( raf );
-		jQuery.fx.tick();
-	}
-}
 
 // Animations created synchronously will run synchronously
 function createFxNow() {
@@ -15565,7 +9825,7 @@ function genFx( type, includeWidth ) {
 	// If we include width, step value is 1 to do all cssExpand values,
 	// otherwise step value is 2 to skip over Left and Right
 	includeWidth = includeWidth ? 1 : 0;
-	for ( ; i < 4; i += 2 - includeWidth ) {
+	for ( ; i < 4 ; i += 2 - includeWidth ) {
 		which = cssExpand[ i ];
 		attrs[ "margin" + which ] = attrs[ "padding" + which ] = type;
 	}
@@ -15592,15 +9852,15 @@ function createTween( value, prop, animation ) {
 }
 
 function defaultPrefilter( elem, props, opts ) {
-	var prop, value, toggle, hooks, oldfire, propTween, restoreDisplay, display,
-		isBox = "width" in props || "height" in props,
+	/* jshint validthis: true */
+	var prop, value, toggle, tween, hooks, oldfire, display, checkDisplay,
 		anim = this,
 		orig = {},
 		style = elem.style,
-		hidden = elem.nodeType && isHiddenWithinTree( elem ),
+		hidden = elem.nodeType && isHidden( elem ),
 		dataShow = dataPriv.get( elem, "fxshow" );
 
-	// Queue-skipping animations hijack the fx hooks
+	// Handle queue: false promises
 	if ( !opts.queue ) {
 		hooks = jQuery._queueHooks( elem, "fx" );
 		if ( hooks.unqueued == null ) {
@@ -15626,77 +9886,25 @@ function defaultPrefilter( elem, props, opts ) {
 		} );
 	}
 
-	// Detect show/hide animations
-	for ( prop in props ) {
-		value = props[ prop ];
-		if ( rfxtypes.test( value ) ) {
-			delete props[ prop ];
-			toggle = toggle || value === "toggle";
-			if ( value === ( hidden ? "hide" : "show" ) ) {
+	// Height/width overflow pass
+	if ( elem.nodeType === 1 && ( "height" in props || "width" in props ) ) {
 
-				// Pretend to be hidden if this is a "show" and
-				// there is still data from a stopped show/hide
-				if ( value === "show" && dataShow && dataShow[ prop ] !== undefined ) {
-					hidden = true;
-
-				// Ignore all other no-op show/hide data
-				} else {
-					continue;
-				}
-			}
-			orig[ prop ] = dataShow && dataShow[ prop ] || jQuery.style( elem, prop );
-		}
-	}
-
-	// Bail out if this is a no-op like .hide().hide()
-	propTween = !jQuery.isEmptyObject( props );
-	if ( !propTween && jQuery.isEmptyObject( orig ) ) {
-		return;
-	}
-
-	// Restrict "overflow" and "display" styles during box animations
-	if ( isBox && elem.nodeType === 1 ) {
-
-		// Support: IE <=9 - 11, Edge 12 - 13
-		// Record all 3 overflow attributes because IE does not infer the shorthand
-		// from identically-valued overflowX and overflowY
+		// Make sure that nothing sneaks out
+		// Record all 3 overflow attributes because IE9-10 do not
+		// change the overflow attribute when overflowX and
+		// overflowY are set to the same value
 		opts.overflow = [ style.overflow, style.overflowX, style.overflowY ];
 
-		// Identify a display type, preferring old show/hide data over the CSS cascade
-		restoreDisplay = dataShow && dataShow.display;
-		if ( restoreDisplay == null ) {
-			restoreDisplay = dataPriv.get( elem, "display" );
-		}
+		// Set display property to inline-block for height/width
+		// animations on inline elements that are having width/height animated
 		display = jQuery.css( elem, "display" );
-		if ( display === "none" ) {
-			if ( restoreDisplay ) {
-				display = restoreDisplay;
-			} else {
 
-				// Get nonempty value(s) by temporarily forcing visibility
-				showHide( [ elem ], true );
-				restoreDisplay = elem.style.display || restoreDisplay;
-				display = jQuery.css( elem, "display" );
-				showHide( [ elem ] );
-			}
-		}
+		// Test default display if display is currently "none"
+		checkDisplay = display === "none" ?
+			dataPriv.get( elem, "olddisplay" ) || defaultDisplay( elem.nodeName ) : display;
 
-		// Animate inline elements as inline-block
-		if ( display === "inline" || display === "inline-block" && restoreDisplay != null ) {
-			if ( jQuery.css( elem, "float" ) === "none" ) {
-
-				// Restore the original display value at the end of pure show/hide animations
-				if ( !propTween ) {
-					anim.done( function() {
-						style.display = restoreDisplay;
-					} );
-					if ( restoreDisplay == null ) {
-						display = style.display;
-						restoreDisplay = display === "none" ? "" : display;
-					}
-				}
-				style.display = "inline-block";
-			}
+		if ( checkDisplay === "inline" && jQuery.css( elem, "float" ) === "none" ) {
+			style.display = "inline-block";
 		}
 	}
 
@@ -15709,56 +9917,73 @@ function defaultPrefilter( elem, props, opts ) {
 		} );
 	}
 
-	// Implement show/hide animations
-	propTween = false;
-	for ( prop in orig ) {
+	// show/hide pass
+	for ( prop in props ) {
+		value = props[ prop ];
+		if ( rfxtypes.exec( value ) ) {
+			delete props[ prop ];
+			toggle = toggle || value === "toggle";
+			if ( value === ( hidden ? "hide" : "show" ) ) {
 
-		// General show/hide setup for this element animation
-		if ( !propTween ) {
-			if ( dataShow ) {
-				if ( "hidden" in dataShow ) {
-					hidden = dataShow.hidden;
+				// If there is dataShow left over from a stopped hide or show
+				// and we are going to proceed with show, we should pretend to be hidden
+				if ( value === "show" && dataShow && dataShow[ prop ] !== undefined ) {
+					hidden = true;
+				} else {
+					continue;
 				}
-			} else {
-				dataShow = dataPriv.access( elem, "fxshow", { display: restoreDisplay } );
 			}
+			orig[ prop ] = dataShow && dataShow[ prop ] || jQuery.style( elem, prop );
 
-			// Store hidden/visible for toggle so `.stop().toggle()` "reverses"
-			if ( toggle ) {
-				dataShow.hidden = !hidden;
+		// Any non-fx value stops us from restoring the original display value
+		} else {
+			display = undefined;
+		}
+	}
+
+	if ( !jQuery.isEmptyObject( orig ) ) {
+		if ( dataShow ) {
+			if ( "hidden" in dataShow ) {
+				hidden = dataShow.hidden;
 			}
+		} else {
+			dataShow = dataPriv.access( elem, "fxshow", {} );
+		}
 
-			// Show elements before animating them
-			if ( hidden ) {
-				showHide( [ elem ], true );
-			}
-
-			/* eslint-disable no-loop-func */
-
+		// Store state if its toggle - enables .stop().toggle() to "reverse"
+		if ( toggle ) {
+			dataShow.hidden = !hidden;
+		}
+		if ( hidden ) {
+			jQuery( elem ).show();
+		} else {
 			anim.done( function() {
-
-			/* eslint-enable no-loop-func */
-
-				// The final step of a "hide" animation is actually hiding the element
-				if ( !hidden ) {
-					showHide( [ elem ] );
-				}
-				dataPriv.remove( elem, "fxshow" );
-				for ( prop in orig ) {
-					jQuery.style( elem, prop, orig[ prop ] );
-				}
+				jQuery( elem ).hide();
 			} );
 		}
+		anim.done( function() {
+			var prop;
 
-		// Per-property setup
-		propTween = createTween( hidden ? dataShow[ prop ] : 0, prop, anim );
-		if ( !( prop in dataShow ) ) {
-			dataShow[ prop ] = propTween.start;
-			if ( hidden ) {
-				propTween.end = propTween.start;
-				propTween.start = 0;
+			dataPriv.remove( elem, "fxshow" );
+			for ( prop in orig ) {
+				jQuery.style( elem, prop, orig[ prop ] );
+			}
+		} );
+		for ( prop in orig ) {
+			tween = createTween( hidden ? dataShow[ prop ] : 0, prop, anim );
+
+			if ( !( prop in dataShow ) ) {
+				dataShow[ prop ] = tween.start;
+				if ( hidden ) {
+					tween.end = tween.start;
+					tween.start = prop === "width" || prop === "height" ? 1 : 0;
+				}
 			}
 		}
+
+	// If this is a noop like .hide().hide(), restore an overwritten display value
+	} else if ( ( display === "none" ? defaultDisplay( elem.nodeName ) : display ) === "inline" ) {
+		style.display = display;
 	}
 }
 
@@ -15816,14 +10041,14 @@ function Animation( elem, properties, options ) {
 			var currentTime = fxNow || createFxNow(),
 				remaining = Math.max( 0, animation.startTime + animation.duration - currentTime ),
 
-				// Support: Android 2.3 only
+				// Support: Android 2.3
 				// Archaic crash bug won't allow us to use `1 - ( 0.5 || 0 )` (#12497)
 				temp = remaining / animation.duration || 0,
 				percent = 1 - temp,
 				index = 0,
 				length = animation.tweens.length;
 
-			for ( ; index < length; index++ ) {
+			for ( ; index < length ; index++ ) {
 				animation.tweens[ index ].run( percent );
 			}
 
@@ -15864,7 +10089,7 @@ function Animation( elem, properties, options ) {
 					return this;
 				}
 				stopped = true;
-				for ( ; index < length; index++ ) {
+				for ( ; index < length ; index++ ) {
 					animation.tweens[ index ].run( 1 );
 				}
 
@@ -15882,7 +10107,7 @@ function Animation( elem, properties, options ) {
 
 	propFilter( props, animation.opts.specialEasing );
 
-	for ( ; index < length; index++ ) {
+	for ( ; index < length ; index++ ) {
 		result = Animation.prefilters[ index ].call( animation, elem, props, animation.opts );
 		if ( result ) {
 			if ( jQuery.isFunction( result.stop ) ) {
@@ -15915,7 +10140,6 @@ function Animation( elem, properties, options ) {
 }
 
 jQuery.Animation = jQuery.extend( Animation, {
-
 	tweeners: {
 		"*": [ function( prop, value ) {
 			var tween = this.createTween( prop, value );
@@ -15936,7 +10160,7 @@ jQuery.Animation = jQuery.extend( Animation, {
 			index = 0,
 			length = props.length;
 
-		for ( ; index < length; index++ ) {
+		for ( ; index < length ; index++ ) {
 			prop = props[ index ];
 			Animation.tweeners[ prop ] = Animation.tweeners[ prop ] || [];
 			Animation.tweeners[ prop ].unshift( callback );
@@ -15962,15 +10186,9 @@ jQuery.speed = function( speed, easing, fn ) {
 		easing: fn && easing || easing && !jQuery.isFunction( easing ) && easing
 	};
 
-	// Go to the end state if fx are off or if document is hidden
-	if ( jQuery.fx.off || document.hidden ) {
-		opt.duration = 0;
-
-	} else {
-		opt.duration = typeof opt.duration === "number" ?
-			opt.duration : opt.duration in jQuery.fx.speeds ?
-				jQuery.fx.speeds[ opt.duration ] : jQuery.fx.speeds._default;
-	}
+	opt.duration = jQuery.fx.off ? 0 : typeof opt.duration === "number" ?
+		opt.duration : opt.duration in jQuery.fx.speeds ?
+			jQuery.fx.speeds[ opt.duration ] : jQuery.fx.speeds._default;
 
 	// Normalize opt.queue - true/undefined/null -> "fx"
 	if ( opt.queue == null || opt.queue === true ) {
@@ -15997,7 +10215,7 @@ jQuery.fn.extend( {
 	fadeTo: function( speed, to, easing, callback ) {
 
 		// Show any hidden elements after setting opacity to 0
-		return this.filter( isHiddenWithinTree ).css( "opacity", 0 ).show()
+		return this.filter( isHidden ).css( "opacity", 0 ).show()
 
 			// Animate to the value specified
 			.end().animate( { opacity: to }, speed, easing, callback );
@@ -16174,18 +10392,12 @@ jQuery.fx.timer = function( timer ) {
 jQuery.fx.interval = 13;
 jQuery.fx.start = function() {
 	if ( !timerId ) {
-		timerId = window.requestAnimationFrame ?
-			window.requestAnimationFrame( raf ) :
-			window.setInterval( jQuery.fx.tick, jQuery.fx.interval );
+		timerId = window.setInterval( jQuery.fx.tick, jQuery.fx.interval );
 	}
 };
 
 jQuery.fx.stop = function() {
-	if ( window.cancelAnimationFrame ) {
-		window.cancelAnimationFrame( timerId );
-	} else {
-		window.clearInterval( timerId );
-	}
+	window.clearInterval( timerId );
 
 	timerId = null;
 };
@@ -16200,7 +10412,7 @@ jQuery.fx.speeds = {
 
 
 // Based off of the plugin by Clint Helfers, with permission.
-// https://web.archive.org/web/20100324014747/http://blindsignals.com/index.php/2009/07/jquery-delay/
+// http://web.archive.org/web/20100324014747/http://blindsignals.com/index.php/2009/07/jquery-delay/
 jQuery.fn.delay = function( time, type ) {
 	time = jQuery.fx ? jQuery.fx.speeds[ time ] || time : time;
 	type = type || "fx";
@@ -16221,15 +10433,20 @@ jQuery.fn.delay = function( time, type ) {
 
 	input.type = "checkbox";
 
-	// Support: Android <=4.3 only
+	// Support: iOS<=5.1, Android<=4.2+
 	// Default value for a checkbox should be "on"
 	support.checkOn = input.value !== "";
 
-	// Support: IE <=11 only
+	// Support: IE<=11+
 	// Must access selectedIndex to make default options select
 	support.optSelected = opt.selected;
 
-	// Support: IE <=11 only
+	// Support: Android<=2.3
+	// Options inside disabled selects are incorrectly marked as disabled
+	select.disabled = true;
+	support.optDisabled = !opt.disabled;
+
+	// Support: IE<=11+
 	// An input loses its value after becoming a radio
 	input = document.createElement( "input" );
 	input.value = "t";
@@ -16268,10 +10485,11 @@ jQuery.extend( {
 			return jQuery.prop( elem, name, value );
 		}
 
-		// Attribute hooks are determined by the lowercase version
+		// All attributes are lowercase
 		// Grab necessary hook if one is defined
 		if ( nType !== 1 || !jQuery.isXMLDoc( elem ) ) {
-			hooks = jQuery.attrHooks[ name.toLowerCase() ] ||
+			name = name.toLowerCase();
+			hooks = jQuery.attrHooks[ name ] ||
 				( jQuery.expr.match.bool.test( name ) ? boolHook : undefined );
 		}
 
@@ -16317,12 +10535,21 @@ jQuery.extend( {
 	},
 
 	removeAttr: function( elem, value ) {
-		var name,
+		var name, propName,
 			i = 0,
 			attrNames = value && value.match( rnotwhite );
 
 		if ( attrNames && elem.nodeType === 1 ) {
 			while ( ( name = attrNames[ i++ ] ) ) {
+				propName = jQuery.propFix[ name ] || name;
+
+				// Boolean attributes get special treatment (#10870)
+				if ( jQuery.expr.match.bool.test( name ) ) {
+
+					// Set corresponding property to false
+					elem[ propName ] = false;
+				}
+
 				elem.removeAttribute( name );
 			}
 		}
@@ -16342,23 +10569,20 @@ boolHook = {
 		return name;
 	}
 };
-
 jQuery.each( jQuery.expr.match.bool.source.match( /\w+/g ), function( i, name ) {
 	var getter = attrHandle[ name ] || jQuery.find.attr;
 
 	attrHandle[ name ] = function( elem, name, isXML ) {
-		var ret, handle,
-			lowercaseName = name.toLowerCase();
-
+		var ret, handle;
 		if ( !isXML ) {
 
 			// Avoid an infinite loop by temporarily removing this function from the getter
-			handle = attrHandle[ lowercaseName ];
-			attrHandle[ lowercaseName ] = ret;
+			handle = attrHandle[ name ];
+			attrHandle[ name ] = ret;
 			ret = getter( elem, name, isXML ) != null ?
-				lowercaseName :
+				name.toLowerCase() :
 				null;
-			attrHandle[ lowercaseName ] = handle;
+			attrHandle[ name ] = handle;
 		}
 		return ret;
 	};
@@ -16419,10 +10643,9 @@ jQuery.extend( {
 		tabIndex: {
 			get: function( elem ) {
 
-				// Support: IE <=9 - 11 only
 				// elem.tabIndex doesn't always return the
 				// correct value when it hasn't been explicitly set
-				// https://web.archive.org/web/20141116233347/http://fluidproject.org/blog/2008/01/09/getting-setting-and-removing-tabindex-values-with-javascript/
+				// http://fluidproject.org/blog/2008/01/09/getting-setting-and-removing-tabindex-values-with-javascript/
 				// Use proper attribute retrieval(#12072)
 				var tabindex = jQuery.find.attr( elem, "tabindex" );
 
@@ -16741,7 +10964,7 @@ jQuery.extend( {
 				return val != null ?
 					val :
 
-					// Support: IE <=10 - 11 only
+					// Support: IE10-11+
 					// option.text throws exceptions (#14686, #14858)
 					// Strip and collapse whitespace
 					// https://html.spec.whatwg.org/#strip-and-collapse-whitespace
@@ -16753,7 +10976,7 @@ jQuery.extend( {
 				var value, option,
 					options = elem.options,
 					index = elem.selectedIndex,
-					one = elem.type === "select-one",
+					one = elem.type === "select-one" || index < 0,
 					values = one ? null : [],
 					max = one ? index + 1 : options.length,
 					i = index < 0 ?
@@ -16764,12 +10987,12 @@ jQuery.extend( {
 				for ( ; i < max; i++ ) {
 					option = options[ i ];
 
-					// Support: IE <=9 only
 					// IE8-9 doesn't update selected after form reset (#2551)
 					if ( ( option.selected || i === index ) &&
 
 							// Don't return options that are disabled or in a disabled optgroup
-							!option.disabled &&
+							( support.optDisabled ?
+								!option.disabled : option.getAttribute( "disabled" ) === null ) &&
 							( !option.parentNode.disabled ||
 								!jQuery.nodeName( option.parentNode, "optgroup" ) ) ) {
 
@@ -16797,16 +11020,11 @@ jQuery.extend( {
 
 				while ( i-- ) {
 					option = options[ i ];
-
-					/* eslint-disable no-cond-assign */
-
 					if ( option.selected =
 						jQuery.inArray( jQuery.valHooks.option.get( option ), values ) > -1
 					) {
 						optionSet = true;
 					}
-
-					/* eslint-enable no-cond-assign */
 				}
 
 				// Force browsers to behave consistently when non-matching value is set
@@ -16954,7 +11172,7 @@ jQuery.extend( jQuery.event, {
 				special._default.apply( eventPath.pop(), data ) === false ) &&
 				acceptData( elem ) ) {
 
-				// Call a native DOM method on the target with the same name as the event.
+				// Call a native DOM method on the target with the same name name as the event.
 				// Don't do default actions on window, that's where global variables be (#6170)
 				if ( ontype && jQuery.isFunction( elem[ type ] ) && !jQuery.isWindow( elem ) ) {
 
@@ -17013,9 +11231,9 @@ jQuery.fn.extend( {
 } );
 
 
-jQuery.each( ( "blur focus focusin focusout resize scroll click dblclick " +
+jQuery.each( ( "blur focus focusin focusout load resize scroll unload click dblclick " +
 	"mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave " +
-	"change select submit keydown keypress keyup contextmenu" ).split( " " ),
+	"change select submit keydown keypress keyup error contextmenu" ).split( " " ),
 	function( i, name ) {
 
 	// Handle event binding
@@ -17038,14 +11256,14 @@ jQuery.fn.extend( {
 support.focusin = "onfocusin" in window;
 
 
-// Support: Firefox <=44
+// Support: Firefox
 // Firefox doesn't have focus(in | out) events
 // Related ticket - https://bugzilla.mozilla.org/show_bug.cgi?id=687787
 //
-// Support: Chrome <=48 - 49, Safari <=9.0 - 9.1
+// Support: Chrome, Safari
 // focus(in | out) events fire after focus & blur events,
 // which is spec violation - http://www.w3.org/TR/DOM-Level-3-Events/#events-focusevent-event-order
-// Related ticket - https://bugs.chromium.org/p/chromium/issues/detail?id=449857
+// Related ticket - https://code.google.com/p/chromium/issues/detail?id=449857
 if ( !support.focusin ) {
 	jQuery.each( { focus: "focusin", blur: "focusout" }, function( orig, fix ) {
 
@@ -17087,6 +11305,13 @@ var rquery = ( /\?/ );
 
 
 
+// Support: Android 2.3
+// Workaround failure to string-cast null input
+jQuery.parseJSON = function( data ) {
+	return JSON.parse( data + "" );
+};
+
+
 // Cross-browser xml parsing
 jQuery.parseXML = function( data ) {
 	var xml;
@@ -17094,8 +11319,7 @@ jQuery.parseXML = function( data ) {
 		return null;
 	}
 
-	// Support: IE 9 - 11 only
-	// IE throws on parseFromString with invalid input.
+	// Support: IE9
 	try {
 		xml = ( new window.DOMParser() ).parseFromString( data, "text/xml" );
 	} catch ( e ) {
@@ -17110,122 +11334,6 @@ jQuery.parseXML = function( data ) {
 
 
 var
-	rbracket = /\[\]$/,
-	rCRLF = /\r?\n/g,
-	rsubmitterTypes = /^(?:submit|button|image|reset|file)$/i,
-	rsubmittable = /^(?:input|select|textarea|keygen)/i;
-
-function buildParams( prefix, obj, traditional, add ) {
-	var name;
-
-	if ( jQuery.isArray( obj ) ) {
-
-		// Serialize array item.
-		jQuery.each( obj, function( i, v ) {
-			if ( traditional || rbracket.test( prefix ) ) {
-
-				// Treat each array item as a scalar.
-				add( prefix, v );
-
-			} else {
-
-				// Item is non-scalar (array or object), encode its numeric index.
-				buildParams(
-					prefix + "[" + ( typeof v === "object" && v != null ? i : "" ) + "]",
-					v,
-					traditional,
-					add
-				);
-			}
-		} );
-
-	} else if ( !traditional && jQuery.type( obj ) === "object" ) {
-
-		// Serialize object item.
-		for ( name in obj ) {
-			buildParams( prefix + "[" + name + "]", obj[ name ], traditional, add );
-		}
-
-	} else {
-
-		// Serialize scalar item.
-		add( prefix, obj );
-	}
-}
-
-// Serialize an array of form elements or a set of
-// key/values into a query string
-jQuery.param = function( a, traditional ) {
-	var prefix,
-		s = [],
-		add = function( key, valueOrFunction ) {
-
-			// If value is a function, invoke it and use its return value
-			var value = jQuery.isFunction( valueOrFunction ) ?
-				valueOrFunction() :
-				valueOrFunction;
-
-			s[ s.length ] = encodeURIComponent( key ) + "=" +
-				encodeURIComponent( value == null ? "" : value );
-		};
-
-	// If an array was passed in, assume that it is an array of form elements.
-	if ( jQuery.isArray( a ) || ( a.jquery && !jQuery.isPlainObject( a ) ) ) {
-
-		// Serialize the form elements
-		jQuery.each( a, function() {
-			add( this.name, this.value );
-		} );
-
-	} else {
-
-		// If traditional, encode the "old" way (the way 1.3.2 or older
-		// did it), otherwise encode params recursively.
-		for ( prefix in a ) {
-			buildParams( prefix, a[ prefix ], traditional, add );
-		}
-	}
-
-	// Return the resulting serialization
-	return s.join( "&" );
-};
-
-jQuery.fn.extend( {
-	serialize: function() {
-		return jQuery.param( this.serializeArray() );
-	},
-	serializeArray: function() {
-		return this.map( function() {
-
-			// Can add propHook for "elements" to filter or add form elements
-			var elements = jQuery.prop( this, "elements" );
-			return elements ? jQuery.makeArray( elements ) : this;
-		} )
-		.filter( function() {
-			var type = this.type;
-
-			// Use .is( ":disabled" ) so that fieldset[disabled] works
-			return this.name && !jQuery( this ).is( ":disabled" ) &&
-				rsubmittable.test( this.nodeName ) && !rsubmitterTypes.test( type ) &&
-				( this.checked || !rcheckableType.test( type ) );
-		} )
-		.map( function( i, elem ) {
-			var val = jQuery( this ).val();
-
-			return val == null ?
-				null :
-				jQuery.isArray( val ) ?
-					jQuery.map( val, function( val ) {
-						return { name: elem.name, value: val.replace( rCRLF, "\r\n" ) };
-					} ) :
-					{ name: elem.name, value: val.replace( rCRLF, "\r\n" ) };
-		} ).get();
-	}
-} );
-
-
-var
-	r20 = /%20/g,
 	rhash = /#.*$/,
 	rts = /([?&])_=[^&]*/,
 	rheaders = /^(.*?):[ \t]*([^\r\n]*)$/mg,
@@ -17435,7 +11543,7 @@ function ajaxConvert( s, response, jqXHR, isSuccess ) {
 
 		if ( current ) {
 
-			// There's only work to do if current dataType is non-auto
+		// There's only work to do if current dataType is non-auto
 			if ( current === "*" ) {
 
 				current = prev;
@@ -17515,7 +11623,6 @@ jQuery.extend( {
 		processData: true,
 		async: true,
 		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-
 		/*
 		timeout: 0,
 		data: null,
@@ -17559,7 +11666,7 @@ jQuery.extend( {
 			"text html": true,
 
 			// Evaluate text as a json expression
-			"text json": JSON.parse,
+			"text json": jQuery.parseJSON,
 
 			// Parse text as xml
 			"text xml": jQuery.parseXML
@@ -17618,17 +11725,11 @@ jQuery.extend( {
 			// Url cleanup var
 			urlAnchor,
 
-			// Request state (becomes false upon send and true upon completion)
-			completed,
-
 			// To know if global events are to be dispatched
 			fireGlobals,
 
 			// Loop variable
 			i,
-
-			// uncached part of the url
-			uncached,
 
 			// Create the final options object
 			s = jQuery.ajaxSetup( {}, options ),
@@ -17653,6 +11754,9 @@ jQuery.extend( {
 			requestHeaders = {},
 			requestHeadersNames = {},
 
+			// The jqXHR state
+			state = 0,
+
 			// Default abort message
 			strAbort = "canceled",
 
@@ -17663,7 +11767,7 @@ jQuery.extend( {
 				// Builds headers hashtable if needed
 				getResponseHeader: function( key ) {
 					var match;
-					if ( completed ) {
+					if ( state === 2 ) {
 						if ( !responseHeaders ) {
 							responseHeaders = {};
 							while ( ( match = rheaders.exec( responseHeadersString ) ) ) {
@@ -17677,14 +11781,14 @@ jQuery.extend( {
 
 				// Raw string
 				getAllResponseHeaders: function() {
-					return completed ? responseHeadersString : null;
+					return state === 2 ? responseHeadersString : null;
 				},
 
 				// Caches the header
 				setRequestHeader: function( name, value ) {
-					if ( completed == null ) {
-						name = requestHeadersNames[ name.toLowerCase() ] =
-							requestHeadersNames[ name.toLowerCase() ] || name;
+					var lname = name.toLowerCase();
+					if ( !state ) {
+						name = requestHeadersNames[ lname ] = requestHeadersNames[ lname ] || name;
 						requestHeaders[ name ] = value;
 					}
 					return this;
@@ -17692,7 +11796,7 @@ jQuery.extend( {
 
 				// Overrides response content-type header
 				overrideMimeType: function( type ) {
-					if ( completed == null ) {
+					if ( !state ) {
 						s.mimeType = type;
 					}
 					return this;
@@ -17702,16 +11806,16 @@ jQuery.extend( {
 				statusCode: function( map ) {
 					var code;
 					if ( map ) {
-						if ( completed ) {
+						if ( state < 2 ) {
+							for ( code in map ) {
+
+								// Lazy-add the new callback in a way that preserves old ones
+								statusCode[ code ] = [ statusCode[ code ], map[ code ] ];
+							}
+						} else {
 
 							// Execute the appropriate callbacks
 							jqXHR.always( map[ jqXHR.status ] );
-						} else {
-
-							// Lazy-add the new callbacks in a way that preserves old ones
-							for ( code in map ) {
-								statusCode[ code ] = [ statusCode[ code ], map[ code ] ];
-							}
 						}
 					}
 					return this;
@@ -17729,31 +11833,33 @@ jQuery.extend( {
 			};
 
 		// Attach deferreds
-		deferred.promise( jqXHR );
+		deferred.promise( jqXHR ).complete = completeDeferred.add;
+		jqXHR.success = jqXHR.done;
+		jqXHR.error = jqXHR.fail;
 
+		// Remove hash character (#7531: and string promotion)
 		// Add protocol if not provided (prefilters might expect it)
 		// Handle falsy url in the settings object (#10093: consistency with old signature)
 		// We also use the url parameter if available
-		s.url = ( ( url || s.url || location.href ) + "" )
+		s.url = ( ( url || s.url || location.href ) + "" ).replace( rhash, "" )
 			.replace( rprotocol, location.protocol + "//" );
 
 		// Alias method option to type as per ticket #12004
 		s.type = options.method || options.type || s.method || s.type;
 
 		// Extract dataTypes list
-		s.dataTypes = ( s.dataType || "*" ).toLowerCase().match( rnotwhite ) || [ "" ];
+		s.dataTypes = jQuery.trim( s.dataType || "*" ).toLowerCase().match( rnotwhite ) || [ "" ];
 
 		// A cross-domain request is in order when the origin doesn't match the current origin.
 		if ( s.crossDomain == null ) {
 			urlAnchor = document.createElement( "a" );
 
-			// Support: IE <=8 - 11, Edge 12 - 13
-			// IE throws exception on accessing the href property if url is malformed,
-			// e.g. http://example.com:80x/
+			// Support: IE8-11+
+			// IE throws exception if url is malformed, e.g. http://example.com:80x/
 			try {
 				urlAnchor.href = s.url;
 
-				// Support: IE <=8 - 11 only
+				// Support: IE8-11+
 				// Anchor's host property isn't correctly set when s.url is relative
 				urlAnchor.href = urlAnchor.href;
 				s.crossDomain = originAnchor.protocol + "//" + originAnchor.host !==
@@ -17775,7 +11881,7 @@ jQuery.extend( {
 		inspectPrefiltersOrTransports( prefilters, s, options, jqXHR );
 
 		// If request was aborted inside a prefilter, stop there
-		if ( completed ) {
+		if ( state === 2 ) {
 			return jqXHR;
 		}
 
@@ -17796,36 +11902,29 @@ jQuery.extend( {
 
 		// Save the URL in case we're toying with the If-Modified-Since
 		// and/or If-None-Match header later on
-		// Remove hash to simplify url manipulation
-		cacheURL = s.url.replace( rhash, "" );
+		cacheURL = s.url;
 
 		// More options handling for requests with no content
 		if ( !s.hasContent ) {
 
-			// Remember the hash so we can put it back
-			uncached = s.url.slice( cacheURL.length );
-
 			// If data is available, append data to url
 			if ( s.data ) {
-				cacheURL += ( rquery.test( cacheURL ) ? "&" : "?" ) + s.data;
+				cacheURL = ( s.url += ( rquery.test( cacheURL ) ? "&" : "?" ) + s.data );
 
 				// #9682: remove data so that it's not used in an eventual retry
 				delete s.data;
 			}
 
-			// Add anti-cache in uncached url if needed
+			// Add anti-cache in url if needed
 			if ( s.cache === false ) {
-				cacheURL = cacheURL.replace( rts, "" );
-				uncached = ( rquery.test( cacheURL ) ? "&" : "?" ) + "_=" + ( nonce++ ) + uncached;
+				s.url = rts.test( cacheURL ) ?
+
+					// If there is already a '_' parameter, set its value
+					cacheURL.replace( rts, "$1_=" + nonce++ ) :
+
+					// Otherwise add one to the end
+					cacheURL + ( rquery.test( cacheURL ) ? "&" : "?" ) + "_=" + nonce++;
 			}
-
-			// Put hash and anti-cache on the URL that will be requested (gh-1732)
-			s.url = cacheURL + uncached;
-
-		// Change '%20' to '+' if this is encoded form body content (gh-2658)
-		} else if ( s.data && s.processData &&
-			( s.contentType || "" ).indexOf( "application/x-www-form-urlencoded" ) === 0 ) {
-			s.data = s.data.replace( r20, "+" );
 		}
 
 		// Set the If-Modified-Since and/or If-None-Match header, if in ifModified mode.
@@ -17859,7 +11958,7 @@ jQuery.extend( {
 
 		// Allow custom headers/mimetypes and early abort
 		if ( s.beforeSend &&
-			( s.beforeSend.call( callbackContext, jqXHR, s ) === false || completed ) ) {
+			( s.beforeSend.call( callbackContext, jqXHR, s ) === false || state === 2 ) ) {
 
 			// Abort if not done already and return
 			return jqXHR.abort();
@@ -17869,9 +11968,9 @@ jQuery.extend( {
 		strAbort = "abort";
 
 		// Install callbacks on deferreds
-		completeDeferred.add( s.complete );
-		jqXHR.done( s.success );
-		jqXHR.fail( s.error );
+		for ( i in { success: 1, error: 1, complete: 1 } ) {
+			jqXHR[ i ]( s[ i ] );
+		}
 
 		// Get transport
 		transport = inspectPrefiltersOrTransports( transports, s, options, jqXHR );
@@ -17888,7 +11987,7 @@ jQuery.extend( {
 			}
 
 			// If request was aborted inside ajaxSend, stop there
-			if ( completed ) {
+			if ( state === 2 ) {
 				return jqXHR;
 			}
 
@@ -17900,17 +11999,18 @@ jQuery.extend( {
 			}
 
 			try {
-				completed = false;
+				state = 1;
 				transport.send( requestHeaders, done );
 			} catch ( e ) {
 
-				// Rethrow post-completion exceptions
-				if ( completed ) {
+				// Propagate exception as error if not done
+				if ( state < 2 ) {
+					done( -1, e );
+
+				// Simply rethrow otherwise
+				} else {
 					throw e;
 				}
-
-				// Propagate others as results
-				done( -1, e );
 			}
 		}
 
@@ -17919,12 +12019,13 @@ jQuery.extend( {
 			var isSuccess, success, error, response, modified,
 				statusText = nativeStatusText;
 
-			// Ignore repeat invocations
-			if ( completed ) {
+			// Called once
+			if ( state === 2 ) {
 				return;
 			}
 
-			completed = true;
+			// State is "done" now
+			state = 2;
 
 			// Clear timeout if it exists
 			if ( timeoutTimer ) {
@@ -18068,7 +12169,6 @@ jQuery._evalUrl = function( url ) {
 		// Make this explicit, since user can override this through ajaxSetup (#11264)
 		type: "GET",
 		dataType: "script",
-		cache: true,
 		async: false,
 		global: false,
 		"throws": true
@@ -18080,10 +12180,13 @@ jQuery.fn.extend( {
 	wrapAll: function( html ) {
 		var wrap;
 
+		if ( jQuery.isFunction( html ) ) {
+			return this.each( function( i ) {
+				jQuery( this ).wrapAll( html.call( this, i ) );
+			} );
+		}
+
 		if ( this[ 0 ] ) {
-			if ( jQuery.isFunction( html ) ) {
-				html = html.call( this[ 0 ] );
-			}
 
 			// The elements to wrap the target around
 			wrap = jQuery( html, this[ 0 ].ownerDocument ).eq( 0 ).clone( true );
@@ -18134,23 +12237,145 @@ jQuery.fn.extend( {
 		} );
 	},
 
-	unwrap: function( selector ) {
-		this.parent( selector ).not( "body" ).each( function() {
-			jQuery( this ).replaceWith( this.childNodes );
-		} );
-		return this;
+	unwrap: function() {
+		return this.parent().each( function() {
+			if ( !jQuery.nodeName( this, "body" ) ) {
+				jQuery( this ).replaceWith( this.childNodes );
+			}
+		} ).end();
 	}
 } );
 
 
-jQuery.expr.pseudos.hidden = function( elem ) {
-	return !jQuery.expr.pseudos.visible( elem );
+jQuery.expr.filters.hidden = function( elem ) {
+	return !jQuery.expr.filters.visible( elem );
 };
-jQuery.expr.pseudos.visible = function( elem ) {
-	return !!( elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length );
+jQuery.expr.filters.visible = function( elem ) {
+
+	// Support: Opera <= 12.12
+	// Opera reports offsetWidths and offsetHeights less than zero on some elements
+	// Use OR instead of AND as the element is not visible if either is true
+	// See tickets #10406 and #13132
+	return elem.offsetWidth > 0 || elem.offsetHeight > 0 || elem.getClientRects().length > 0;
 };
 
 
+
+
+var r20 = /%20/g,
+	rbracket = /\[\]$/,
+	rCRLF = /\r?\n/g,
+	rsubmitterTypes = /^(?:submit|button|image|reset|file)$/i,
+	rsubmittable = /^(?:input|select|textarea|keygen)/i;
+
+function buildParams( prefix, obj, traditional, add ) {
+	var name;
+
+	if ( jQuery.isArray( obj ) ) {
+
+		// Serialize array item.
+		jQuery.each( obj, function( i, v ) {
+			if ( traditional || rbracket.test( prefix ) ) {
+
+				// Treat each array item as a scalar.
+				add( prefix, v );
+
+			} else {
+
+				// Item is non-scalar (array or object), encode its numeric index.
+				buildParams(
+					prefix + "[" + ( typeof v === "object" && v != null ? i : "" ) + "]",
+					v,
+					traditional,
+					add
+				);
+			}
+		} );
+
+	} else if ( !traditional && jQuery.type( obj ) === "object" ) {
+
+		// Serialize object item.
+		for ( name in obj ) {
+			buildParams( prefix + "[" + name + "]", obj[ name ], traditional, add );
+		}
+
+	} else {
+
+		// Serialize scalar item.
+		add( prefix, obj );
+	}
+}
+
+// Serialize an array of form elements or a set of
+// key/values into a query string
+jQuery.param = function( a, traditional ) {
+	var prefix,
+		s = [],
+		add = function( key, value ) {
+
+			// If value is a function, invoke it and return its value
+			value = jQuery.isFunction( value ) ? value() : ( value == null ? "" : value );
+			s[ s.length ] = encodeURIComponent( key ) + "=" + encodeURIComponent( value );
+		};
+
+	// Set traditional to true for jQuery <= 1.3.2 behavior.
+	if ( traditional === undefined ) {
+		traditional = jQuery.ajaxSettings && jQuery.ajaxSettings.traditional;
+	}
+
+	// If an array was passed in, assume that it is an array of form elements.
+	if ( jQuery.isArray( a ) || ( a.jquery && !jQuery.isPlainObject( a ) ) ) {
+
+		// Serialize the form elements
+		jQuery.each( a, function() {
+			add( this.name, this.value );
+		} );
+
+	} else {
+
+		// If traditional, encode the "old" way (the way 1.3.2 or older
+		// did it), otherwise encode params recursively.
+		for ( prefix in a ) {
+			buildParams( prefix, a[ prefix ], traditional, add );
+		}
+	}
+
+	// Return the resulting serialization
+	return s.join( "&" ).replace( r20, "+" );
+};
+
+jQuery.fn.extend( {
+	serialize: function() {
+		return jQuery.param( this.serializeArray() );
+	},
+	serializeArray: function() {
+		return this.map( function() {
+
+			// Can add propHook for "elements" to filter or add form elements
+			var elements = jQuery.prop( this, "elements" );
+			return elements ? jQuery.makeArray( elements ) : this;
+		} )
+		.filter( function() {
+			var type = this.type;
+
+			// Use .is( ":disabled" ) so that fieldset[disabled] works
+			return this.name && !jQuery( this ).is( ":disabled" ) &&
+				rsubmittable.test( this.nodeName ) && !rsubmitterTypes.test( type ) &&
+				( this.checked || !rcheckableType.test( type ) );
+		} )
+		.map( function( i, elem ) {
+			var val = jQuery( this ).val();
+
+			return val == null ?
+				null :
+				jQuery.isArray( val ) ?
+					jQuery.map( val, function( val ) {
+						return { name: elem.name, value: val.replace( rCRLF, "\r\n" ) };
+					} ) :
+					{ name: elem.name, value: val.replace( rCRLF, "\r\n" ) };
+		} ).get();
+	}
+} );
 
 
 jQuery.ajaxSettings.xhr = function() {
@@ -18164,7 +12389,7 @@ var xhrSuccessStatus = {
 		// File protocol always yields status code 0, assume 200
 		0: 200,
 
-		// Support: IE <=9 only
+		// Support: IE9
 		// #1450: sometimes IE returns 1223 when it should be 204
 		1223: 204
 	},
@@ -18228,7 +12453,7 @@ jQuery.ajaxTransport( function( options ) {
 								xhr.abort();
 							} else if ( type === "error" ) {
 
-								// Support: IE <=9 only
+								// Support: IE9
 								// On a manual native abort, IE9 throws
 								// errors on any property access that is not readyState
 								if ( typeof xhr.status !== "number" ) {
@@ -18246,7 +12471,7 @@ jQuery.ajaxTransport( function( options ) {
 									xhrSuccessStatus[ xhr.status ] || xhr.status,
 									xhr.statusText,
 
-									// Support: IE <=9 only
+									// Support: IE9 only
 									// IE9 has no XHR2 but throws on binary (trac-11426)
 									// For XHR2 non-text, let the caller handle it (gh-2498)
 									( xhr.responseType || "text" ) !== "text"  ||
@@ -18264,7 +12489,7 @@ jQuery.ajaxTransport( function( options ) {
 				xhr.onload = callback();
 				errorCallback = xhr.onerror = callback( "error" );
 
-				// Support: IE 9 only
+				// Support: IE9
 				// Use onreadystatechange to replace onabort
 				// to handle uncaught aborts
 				if ( xhr.onabort !== undefined ) {
@@ -18315,13 +12540,6 @@ jQuery.ajaxTransport( function( options ) {
 
 
 
-
-// Prevent auto-execution of scripts when no explicit dataType was provided (See gh-2432)
-jQuery.ajaxPrefilter( function( s ) {
-	if ( s.crossDomain ) {
-		s.contents.script = false;
-	}
-} );
 
 // Install script dataType
 jQuery.ajaxSetup( {
@@ -18482,53 +12700,22 @@ jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
 
 
 
-// Support: Safari 8 only
-// In Safari 8 documents created via document.implementation.createHTMLDocument
-// collapse sibling forms: the second one becomes a child of the first one.
-// Because of that, this security measure has to be disabled in Safari 8.
-// https://bugs.webkit.org/show_bug.cgi?id=137337
-support.createHTMLDocument = ( function() {
-	var body = document.implementation.createHTMLDocument( "" ).body;
-	body.innerHTML = "<form></form><form></form>";
-	return body.childNodes.length === 2;
-} )();
-
-
 // Argument "data" should be string of html
 // context (optional): If specified, the fragment will be created in this context,
 // defaults to document
 // keepScripts (optional): If true, will include scripts passed in the html string
 jQuery.parseHTML = function( data, context, keepScripts ) {
-	if ( typeof data !== "string" ) {
-		return [];
+	if ( !data || typeof data !== "string" ) {
+		return null;
 	}
 	if ( typeof context === "boolean" ) {
 		keepScripts = context;
 		context = false;
 	}
+	context = context || document;
 
-	var base, parsed, scripts;
-
-	if ( !context ) {
-
-		// Stop scripts or inline event handlers from being executed immediately
-		// by using document.implementation
-		if ( support.createHTMLDocument ) {
-			context = document.implementation.createHTMLDocument( "" );
-
-			// Set the base href for the created document
-			// so any parsed elements with URLs
-			// are based on the document's URL (gh-2965)
-			base = context.createElement( "base" );
-			base.href = document.location.href;
-			context.head.appendChild( base );
-		} else {
-			context = document;
-		}
-	}
-
-	parsed = rsingleTag.exec( data );
-	scripts = !keepScripts && [];
+	var parsed = rsingleTag.exec( data ),
+		scripts = !keepScripts && [];
 
 	// Single tag
 	if ( parsed ) {
@@ -18545,10 +12732,17 @@ jQuery.parseHTML = function( data, context, keepScripts ) {
 };
 
 
+// Keep a copy of the old load method
+var _load = jQuery.fn.load;
+
 /**
  * Load a url into a page
  */
 jQuery.fn.load = function( url, params, callback ) {
+	if ( typeof url !== "string" && _load ) {
+		return _load.apply( this, arguments );
+	}
+
 	var selector, type, response,
 		self = this,
 		off = url.indexOf( " " );
@@ -18628,7 +12822,7 @@ jQuery.each( [
 
 
 
-jQuery.expr.pseudos.animated = function( elem ) {
+jQuery.expr.filters.animated = function( elem ) {
 	return jQuery.grep( jQuery.timers, function( fn ) {
 		return elem === fn.elem;
 	} ).length;
@@ -18698,8 +12892,6 @@ jQuery.offset = {
 
 jQuery.fn.extend( {
 	offset: function( options ) {
-
-		// Preserve chaining for setter
 		if ( arguments.length ) {
 			return options === undefined ?
 				this :
@@ -18708,36 +12900,28 @@ jQuery.fn.extend( {
 				} );
 		}
 
-		var docElem, win, rect, doc,
-			elem = this[ 0 ];
+		var docElem, win,
+			elem = this[ 0 ],
+			box = { top: 0, left: 0 },
+			doc = elem && elem.ownerDocument;
 
-		if ( !elem ) {
+		if ( !doc ) {
 			return;
 		}
 
-		// Support: IE <=11 only
-		// Running getBoundingClientRect on a
-		// disconnected node in IE throws an error
-		if ( !elem.getClientRects().length ) {
-			return { top: 0, left: 0 };
+		docElem = doc.documentElement;
+
+		// Make sure it's not a disconnected DOM node
+		if ( !jQuery.contains( docElem, elem ) ) {
+			return box;
 		}
 
-		rect = elem.getBoundingClientRect();
-
-		// Make sure element is not hidden (display: none)
-		if ( rect.width || rect.height ) {
-			doc = elem.ownerDocument;
-			win = getWindow( doc );
-			docElem = doc.documentElement;
-
-			return {
-				top: rect.top + win.pageYOffset - docElem.clientTop,
-				left: rect.left + win.pageXOffset - docElem.clientLeft
-			};
-		}
-
-		// Return zeros for disconnected and hidden elements (gh-2310)
-		return rect;
+		box = elem.getBoundingClientRect();
+		win = getWindow( doc );
+		return {
+			top: box.top + win.pageYOffset - docElem.clientTop,
+			left: box.left + win.pageXOffset - docElem.clientLeft
+		};
 	},
 
 	position: function() {
@@ -18768,10 +12952,8 @@ jQuery.fn.extend( {
 			}
 
 			// Add offsetParent borders
-			parentOffset = {
-				top: parentOffset.top + jQuery.css( offsetParent[ 0 ], "borderTopWidth", true ),
-				left: parentOffset.left + jQuery.css( offsetParent[ 0 ], "borderLeftWidth", true )
-			};
+			parentOffset.top += jQuery.css( offsetParent[ 0 ], "borderTopWidth", true );
+			parentOffset.left += jQuery.css( offsetParent[ 0 ], "borderLeftWidth", true );
 		}
 
 		// Subtract parent offsets and element margins
@@ -18829,10 +13011,10 @@ jQuery.each( { scrollLeft: "pageXOffset", scrollTop: "pageYOffset" }, function( 
 	};
 } );
 
-// Support: Safari <=7 - 9.1, Chrome <=37 - 49
+// Support: Safari<7-8+, Chrome<37-44+
 // Add the top/left cssHooks using jQuery.fn.position
 // Webkit bug: https://bugs.webkit.org/show_bug.cgi?id=29084
-// Blink bug: https://bugs.chromium.org/p/chromium/issues/detail?id=589347
+// Blink bug: https://code.google.com/p/chromium/issues/detail?id=229280
 // getComputedStyle returns percent when specified for top/left/bottom/right;
 // rather than make the css module depend on the offset module, just check for it here
 jQuery.each( [ "top", "left" ], function( i, prop ) {
@@ -18866,10 +13048,10 @@ jQuery.each( { Height: "height", Width: "width" }, function( name, type ) {
 
 				if ( jQuery.isWindow( elem ) ) {
 
-					// $( window ).outerWidth/Height return w/h including scrollbars (gh-1729)
-					return funcName.indexOf( "outer" ) === 0 ?
-						elem[ "inner" + name ] :
-						elem.document.documentElement[ "client" + name ];
+					// As of 5/8/2012 this will yield incorrect results for Mobile Safari, but there
+					// isn't a whole lot we can do. See pull request at this URL for discussion:
+					// https://github.com/jquery/jquery/pull/764
+					return elem.document.documentElement[ "client" + name ];
 				}
 
 				// Get document width or height
@@ -18892,7 +13074,7 @@ jQuery.each( { Height: "height", Width: "width" }, function( name, type ) {
 
 					// Set width or height on the element
 					jQuery.style( elem, type, value, extra );
-			}, type, chainable ? margin : undefined, chainable );
+			}, type, chainable ? margin : undefined, chainable, null );
 		};
 	} );
 } );
@@ -18916,10 +13098,13 @@ jQuery.fn.extend( {
 		return arguments.length === 1 ?
 			this.off( selector, "**" ) :
 			this.off( types, selector || "**", fn );
+	},
+	size: function() {
+		return this.length;
 	}
 } );
 
-jQuery.parseJSON = JSON.parse;
+jQuery.fn.andSelf = jQuery.fn.addBack;
 
 
 
@@ -18942,8 +13127,6 @@ if ( typeof define === "function" && define.amd ) {
 		return jQuery;
 	} );
 }
-
-
 
 
 
@@ -18974,11 +13157,10 @@ if ( !noGlobal ) {
 	window.jQuery = window.$ = jQuery;
 }
 
-
 return jQuery;
-} );
+}));
 
-},{}],49:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 (function (global){
 /**
  * marked - a markdown parser
@@ -20268,254 +14450,12 @@ if (typeof module !== 'undefined' && typeof exports === 'object') {
 }());
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],50:[function(require,module,exports){
-/**
- * Helpers.
- */
-
-var s = 1000;
-var m = s * 60;
-var h = m * 60;
-var d = h * 24;
-var y = d * 365.25;
-
-/**
- * Parse or format the given `val`.
- *
- * Options:
- *
- *  - `long` verbose formatting [false]
- *
- * @param {String|Number} val
- * @param {Object} options
- * @return {String|Number}
- * @api public
- */
-
-module.exports = function(val, options){
-  options = options || {};
-  if ('string' == typeof val) return parse(val);
-  return options.long
-    ? long(val)
-    : short(val);
-};
-
-/**
- * Parse the given `str` and return milliseconds.
- *
- * @param {String} str
- * @return {Number}
- * @api private
- */
-
-function parse(str) {
-  str = '' + str;
-  if (str.length > 10000) return;
-  var match = /^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/i.exec(str);
-  if (!match) return;
-  var n = parseFloat(match[1]);
-  var type = (match[2] || 'ms').toLowerCase();
-  switch (type) {
-    case 'years':
-    case 'year':
-    case 'yrs':
-    case 'yr':
-    case 'y':
-      return n * y;
-    case 'days':
-    case 'day':
-    case 'd':
-      return n * d;
-    case 'hours':
-    case 'hour':
-    case 'hrs':
-    case 'hr':
-    case 'h':
-      return n * h;
-    case 'minutes':
-    case 'minute':
-    case 'mins':
-    case 'min':
-    case 'm':
-      return n * m;
-    case 'seconds':
-    case 'second':
-    case 'secs':
-    case 'sec':
-    case 's':
-      return n * s;
-    case 'milliseconds':
-    case 'millisecond':
-    case 'msecs':
-    case 'msec':
-    case 'ms':
-      return n;
-  }
-}
-
-/**
- * Short format for `ms`.
- *
- * @param {Number} ms
- * @return {String}
- * @api private
- */
-
-function short(ms) {
-  if (ms >= d) return Math.round(ms / d) + 'd';
-  if (ms >= h) return Math.round(ms / h) + 'h';
-  if (ms >= m) return Math.round(ms / m) + 'm';
-  if (ms >= s) return Math.round(ms / s) + 's';
-  return ms + 'ms';
-}
-
-/**
- * Long format for `ms`.
- *
- * @param {Number} ms
- * @return {String}
- * @api private
- */
-
-function long(ms) {
-  return plural(ms, d, 'day')
-    || plural(ms, h, 'hour')
-    || plural(ms, m, 'minute')
-    || plural(ms, s, 'second')
-    || ms + ' ms';
-}
-
-/**
- * Pluralization helper.
- */
-
-function plural(ms, n, name) {
-  if (ms < n) return;
-  if (ms < n * 1.5) return Math.floor(ms / n) + ' ' + name;
-  return Math.ceil(ms / n) + ' ' + name + 's';
-}
-
-},{}],51:[function(require,module,exports){
-(function (global){
-/**
- * JSON parse.
- *
- * @see Based on jQuery#parseJSON (MIT) and JSON2
- * @api private
- */
-
-var rvalidchars = /^[\],:{}\s]*$/;
-var rvalidescape = /\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g;
-var rvalidtokens = /"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g;
-var rvalidbraces = /(?:^|:|,)(?:\s*\[)+/g;
-var rtrimLeft = /^\s+/;
-var rtrimRight = /\s+$/;
-
-module.exports = function parsejson(data) {
-  if ('string' != typeof data || !data) {
-    return null;
-  }
-
-  data = data.replace(rtrimLeft, '').replace(rtrimRight, '');
-
-  // Attempt to parse using the native JSON parser first
-  if (global.JSON && JSON.parse) {
-    return JSON.parse(data);
-  }
-
-  if (rvalidchars.test(data.replace(rvalidescape, '@')
-      .replace(rvalidtokens, ']')
-      .replace(rvalidbraces, ''))) {
-    return (new Function('return ' + data))();
-  }
-};
-}).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],52:[function(require,module,exports){
-/**
- * Compiles a querystring
- * Returns string representation of the object
- *
- * @param {Object}
- * @api private
- */
-
-exports.encode = function (obj) {
-  var str = '';
-
-  for (var i in obj) {
-    if (obj.hasOwnProperty(i)) {
-      if (str.length) str += '&';
-      str += encodeURIComponent(i) + '=' + encodeURIComponent(obj[i]);
-    }
-  }
-
-  return str;
-};
-
-/**
- * Parses a simple querystring into an object
- *
- * @param {String} qs
- * @api private
- */
-
-exports.decode = function(qs){
-  var qry = {};
-  var pairs = qs.split('&');
-  for (var i = 0, l = pairs.length; i < l; i++) {
-    var pair = pairs[i].split('=');
-    qry[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
-  }
-  return qry;
-};
-
-},{}],53:[function(require,module,exports){
-/**
- * Parses an URI
- *
- * @author Steven Levithan <stevenlevithan.com> (MIT license)
- * @api private
- */
-
-var re = /^(?:(?![^:@]+:[^:@\/]*@)(http|https|ws|wss):\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?((?:[a-f0-9]{0,4}:){2,7}[a-f0-9]{0,4}|[^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/;
-
-var parts = [
-    'source', 'protocol', 'authority', 'userInfo', 'user', 'password', 'host', 'port', 'relative', 'path', 'directory', 'file', 'query', 'anchor'
-];
-
-module.exports = function parseuri(str) {
-    var src = str,
-        b = str.indexOf('['),
-        e = str.indexOf(']');
-
-    if (b != -1 && e != -1) {
-        str = str.substring(0, b) + str.substring(b, e).replace(/:/g, ';') + str.substring(e, str.length);
-    }
-
-    var m = re.exec(str || ''),
-        uri = {},
-        i = 14;
-
-    while (i--) {
-        uri[parts[i]] = m[i] || '';
-    }
-
-    if (b != -1 && e != -1) {
-        uri.source = src;
-        uri.host = uri.host.substring(1, uri.host.length - 1).replace(/;/g, ':');
-        uri.authority = uri.authority.replace('[', '').replace(']', '').replace(/;/g, ':');
-        uri.ipv6uri = true;
-    }
-
-    return uri;
-};
-
-},{}],54:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 'use strict';
 
 module.exports = require('./src/js/main');
 
-},{"./src/js/main":60}],55:[function(require,module,exports){
+},{"./src/js/main":32}],27:[function(require,module,exports){
 'use strict';
 
 function oldAdd(element, className) {
@@ -20559,7 +14499,7 @@ exports.list = function (element) {
   }
 };
 
-},{}],56:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 'use strict';
 
 var DOM = {};
@@ -20645,7 +14585,7 @@ DOM.queryChildren = function (element, selector) {
 
 module.exports = DOM;
 
-},{}],57:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 'use strict';
 
 var EventElement = function (element) {
@@ -20718,7 +14658,7 @@ EventManager.prototype.once = function (element, eventName, handler) {
 
 module.exports = EventManager;
 
-},{}],58:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 'use strict';
 
 module.exports = (function () {
@@ -20733,7 +14673,7 @@ module.exports = (function () {
   };
 })();
 
-},{}],59:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 'use strict';
 
 var cls = require('./class');
@@ -20818,7 +14758,7 @@ exports.env = {
   supportsIePointer: window.navigator.msMaxTouchPoints !== null
 };
 
-},{"./class":55,"./dom":56}],60:[function(require,module,exports){
+},{"./class":27,"./dom":28}],32:[function(require,module,exports){
 'use strict';
 
 var destroy = require('./plugin/destroy');
@@ -20831,7 +14771,7 @@ module.exports = {
   destroy: destroy
 };
 
-},{"./plugin/destroy":62,"./plugin/initialize":70,"./plugin/update":74}],61:[function(require,module,exports){
+},{"./plugin/destroy":34,"./plugin/initialize":42,"./plugin/update":46}],33:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -20850,7 +14790,7 @@ module.exports = {
   theme: 'default'
 };
 
-},{}],62:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 'use strict';
 
 var _ = require('../lib/helper');
@@ -20874,7 +14814,7 @@ module.exports = function (element) {
   instances.remove(element);
 };
 
-},{"../lib/dom":56,"../lib/helper":59,"./instances":71}],63:[function(require,module,exports){
+},{"../lib/dom":28,"../lib/helper":31,"./instances":43}],35:[function(require,module,exports){
 'use strict';
 
 var _ = require('../../lib/helper');
@@ -20936,7 +14876,7 @@ module.exports = function (element) {
   bindClickRailHandler(element, i);
 };
 
-},{"../../lib/helper":59,"../instances":71,"../update-geometry":72,"../update-scroll":73}],64:[function(require,module,exports){
+},{"../../lib/helper":31,"../instances":43,"../update-geometry":44,"../update-scroll":45}],36:[function(require,module,exports){
 'use strict';
 
 var _ = require('../../lib/helper');
@@ -21041,7 +14981,7 @@ module.exports = function (element) {
   bindMouseScrollYHandler(element, i);
 };
 
-},{"../../lib/dom":56,"../../lib/helper":59,"../instances":71,"../update-geometry":72,"../update-scroll":73}],65:[function(require,module,exports){
+},{"../../lib/dom":28,"../../lib/helper":31,"../instances":43,"../update-geometry":44,"../update-scroll":45}],37:[function(require,module,exports){
 'use strict';
 
 var _ = require('../../lib/helper');
@@ -21173,7 +15113,7 @@ module.exports = function (element) {
   bindKeyboardHandler(element, i);
 };
 
-},{"../../lib/dom":56,"../../lib/helper":59,"../instances":71,"../update-geometry":72,"../update-scroll":73}],66:[function(require,module,exports){
+},{"../../lib/dom":28,"../../lib/helper":31,"../instances":43,"../update-geometry":44,"../update-scroll":45}],38:[function(require,module,exports){
 'use strict';
 
 var instances = require('../instances');
@@ -21311,7 +15251,7 @@ module.exports = function (element) {
   bindMouseWheelHandler(element, i);
 };
 
-},{"../instances":71,"../update-geometry":72,"../update-scroll":73}],67:[function(require,module,exports){
+},{"../instances":43,"../update-geometry":44,"../update-scroll":45}],39:[function(require,module,exports){
 'use strict';
 
 var instances = require('../instances');
@@ -21328,7 +15268,7 @@ module.exports = function (element) {
   bindNativeScrollHandler(element, i);
 };
 
-},{"../instances":71,"../update-geometry":72}],68:[function(require,module,exports){
+},{"../instances":43,"../update-geometry":44}],40:[function(require,module,exports){
 'use strict';
 
 var _ = require('../../lib/helper');
@@ -21439,7 +15379,7 @@ module.exports = function (element) {
   bindSelectionHandler(element, i);
 };
 
-},{"../../lib/helper":59,"../instances":71,"../update-geometry":72,"../update-scroll":73}],69:[function(require,module,exports){
+},{"../../lib/helper":31,"../instances":43,"../update-geometry":44,"../update-scroll":45}],41:[function(require,module,exports){
 'use strict';
 
 var _ = require('../../lib/helper');
@@ -21617,7 +15557,7 @@ module.exports = function (element) {
   bindTouchHandler(element, i, _.env.supportsTouch, _.env.supportsIePointer);
 };
 
-},{"../../lib/helper":59,"../instances":71,"../update-geometry":72,"../update-scroll":73}],70:[function(require,module,exports){
+},{"../../lib/helper":31,"../instances":43,"../update-geometry":44,"../update-scroll":45}],42:[function(require,module,exports){
 'use strict';
 
 var _ = require('../lib/helper');
@@ -21656,7 +15596,7 @@ module.exports = function (element, userSettings) {
   updateGeometry(element);
 };
 
-},{"../lib/class":55,"../lib/helper":59,"./handler/click-rail":63,"./handler/drag-scrollbar":64,"./handler/keyboard":65,"./handler/mouse-wheel":66,"./handler/native-scroll":67,"./handler/selection":68,"./handler/touch":69,"./instances":71,"./update-geometry":72}],71:[function(require,module,exports){
+},{"../lib/class":27,"../lib/helper":31,"./handler/click-rail":35,"./handler/drag-scrollbar":36,"./handler/keyboard":37,"./handler/mouse-wheel":38,"./handler/native-scroll":39,"./handler/selection":40,"./handler/touch":41,"./instances":43,"./update-geometry":44}],43:[function(require,module,exports){
 'use strict';
 
 var _ = require('../lib/helper');
@@ -21765,7 +15705,7 @@ exports.get = function (element) {
   return instances[getId(element)];
 };
 
-},{"../lib/class":55,"../lib/dom":56,"../lib/event-manager":57,"../lib/guid":58,"../lib/helper":59,"./default-setting":61}],72:[function(require,module,exports){
+},{"../lib/class":27,"../lib/dom":28,"../lib/event-manager":29,"../lib/guid":30,"../lib/helper":31,"./default-setting":33}],44:[function(require,module,exports){
 'use strict';
 
 var _ = require('../lib/helper');
@@ -21893,7 +15833,7 @@ module.exports = function (element) {
   }
 };
 
-},{"../lib/class":55,"../lib/dom":56,"../lib/helper":59,"./instances":71,"./update-scroll":73}],73:[function(require,module,exports){
+},{"../lib/class":27,"../lib/dom":28,"../lib/helper":31,"./instances":43,"./update-scroll":45}],45:[function(require,module,exports){
 'use strict';
 
 var instances = require('./instances');
@@ -22007,7 +15947,7 @@ module.exports = function (element, axis, value) {
 
 };
 
-},{"./instances":71}],74:[function(require,module,exports){
+},{"./instances":43}],46:[function(require,module,exports){
 'use strict';
 
 var _ = require('../lib/helper');
@@ -22046,72 +15986,7 @@ module.exports = function (element) {
   dom.css(i.scrollbarYRail, 'display', '');
 };
 
-},{"../lib/dom":56,"../lib/helper":59,"./instances":71,"./update-geometry":72,"./update-scroll":73}],75:[function(require,module,exports){
-// shim for using process in browser
-
-var process = module.exports = {};
-
-process.nextTick = (function () {
-    var canSetImmediate = typeof window !== 'undefined'
-    && window.setImmediate;
-    var canPost = typeof window !== 'undefined'
-    && window.postMessage && window.addEventListener
-    ;
-
-    if (canSetImmediate) {
-        return function (f) { return window.setImmediate(f) };
-    }
-
-    if (canPost) {
-        var queue = [];
-        window.addEventListener('message', function (ev) {
-            var source = ev.source;
-            if ((source === window || source === null) && ev.data === 'process-tick') {
-                ev.stopPropagation();
-                if (queue.length > 0) {
-                    var fn = queue.shift();
-                    fn();
-                }
-            }
-        }, true);
-
-        return function nextTick(fn) {
-            queue.push(fn);
-            window.postMessage('process-tick', '*');
-        };
-    }
-
-    return function nextTick(fn) {
-        setTimeout(fn, 0);
-    };
-})();
-
-process.title = 'browser';
-process.browser = true;
-process.env = {};
-process.argv = [];
-
-function noop() {}
-
-process.on = noop;
-process.addListener = noop;
-process.once = noop;
-process.off = noop;
-process.removeListener = noop;
-process.removeAllListeners = noop;
-process.emit = noop;
-
-process.binding = function (name) {
-    throw new Error('process.binding is not supported');
-}
-
-// TODO(shtylman)
-process.cwd = function () { return '/' };
-process.chdir = function (dir) {
-    throw new Error('process.chdir is not supported');
-};
-
-},{}],76:[function(require,module,exports){
+},{"../lib/dom":28,"../lib/helper":31,"./instances":43,"./update-geometry":44,"./update-scroll":45}],47:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -22205,7 +16080,7 @@ exports.connect = lookup;
 exports.Manager = require('./manager');
 exports.Socket = require('./socket');
 
-},{"./manager":77,"./socket":79,"./url":80,"debug":27,"socket.io-parser":83}],77:[function(require,module,exports){
+},{"./manager":48,"./socket":50,"./url":51,"debug":18,"socket.io-parser":85}],48:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -22764,7 +16639,7 @@ Manager.prototype.onreconnect = function(){
   this.emitAll('reconnect', attempt);
 };
 
-},{"./on":78,"./socket":79,"backo2":19,"component-bind":24,"component-emitter":81,"debug":27,"engine.io-client":30,"indexof":47,"socket.io-parser":83}],78:[function(require,module,exports){
+},{"./on":49,"./socket":50,"backo2":52,"component-bind":53,"component-emitter":54,"debug":18,"engine.io-client":55,"indexof":82,"socket.io-parser":85}],49:[function(require,module,exports){
 
 /**
  * Module exports.
@@ -22790,7 +16665,7 @@ function on(obj, ev, fn) {
   };
 }
 
-},{}],79:[function(require,module,exports){
+},{}],50:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -23204,7 +17079,7 @@ Socket.prototype.compress = function(compress){
   return this;
 };
 
-},{"./on":78,"component-bind":24,"component-emitter":81,"debug":27,"has-binary":44,"socket.io-parser":83,"to-array":87}],80:[function(require,module,exports){
+},{"./on":49,"component-bind":53,"component-emitter":54,"debug":18,"has-binary":80,"socket.io-parser":85,"to-array":90}],51:[function(require,module,exports){
 (function (global){
 
 /**
@@ -23284,7 +17159,119 @@ function url(uri, loc){
 }
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"debug":27,"parseuri":53}],81:[function(require,module,exports){
+},{"debug":18,"parseuri":83}],52:[function(require,module,exports){
+
+/**
+ * Expose `Backoff`.
+ */
+
+module.exports = Backoff;
+
+/**
+ * Initialize backoff timer with `opts`.
+ *
+ * - `min` initial timeout in milliseconds [100]
+ * - `max` max timeout [10000]
+ * - `jitter` [0]
+ * - `factor` [2]
+ *
+ * @param {Object} opts
+ * @api public
+ */
+
+function Backoff(opts) {
+  opts = opts || {};
+  this.ms = opts.min || 100;
+  this.max = opts.max || 10000;
+  this.factor = opts.factor || 2;
+  this.jitter = opts.jitter > 0 && opts.jitter <= 1 ? opts.jitter : 0;
+  this.attempts = 0;
+}
+
+/**
+ * Return the backoff duration.
+ *
+ * @return {Number}
+ * @api public
+ */
+
+Backoff.prototype.duration = function(){
+  var ms = this.ms * Math.pow(this.factor, this.attempts++);
+  if (this.jitter) {
+    var rand =  Math.random();
+    var deviation = Math.floor(rand * this.jitter * ms);
+    ms = (Math.floor(rand * 10) & 1) == 0  ? ms - deviation : ms + deviation;
+  }
+  return Math.min(ms, this.max) | 0;
+};
+
+/**
+ * Reset the number of attempts.
+ *
+ * @api public
+ */
+
+Backoff.prototype.reset = function(){
+  this.attempts = 0;
+};
+
+/**
+ * Set the minimum duration
+ *
+ * @api public
+ */
+
+Backoff.prototype.setMin = function(min){
+  this.ms = min;
+};
+
+/**
+ * Set the maximum duration
+ *
+ * @api public
+ */
+
+Backoff.prototype.setMax = function(max){
+  this.max = max;
+};
+
+/**
+ * Set the jitter
+ *
+ * @api public
+ */
+
+Backoff.prototype.setJitter = function(jitter){
+  this.jitter = jitter;
+};
+
+
+},{}],53:[function(require,module,exports){
+/**
+ * Slice reference.
+ */
+
+var slice = [].slice;
+
+/**
+ * Bind `obj` to `fn`.
+ *
+ * @param {Object} obj
+ * @param {Function|String} fn or string
+ * @return {Function}
+ * @api public
+ */
+
+module.exports = function(obj, fn){
+  if ('string' == typeof fn) fn = obj[fn];
+  if ('function' != typeof fn) throw new Error('bind() requires a function');
+  var args = slice.call(arguments, 2);
+  return function(){
+    return fn.apply(obj, args.concat(slice.call(arguments)));
+  }
+};
+
+},{}],54:[function(require,module,exports){
 
 /**
  * Expose `Emitter`.
@@ -23447,7 +17434,3816 @@ Emitter.prototype.hasListeners = function(event){
   return !! this.listeners(event).length;
 };
 
+},{}],55:[function(require,module,exports){
+
+module.exports =  require('./lib/');
+
+},{"./lib/":56}],56:[function(require,module,exports){
+
+module.exports = require('./socket');
+
+/**
+ * Exports parser
+ *
+ * @api public
+ *
+ */
+module.exports.parser = require('engine.io-parser');
+
+},{"./socket":57,"engine.io-parser":67}],57:[function(require,module,exports){
+(function (global){
+/**
+ * Module dependencies.
+ */
+
+var transports = require('./transports');
+var Emitter = require('component-emitter');
+var debug = require('debug')('engine.io-client:socket');
+var index = require('indexof');
+var parser = require('engine.io-parser');
+var parseuri = require('parseuri');
+var parsejson = require('parsejson');
+var parseqs = require('parseqs');
+
+/**
+ * Module exports.
+ */
+
+module.exports = Socket;
+
+/**
+ * Noop function.
+ *
+ * @api private
+ */
+
+function noop(){}
+
+/**
+ * Socket constructor.
+ *
+ * @param {String|Object} uri or options
+ * @param {Object} options
+ * @api public
+ */
+
+function Socket(uri, opts){
+  if (!(this instanceof Socket)) return new Socket(uri, opts);
+
+  opts = opts || {};
+
+  if (uri && 'object' == typeof uri) {
+    opts = uri;
+    uri = null;
+  }
+
+  if (uri) {
+    uri = parseuri(uri);
+    opts.hostname = uri.host;
+    opts.secure = uri.protocol == 'https' || uri.protocol == 'wss';
+    opts.port = uri.port;
+    if (uri.query) opts.query = uri.query;
+  } else if (opts.host) {
+    opts.hostname = parseuri(opts.host).host;
+  }
+
+  this.secure = null != opts.secure ? opts.secure :
+    (global.location && 'https:' == location.protocol);
+
+  if (opts.hostname && !opts.port) {
+    // if no port is specified manually, use the protocol default
+    opts.port = this.secure ? '443' : '80';
+  }
+
+  this.agent = opts.agent || false;
+  this.hostname = opts.hostname ||
+    (global.location ? location.hostname : 'localhost');
+  this.port = opts.port || (global.location && location.port ?
+       location.port :
+       (this.secure ? 443 : 80));
+  this.query = opts.query || {};
+  if ('string' == typeof this.query) this.query = parseqs.decode(this.query);
+  this.upgrade = false !== opts.upgrade;
+  this.path = (opts.path || '/engine.io').replace(/\/$/, '') + '/';
+  this.forceJSONP = !!opts.forceJSONP;
+  this.jsonp = false !== opts.jsonp;
+  this.forceBase64 = !!opts.forceBase64;
+  this.enablesXDR = !!opts.enablesXDR;
+  this.timestampParam = opts.timestampParam || 't';
+  this.timestampRequests = opts.timestampRequests;
+  this.transports = opts.transports || ['polling', 'websocket'];
+  this.readyState = '';
+  this.writeBuffer = [];
+  this.policyPort = opts.policyPort || 843;
+  this.rememberUpgrade = opts.rememberUpgrade || false;
+  this.binaryType = null;
+  this.onlyBinaryUpgrades = opts.onlyBinaryUpgrades;
+  this.perMessageDeflate = false !== opts.perMessageDeflate ? (opts.perMessageDeflate || {}) : false;
+
+  if (true === this.perMessageDeflate) this.perMessageDeflate = {};
+  if (this.perMessageDeflate && null == this.perMessageDeflate.threshold) {
+    this.perMessageDeflate.threshold = 1024;
+  }
+
+  // SSL options for Node.js client
+  this.pfx = opts.pfx || null;
+  this.key = opts.key || null;
+  this.passphrase = opts.passphrase || null;
+  this.cert = opts.cert || null;
+  this.ca = opts.ca || null;
+  this.ciphers = opts.ciphers || null;
+  this.rejectUnauthorized = opts.rejectUnauthorized === undefined ? true : opts.rejectUnauthorized;
+
+  // other options for Node.js client
+  var freeGlobal = typeof global == 'object' && global;
+  if (freeGlobal.global === freeGlobal) {
+    if (opts.extraHeaders && Object.keys(opts.extraHeaders).length > 0) {
+      this.extraHeaders = opts.extraHeaders;
+    }
+  }
+
+  this.open();
+}
+
+Socket.priorWebsocketSuccess = false;
+
+/**
+ * Mix in `Emitter`.
+ */
+
+Emitter(Socket.prototype);
+
+/**
+ * Protocol version.
+ *
+ * @api public
+ */
+
+Socket.protocol = parser.protocol; // this is an int
+
+/**
+ * Expose deps for legacy compatibility
+ * and standalone browser access.
+ */
+
+Socket.Socket = Socket;
+Socket.Transport = require('./transport');
+Socket.transports = require('./transports');
+Socket.parser = require('engine.io-parser');
+
+/**
+ * Creates transport of the given type.
+ *
+ * @param {String} transport name
+ * @return {Transport}
+ * @api private
+ */
+
+Socket.prototype.createTransport = function (name) {
+  debug('creating transport "%s"', name);
+  var query = clone(this.query);
+
+  // append engine.io protocol identifier
+  query.EIO = parser.protocol;
+
+  // transport name
+  query.transport = name;
+
+  // session id if we already have one
+  if (this.id) query.sid = this.id;
+
+  var transport = new transports[name]({
+    agent: this.agent,
+    hostname: this.hostname,
+    port: this.port,
+    secure: this.secure,
+    path: this.path,
+    query: query,
+    forceJSONP: this.forceJSONP,
+    jsonp: this.jsonp,
+    forceBase64: this.forceBase64,
+    enablesXDR: this.enablesXDR,
+    timestampRequests: this.timestampRequests,
+    timestampParam: this.timestampParam,
+    policyPort: this.policyPort,
+    socket: this,
+    pfx: this.pfx,
+    key: this.key,
+    passphrase: this.passphrase,
+    cert: this.cert,
+    ca: this.ca,
+    ciphers: this.ciphers,
+    rejectUnauthorized: this.rejectUnauthorized,
+    perMessageDeflate: this.perMessageDeflate,
+    extraHeaders: this.extraHeaders
+  });
+
+  return transport;
+};
+
+function clone (obj) {
+  var o = {};
+  for (var i in obj) {
+    if (obj.hasOwnProperty(i)) {
+      o[i] = obj[i];
+    }
+  }
+  return o;
+}
+
+/**
+ * Initializes transport to use and starts probe.
+ *
+ * @api private
+ */
+Socket.prototype.open = function () {
+  var transport;
+  if (this.rememberUpgrade && Socket.priorWebsocketSuccess && this.transports.indexOf('websocket') != -1) {
+    transport = 'websocket';
+  } else if (0 === this.transports.length) {
+    // Emit error on next tick so it can be listened to
+    var self = this;
+    setTimeout(function() {
+      self.emit('error', 'No transports available');
+    }, 0);
+    return;
+  } else {
+    transport = this.transports[0];
+  }
+  this.readyState = 'opening';
+
+  // Retry with the next transport if the transport is disabled (jsonp: false)
+  try {
+    transport = this.createTransport(transport);
+  } catch (e) {
+    this.transports.shift();
+    this.open();
+    return;
+  }
+
+  transport.open();
+  this.setTransport(transport);
+};
+
+/**
+ * Sets the current transport. Disables the existing one (if any).
+ *
+ * @api private
+ */
+
+Socket.prototype.setTransport = function(transport){
+  debug('setting transport %s', transport.name);
+  var self = this;
+
+  if (this.transport) {
+    debug('clearing existing transport %s', this.transport.name);
+    this.transport.removeAllListeners();
+  }
+
+  // set up transport
+  this.transport = transport;
+
+  // set up transport listeners
+  transport
+  .on('drain', function(){
+    self.onDrain();
+  })
+  .on('packet', function(packet){
+    self.onPacket(packet);
+  })
+  .on('error', function(e){
+    self.onError(e);
+  })
+  .on('close', function(){
+    self.onClose('transport close');
+  });
+};
+
+/**
+ * Probes a transport.
+ *
+ * @param {String} transport name
+ * @api private
+ */
+
+Socket.prototype.probe = function (name) {
+  debug('probing transport "%s"', name);
+  var transport = this.createTransport(name, { probe: 1 })
+    , failed = false
+    , self = this;
+
+  Socket.priorWebsocketSuccess = false;
+
+  function onTransportOpen(){
+    if (self.onlyBinaryUpgrades) {
+      var upgradeLosesBinary = !this.supportsBinary && self.transport.supportsBinary;
+      failed = failed || upgradeLosesBinary;
+    }
+    if (failed) return;
+
+    debug('probe transport "%s" opened', name);
+    transport.send([{ type: 'ping', data: 'probe' }]);
+    transport.once('packet', function (msg) {
+      if (failed) return;
+      if ('pong' == msg.type && 'probe' == msg.data) {
+        debug('probe transport "%s" pong', name);
+        self.upgrading = true;
+        self.emit('upgrading', transport);
+        if (!transport) return;
+        Socket.priorWebsocketSuccess = 'websocket' == transport.name;
+
+        debug('pausing current transport "%s"', self.transport.name);
+        self.transport.pause(function () {
+          if (failed) return;
+          if ('closed' == self.readyState) return;
+          debug('changing transport and sending upgrade packet');
+
+          cleanup();
+
+          self.setTransport(transport);
+          transport.send([{ type: 'upgrade' }]);
+          self.emit('upgrade', transport);
+          transport = null;
+          self.upgrading = false;
+          self.flush();
+        });
+      } else {
+        debug('probe transport "%s" failed', name);
+        var err = new Error('probe error');
+        err.transport = transport.name;
+        self.emit('upgradeError', err);
+      }
+    });
+  }
+
+  function freezeTransport() {
+    if (failed) return;
+
+    // Any callback called by transport should be ignored since now
+    failed = true;
+
+    cleanup();
+
+    transport.close();
+    transport = null;
+  }
+
+  //Handle any error that happens while probing
+  function onerror(err) {
+    var error = new Error('probe error: ' + err);
+    error.transport = transport.name;
+
+    freezeTransport();
+
+    debug('probe transport "%s" failed because of error: %s', name, err);
+
+    self.emit('upgradeError', error);
+  }
+
+  function onTransportClose(){
+    onerror("transport closed");
+  }
+
+  //When the socket is closed while we're probing
+  function onclose(){
+    onerror("socket closed");
+  }
+
+  //When the socket is upgraded while we're probing
+  function onupgrade(to){
+    if (transport && to.name != transport.name) {
+      debug('"%s" works - aborting "%s"', to.name, transport.name);
+      freezeTransport();
+    }
+  }
+
+  //Remove all listeners on the transport and on self
+  function cleanup(){
+    transport.removeListener('open', onTransportOpen);
+    transport.removeListener('error', onerror);
+    transport.removeListener('close', onTransportClose);
+    self.removeListener('close', onclose);
+    self.removeListener('upgrading', onupgrade);
+  }
+
+  transport.once('open', onTransportOpen);
+  transport.once('error', onerror);
+  transport.once('close', onTransportClose);
+
+  this.once('close', onclose);
+  this.once('upgrading', onupgrade);
+
+  transport.open();
+
+};
+
+/**
+ * Called when connection is deemed open.
+ *
+ * @api public
+ */
+
+Socket.prototype.onOpen = function () {
+  debug('socket open');
+  this.readyState = 'open';
+  Socket.priorWebsocketSuccess = 'websocket' == this.transport.name;
+  this.emit('open');
+  this.flush();
+
+  // we check for `readyState` in case an `open`
+  // listener already closed the socket
+  if ('open' == this.readyState && this.upgrade && this.transport.pause) {
+    debug('starting upgrade probes');
+    for (var i = 0, l = this.upgrades.length; i < l; i++) {
+      this.probe(this.upgrades[i]);
+    }
+  }
+};
+
+/**
+ * Handles a packet.
+ *
+ * @api private
+ */
+
+Socket.prototype.onPacket = function (packet) {
+  if ('opening' == this.readyState || 'open' == this.readyState) {
+    debug('socket receive: type "%s", data "%s"', packet.type, packet.data);
+
+    this.emit('packet', packet);
+
+    // Socket is live - any packet counts
+    this.emit('heartbeat');
+
+    switch (packet.type) {
+      case 'open':
+        this.onHandshake(parsejson(packet.data));
+        break;
+
+      case 'pong':
+        this.setPing();
+        this.emit('pong');
+        break;
+
+      case 'error':
+        var err = new Error('server error');
+        err.code = packet.data;
+        this.onError(err);
+        break;
+
+      case 'message':
+        this.emit('data', packet.data);
+        this.emit('message', packet.data);
+        break;
+    }
+  } else {
+    debug('packet received with socket readyState "%s"', this.readyState);
+  }
+};
+
+/**
+ * Called upon handshake completion.
+ *
+ * @param {Object} handshake obj
+ * @api private
+ */
+
+Socket.prototype.onHandshake = function (data) {
+  this.emit('handshake', data);
+  this.id = data.sid;
+  this.transport.query.sid = data.sid;
+  this.upgrades = this.filterUpgrades(data.upgrades);
+  this.pingInterval = data.pingInterval;
+  this.pingTimeout = data.pingTimeout;
+  this.onOpen();
+  // In case open handler closes socket
+  if  ('closed' == this.readyState) return;
+  this.setPing();
+
+  // Prolong liveness of socket on heartbeat
+  this.removeListener('heartbeat', this.onHeartbeat);
+  this.on('heartbeat', this.onHeartbeat);
+};
+
+/**
+ * Resets ping timeout.
+ *
+ * @api private
+ */
+
+Socket.prototype.onHeartbeat = function (timeout) {
+  clearTimeout(this.pingTimeoutTimer);
+  var self = this;
+  self.pingTimeoutTimer = setTimeout(function () {
+    if ('closed' == self.readyState) return;
+    self.onClose('ping timeout');
+  }, timeout || (self.pingInterval + self.pingTimeout));
+};
+
+/**
+ * Pings server every `this.pingInterval` and expects response
+ * within `this.pingTimeout` or closes connection.
+ *
+ * @api private
+ */
+
+Socket.prototype.setPing = function () {
+  var self = this;
+  clearTimeout(self.pingIntervalTimer);
+  self.pingIntervalTimer = setTimeout(function () {
+    debug('writing ping packet - expecting pong within %sms', self.pingTimeout);
+    self.ping();
+    self.onHeartbeat(self.pingTimeout);
+  }, self.pingInterval);
+};
+
+/**
+* Sends a ping packet.
+*
+* @api private
+*/
+
+Socket.prototype.ping = function () {
+  var self = this;
+  this.sendPacket('ping', function(){
+    self.emit('ping');
+  });
+};
+
+/**
+ * Called on `drain` event
+ *
+ * @api private
+ */
+
+Socket.prototype.onDrain = function() {
+  this.writeBuffer.splice(0, this.prevBufferLen);
+
+  // setting prevBufferLen = 0 is very important
+  // for example, when upgrading, upgrade packet is sent over,
+  // and a nonzero prevBufferLen could cause problems on `drain`
+  this.prevBufferLen = 0;
+
+  if (0 === this.writeBuffer.length) {
+    this.emit('drain');
+  } else {
+    this.flush();
+  }
+};
+
+/**
+ * Flush write buffers.
+ *
+ * @api private
+ */
+
+Socket.prototype.flush = function () {
+  if ('closed' != this.readyState && this.transport.writable &&
+    !this.upgrading && this.writeBuffer.length) {
+    debug('flushing %d packets in socket', this.writeBuffer.length);
+    this.transport.send(this.writeBuffer);
+    // keep track of current length of writeBuffer
+    // splice writeBuffer and callbackBuffer on `drain`
+    this.prevBufferLen = this.writeBuffer.length;
+    this.emit('flush');
+  }
+};
+
+/**
+ * Sends a message.
+ *
+ * @param {String} message.
+ * @param {Function} callback function.
+ * @param {Object} options.
+ * @return {Socket} for chaining.
+ * @api public
+ */
+
+Socket.prototype.write =
+Socket.prototype.send = function (msg, options, fn) {
+  this.sendPacket('message', msg, options, fn);
+  return this;
+};
+
+/**
+ * Sends a packet.
+ *
+ * @param {String} packet type.
+ * @param {String} data.
+ * @param {Object} options.
+ * @param {Function} callback function.
+ * @api private
+ */
+
+Socket.prototype.sendPacket = function (type, data, options, fn) {
+  if('function' == typeof data) {
+    fn = data;
+    data = undefined;
+  }
+
+  if ('function' == typeof options) {
+    fn = options;
+    options = null;
+  }
+
+  if ('closing' == this.readyState || 'closed' == this.readyState) {
+    return;
+  }
+
+  options = options || {};
+  options.compress = false !== options.compress;
+
+  var packet = {
+    type: type,
+    data: data,
+    options: options
+  };
+  this.emit('packetCreate', packet);
+  this.writeBuffer.push(packet);
+  if (fn) this.once('flush', fn);
+  this.flush();
+};
+
+/**
+ * Closes the connection.
+ *
+ * @api private
+ */
+
+Socket.prototype.close = function () {
+  if ('opening' == this.readyState || 'open' == this.readyState) {
+    this.readyState = 'closing';
+
+    var self = this;
+
+    if (this.writeBuffer.length) {
+      this.once('drain', function() {
+        if (this.upgrading) {
+          waitForUpgrade();
+        } else {
+          close();
+        }
+      });
+    } else if (this.upgrading) {
+      waitForUpgrade();
+    } else {
+      close();
+    }
+  }
+
+  function close() {
+    self.onClose('forced close');
+    debug('socket closing - telling transport to close');
+    self.transport.close();
+  }
+
+  function cleanupAndClose() {
+    self.removeListener('upgrade', cleanupAndClose);
+    self.removeListener('upgradeError', cleanupAndClose);
+    close();
+  }
+
+  function waitForUpgrade() {
+    // wait for upgrade to finish since we can't send packets while pausing a transport
+    self.once('upgrade', cleanupAndClose);
+    self.once('upgradeError', cleanupAndClose);
+  }
+
+  return this;
+};
+
+/**
+ * Called upon transport error
+ *
+ * @api private
+ */
+
+Socket.prototype.onError = function (err) {
+  debug('socket error %j', err);
+  Socket.priorWebsocketSuccess = false;
+  this.emit('error', err);
+  this.onClose('transport error', err);
+};
+
+/**
+ * Called upon transport close.
+ *
+ * @api private
+ */
+
+Socket.prototype.onClose = function (reason, desc) {
+  if ('opening' == this.readyState || 'open' == this.readyState || 'closing' == this.readyState) {
+    debug('socket close with reason: "%s"', reason);
+    var self = this;
+
+    // clear timers
+    clearTimeout(this.pingIntervalTimer);
+    clearTimeout(this.pingTimeoutTimer);
+
+    // stop event from firing again for transport
+    this.transport.removeAllListeners('close');
+
+    // ensure transport won't stay open
+    this.transport.close();
+
+    // ignore further transport communication
+    this.transport.removeAllListeners();
+
+    // set ready state
+    this.readyState = 'closed';
+
+    // clear session id
+    this.id = null;
+
+    // emit close event
+    this.emit('close', reason, desc);
+
+    // clean buffers after, so users can still
+    // grab the buffers on `close` event
+    self.writeBuffer = [];
+    self.prevBufferLen = 0;
+  }
+};
+
+/**
+ * Filters upgrades, returning only those matching client transports.
+ *
+ * @param {Array} server upgrades
+ * @api private
+ *
+ */
+
+Socket.prototype.filterUpgrades = function (upgrades) {
+  var filteredUpgrades = [];
+  for (var i = 0, j = upgrades.length; i<j; i++) {
+    if (~index(this.transports, upgrades[i])) filteredUpgrades.push(upgrades[i]);
+  }
+  return filteredUpgrades;
+};
+
+}).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"./transport":58,"./transports":59,"component-emitter":65,"debug":18,"engine.io-parser":67,"indexof":82,"parsejson":77,"parseqs":78,"parseuri":83}],58:[function(require,module,exports){
+/**
+ * Module dependencies.
+ */
+
+var parser = require('engine.io-parser');
+var Emitter = require('component-emitter');
+
+/**
+ * Module exports.
+ */
+
+module.exports = Transport;
+
+/**
+ * Transport abstract constructor.
+ *
+ * @param {Object} options.
+ * @api private
+ */
+
+function Transport (opts) {
+  this.path = opts.path;
+  this.hostname = opts.hostname;
+  this.port = opts.port;
+  this.secure = opts.secure;
+  this.query = opts.query;
+  this.timestampParam = opts.timestampParam;
+  this.timestampRequests = opts.timestampRequests;
+  this.readyState = '';
+  this.agent = opts.agent || false;
+  this.socket = opts.socket;
+  this.enablesXDR = opts.enablesXDR;
+
+  // SSL options for Node.js client
+  this.pfx = opts.pfx;
+  this.key = opts.key;
+  this.passphrase = opts.passphrase;
+  this.cert = opts.cert;
+  this.ca = opts.ca;
+  this.ciphers = opts.ciphers;
+  this.rejectUnauthorized = opts.rejectUnauthorized;
+
+  // other options for Node.js client
+  this.extraHeaders = opts.extraHeaders;
+}
+
+/**
+ * Mix in `Emitter`.
+ */
+
+Emitter(Transport.prototype);
+
+/**
+ * Emits an error.
+ *
+ * @param {String} str
+ * @return {Transport} for chaining
+ * @api public
+ */
+
+Transport.prototype.onError = function (msg, desc) {
+  var err = new Error(msg);
+  err.type = 'TransportError';
+  err.description = desc;
+  this.emit('error', err);
+  return this;
+};
+
+/**
+ * Opens the transport.
+ *
+ * @api public
+ */
+
+Transport.prototype.open = function () {
+  if ('closed' == this.readyState || '' == this.readyState) {
+    this.readyState = 'opening';
+    this.doOpen();
+  }
+
+  return this;
+};
+
+/**
+ * Closes the transport.
+ *
+ * @api private
+ */
+
+Transport.prototype.close = function () {
+  if ('opening' == this.readyState || 'open' == this.readyState) {
+    this.doClose();
+    this.onClose();
+  }
+
+  return this;
+};
+
+/**
+ * Sends multiple packets.
+ *
+ * @param {Array} packets
+ * @api private
+ */
+
+Transport.prototype.send = function(packets){
+  if ('open' == this.readyState) {
+    this.write(packets);
+  } else {
+    throw new Error('Transport not open');
+  }
+};
+
+/**
+ * Called upon open
+ *
+ * @api private
+ */
+
+Transport.prototype.onOpen = function () {
+  this.readyState = 'open';
+  this.writable = true;
+  this.emit('open');
+};
+
+/**
+ * Called with data.
+ *
+ * @param {String} data
+ * @api private
+ */
+
+Transport.prototype.onData = function(data){
+  var packet = parser.decodePacket(data, this.socket.binaryType);
+  this.onPacket(packet);
+};
+
+/**
+ * Called with a decoded packet.
+ */
+
+Transport.prototype.onPacket = function (packet) {
+  this.emit('packet', packet);
+};
+
+/**
+ * Called upon close.
+ *
+ * @api private
+ */
+
+Transport.prototype.onClose = function () {
+  this.readyState = 'closed';
+  this.emit('close');
+};
+
+},{"component-emitter":65,"engine.io-parser":67}],59:[function(require,module,exports){
+(function (global){
+/**
+ * Module dependencies
+ */
+
+var XMLHttpRequest = require('xmlhttprequest-ssl');
+var XHR = require('./polling-xhr');
+var JSONP = require('./polling-jsonp');
+var websocket = require('./websocket');
+
+/**
+ * Export transports.
+ */
+
+exports.polling = polling;
+exports.websocket = websocket;
+
+/**
+ * Polling transport polymorphic constructor.
+ * Decides on xhr vs jsonp based on feature detection.
+ *
+ * @api private
+ */
+
+function polling(opts){
+  var xhr;
+  var xd = false;
+  var xs = false;
+  var jsonp = false !== opts.jsonp;
+
+  if (global.location) {
+    var isSSL = 'https:' == location.protocol;
+    var port = location.port;
+
+    // some user agents have empty `location.port`
+    if (!port) {
+      port = isSSL ? 443 : 80;
+    }
+
+    xd = opts.hostname != location.hostname || port != opts.port;
+    xs = opts.secure != isSSL;
+  }
+
+  opts.xdomain = xd;
+  opts.xscheme = xs;
+  xhr = new XMLHttpRequest(opts);
+
+  if ('open' in xhr && !opts.forceJSONP) {
+    return new XHR(opts);
+  } else {
+    if (!jsonp) throw new Error('JSONP disabled');
+    return new JSONP(opts);
+  }
+}
+
+}).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"./polling-jsonp":60,"./polling-xhr":61,"./websocket":63,"xmlhttprequest-ssl":64}],60:[function(require,module,exports){
+(function (global){
+
+/**
+ * Module requirements.
+ */
+
+var Polling = require('./polling');
+var inherit = require('component-inherit');
+
+/**
+ * Module exports.
+ */
+
+module.exports = JSONPPolling;
+
+/**
+ * Cached regular expressions.
+ */
+
+var rNewline = /\n/g;
+var rEscapedNewline = /\\n/g;
+
+/**
+ * Global JSONP callbacks.
+ */
+
+var callbacks;
+
+/**
+ * Callbacks count.
+ */
+
+var index = 0;
+
+/**
+ * Noop.
+ */
+
+function empty () { }
+
+/**
+ * JSONP Polling constructor.
+ *
+ * @param {Object} opts.
+ * @api public
+ */
+
+function JSONPPolling (opts) {
+  Polling.call(this, opts);
+
+  this.query = this.query || {};
+
+  // define global callbacks array if not present
+  // we do this here (lazily) to avoid unneeded global pollution
+  if (!callbacks) {
+    // we need to consider multiple engines in the same page
+    if (!global.___eio) global.___eio = [];
+    callbacks = global.___eio;
+  }
+
+  // callback identifier
+  this.index = callbacks.length;
+
+  // add callback to jsonp global
+  var self = this;
+  callbacks.push(function (msg) {
+    self.onData(msg);
+  });
+
+  // append to query string
+  this.query.j = this.index;
+
+  // prevent spurious errors from being emitted when the window is unloaded
+  if (global.document && global.addEventListener) {
+    global.addEventListener('beforeunload', function () {
+      if (self.script) self.script.onerror = empty;
+    }, false);
+  }
+}
+
+/**
+ * Inherits from Polling.
+ */
+
+inherit(JSONPPolling, Polling);
+
+/*
+ * JSONP only supports binary as base64 encoded strings
+ */
+
+JSONPPolling.prototype.supportsBinary = false;
+
+/**
+ * Closes the socket.
+ *
+ * @api private
+ */
+
+JSONPPolling.prototype.doClose = function () {
+  if (this.script) {
+    this.script.parentNode.removeChild(this.script);
+    this.script = null;
+  }
+
+  if (this.form) {
+    this.form.parentNode.removeChild(this.form);
+    this.form = null;
+    this.iframe = null;
+  }
+
+  Polling.prototype.doClose.call(this);
+};
+
+/**
+ * Starts a poll cycle.
+ *
+ * @api private
+ */
+
+JSONPPolling.prototype.doPoll = function () {
+  var self = this;
+  var script = document.createElement('script');
+
+  if (this.script) {
+    this.script.parentNode.removeChild(this.script);
+    this.script = null;
+  }
+
+  script.async = true;
+  script.src = this.uri();
+  script.onerror = function(e){
+    self.onError('jsonp poll error',e);
+  };
+
+  var insertAt = document.getElementsByTagName('script')[0];
+  if (insertAt) {
+    insertAt.parentNode.insertBefore(script, insertAt);
+  }
+  else {
+    (document.head || document.body).appendChild(script);
+  }
+  this.script = script;
+
+  var isUAgecko = 'undefined' != typeof navigator && /gecko/i.test(navigator.userAgent);
+  
+  if (isUAgecko) {
+    setTimeout(function () {
+      var iframe = document.createElement('iframe');
+      document.body.appendChild(iframe);
+      document.body.removeChild(iframe);
+    }, 100);
+  }
+};
+
+/**
+ * Writes with a hidden iframe.
+ *
+ * @param {String} data to send
+ * @param {Function} called upon flush.
+ * @api private
+ */
+
+JSONPPolling.prototype.doWrite = function (data, fn) {
+  var self = this;
+
+  if (!this.form) {
+    var form = document.createElement('form');
+    var area = document.createElement('textarea');
+    var id = this.iframeId = 'eio_iframe_' + this.index;
+    var iframe;
+
+    form.className = 'socketio';
+    form.style.position = 'absolute';
+    form.style.top = '-1000px';
+    form.style.left = '-1000px';
+    form.target = id;
+    form.method = 'POST';
+    form.setAttribute('accept-charset', 'utf-8');
+    area.name = 'd';
+    form.appendChild(area);
+    document.body.appendChild(form);
+
+    this.form = form;
+    this.area = area;
+  }
+
+  this.form.action = this.uri();
+
+  function complete () {
+    initIframe();
+    fn();
+  }
+
+  function initIframe () {
+    if (self.iframe) {
+      try {
+        self.form.removeChild(self.iframe);
+      } catch (e) {
+        self.onError('jsonp polling iframe removal error', e);
+      }
+    }
+
+    try {
+      // ie6 dynamic iframes with target="" support (thanks Chris Lambacher)
+      var html = '<iframe src="javascript:0" name="'+ self.iframeId +'">';
+      iframe = document.createElement(html);
+    } catch (e) {
+      iframe = document.createElement('iframe');
+      iframe.name = self.iframeId;
+      iframe.src = 'javascript:0';
+    }
+
+    iframe.id = self.iframeId;
+
+    self.form.appendChild(iframe);
+    self.iframe = iframe;
+  }
+
+  initIframe();
+
+  // escape \n to prevent it from being converted into \r\n by some UAs
+  // double escaping is required for escaped new lines because unescaping of new lines can be done safely on server-side
+  data = data.replace(rEscapedNewline, '\\\n');
+  this.area.value = data.replace(rNewline, '\\n');
+
+  try {
+    this.form.submit();
+  } catch(e) {}
+
+  if (this.iframe.attachEvent) {
+    this.iframe.onreadystatechange = function(){
+      if (self.iframe.readyState == 'complete') {
+        complete();
+      }
+    };
+  } else {
+    this.iframe.onload = complete;
+  }
+};
+
+}).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"./polling":62,"component-inherit":66}],61:[function(require,module,exports){
+(function (global){
+/**
+ * Module requirements.
+ */
+
+var XMLHttpRequest = require('xmlhttprequest-ssl');
+var Polling = require('./polling');
+var Emitter = require('component-emitter');
+var inherit = require('component-inherit');
+var debug = require('debug')('engine.io-client:polling-xhr');
+
+/**
+ * Module exports.
+ */
+
+module.exports = XHR;
+module.exports.Request = Request;
+
+/**
+ * Empty function
+ */
+
+function empty(){}
+
+/**
+ * XHR Polling constructor.
+ *
+ * @param {Object} opts
+ * @api public
+ */
+
+function XHR(opts){
+  Polling.call(this, opts);
+
+  if (global.location) {
+    var isSSL = 'https:' == location.protocol;
+    var port = location.port;
+
+    // some user agents have empty `location.port`
+    if (!port) {
+      port = isSSL ? 443 : 80;
+    }
+
+    this.xd = opts.hostname != global.location.hostname ||
+      port != opts.port;
+    this.xs = opts.secure != isSSL;
+  } else {
+    this.extraHeaders = opts.extraHeaders;
+  }
+}
+
+/**
+ * Inherits from Polling.
+ */
+
+inherit(XHR, Polling);
+
+/**
+ * XHR supports binary
+ */
+
+XHR.prototype.supportsBinary = true;
+
+/**
+ * Creates a request.
+ *
+ * @param {String} method
+ * @api private
+ */
+
+XHR.prototype.request = function(opts){
+  opts = opts || {};
+  opts.uri = this.uri();
+  opts.xd = this.xd;
+  opts.xs = this.xs;
+  opts.agent = this.agent || false;
+  opts.supportsBinary = this.supportsBinary;
+  opts.enablesXDR = this.enablesXDR;
+
+  // SSL options for Node.js client
+  opts.pfx = this.pfx;
+  opts.key = this.key;
+  opts.passphrase = this.passphrase;
+  opts.cert = this.cert;
+  opts.ca = this.ca;
+  opts.ciphers = this.ciphers;
+  opts.rejectUnauthorized = this.rejectUnauthorized;
+
+  // other options for Node.js client
+  opts.extraHeaders = this.extraHeaders;
+
+  return new Request(opts);
+};
+
+/**
+ * Sends data.
+ *
+ * @param {String} data to send.
+ * @param {Function} called upon flush.
+ * @api private
+ */
+
+XHR.prototype.doWrite = function(data, fn){
+  var isBinary = typeof data !== 'string' && data !== undefined;
+  var req = this.request({ method: 'POST', data: data, isBinary: isBinary });
+  var self = this;
+  req.on('success', fn);
+  req.on('error', function(err){
+    self.onError('xhr post error', err);
+  });
+  this.sendXhr = req;
+};
+
+/**
+ * Starts a poll cycle.
+ *
+ * @api private
+ */
+
+XHR.prototype.doPoll = function(){
+  debug('xhr poll');
+  var req = this.request();
+  var self = this;
+  req.on('data', function(data){
+    self.onData(data);
+  });
+  req.on('error', function(err){
+    self.onError('xhr poll error', err);
+  });
+  this.pollXhr = req;
+};
+
+/**
+ * Request constructor
+ *
+ * @param {Object} options
+ * @api public
+ */
+
+function Request(opts){
+  this.method = opts.method || 'GET';
+  this.uri = opts.uri;
+  this.xd = !!opts.xd;
+  this.xs = !!opts.xs;
+  this.async = false !== opts.async;
+  this.data = undefined != opts.data ? opts.data : null;
+  this.agent = opts.agent;
+  this.isBinary = opts.isBinary;
+  this.supportsBinary = opts.supportsBinary;
+  this.enablesXDR = opts.enablesXDR;
+
+  // SSL options for Node.js client
+  this.pfx = opts.pfx;
+  this.key = opts.key;
+  this.passphrase = opts.passphrase;
+  this.cert = opts.cert;
+  this.ca = opts.ca;
+  this.ciphers = opts.ciphers;
+  this.rejectUnauthorized = opts.rejectUnauthorized;
+
+  // other options for Node.js client
+  this.extraHeaders = opts.extraHeaders;
+
+  this.create();
+}
+
+/**
+ * Mix in `Emitter`.
+ */
+
+Emitter(Request.prototype);
+
+/**
+ * Creates the XHR object and sends the request.
+ *
+ * @api private
+ */
+
+Request.prototype.create = function(){
+  var opts = { agent: this.agent, xdomain: this.xd, xscheme: this.xs, enablesXDR: this.enablesXDR };
+
+  // SSL options for Node.js client
+  opts.pfx = this.pfx;
+  opts.key = this.key;
+  opts.passphrase = this.passphrase;
+  opts.cert = this.cert;
+  opts.ca = this.ca;
+  opts.ciphers = this.ciphers;
+  opts.rejectUnauthorized = this.rejectUnauthorized;
+
+  var xhr = this.xhr = new XMLHttpRequest(opts);
+  var self = this;
+
+  try {
+    debug('xhr open %s: %s', this.method, this.uri);
+    xhr.open(this.method, this.uri, this.async);
+    try {
+      if (this.extraHeaders) {
+        xhr.setDisableHeaderCheck(true);
+        for (var i in this.extraHeaders) {
+          if (this.extraHeaders.hasOwnProperty(i)) {
+            xhr.setRequestHeader(i, this.extraHeaders[i]);
+          }
+        }
+      }
+    } catch (e) {}
+    if (this.supportsBinary) {
+      // This has to be done after open because Firefox is stupid
+      // http://stackoverflow.com/questions/13216903/get-binary-data-with-xmlhttprequest-in-a-firefox-extension
+      xhr.responseType = 'arraybuffer';
+    }
+
+    if ('POST' == this.method) {
+      try {
+        if (this.isBinary) {
+          xhr.setRequestHeader('Content-type', 'application/octet-stream');
+        } else {
+          xhr.setRequestHeader('Content-type', 'text/plain;charset=UTF-8');
+        }
+      } catch (e) {}
+    }
+
+    // ie6 check
+    if ('withCredentials' in xhr) {
+      xhr.withCredentials = true;
+    }
+
+    if (this.hasXDR()) {
+      xhr.onload = function(){
+        self.onLoad();
+      };
+      xhr.onerror = function(){
+        self.onError(xhr.responseText);
+      };
+    } else {
+      xhr.onreadystatechange = function(){
+        if (4 != xhr.readyState) return;
+        if (200 == xhr.status || 1223 == xhr.status) {
+          self.onLoad();
+        } else {
+          // make sure the `error` event handler that's user-set
+          // does not throw in the same tick and gets caught here
+          setTimeout(function(){
+            self.onError(xhr.status);
+          }, 0);
+        }
+      };
+    }
+
+    debug('xhr data %s', this.data);
+    xhr.send(this.data);
+  } catch (e) {
+    // Need to defer since .create() is called directly fhrom the constructor
+    // and thus the 'error' event can only be only bound *after* this exception
+    // occurs.  Therefore, also, we cannot throw here at all.
+    setTimeout(function() {
+      self.onError(e);
+    }, 0);
+    return;
+  }
+
+  if (global.document) {
+    this.index = Request.requestsCount++;
+    Request.requests[this.index] = this;
+  }
+};
+
+/**
+ * Called upon successful response.
+ *
+ * @api private
+ */
+
+Request.prototype.onSuccess = function(){
+  this.emit('success');
+  this.cleanup();
+};
+
+/**
+ * Called if we have data.
+ *
+ * @api private
+ */
+
+Request.prototype.onData = function(data){
+  this.emit('data', data);
+  this.onSuccess();
+};
+
+/**
+ * Called upon error.
+ *
+ * @api private
+ */
+
+Request.prototype.onError = function(err){
+  this.emit('error', err);
+  this.cleanup(true);
+};
+
+/**
+ * Cleans up house.
+ *
+ * @api private
+ */
+
+Request.prototype.cleanup = function(fromError){
+  if ('undefined' == typeof this.xhr || null === this.xhr) {
+    return;
+  }
+  // xmlhttprequest
+  if (this.hasXDR()) {
+    this.xhr.onload = this.xhr.onerror = empty;
+  } else {
+    this.xhr.onreadystatechange = empty;
+  }
+
+  if (fromError) {
+    try {
+      this.xhr.abort();
+    } catch(e) {}
+  }
+
+  if (global.document) {
+    delete Request.requests[this.index];
+  }
+
+  this.xhr = null;
+};
+
+/**
+ * Called upon load.
+ *
+ * @api private
+ */
+
+Request.prototype.onLoad = function(){
+  var data;
+  try {
+    var contentType;
+    try {
+      contentType = this.xhr.getResponseHeader('Content-Type').split(';')[0];
+    } catch (e) {}
+    if (contentType === 'application/octet-stream') {
+      data = this.xhr.response;
+    } else {
+      if (!this.supportsBinary) {
+        data = this.xhr.responseText;
+      } else {
+        try {
+          data = String.fromCharCode.apply(null, new Uint8Array(this.xhr.response));
+        } catch (e) {
+          var ui8Arr = new Uint8Array(this.xhr.response);
+          var dataArray = [];
+          for (var idx = 0, length = ui8Arr.length; idx < length; idx++) {
+            dataArray.push(ui8Arr[idx]);
+          }
+
+          data = String.fromCharCode.apply(null, dataArray);
+        }
+      }
+    }
+  } catch (e) {
+    this.onError(e);
+  }
+  if (null != data) {
+    this.onData(data);
+  }
+};
+
+/**
+ * Check if it has XDomainRequest.
+ *
+ * @api private
+ */
+
+Request.prototype.hasXDR = function(){
+  return 'undefined' !== typeof global.XDomainRequest && !this.xs && this.enablesXDR;
+};
+
+/**
+ * Aborts the request.
+ *
+ * @api public
+ */
+
+Request.prototype.abort = function(){
+  this.cleanup();
+};
+
+/**
+ * Aborts pending requests when unloading the window. This is needed to prevent
+ * memory leaks (e.g. when using IE) and to ensure that no spurious error is
+ * emitted.
+ */
+
+if (global.document) {
+  Request.requestsCount = 0;
+  Request.requests = {};
+  if (global.attachEvent) {
+    global.attachEvent('onunload', unloadHandler);
+  } else if (global.addEventListener) {
+    global.addEventListener('beforeunload', unloadHandler, false);
+  }
+}
+
+function unloadHandler() {
+  for (var i in Request.requests) {
+    if (Request.requests.hasOwnProperty(i)) {
+      Request.requests[i].abort();
+    }
+  }
+}
+
+}).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"./polling":62,"component-emitter":65,"component-inherit":66,"debug":18,"xmlhttprequest-ssl":64}],62:[function(require,module,exports){
+/**
+ * Module dependencies.
+ */
+
+var Transport = require('../transport');
+var parseqs = require('parseqs');
+var parser = require('engine.io-parser');
+var inherit = require('component-inherit');
+var yeast = require('yeast');
+var debug = require('debug')('engine.io-client:polling');
+
+/**
+ * Module exports.
+ */
+
+module.exports = Polling;
+
+/**
+ * Is XHR2 supported?
+ */
+
+var hasXHR2 = (function() {
+  var XMLHttpRequest = require('xmlhttprequest-ssl');
+  var xhr = new XMLHttpRequest({ xdomain: false });
+  return null != xhr.responseType;
+})();
+
+/**
+ * Polling interface.
+ *
+ * @param {Object} opts
+ * @api private
+ */
+
+function Polling(opts){
+  var forceBase64 = (opts && opts.forceBase64);
+  if (!hasXHR2 || forceBase64) {
+    this.supportsBinary = false;
+  }
+  Transport.call(this, opts);
+}
+
+/**
+ * Inherits from Transport.
+ */
+
+inherit(Polling, Transport);
+
+/**
+ * Transport name.
+ */
+
+Polling.prototype.name = 'polling';
+
+/**
+ * Opens the socket (triggers polling). We write a PING message to determine
+ * when the transport is open.
+ *
+ * @api private
+ */
+
+Polling.prototype.doOpen = function(){
+  this.poll();
+};
+
+/**
+ * Pauses polling.
+ *
+ * @param {Function} callback upon buffers are flushed and transport is paused
+ * @api private
+ */
+
+Polling.prototype.pause = function(onPause){
+  var pending = 0;
+  var self = this;
+
+  this.readyState = 'pausing';
+
+  function pause(){
+    debug('paused');
+    self.readyState = 'paused';
+    onPause();
+  }
+
+  if (this.polling || !this.writable) {
+    var total = 0;
+
+    if (this.polling) {
+      debug('we are currently polling - waiting to pause');
+      total++;
+      this.once('pollComplete', function(){
+        debug('pre-pause polling complete');
+        --total || pause();
+      });
+    }
+
+    if (!this.writable) {
+      debug('we are currently writing - waiting to pause');
+      total++;
+      this.once('drain', function(){
+        debug('pre-pause writing complete');
+        --total || pause();
+      });
+    }
+  } else {
+    pause();
+  }
+};
+
+/**
+ * Starts polling cycle.
+ *
+ * @api public
+ */
+
+Polling.prototype.poll = function(){
+  debug('polling');
+  this.polling = true;
+  this.doPoll();
+  this.emit('poll');
+};
+
+/**
+ * Overloads onData to detect payloads.
+ *
+ * @api private
+ */
+
+Polling.prototype.onData = function(data){
+  var self = this;
+  debug('polling got data %s', data);
+  var callback = function(packet, index, total) {
+    // if its the first message we consider the transport open
+    if ('opening' == self.readyState) {
+      self.onOpen();
+    }
+
+    // if its a close packet, we close the ongoing requests
+    if ('close' == packet.type) {
+      self.onClose();
+      return false;
+    }
+
+    // otherwise bypass onData and handle the message
+    self.onPacket(packet);
+  };
+
+  // decode payload
+  parser.decodePayload(data, this.socket.binaryType, callback);
+
+  // if an event did not trigger closing
+  if ('closed' != this.readyState) {
+    // if we got data we're not polling
+    this.polling = false;
+    this.emit('pollComplete');
+
+    if ('open' == this.readyState) {
+      this.poll();
+    } else {
+      debug('ignoring poll - transport state "%s"', this.readyState);
+    }
+  }
+};
+
+/**
+ * For polling, send a close packet.
+ *
+ * @api private
+ */
+
+Polling.prototype.doClose = function(){
+  var self = this;
+
+  function close(){
+    debug('writing close packet');
+    self.write([{ type: 'close' }]);
+  }
+
+  if ('open' == this.readyState) {
+    debug('transport open - closing');
+    close();
+  } else {
+    // in case we're trying to close while
+    // handshaking is in progress (GH-164)
+    debug('transport not open - deferring close');
+    this.once('open', close);
+  }
+};
+
+/**
+ * Writes a packets payload.
+ *
+ * @param {Array} data packets
+ * @param {Function} drain callback
+ * @api private
+ */
+
+Polling.prototype.write = function(packets){
+  var self = this;
+  this.writable = false;
+  var callbackfn = function() {
+    self.writable = true;
+    self.emit('drain');
+  };
+
+  var self = this;
+  parser.encodePayload(packets, this.supportsBinary, function(data) {
+    self.doWrite(data, callbackfn);
+  });
+};
+
+/**
+ * Generates uri for connection.
+ *
+ * @api private
+ */
+
+Polling.prototype.uri = function(){
+  var query = this.query || {};
+  var schema = this.secure ? 'https' : 'http';
+  var port = '';
+
+  // cache busting is forced
+  if (false !== this.timestampRequests) {
+    query[this.timestampParam] = yeast();
+  }
+
+  if (!this.supportsBinary && !query.sid) {
+    query.b64 = 1;
+  }
+
+  query = parseqs.encode(query);
+
+  // avoid port if default for schema
+  if (this.port && (('https' == schema && this.port != 443) ||
+     ('http' == schema && this.port != 80))) {
+    port = ':' + this.port;
+  }
+
+  // prepend ? to query
+  if (query.length) {
+    query = '?' + query;
+  }
+
+  var ipv6 = this.hostname.indexOf(':') !== -1;
+  return schema + '://' + (ipv6 ? '[' + this.hostname + ']' : this.hostname) + port + this.path + query;
+};
+
+},{"../transport":58,"component-inherit":66,"debug":18,"engine.io-parser":67,"parseqs":78,"xmlhttprequest-ssl":64,"yeast":79}],63:[function(require,module,exports){
+(function (global){
+/**
+ * Module dependencies.
+ */
+
+var Transport = require('../transport');
+var parser = require('engine.io-parser');
+var parseqs = require('parseqs');
+var inherit = require('component-inherit');
+var yeast = require('yeast');
+var debug = require('debug')('engine.io-client:websocket');
+var BrowserWebSocket = global.WebSocket || global.MozWebSocket;
+
+/**
+ * Get either the `WebSocket` or `MozWebSocket` globals
+ * in the browser or try to resolve WebSocket-compatible
+ * interface exposed by `ws` for Node-like environment.
+ */
+
+var WebSocket = BrowserWebSocket;
+if (!WebSocket && typeof window === 'undefined') {
+  try {
+    WebSocket = require('ws');
+  } catch (e) { }
+}
+
+/**
+ * Module exports.
+ */
+
+module.exports = WS;
+
+/**
+ * WebSocket transport constructor.
+ *
+ * @api {Object} connection options
+ * @api public
+ */
+
+function WS(opts){
+  var forceBase64 = (opts && opts.forceBase64);
+  if (forceBase64) {
+    this.supportsBinary = false;
+  }
+  this.perMessageDeflate = opts.perMessageDeflate;
+  Transport.call(this, opts);
+}
+
+/**
+ * Inherits from Transport.
+ */
+
+inherit(WS, Transport);
+
+/**
+ * Transport name.
+ *
+ * @api public
+ */
+
+WS.prototype.name = 'websocket';
+
+/*
+ * WebSockets support binary
+ */
+
+WS.prototype.supportsBinary = true;
+
+/**
+ * Opens socket.
+ *
+ * @api private
+ */
+
+WS.prototype.doOpen = function(){
+  if (!this.check()) {
+    // let probe timeout
+    return;
+  }
+
+  var self = this;
+  var uri = this.uri();
+  var protocols = void(0);
+  var opts = {
+    agent: this.agent,
+    perMessageDeflate: this.perMessageDeflate
+  };
+
+  // SSL options for Node.js client
+  opts.pfx = this.pfx;
+  opts.key = this.key;
+  opts.passphrase = this.passphrase;
+  opts.cert = this.cert;
+  opts.ca = this.ca;
+  opts.ciphers = this.ciphers;
+  opts.rejectUnauthorized = this.rejectUnauthorized;
+  if (this.extraHeaders) {
+    opts.headers = this.extraHeaders;
+  }
+
+  this.ws = BrowserWebSocket ? new WebSocket(uri) : new WebSocket(uri, protocols, opts);
+
+  if (this.ws.binaryType === undefined) {
+    this.supportsBinary = false;
+  }
+
+  if (this.ws.supports && this.ws.supports.binary) {
+    this.supportsBinary = true;
+    this.ws.binaryType = 'buffer';
+  } else {
+    this.ws.binaryType = 'arraybuffer';
+  }
+
+  this.addEventListeners();
+};
+
+/**
+ * Adds event listeners to the socket
+ *
+ * @api private
+ */
+
+WS.prototype.addEventListeners = function(){
+  var self = this;
+
+  this.ws.onopen = function(){
+    self.onOpen();
+  };
+  this.ws.onclose = function(){
+    self.onClose();
+  };
+  this.ws.onmessage = function(ev){
+    self.onData(ev.data);
+  };
+  this.ws.onerror = function(e){
+    self.onError('websocket error', e);
+  };
+};
+
+/**
+ * Override `onData` to use a timer on iOS.
+ * See: https://gist.github.com/mloughran/2052006
+ *
+ * @api private
+ */
+
+if ('undefined' != typeof navigator
+  && /iPad|iPhone|iPod/i.test(navigator.userAgent)) {
+  WS.prototype.onData = function(data){
+    var self = this;
+    setTimeout(function(){
+      Transport.prototype.onData.call(self, data);
+    }, 0);
+  };
+}
+
+/**
+ * Writes data to socket.
+ *
+ * @param {Array} array of packets.
+ * @api private
+ */
+
+WS.prototype.write = function(packets){
+  var self = this;
+  this.writable = false;
+
+  // encodePacket efficient as it uses WS framing
+  // no need for encodePayload
+  var total = packets.length;
+  for (var i = 0, l = total; i < l; i++) {
+    (function(packet) {
+      parser.encodePacket(packet, self.supportsBinary, function(data) {
+        if (!BrowserWebSocket) {
+          // always create a new object (GH-437)
+          var opts = {};
+          if (packet.options) {
+            opts.compress = packet.options.compress;
+          }
+
+          if (self.perMessageDeflate) {
+            var len = 'string' == typeof data ? global.Buffer.byteLength(data) : data.length;
+            if (len < self.perMessageDeflate.threshold) {
+              opts.compress = false;
+            }
+          }
+        }
+
+        //Sometimes the websocket has already been closed but the browser didn't
+        //have a chance of informing us about it yet, in that case send will
+        //throw an error
+        try {
+          if (BrowserWebSocket) {
+            // TypeError is thrown when passing the second argument on Safari
+            self.ws.send(data);
+          } else {
+            self.ws.send(data, opts);
+          }
+        } catch (e){
+          debug('websocket closed before onclose event');
+        }
+
+        --total || done();
+      });
+    })(packets[i]);
+  }
+
+  function done(){
+    self.emit('flush');
+
+    // fake drain
+    // defer to next tick to allow Socket to clear writeBuffer
+    setTimeout(function(){
+      self.writable = true;
+      self.emit('drain');
+    }, 0);
+  }
+};
+
+/**
+ * Called upon close
+ *
+ * @api private
+ */
+
+WS.prototype.onClose = function(){
+  Transport.prototype.onClose.call(this);
+};
+
+/**
+ * Closes socket.
+ *
+ * @api private
+ */
+
+WS.prototype.doClose = function(){
+  if (typeof this.ws !== 'undefined') {
+    this.ws.close();
+  }
+};
+
+/**
+ * Generates uri for connection.
+ *
+ * @api private
+ */
+
+WS.prototype.uri = function(){
+  var query = this.query || {};
+  var schema = this.secure ? 'wss' : 'ws';
+  var port = '';
+
+  // avoid port if default for schema
+  if (this.port && (('wss' == schema && this.port != 443)
+    || ('ws' == schema && this.port != 80))) {
+    port = ':' + this.port;
+  }
+
+  // append timestamp to URI
+  if (this.timestampRequests) {
+    query[this.timestampParam] = yeast();
+  }
+
+  // communicate binary support capabilities
+  if (!this.supportsBinary) {
+    query.b64 = 1;
+  }
+
+  query = parseqs.encode(query);
+
+  // prepend ? to query
+  if (query.length) {
+    query = '?' + query;
+  }
+
+  var ipv6 = this.hostname.indexOf(':') !== -1;
+  return schema + '://' + (ipv6 ? '[' + this.hostname + ']' : this.hostname) + port + this.path + query;
+};
+
+/**
+ * Feature detection for WebSocket.
+ *
+ * @return {Boolean} whether this transport is available.
+ * @api public
+ */
+
+WS.prototype.check = function(){
+  return !!WebSocket && !('__initialize' in WebSocket && this.name === WS.prototype.name);
+};
+
+}).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"../transport":58,"component-inherit":66,"debug":18,"engine.io-parser":67,"parseqs":78,"ws":22,"yeast":79}],64:[function(require,module,exports){
+// browser shim for xmlhttprequest module
+var hasCORS = require('has-cors');
+
+module.exports = function(opts) {
+  var xdomain = opts.xdomain;
+
+  // scheme must be same when usign XDomainRequest
+  // http://blogs.msdn.com/b/ieinternals/archive/2010/05/13/xdomainrequest-restrictions-limitations-and-workarounds.aspx
+  var xscheme = opts.xscheme;
+
+  // XDomainRequest has a flow of not sending cookie, therefore it should be disabled as a default.
+  // https://github.com/Automattic/engine.io-client/pull/217
+  var enablesXDR = opts.enablesXDR;
+
+  // XMLHttpRequest can be disabled on IE
+  try {
+    if ('undefined' != typeof XMLHttpRequest && (!xdomain || hasCORS)) {
+      return new XMLHttpRequest();
+    }
+  } catch (e) { }
+
+  // Use XDomainRequest for IE8 if enablesXDR is true
+  // because loading bar keeps flashing when using jsonp-polling
+  // https://github.com/yujiosaka/socke.io-ie8-loading-example
+  try {
+    if ('undefined' != typeof XDomainRequest && !xscheme && enablesXDR) {
+      return new XDomainRequest();
+    }
+  } catch (e) { }
+
+  if (!xdomain) {
+    try {
+      return new ActiveXObject('Microsoft.XMLHTTP');
+    } catch(e) { }
+  }
+}
+
+},{"has-cors":76}],65:[function(require,module,exports){
+
+/**
+ * Expose `Emitter`.
+ */
+
+module.exports = Emitter;
+
+/**
+ * Initialize a new `Emitter`.
+ *
+ * @api public
+ */
+
+function Emitter(obj) {
+  if (obj) return mixin(obj);
+};
+
+/**
+ * Mixin the emitter properties.
+ *
+ * @param {Object} obj
+ * @return {Object}
+ * @api private
+ */
+
+function mixin(obj) {
+  for (var key in Emitter.prototype) {
+    obj[key] = Emitter.prototype[key];
+  }
+  return obj;
+}
+
+/**
+ * Listen on the given `event` with `fn`.
+ *
+ * @param {String} event
+ * @param {Function} fn
+ * @return {Emitter}
+ * @api public
+ */
+
+Emitter.prototype.on =
+Emitter.prototype.addEventListener = function(event, fn){
+  this._callbacks = this._callbacks || {};
+  (this._callbacks[event] = this._callbacks[event] || [])
+    .push(fn);
+  return this;
+};
+
+/**
+ * Adds an `event` listener that will be invoked a single
+ * time then automatically removed.
+ *
+ * @param {String} event
+ * @param {Function} fn
+ * @return {Emitter}
+ * @api public
+ */
+
+Emitter.prototype.once = function(event, fn){
+  var self = this;
+  this._callbacks = this._callbacks || {};
+
+  function on() {
+    self.off(event, on);
+    fn.apply(this, arguments);
+  }
+
+  on.fn = fn;
+  this.on(event, on);
+  return this;
+};
+
+/**
+ * Remove the given callback for `event` or all
+ * registered callbacks.
+ *
+ * @param {String} event
+ * @param {Function} fn
+ * @return {Emitter}
+ * @api public
+ */
+
+Emitter.prototype.off =
+Emitter.prototype.removeListener =
+Emitter.prototype.removeAllListeners =
+Emitter.prototype.removeEventListener = function(event, fn){
+  this._callbacks = this._callbacks || {};
+
+  // all
+  if (0 == arguments.length) {
+    this._callbacks = {};
+    return this;
+  }
+
+  // specific event
+  var callbacks = this._callbacks[event];
+  if (!callbacks) return this;
+
+  // remove all handlers
+  if (1 == arguments.length) {
+    delete this._callbacks[event];
+    return this;
+  }
+
+  // remove specific handler
+  var cb;
+  for (var i = 0; i < callbacks.length; i++) {
+    cb = callbacks[i];
+    if (cb === fn || cb.fn === fn) {
+      callbacks.splice(i, 1);
+      break;
+    }
+  }
+  return this;
+};
+
+/**
+ * Emit `event` with the given args.
+ *
+ * @param {String} event
+ * @param {Mixed} ...
+ * @return {Emitter}
+ */
+
+Emitter.prototype.emit = function(event){
+  this._callbacks = this._callbacks || {};
+  var args = [].slice.call(arguments, 1)
+    , callbacks = this._callbacks[event];
+
+  if (callbacks) {
+    callbacks = callbacks.slice(0);
+    for (var i = 0, len = callbacks.length; i < len; ++i) {
+      callbacks[i].apply(this, args);
+    }
+  }
+
+  return this;
+};
+
+/**
+ * Return array of callbacks for `event`.
+ *
+ * @param {String} event
+ * @return {Array}
+ * @api public
+ */
+
+Emitter.prototype.listeners = function(event){
+  this._callbacks = this._callbacks || {};
+  return this._callbacks[event] || [];
+};
+
+/**
+ * Check if this emitter has `event` handlers.
+ *
+ * @param {String} event
+ * @return {Boolean}
+ * @api public
+ */
+
+Emitter.prototype.hasListeners = function(event){
+  return !! this.listeners(event).length;
+};
+
+},{}],66:[function(require,module,exports){
+
+module.exports = function(a, b){
+  var fn = function(){};
+  fn.prototype = b.prototype;
+  a.prototype = new fn;
+  a.prototype.constructor = a;
+};
+},{}],67:[function(require,module,exports){
+(function (global){
+/**
+ * Module dependencies.
+ */
+
+var keys = require('./keys');
+var hasBinary = require('has-binary');
+var sliceBuffer = require('arraybuffer.slice');
+var base64encoder = require('base64-arraybuffer');
+var after = require('after');
+var utf8 = require('utf8');
+
+/**
+ * Check if we are running an android browser. That requires us to use
+ * ArrayBuffer with polling transports...
+ *
+ * http://ghinda.net/jpeg-blob-ajax-android/
+ */
+
+var isAndroid = navigator.userAgent.match(/Android/i);
+
+/**
+ * Check if we are running in PhantomJS.
+ * Uploading a Blob with PhantomJS does not work correctly, as reported here:
+ * https://github.com/ariya/phantomjs/issues/11395
+ * @type boolean
+ */
+var isPhantomJS = /PhantomJS/i.test(navigator.userAgent);
+
+/**
+ * When true, avoids using Blobs to encode payloads.
+ * @type boolean
+ */
+var dontSendBlobs = isAndroid || isPhantomJS;
+
+/**
+ * Current protocol version.
+ */
+
+exports.protocol = 3;
+
+/**
+ * Packet types.
+ */
+
+var packets = exports.packets = {
+    open:     0    // non-ws
+  , close:    1    // non-ws
+  , ping:     2
+  , pong:     3
+  , message:  4
+  , upgrade:  5
+  , noop:     6
+};
+
+var packetslist = keys(packets);
+
+/**
+ * Premade error packet.
+ */
+
+var err = { type: 'error', data: 'parser error' };
+
+/**
+ * Create a blob api even for blob builder when vendor prefixes exist
+ */
+
+var Blob = require('blob');
+
+/**
+ * Encodes a packet.
+ *
+ *     <packet type id> [ <data> ]
+ *
+ * Example:
+ *
+ *     5hello world
+ *     3
+ *     4
+ *
+ * Binary is encoded in an identical principle
+ *
+ * @api private
+ */
+
+exports.encodePacket = function (packet, supportsBinary, utf8encode, callback) {
+  if ('function' == typeof supportsBinary) {
+    callback = supportsBinary;
+    supportsBinary = false;
+  }
+
+  if ('function' == typeof utf8encode) {
+    callback = utf8encode;
+    utf8encode = null;
+  }
+
+  var data = (packet.data === undefined)
+    ? undefined
+    : packet.data.buffer || packet.data;
+
+  if (global.ArrayBuffer && data instanceof ArrayBuffer) {
+    return encodeArrayBuffer(packet, supportsBinary, callback);
+  } else if (Blob && data instanceof global.Blob) {
+    return encodeBlob(packet, supportsBinary, callback);
+  }
+
+  // might be an object with { base64: true, data: dataAsBase64String }
+  if (data && data.base64) {
+    return encodeBase64Object(packet, callback);
+  }
+
+  // Sending data as a utf-8 string
+  var encoded = packets[packet.type];
+
+  // data fragment is optional
+  if (undefined !== packet.data) {
+    encoded += utf8encode ? utf8.encode(String(packet.data)) : String(packet.data);
+  }
+
+  return callback('' + encoded);
+
+};
+
+function encodeBase64Object(packet, callback) {
+  // packet data is an object { base64: true, data: dataAsBase64String }
+  var message = 'b' + exports.packets[packet.type] + packet.data.data;
+  return callback(message);
+}
+
+/**
+ * Encode packet helpers for binary types
+ */
+
+function encodeArrayBuffer(packet, supportsBinary, callback) {
+  if (!supportsBinary) {
+    return exports.encodeBase64Packet(packet, callback);
+  }
+
+  var data = packet.data;
+  var contentArray = new Uint8Array(data);
+  var resultBuffer = new Uint8Array(1 + data.byteLength);
+
+  resultBuffer[0] = packets[packet.type];
+  for (var i = 0; i < contentArray.length; i++) {
+    resultBuffer[i+1] = contentArray[i];
+  }
+
+  return callback(resultBuffer.buffer);
+}
+
+function encodeBlobAsArrayBuffer(packet, supportsBinary, callback) {
+  if (!supportsBinary) {
+    return exports.encodeBase64Packet(packet, callback);
+  }
+
+  var fr = new FileReader();
+  fr.onload = function() {
+    packet.data = fr.result;
+    exports.encodePacket(packet, supportsBinary, true, callback);
+  };
+  return fr.readAsArrayBuffer(packet.data);
+}
+
+function encodeBlob(packet, supportsBinary, callback) {
+  if (!supportsBinary) {
+    return exports.encodeBase64Packet(packet, callback);
+  }
+
+  if (dontSendBlobs) {
+    return encodeBlobAsArrayBuffer(packet, supportsBinary, callback);
+  }
+
+  var length = new Uint8Array(1);
+  length[0] = packets[packet.type];
+  var blob = new Blob([length.buffer, packet.data]);
+
+  return callback(blob);
+}
+
+/**
+ * Encodes a packet with binary data in a base64 string
+ *
+ * @param {Object} packet, has `type` and `data`
+ * @return {String} base64 encoded message
+ */
+
+exports.encodeBase64Packet = function(packet, callback) {
+  var message = 'b' + exports.packets[packet.type];
+  if (Blob && packet.data instanceof global.Blob) {
+    var fr = new FileReader();
+    fr.onload = function() {
+      var b64 = fr.result.split(',')[1];
+      callback(message + b64);
+    };
+    return fr.readAsDataURL(packet.data);
+  }
+
+  var b64data;
+  try {
+    b64data = String.fromCharCode.apply(null, new Uint8Array(packet.data));
+  } catch (e) {
+    // iPhone Safari doesn't let you apply with typed arrays
+    var typed = new Uint8Array(packet.data);
+    var basic = new Array(typed.length);
+    for (var i = 0; i < typed.length; i++) {
+      basic[i] = typed[i];
+    }
+    b64data = String.fromCharCode.apply(null, basic);
+  }
+  message += global.btoa(b64data);
+  return callback(message);
+};
+
+/**
+ * Decodes a packet. Changes format to Blob if requested.
+ *
+ * @return {Object} with `type` and `data` (if any)
+ * @api private
+ */
+
+exports.decodePacket = function (data, binaryType, utf8decode) {
+  // String data
+  if (typeof data == 'string' || data === undefined) {
+    if (data.charAt(0) == 'b') {
+      return exports.decodeBase64Packet(data.substr(1), binaryType);
+    }
+
+    if (utf8decode) {
+      try {
+        data = utf8.decode(data);
+      } catch (e) {
+        return err;
+      }
+    }
+    var type = data.charAt(0);
+
+    if (Number(type) != type || !packetslist[type]) {
+      return err;
+    }
+
+    if (data.length > 1) {
+      return { type: packetslist[type], data: data.substring(1) };
+    } else {
+      return { type: packetslist[type] };
+    }
+  }
+
+  var asArray = new Uint8Array(data);
+  var type = asArray[0];
+  var rest = sliceBuffer(data, 1);
+  if (Blob && binaryType === 'blob') {
+    rest = new Blob([rest]);
+  }
+  return { type: packetslist[type], data: rest };
+};
+
+/**
+ * Decodes a packet encoded in a base64 string
+ *
+ * @param {String} base64 encoded message
+ * @return {Object} with `type` and `data` (if any)
+ */
+
+exports.decodeBase64Packet = function(msg, binaryType) {
+  var type = packetslist[msg.charAt(0)];
+  if (!global.ArrayBuffer) {
+    return { type: type, data: { base64: true, data: msg.substr(1) } };
+  }
+
+  var data = base64encoder.decode(msg.substr(1));
+
+  if (binaryType === 'blob' && Blob) {
+    data = new Blob([data]);
+  }
+
+  return { type: type, data: data };
+};
+
+/**
+ * Encodes multiple messages (payload).
+ *
+ *     <length>:data
+ *
+ * Example:
+ *
+ *     11:hello world2:hi
+ *
+ * If any contents are binary, they will be encoded as base64 strings. Base64
+ * encoded strings are marked with a b before the length specifier
+ *
+ * @param {Array} packets
+ * @api private
+ */
+
+exports.encodePayload = function (packets, supportsBinary, callback) {
+  if (typeof supportsBinary == 'function') {
+    callback = supportsBinary;
+    supportsBinary = null;
+  }
+
+  var isBinary = hasBinary(packets);
+
+  if (supportsBinary && isBinary) {
+    if (Blob && !dontSendBlobs) {
+      return exports.encodePayloadAsBlob(packets, callback);
+    }
+
+    return exports.encodePayloadAsArrayBuffer(packets, callback);
+  }
+
+  if (!packets.length) {
+    return callback('0:');
+  }
+
+  function setLengthHeader(message) {
+    return message.length + ':' + message;
+  }
+
+  function encodeOne(packet, doneCallback) {
+    exports.encodePacket(packet, !isBinary ? false : supportsBinary, true, function(message) {
+      doneCallback(null, setLengthHeader(message));
+    });
+  }
+
+  map(packets, encodeOne, function(err, results) {
+    return callback(results.join(''));
+  });
+};
+
+/**
+ * Async array map using after
+ */
+
+function map(ary, each, done) {
+  var result = new Array(ary.length);
+  var next = after(ary.length, done);
+
+  var eachWithIndex = function(i, el, cb) {
+    each(el, function(error, msg) {
+      result[i] = msg;
+      cb(error, result);
+    });
+  };
+
+  for (var i = 0; i < ary.length; i++) {
+    eachWithIndex(i, ary[i], next);
+  }
+}
+
+/*
+ * Decodes data when a payload is maybe expected. Possible binary contents are
+ * decoded from their base64 representation
+ *
+ * @param {String} data, callback method
+ * @api public
+ */
+
+exports.decodePayload = function (data, binaryType, callback) {
+  if (typeof data != 'string') {
+    return exports.decodePayloadAsBinary(data, binaryType, callback);
+  }
+
+  if (typeof binaryType === 'function') {
+    callback = binaryType;
+    binaryType = null;
+  }
+
+  var packet;
+  if (data == '') {
+    // parser error - ignoring payload
+    return callback(err, 0, 1);
+  }
+
+  var length = ''
+    , n, msg;
+
+  for (var i = 0, l = data.length; i < l; i++) {
+    var chr = data.charAt(i);
+
+    if (':' != chr) {
+      length += chr;
+    } else {
+      if ('' == length || (length != (n = Number(length)))) {
+        // parser error - ignoring payload
+        return callback(err, 0, 1);
+      }
+
+      msg = data.substr(i + 1, n);
+
+      if (length != msg.length) {
+        // parser error - ignoring payload
+        return callback(err, 0, 1);
+      }
+
+      if (msg.length) {
+        packet = exports.decodePacket(msg, binaryType, true);
+
+        if (err.type == packet.type && err.data == packet.data) {
+          // parser error in individual packet - ignoring payload
+          return callback(err, 0, 1);
+        }
+
+        var ret = callback(packet, i + n, l);
+        if (false === ret) return;
+      }
+
+      // advance cursor
+      i += n;
+      length = '';
+    }
+  }
+
+  if (length != '') {
+    // parser error - ignoring payload
+    return callback(err, 0, 1);
+  }
+
+};
+
+/**
+ * Encodes multiple messages (payload) as binary.
+ *
+ * <1 = binary, 0 = string><number from 0-9><number from 0-9>[...]<number
+ * 255><data>
+ *
+ * Example:
+ * 1 3 255 1 2 3, if the binary contents are interpreted as 8 bit integers
+ *
+ * @param {Array} packets
+ * @return {ArrayBuffer} encoded payload
+ * @api private
+ */
+
+exports.encodePayloadAsArrayBuffer = function(packets, callback) {
+  if (!packets.length) {
+    return callback(new ArrayBuffer(0));
+  }
+
+  function encodeOne(packet, doneCallback) {
+    exports.encodePacket(packet, true, true, function(data) {
+      return doneCallback(null, data);
+    });
+  }
+
+  map(packets, encodeOne, function(err, encodedPackets) {
+    var totalLength = encodedPackets.reduce(function(acc, p) {
+      var len;
+      if (typeof p === 'string'){
+        len = p.length;
+      } else {
+        len = p.byteLength;
+      }
+      return acc + len.toString().length + len + 2; // string/binary identifier + separator = 2
+    }, 0);
+
+    var resultArray = new Uint8Array(totalLength);
+
+    var bufferIndex = 0;
+    encodedPackets.forEach(function(p) {
+      var isString = typeof p === 'string';
+      var ab = p;
+      if (isString) {
+        var view = new Uint8Array(p.length);
+        for (var i = 0; i < p.length; i++) {
+          view[i] = p.charCodeAt(i);
+        }
+        ab = view.buffer;
+      }
+
+      if (isString) { // not true binary
+        resultArray[bufferIndex++] = 0;
+      } else { // true binary
+        resultArray[bufferIndex++] = 1;
+      }
+
+      var lenStr = ab.byteLength.toString();
+      for (var i = 0; i < lenStr.length; i++) {
+        resultArray[bufferIndex++] = parseInt(lenStr[i]);
+      }
+      resultArray[bufferIndex++] = 255;
+
+      var view = new Uint8Array(ab);
+      for (var i = 0; i < view.length; i++) {
+        resultArray[bufferIndex++] = view[i];
+      }
+    });
+
+    return callback(resultArray.buffer);
+  });
+};
+
+/**
+ * Encode as Blob
+ */
+
+exports.encodePayloadAsBlob = function(packets, callback) {
+  function encodeOne(packet, doneCallback) {
+    exports.encodePacket(packet, true, true, function(encoded) {
+      var binaryIdentifier = new Uint8Array(1);
+      binaryIdentifier[0] = 1;
+      if (typeof encoded === 'string') {
+        var view = new Uint8Array(encoded.length);
+        for (var i = 0; i < encoded.length; i++) {
+          view[i] = encoded.charCodeAt(i);
+        }
+        encoded = view.buffer;
+        binaryIdentifier[0] = 0;
+      }
+
+      var len = (encoded instanceof ArrayBuffer)
+        ? encoded.byteLength
+        : encoded.size;
+
+      var lenStr = len.toString();
+      var lengthAry = new Uint8Array(lenStr.length + 1);
+      for (var i = 0; i < lenStr.length; i++) {
+        lengthAry[i] = parseInt(lenStr[i]);
+      }
+      lengthAry[lenStr.length] = 255;
+
+      if (Blob) {
+        var blob = new Blob([binaryIdentifier.buffer, lengthAry.buffer, encoded]);
+        doneCallback(null, blob);
+      }
+    });
+  }
+
+  map(packets, encodeOne, function(err, results) {
+    return callback(new Blob(results));
+  });
+};
+
+/*
+ * Decodes data when a payload is maybe expected. Strings are decoded by
+ * interpreting each byte as a key code for entries marked to start with 0. See
+ * description of encodePayloadAsBinary
+ *
+ * @param {ArrayBuffer} data, callback method
+ * @api public
+ */
+
+exports.decodePayloadAsBinary = function (data, binaryType, callback) {
+  if (typeof binaryType === 'function') {
+    callback = binaryType;
+    binaryType = null;
+  }
+
+  var bufferTail = data;
+  var buffers = [];
+
+  var numberTooLong = false;
+  while (bufferTail.byteLength > 0) {
+    var tailArray = new Uint8Array(bufferTail);
+    var isString = tailArray[0] === 0;
+    var msgLength = '';
+
+    for (var i = 1; ; i++) {
+      if (tailArray[i] == 255) break;
+
+      if (msgLength.length > 310) {
+        numberTooLong = true;
+        break;
+      }
+
+      msgLength += tailArray[i];
+    }
+
+    if(numberTooLong) return callback(err, 0, 1);
+
+    bufferTail = sliceBuffer(bufferTail, 2 + msgLength.length);
+    msgLength = parseInt(msgLength);
+
+    var msg = sliceBuffer(bufferTail, 0, msgLength);
+    if (isString) {
+      try {
+        msg = String.fromCharCode.apply(null, new Uint8Array(msg));
+      } catch (e) {
+        // iPhone Safari doesn't let you apply to typed arrays
+        var typed = new Uint8Array(msg);
+        msg = '';
+        for (var i = 0; i < typed.length; i++) {
+          msg += String.fromCharCode(typed[i]);
+        }
+      }
+    }
+
+    buffers.push(msg);
+    bufferTail = sliceBuffer(bufferTail, msgLength);
+  }
+
+  var total = buffers.length;
+  buffers.forEach(function(buffer, i) {
+    callback(exports.decodePacket(buffer, binaryType, true), i, total);
+  });
+};
+
+}).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"./keys":68,"after":69,"arraybuffer.slice":70,"base64-arraybuffer":71,"blob":72,"has-binary":73,"utf8":75}],68:[function(require,module,exports){
+
+/**
+ * Gets the keys for an object.
+ *
+ * @return {Array} keys
+ * @api private
+ */
+
+module.exports = Object.keys || function keys (obj){
+  var arr = [];
+  var has = Object.prototype.hasOwnProperty;
+
+  for (var i in obj) {
+    if (has.call(obj, i)) {
+      arr.push(i);
+    }
+  }
+  return arr;
+};
+
+},{}],69:[function(require,module,exports){
+module.exports = after
+
+function after(count, callback, err_cb) {
+    var bail = false
+    err_cb = err_cb || noop
+    proxy.count = count
+
+    return (count === 0) ? callback() : proxy
+
+    function proxy(err, result) {
+        if (proxy.count <= 0) {
+            throw new Error('after called too many times')
+        }
+        --proxy.count
+
+        // after first error, rest are passed to err_cb
+        if (err) {
+            bail = true
+            callback(err)
+            // future error callbacks will go to error handler
+            callback = err_cb
+        } else if (proxy.count === 0 && !bail) {
+            callback(null, result)
+        }
+    }
+}
+
+function noop() {}
+
+},{}],70:[function(require,module,exports){
+/**
+ * An abstraction for slicing an arraybuffer even when
+ * ArrayBuffer.prototype.slice is not supported
+ *
+ * @api public
+ */
+
+module.exports = function(arraybuffer, start, end) {
+  var bytes = arraybuffer.byteLength;
+  start = start || 0;
+  end = end || bytes;
+
+  if (arraybuffer.slice) { return arraybuffer.slice(start, end); }
+
+  if (start < 0) { start += bytes; }
+  if (end < 0) { end += bytes; }
+  if (end > bytes) { end = bytes; }
+
+  if (start >= bytes || start >= end || bytes === 0) {
+    return new ArrayBuffer(0);
+  }
+
+  var abv = new Uint8Array(arraybuffer);
+  var result = new Uint8Array(end - start);
+  for (var i = start, ii = 0; i < end; i++, ii++) {
+    result[ii] = abv[i];
+  }
+  return result.buffer;
+};
+
+},{}],71:[function(require,module,exports){
+/*
+ * base64-arraybuffer
+ * https://github.com/niklasvh/base64-arraybuffer
+ *
+ * Copyright (c) 2012 Niklas von Hertzen
+ * Licensed under the MIT license.
+ */
+(function(chars){
+  "use strict";
+
+  exports.encode = function(arraybuffer) {
+    var bytes = new Uint8Array(arraybuffer),
+    i, len = bytes.length, base64 = "";
+
+    for (i = 0; i < len; i+=3) {
+      base64 += chars[bytes[i] >> 2];
+      base64 += chars[((bytes[i] & 3) << 4) | (bytes[i + 1] >> 4)];
+      base64 += chars[((bytes[i + 1] & 15) << 2) | (bytes[i + 2] >> 6)];
+      base64 += chars[bytes[i + 2] & 63];
+    }
+
+    if ((len % 3) === 2) {
+      base64 = base64.substring(0, base64.length - 1) + "=";
+    } else if (len % 3 === 1) {
+      base64 = base64.substring(0, base64.length - 2) + "==";
+    }
+
+    return base64;
+  };
+
+  exports.decode =  function(base64) {
+    var bufferLength = base64.length * 0.75,
+    len = base64.length, i, p = 0,
+    encoded1, encoded2, encoded3, encoded4;
+
+    if (base64[base64.length - 1] === "=") {
+      bufferLength--;
+      if (base64[base64.length - 2] === "=") {
+        bufferLength--;
+      }
+    }
+
+    var arraybuffer = new ArrayBuffer(bufferLength),
+    bytes = new Uint8Array(arraybuffer);
+
+    for (i = 0; i < len; i+=4) {
+      encoded1 = chars.indexOf(base64[i]);
+      encoded2 = chars.indexOf(base64[i+1]);
+      encoded3 = chars.indexOf(base64[i+2]);
+      encoded4 = chars.indexOf(base64[i+3]);
+
+      bytes[p++] = (encoded1 << 2) | (encoded2 >> 4);
+      bytes[p++] = ((encoded2 & 15) << 4) | (encoded3 >> 2);
+      bytes[p++] = ((encoded3 & 3) << 6) | (encoded4 & 63);
+    }
+
+    return arraybuffer;
+  };
+})("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/");
+
+},{}],72:[function(require,module,exports){
+(function (global){
+/**
+ * Create a blob builder even when vendor prefixes exist
+ */
+
+var BlobBuilder = global.BlobBuilder
+  || global.WebKitBlobBuilder
+  || global.MSBlobBuilder
+  || global.MozBlobBuilder;
+
+/**
+ * Check if Blob constructor is supported
+ */
+
+var blobSupported = (function() {
+  try {
+    var a = new Blob(['hi']);
+    return a.size === 2;
+  } catch(e) {
+    return false;
+  }
+})();
+
+/**
+ * Check if Blob constructor supports ArrayBufferViews
+ * Fails in Safari 6, so we need to map to ArrayBuffers there.
+ */
+
+var blobSupportsArrayBufferView = blobSupported && (function() {
+  try {
+    var b = new Blob([new Uint8Array([1,2])]);
+    return b.size === 2;
+  } catch(e) {
+    return false;
+  }
+})();
+
+/**
+ * Check if BlobBuilder is supported
+ */
+
+var blobBuilderSupported = BlobBuilder
+  && BlobBuilder.prototype.append
+  && BlobBuilder.prototype.getBlob;
+
+/**
+ * Helper function that maps ArrayBufferViews to ArrayBuffers
+ * Used by BlobBuilder constructor and old browsers that didn't
+ * support it in the Blob constructor.
+ */
+
+function mapArrayBufferViews(ary) {
+  for (var i = 0; i < ary.length; i++) {
+    var chunk = ary[i];
+    if (chunk.buffer instanceof ArrayBuffer) {
+      var buf = chunk.buffer;
+
+      // if this is a subarray, make a copy so we only
+      // include the subarray region from the underlying buffer
+      if (chunk.byteLength !== buf.byteLength) {
+        var copy = new Uint8Array(chunk.byteLength);
+        copy.set(new Uint8Array(buf, chunk.byteOffset, chunk.byteLength));
+        buf = copy.buffer;
+      }
+
+      ary[i] = buf;
+    }
+  }
+}
+
+function BlobBuilderConstructor(ary, options) {
+  options = options || {};
+
+  var bb = new BlobBuilder();
+  mapArrayBufferViews(ary);
+
+  for (var i = 0; i < ary.length; i++) {
+    bb.append(ary[i]);
+  }
+
+  return (options.type) ? bb.getBlob(options.type) : bb.getBlob();
+};
+
+function BlobConstructor(ary, options) {
+  mapArrayBufferViews(ary);
+  return new Blob(ary, options || {});
+};
+
+module.exports = (function() {
+  if (blobSupported) {
+    return blobSupportsArrayBufferView ? global.Blob : BlobConstructor;
+  } else if (blobBuilderSupported) {
+    return BlobBuilderConstructor;
+  } else {
+    return undefined;
+  }
+})();
+
+}).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{}],73:[function(require,module,exports){
+(function (global){
+
+/*
+ * Module requirements.
+ */
+
+var isArray = require('isarray');
+
+/**
+ * Module exports.
+ */
+
+module.exports = hasBinary;
+
+/**
+ * Checks for binary data.
+ *
+ * Right now only Buffer and ArrayBuffer are supported..
+ *
+ * @param {Object} anything
+ * @api public
+ */
+
+function hasBinary(data) {
+
+  function _hasBinary(obj) {
+    if (!obj) return false;
+
+    if ( (global.Buffer && global.Buffer.isBuffer(obj)) ||
+         (global.ArrayBuffer && obj instanceof ArrayBuffer) ||
+         (global.Blob && obj instanceof Blob) ||
+         (global.File && obj instanceof File)
+        ) {
+      return true;
+    }
+
+    if (isArray(obj)) {
+      for (var i = 0; i < obj.length; i++) {
+          if (_hasBinary(obj[i])) {
+              return true;
+          }
+      }
+    } else if (obj && 'object' == typeof obj) {
+      if (obj.toJSON) {
+        obj = obj.toJSON();
+      }
+
+      for (var key in obj) {
+        if (Object.prototype.hasOwnProperty.call(obj, key) && _hasBinary(obj[key])) {
+          return true;
+        }
+      }
+    }
+
+    return false;
+  }
+
+  return _hasBinary(data);
+}
+
+}).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"isarray":74}],74:[function(require,module,exports){
+module.exports = Array.isArray || function (arr) {
+  return Object.prototype.toString.call(arr) == '[object Array]';
+};
+
+},{}],75:[function(require,module,exports){
+(function (global){
+/*! https://mths.be/utf8js v2.0.0 by @mathias */
+;(function(root) {
+
+	// Detect free variables `exports`
+	var freeExports = typeof exports == 'object' && exports;
+
+	// Detect free variable `module`
+	var freeModule = typeof module == 'object' && module &&
+		module.exports == freeExports && module;
+
+	// Detect free variable `global`, from Node.js or Browserified code,
+	// and use it as `root`
+	var freeGlobal = typeof global == 'object' && global;
+	if (freeGlobal.global === freeGlobal || freeGlobal.window === freeGlobal) {
+		root = freeGlobal;
+	}
+
+	/*--------------------------------------------------------------------------*/
+
+	var stringFromCharCode = String.fromCharCode;
+
+	// Taken from https://mths.be/punycode
+	function ucs2decode(string) {
+		var output = [];
+		var counter = 0;
+		var length = string.length;
+		var value;
+		var extra;
+		while (counter < length) {
+			value = string.charCodeAt(counter++);
+			if (value >= 0xD800 && value <= 0xDBFF && counter < length) {
+				// high surrogate, and there is a next character
+				extra = string.charCodeAt(counter++);
+				if ((extra & 0xFC00) == 0xDC00) { // low surrogate
+					output.push(((value & 0x3FF) << 10) + (extra & 0x3FF) + 0x10000);
+				} else {
+					// unmatched surrogate; only append this code unit, in case the next
+					// code unit is the high surrogate of a surrogate pair
+					output.push(value);
+					counter--;
+				}
+			} else {
+				output.push(value);
+			}
+		}
+		return output;
+	}
+
+	// Taken from https://mths.be/punycode
+	function ucs2encode(array) {
+		var length = array.length;
+		var index = -1;
+		var value;
+		var output = '';
+		while (++index < length) {
+			value = array[index];
+			if (value > 0xFFFF) {
+				value -= 0x10000;
+				output += stringFromCharCode(value >>> 10 & 0x3FF | 0xD800);
+				value = 0xDC00 | value & 0x3FF;
+			}
+			output += stringFromCharCode(value);
+		}
+		return output;
+	}
+
+	function checkScalarValue(codePoint) {
+		if (codePoint >= 0xD800 && codePoint <= 0xDFFF) {
+			throw Error(
+				'Lone surrogate U+' + codePoint.toString(16).toUpperCase() +
+				' is not a scalar value'
+			);
+		}
+	}
+	/*--------------------------------------------------------------------------*/
+
+	function createByte(codePoint, shift) {
+		return stringFromCharCode(((codePoint >> shift) & 0x3F) | 0x80);
+	}
+
+	function encodeCodePoint(codePoint) {
+		if ((codePoint & 0xFFFFFF80) == 0) { // 1-byte sequence
+			return stringFromCharCode(codePoint);
+		}
+		var symbol = '';
+		if ((codePoint & 0xFFFFF800) == 0) { // 2-byte sequence
+			symbol = stringFromCharCode(((codePoint >> 6) & 0x1F) | 0xC0);
+		}
+		else if ((codePoint & 0xFFFF0000) == 0) { // 3-byte sequence
+			checkScalarValue(codePoint);
+			symbol = stringFromCharCode(((codePoint >> 12) & 0x0F) | 0xE0);
+			symbol += createByte(codePoint, 6);
+		}
+		else if ((codePoint & 0xFFE00000) == 0) { // 4-byte sequence
+			symbol = stringFromCharCode(((codePoint >> 18) & 0x07) | 0xF0);
+			symbol += createByte(codePoint, 12);
+			symbol += createByte(codePoint, 6);
+		}
+		symbol += stringFromCharCode((codePoint & 0x3F) | 0x80);
+		return symbol;
+	}
+
+	function utf8encode(string) {
+		var codePoints = ucs2decode(string);
+		var length = codePoints.length;
+		var index = -1;
+		var codePoint;
+		var byteString = '';
+		while (++index < length) {
+			codePoint = codePoints[index];
+			byteString += encodeCodePoint(codePoint);
+		}
+		return byteString;
+	}
+
+	/*--------------------------------------------------------------------------*/
+
+	function readContinuationByte() {
+		if (byteIndex >= byteCount) {
+			throw Error('Invalid byte index');
+		}
+
+		var continuationByte = byteArray[byteIndex] & 0xFF;
+		byteIndex++;
+
+		if ((continuationByte & 0xC0) == 0x80) {
+			return continuationByte & 0x3F;
+		}
+
+		// If we end up here, it’s not a continuation byte
+		throw Error('Invalid continuation byte');
+	}
+
+	function decodeSymbol() {
+		var byte1;
+		var byte2;
+		var byte3;
+		var byte4;
+		var codePoint;
+
+		if (byteIndex > byteCount) {
+			throw Error('Invalid byte index');
+		}
+
+		if (byteIndex == byteCount) {
+			return false;
+		}
+
+		// Read first byte
+		byte1 = byteArray[byteIndex] & 0xFF;
+		byteIndex++;
+
+		// 1-byte sequence (no continuation bytes)
+		if ((byte1 & 0x80) == 0) {
+			return byte1;
+		}
+
+		// 2-byte sequence
+		if ((byte1 & 0xE0) == 0xC0) {
+			var byte2 = readContinuationByte();
+			codePoint = ((byte1 & 0x1F) << 6) | byte2;
+			if (codePoint >= 0x80) {
+				return codePoint;
+			} else {
+				throw Error('Invalid continuation byte');
+			}
+		}
+
+		// 3-byte sequence (may include unpaired surrogates)
+		if ((byte1 & 0xF0) == 0xE0) {
+			byte2 = readContinuationByte();
+			byte3 = readContinuationByte();
+			codePoint = ((byte1 & 0x0F) << 12) | (byte2 << 6) | byte3;
+			if (codePoint >= 0x0800) {
+				checkScalarValue(codePoint);
+				return codePoint;
+			} else {
+				throw Error('Invalid continuation byte');
+			}
+		}
+
+		// 4-byte sequence
+		if ((byte1 & 0xF8) == 0xF0) {
+			byte2 = readContinuationByte();
+			byte3 = readContinuationByte();
+			byte4 = readContinuationByte();
+			codePoint = ((byte1 & 0x0F) << 0x12) | (byte2 << 0x0C) |
+				(byte3 << 0x06) | byte4;
+			if (codePoint >= 0x010000 && codePoint <= 0x10FFFF) {
+				return codePoint;
+			}
+		}
+
+		throw Error('Invalid UTF-8 detected');
+	}
+
+	var byteArray;
+	var byteCount;
+	var byteIndex;
+	function utf8decode(byteString) {
+		byteArray = ucs2decode(byteString);
+		byteCount = byteArray.length;
+		byteIndex = 0;
+		var codePoints = [];
+		var tmp;
+		while ((tmp = decodeSymbol()) !== false) {
+			codePoints.push(tmp);
+		}
+		return ucs2encode(codePoints);
+	}
+
+	/*--------------------------------------------------------------------------*/
+
+	var utf8 = {
+		'version': '2.0.0',
+		'encode': utf8encode,
+		'decode': utf8decode
+	};
+
+	// Some AMD build optimizers, like r.js, check for specific condition patterns
+	// like the following:
+	if (
+		typeof define == 'function' &&
+		typeof define.amd == 'object' &&
+		define.amd
+	) {
+		define(function() {
+			return utf8;
+		});
+	}	else if (freeExports && !freeExports.nodeType) {
+		if (freeModule) { // in Node.js or RingoJS v0.8.0+
+			freeModule.exports = utf8;
+		} else { // in Narwhal or RingoJS v0.7.0-
+			var object = {};
+			var hasOwnProperty = object.hasOwnProperty;
+			for (var key in utf8) {
+				hasOwnProperty.call(utf8, key) && (freeExports[key] = utf8[key]);
+			}
+		}
+	} else { // in Rhino or a web browser
+		root.utf8 = utf8;
+	}
+
+}(this));
+
+}).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{}],76:[function(require,module,exports){
+
+/**
+ * Module exports.
+ *
+ * Logic borrowed from Modernizr:
+ *
+ *   - https://github.com/Modernizr/Modernizr/blob/master/feature-detects/cors.js
+ */
+
+try {
+  module.exports = typeof XMLHttpRequest !== 'undefined' &&
+    'withCredentials' in new XMLHttpRequest();
+} catch (err) {
+  // if XMLHttp support is disabled in IE then it will throw
+  // when trying to create
+  module.exports = false;
+}
+
+},{}],77:[function(require,module,exports){
+(function (global){
+/**
+ * JSON parse.
+ *
+ * @see Based on jQuery#parseJSON (MIT) and JSON2
+ * @api private
+ */
+
+var rvalidchars = /^[\],:{}\s]*$/;
+var rvalidescape = /\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g;
+var rvalidtokens = /"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g;
+var rvalidbraces = /(?:^|:|,)(?:\s*\[)+/g;
+var rtrimLeft = /^\s+/;
+var rtrimRight = /\s+$/;
+
+module.exports = function parsejson(data) {
+  if ('string' != typeof data || !data) {
+    return null;
+  }
+
+  data = data.replace(rtrimLeft, '').replace(rtrimRight, '');
+
+  // Attempt to parse using the native JSON parser first
+  if (global.JSON && JSON.parse) {
+    return JSON.parse(data);
+  }
+
+  if (rvalidchars.test(data.replace(rvalidescape, '@')
+      .replace(rvalidtokens, ']')
+      .replace(rvalidbraces, ''))) {
+    return (new Function('return ' + data))();
+  }
+};
+}).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{}],78:[function(require,module,exports){
+/**
+ * Compiles a querystring
+ * Returns string representation of the object
+ *
+ * @param {Object}
+ * @api private
+ */
+
+exports.encode = function (obj) {
+  var str = '';
+
+  for (var i in obj) {
+    if (obj.hasOwnProperty(i)) {
+      if (str.length) str += '&';
+      str += encodeURIComponent(i) + '=' + encodeURIComponent(obj[i]);
+    }
+  }
+
+  return str;
+};
+
+/**
+ * Parses a simple querystring into an object
+ *
+ * @param {String} qs
+ * @api private
+ */
+
+exports.decode = function(qs){
+  var qry = {};
+  var pairs = qs.split('&');
+  for (var i = 0, l = pairs.length; i < l; i++) {
+    var pair = pairs[i].split('=');
+    qry[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+  }
+  return qry;
+};
+
+},{}],79:[function(require,module,exports){
+'use strict';
+
+var alphabet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_'.split('')
+  , length = 64
+  , map = {}
+  , seed = 0
+  , i = 0
+  , prev;
+
+/**
+ * Return a string representing the specified number.
+ *
+ * @param {Number} num The number to convert.
+ * @returns {String} The string representation of the number.
+ * @api public
+ */
+function encode(num) {
+  var encoded = '';
+
+  do {
+    encoded = alphabet[num % length] + encoded;
+    num = Math.floor(num / length);
+  } while (num > 0);
+
+  return encoded;
+}
+
+/**
+ * Return the integer value specified by the given string.
+ *
+ * @param {String} str The string to convert.
+ * @returns {Number} The integer value represented by the string.
+ * @api public
+ */
+function decode(str) {
+  var decoded = 0;
+
+  for (i = 0; i < str.length; i++) {
+    decoded = decoded * length + map[str.charAt(i)];
+  }
+
+  return decoded;
+}
+
+/**
+ * Yeast: A tiny growing id generator.
+ *
+ * @returns {String} A unique id.
+ * @api public
+ */
+function yeast() {
+  var now = encode(+new Date());
+
+  if (now !== prev) return seed = 0, prev = now;
+  return now +'.'+ encode(seed++);
+}
+
+//
+// Map each character to its index.
+//
+for (; i < length; i++) map[alphabet[i]] = i;
+
+//
+// Expose the `yeast`, `encode` and `decode` functions.
+//
+yeast.encode = encode;
+yeast.decode = decode;
+module.exports = yeast;
+
+},{}],80:[function(require,module,exports){
+(function (global){
+
+/*
+ * Module requirements.
+ */
+
+var isArray = require('isarray');
+
+/**
+ * Module exports.
+ */
+
+module.exports = hasBinary;
+
+/**
+ * Checks for binary data.
+ *
+ * Right now only Buffer and ArrayBuffer are supported..
+ *
+ * @param {Object} anything
+ * @api public
+ */
+
+function hasBinary(data) {
+
+  function _hasBinary(obj) {
+    if (!obj) return false;
+
+    if ( (global.Buffer && global.Buffer.isBuffer && global.Buffer.isBuffer(obj)) ||
+         (global.ArrayBuffer && obj instanceof ArrayBuffer) ||
+         (global.Blob && obj instanceof Blob) ||
+         (global.File && obj instanceof File)
+        ) {
+      return true;
+    }
+
+    if (isArray(obj)) {
+      for (var i = 0; i < obj.length; i++) {
+          if (_hasBinary(obj[i])) {
+              return true;
+          }
+      }
+    } else if (obj && 'object' == typeof obj) {
+      // see: https://github.com/Automattic/has-binary/pull/4
+      if (obj.toJSON && 'function' == typeof obj.toJSON) {
+        obj = obj.toJSON();
+      }
+
+      for (var key in obj) {
+        if (Object.prototype.hasOwnProperty.call(obj, key) && _hasBinary(obj[key])) {
+          return true;
+        }
+      }
+    }
+
+    return false;
+  }
+
+  return _hasBinary(data);
+}
+
+}).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"isarray":81}],81:[function(require,module,exports){
+module.exports=require(74)
 },{}],82:[function(require,module,exports){
+
+var indexOf = [].indexOf;
+
+module.exports = function(arr, obj){
+  if (indexOf) return arr.indexOf(obj);
+  for (var i = 0; i < arr.length; ++i) {
+    if (arr[i] === obj) return i;
+  }
+  return -1;
+};
+},{}],83:[function(require,module,exports){
+/**
+ * Parses an URI
+ *
+ * @author Steven Levithan <stevenlevithan.com> (MIT license)
+ * @api private
+ */
+
+var re = /^(?:(?![^:@]+:[^:@\/]*@)(http|https|ws|wss):\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?((?:[a-f0-9]{0,4}:){2,7}[a-f0-9]{0,4}|[^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/;
+
+var parts = [
+    'source', 'protocol', 'authority', 'userInfo', 'user', 'password', 'host', 'port', 'relative', 'path', 'directory', 'file', 'query', 'anchor'
+];
+
+module.exports = function parseuri(str) {
+    var src = str,
+        b = str.indexOf('['),
+        e = str.indexOf(']');
+
+    if (b != -1 && e != -1) {
+        str = str.substring(0, b) + str.substring(b, e).replace(/:/g, ';') + str.substring(e, str.length);
+    }
+
+    var m = re.exec(str || ''),
+        uri = {},
+        i = 14;
+
+    while (i--) {
+        uri[parts[i]] = m[i] || '';
+    }
+
+    if (b != -1 && e != -1) {
+        uri.source = src;
+        uri.host = uri.host.substring(1, uri.host.length - 1).replace(/;/g, ':');
+        uri.authority = uri.authority.replace('[', '').replace(']', '').replace(/;/g, ':');
+        uri.ipv6uri = true;
+    }
+
+    return uri;
+};
+
+},{}],84:[function(require,module,exports){
 (function (global){
 /*global Blob,File*/
 
@@ -23592,7 +21388,7 @@ exports.removeBlobs = function(data, callback) {
 };
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./is-buffer":84,"isarray":85}],83:[function(require,module,exports){
+},{"./is-buffer":86,"isarray":88}],85:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -23994,7 +21790,7 @@ function error(data){
   };
 }
 
-},{"./binary":82,"./is-buffer":84,"component-emitter":25,"debug":27,"isarray":85,"json3":86}],84:[function(require,module,exports){
+},{"./binary":84,"./is-buffer":86,"component-emitter":87,"debug":18,"isarray":88,"json3":89}],86:[function(require,module,exports){
 (function (global){
 
 module.exports = isBuf;
@@ -24011,9 +21807,11 @@ function isBuf(obj) {
 }
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],85:[function(require,module,exports){
-module.exports=require(43)
-},{}],86:[function(require,module,exports){
+},{}],87:[function(require,module,exports){
+module.exports=require(65)
+},{}],88:[function(require,module,exports){
+module.exports=require(74)
+},{}],89:[function(require,module,exports){
 (function (global){
 /*! JSON v3.3.2 | http://bestiejs.github.io/json3 | Copyright 2012-2014, Kit Cambridge | http://kit.mit-license.org */
 ;(function () {
@@ -24919,7 +22717,7 @@ module.exports=require(43)
 }).call(this);
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],87:[function(require,module,exports){
+},{}],90:[function(require,module,exports){
 module.exports = toArray
 
 function toArray(list, index) {
@@ -24934,7 +22732,7 @@ function toArray(list, index) {
     return array
 }
 
-},{}],88:[function(require,module,exports){
+},{}],91:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -26484,301 +24282,123 @@ function toArray(list, index) {
   }
 }.call(this));
 
-},{}],89:[function(require,module,exports){
-(function (global){
-/*! https://mths.be/utf8js v2.0.0 by @mathias */
-;(function(root) {
-
-	// Detect free variables `exports`
-	var freeExports = typeof exports == 'object' && exports;
-
-	// Detect free variable `module`
-	var freeModule = typeof module == 'object' && module &&
-		module.exports == freeExports && module;
-
-	// Detect free variable `global`, from Node.js or Browserified code,
-	// and use it as `root`
-	var freeGlobal = typeof global == 'object' && global;
-	if (freeGlobal.global === freeGlobal || freeGlobal.window === freeGlobal) {
-		root = freeGlobal;
-	}
-
-	/*--------------------------------------------------------------------------*/
-
-	var stringFromCharCode = String.fromCharCode;
-
-	// Taken from https://mths.be/punycode
-	function ucs2decode(string) {
-		var output = [];
-		var counter = 0;
-		var length = string.length;
-		var value;
-		var extra;
-		while (counter < length) {
-			value = string.charCodeAt(counter++);
-			if (value >= 0xD800 && value <= 0xDBFF && counter < length) {
-				// high surrogate, and there is a next character
-				extra = string.charCodeAt(counter++);
-				if ((extra & 0xFC00) == 0xDC00) { // low surrogate
-					output.push(((value & 0x3FF) << 10) + (extra & 0x3FF) + 0x10000);
-				} else {
-					// unmatched surrogate; only append this code unit, in case the next
-					// code unit is the high surrogate of a surrogate pair
-					output.push(value);
-					counter--;
-				}
-			} else {
-				output.push(value);
-			}
-		}
-		return output;
-	}
-
-	// Taken from https://mths.be/punycode
-	function ucs2encode(array) {
-		var length = array.length;
-		var index = -1;
-		var value;
-		var output = '';
-		while (++index < length) {
-			value = array[index];
-			if (value > 0xFFFF) {
-				value -= 0x10000;
-				output += stringFromCharCode(value >>> 10 & 0x3FF | 0xD800);
-				value = 0xDC00 | value & 0x3FF;
-			}
-			output += stringFromCharCode(value);
-		}
-		return output;
-	}
-
-	function checkScalarValue(codePoint) {
-		if (codePoint >= 0xD800 && codePoint <= 0xDFFF) {
-			throw Error(
-				'Lone surrogate U+' + codePoint.toString(16).toUpperCase() +
-				' is not a scalar value'
-			);
-		}
-	}
-	/*--------------------------------------------------------------------------*/
-
-	function createByte(codePoint, shift) {
-		return stringFromCharCode(((codePoint >> shift) & 0x3F) | 0x80);
-	}
-
-	function encodeCodePoint(codePoint) {
-		if ((codePoint & 0xFFFFFF80) == 0) { // 1-byte sequence
-			return stringFromCharCode(codePoint);
-		}
-		var symbol = '';
-		if ((codePoint & 0xFFFFF800) == 0) { // 2-byte sequence
-			symbol = stringFromCharCode(((codePoint >> 6) & 0x1F) | 0xC0);
-		}
-		else if ((codePoint & 0xFFFF0000) == 0) { // 3-byte sequence
-			checkScalarValue(codePoint);
-			symbol = stringFromCharCode(((codePoint >> 12) & 0x0F) | 0xE0);
-			symbol += createByte(codePoint, 6);
-		}
-		else if ((codePoint & 0xFFE00000) == 0) { // 4-byte sequence
-			symbol = stringFromCharCode(((codePoint >> 18) & 0x07) | 0xF0);
-			symbol += createByte(codePoint, 12);
-			symbol += createByte(codePoint, 6);
-		}
-		symbol += stringFromCharCode((codePoint & 0x3F) | 0x80);
-		return symbol;
-	}
-
-	function utf8encode(string) {
-		var codePoints = ucs2decode(string);
-		var length = codePoints.length;
-		var index = -1;
-		var codePoint;
-		var byteString = '';
-		while (++index < length) {
-			codePoint = codePoints[index];
-			byteString += encodeCodePoint(codePoint);
-		}
-		return byteString;
-	}
-
-	/*--------------------------------------------------------------------------*/
-
-	function readContinuationByte() {
-		if (byteIndex >= byteCount) {
-			throw Error('Invalid byte index');
-		}
-
-		var continuationByte = byteArray[byteIndex] & 0xFF;
-		byteIndex++;
-
-		if ((continuationByte & 0xC0) == 0x80) {
-			return continuationByte & 0x3F;
-		}
-
-		// If we end up here, it’s not a continuation byte
-		throw Error('Invalid continuation byte');
-	}
-
-	function decodeSymbol() {
-		var byte1;
-		var byte2;
-		var byte3;
-		var byte4;
-		var codePoint;
-
-		if (byteIndex > byteCount) {
-			throw Error('Invalid byte index');
-		}
-
-		if (byteIndex == byteCount) {
-			return false;
-		}
-
-		// Read first byte
-		byte1 = byteArray[byteIndex] & 0xFF;
-		byteIndex++;
-
-		// 1-byte sequence (no continuation bytes)
-		if ((byte1 & 0x80) == 0) {
-			return byte1;
-		}
-
-		// 2-byte sequence
-		if ((byte1 & 0xE0) == 0xC0) {
-			var byte2 = readContinuationByte();
-			codePoint = ((byte1 & 0x1F) << 6) | byte2;
-			if (codePoint >= 0x80) {
-				return codePoint;
-			} else {
-				throw Error('Invalid continuation byte');
-			}
-		}
-
-		// 3-byte sequence (may include unpaired surrogates)
-		if ((byte1 & 0xF0) == 0xE0) {
-			byte2 = readContinuationByte();
-			byte3 = readContinuationByte();
-			codePoint = ((byte1 & 0x0F) << 12) | (byte2 << 6) | byte3;
-			if (codePoint >= 0x0800) {
-				checkScalarValue(codePoint);
-				return codePoint;
-			} else {
-				throw Error('Invalid continuation byte');
-			}
-		}
-
-		// 4-byte sequence
-		if ((byte1 & 0xF8) == 0xF0) {
-			byte2 = readContinuationByte();
-			byte3 = readContinuationByte();
-			byte4 = readContinuationByte();
-			codePoint = ((byte1 & 0x0F) << 0x12) | (byte2 << 0x0C) |
-				(byte3 << 0x06) | byte4;
-			if (codePoint >= 0x010000 && codePoint <= 0x10FFFF) {
-				return codePoint;
-			}
-		}
-
-		throw Error('Invalid UTF-8 detected');
-	}
-
-	var byteArray;
-	var byteCount;
-	var byteIndex;
-	function utf8decode(byteString) {
-		byteArray = ucs2decode(byteString);
-		byteCount = byteArray.length;
-		byteIndex = 0;
-		var codePoints = [];
-		var tmp;
-		while ((tmp = decodeSymbol()) !== false) {
-			codePoints.push(tmp);
-		}
-		return ucs2encode(codePoints);
-	}
-
-	/*--------------------------------------------------------------------------*/
-
-	var utf8 = {
-		'version': '2.0.0',
-		'encode': utf8encode,
-		'decode': utf8decode
-	};
-
-	// Some AMD build optimizers, like r.js, check for specific condition patterns
-	// like the following:
-	if (
-		typeof define == 'function' &&
-		typeof define.amd == 'object' &&
-		define.amd
-	) {
-		define(function() {
-			return utf8;
-		});
-	}	else if (freeExports && !freeExports.nodeType) {
-		if (freeModule) { // in Node.js or RingoJS v0.8.0+
-			freeModule.exports = utf8;
-		} else { // in Narwhal or RingoJS v0.7.0-
-			var object = {};
-			var hasOwnProperty = object.hasOwnProperty;
-			for (var key in utf8) {
-				hasOwnProperty.call(utf8, key) && (freeExports[key] = utf8[key]);
-			}
-		}
-	} else { // in Rhino or a web browser
-		root.utf8 = utf8;
-	}
-
-}(this));
-
-}).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],90:[function(require,module,exports){
+},{}],92:[function(require,module,exports){
 var Vue // late bind
-var map = window.__VUE_HOT_MAP__ = Object.create(null)
-var installed = false
+var map = Object.create(null)
+var shimmed = false
 var isBrowserify = false
-var initHookName = 'beforeCreate'
+
+/**
+ * Determine compatibility and apply patch.
+ *
+ * @param {Function} vue
+ * @param {Boolean} browserify
+ */
 
 exports.install = function (vue, browserify) {
-  if (installed) return
-  installed = true
+  if (shimmed) return
+  shimmed = true
 
   Vue = vue
   isBrowserify = browserify
 
-  // compat with < 2.0.0-alpha.7
-  if (Vue.config._lifecycleHooks.indexOf('init') > -1) {
-    initHookName = 'init'
-  }
-
-  exports.compatible = Number(Vue.version.split('.')[0]) >= 2
+  exports.compatible = !!Vue.internalDirectives
   if (!exports.compatible) {
     console.warn(
-      '[HMR] You are using a version of vue-hot-reload-api that is ' +
-      'only compatible with Vue.js core ^2.0.0.'
+      '[HMR] vue-loader hot reload is only compatible with ' +
+      'Vue.js 1.0.0+.'
     )
     return
+  }
+
+  // patch view directive
+  patchView(Vue.internalDirectives.component)
+  console.log('[HMR] Vue component hot reload shim applied.')
+  // shim router-view if present
+  var routerView = Vue.elementDirective('router-view')
+  if (routerView) {
+    patchView(routerView)
+    console.log('[HMR] vue-router <router-view> hot reload shim applied.')
   }
 }
 
 /**
- * Create a record for a hot module, which keeps track of its constructor
- * and instances
+ * Shim the view directive (component or router-view).
+ *
+ * @param {Object} View
+ */
+
+function patchView (View) {
+  var unbuild = View.unbuild
+  View.unbuild = function (defer) {
+    if (!this.hotUpdating) {
+      var prevComponent = this.childVM && this.childVM.constructor
+      removeView(prevComponent, this)
+      // defer = true means we are transitioning to a new
+      // Component. Register this new component to the list.
+      if (defer) {
+        addView(this.Component, this)
+      }
+    }
+    // call original
+    return unbuild.call(this, defer)
+  }
+}
+
+/**
+ * Add a component view to a Component's hot list
+ *
+ * @param {Function} Component
+ * @param {Directive} view - view directive instance
+ */
+
+function addView (Component, view) {
+  var id = Component && Component.options.hotID
+  if (id) {
+    if (!map[id]) {
+      map[id] = {
+        Component: Component,
+        views: [],
+        instances: []
+      }
+    }
+    map[id].views.push(view)
+  }
+}
+
+/**
+ * Remove a component view from a Component's hot list
+ *
+ * @param {Function} Component
+ * @param {Directive} view - view directive instance
+ */
+
+function removeView (Component, view) {
+  var id = Component && Component.options.hotID
+  if (id) {
+    map[id].views.$remove(view)
+  }
+}
+
+/**
+ * Create a record for a hot module, which keeps track of its construcotr,
+ * instnaces and views (component directives or router-views).
  *
  * @param {String} id
  * @param {Object} options
  */
 
 exports.createRecord = function (id, options) {
-  var Ctor = null
   if (typeof options === 'function') {
-    Ctor = options
-    options = Ctor.options
+    options = options.options
   }
-  makeOptionsHot(id, options)
-  map[id] = {
-    Ctor: Vue.extend(options),
-    instances: []
+  if (typeof options.el !== 'string' && typeof options.data !== 'object') {
+    makeOptionsHot(id, options)
+    map[id] = {
+      Component: null,
+      views: [],
+      instances: []
+    }
   }
 }
 
@@ -26790,12 +24410,16 @@ exports.createRecord = function (id, options) {
  */
 
 function makeOptionsHot (id, options) {
-  injectHook(options, initHookName, function () {
-    map[id].instances.push(this)
+  options.hotID = id
+  injectHook(options, 'created', function () {
+    var record = map[id]
+    if (!record.Component) {
+      record.Component = this.constructor
+    }
+    record.instances.push(this)
   })
   injectHook(options, 'beforeDestroy', function () {
-    var instances = map[id].instances
-    instances.splice(instances.indexOf(this), 1)
+    map[id].instances.$remove(this)
   })
 }
 
@@ -26817,48 +24441,149 @@ function injectHook (options, name, hook) {
     : [hook]
 }
 
-function tryWrap (fn) {
-  return function (id, arg) {
-    try { fn(id, arg) } catch (e) {
-      console.error(e)
-      console.warn('Something went wrong during Vue component hot-reload. Full reload required.')
+/**
+ * Update a hot component.
+ *
+ * @param {String} id
+ * @param {Object|null} newOptions
+ * @param {String|null} newTemplate
+ */
+
+exports.update = function (id, newOptions, newTemplate) {
+  var record = map[id]
+  // force full-reload if an instance of the component is active but is not
+  // managed by a view
+  if (!record || (record.instances.length && !record.views.length)) {
+    console.log('[HMR] Root or manually-mounted instance modified. Full reload may be required.')
+    if (!isBrowserify) {
+      window.location.reload()
+    } else {
+      // browserify-hmr somehow sends incomplete bundle if we reload here
+      return
     }
+  }
+  if (!isBrowserify) {
+    // browserify-hmr already logs this
+    console.log('[HMR] Updating component: ' + format(id))
+  }
+  var Component = record.Component
+  // update constructor
+  if (newOptions) {
+    // in case the user exports a constructor
+    Component = record.Component = typeof newOptions === 'function'
+      ? newOptions
+      : Vue.extend(newOptions)
+    makeOptionsHot(id, Component.options)
+  }
+  if (newTemplate) {
+    Component.options.template = newTemplate
+  }
+  // handle recursive lookup
+  if (Component.options.name) {
+    Component.options.components[Component.options.name] = Component
+  }
+  // reset constructor cached linker
+  Component.linker = null
+  // reload all views
+  record.views.forEach(function (view) {
+    updateView(view, Component)
+  })
+  // flush devtools
+  if (window.__VUE_DEVTOOLS_GLOBAL_HOOK__) {
+    window.__VUE_DEVTOOLS_GLOBAL_HOOK__.emit('flush')
   }
 }
 
-exports.rerender = tryWrap(function (id, fns) {
-  var record = map[id]
-  record.Ctor.options.render = fns.render
-  record.Ctor.options.staticRenderFns = fns.staticRenderFns
-  record.instances.slice().forEach(function (instance) {
-    instance.$options.render = fns.render
-    instance.$options.staticRenderFns = fns.staticRenderFns
-    instance._staticTrees = [] // reset static trees
-    instance.$forceUpdate()
-  })
-})
+/**
+ * Update a component view instance
+ *
+ * @param {Directive} view
+ * @param {Function} Component
+ */
 
-exports.reload = tryWrap(function (id, options) {
-  makeOptionsHot(id, options)
-  var record = map[id]
-  record.Ctor.extendOptions = options
-  var newCtor = Vue.extend(options)
-  record.Ctor.options = newCtor.options
-  record.Ctor.cid = newCtor.cid
-  if (newCtor.release) {
-    // temporary global mixin strategy used in < 2.0.0-alpha.6
-    newCtor.release()
+function updateView (view, Component) {
+  if (!view._bound) {
+    return
   }
-  record.instances.slice().forEach(function (instance) {
-    if (instance.$parent) {
-      instance.$parent.$forceUpdate()
-    } else {
-      console.warn('Root or manually mounted instance modified. Full reload required.')
-    }
-  })
-})
+  view.Component = Component
+  view.hotUpdating = true
+  // disable transitions
+  view.vm._isCompiled = false
+  // save state
+  var state = extractState(view.childVM)
+  // remount, make sure to disable keep-alive
+  var keepAlive = view.keepAlive
+  view.keepAlive = false
+  view.mountComponent()
+  view.keepAlive = keepAlive
+  // restore state
+  restoreState(view.childVM, state, true)
+  // re-eanble transitions
+  view.vm._isCompiled = true
+  view.hotUpdating = false
+}
 
-},{}],91:[function(require,module,exports){
+/**
+ * Extract state from a Vue instance.
+ *
+ * @param {Vue} vm
+ * @return {Object}
+ */
+
+function extractState (vm) {
+  return {
+    cid: vm.constructor.cid,
+    data: vm.$data,
+    children: vm.$children.map(extractState)
+  }
+}
+
+/**
+ * Restore state to a reloaded Vue instance.
+ *
+ * @param {Vue} vm
+ * @param {Object} state
+ */
+
+function restoreState (vm, state, isRoot) {
+  var oldAsyncConfig
+  if (isRoot) {
+    // set Vue into sync mode during state rehydration
+    oldAsyncConfig = Vue.config.async
+    Vue.config.async = false
+  }
+  // actual restore
+  if (isRoot || !vm._props) {
+    vm.$data = state.data
+  } else {
+    Object.keys(state.data).forEach(function (key) {
+      if (!vm._props[key]) {
+        // for non-root, only restore non-props fields
+        vm.$data[key] = state.data[key]
+      }
+    })
+  }
+  // verify child consistency
+  var hasSameChildren = vm.$children.every(function (c, i) {
+    return state.children[i] && state.children[i].cid === c.constructor.cid
+  })
+  if (hasSameChildren) {
+    // rehydrate children
+    vm.$children.forEach(function (c, i) {
+      restoreState(c, state.children[i])
+    })
+  }
+  if (isRoot) {
+    Vue.config.async = oldAsyncConfig
+  }
+}
+
+function format (id) {
+  var match = id.match(/[^\/]+\.vue$/)
+  return match ? match[0] : id
+}
+
+},{}],93:[function(require,module,exports){
 (function (process,global){
 /*!
  * Vue.js v1.0.26
@@ -36934,8 +34659,8 @@ setTimeout(function () {
 }, 0);
 
 module.exports = Vue;
-}).call(this,require("e/U+97"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"e/U+97":75}],92:[function(require,module,exports){
+}).call(this,require("oMfpAn"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"oMfpAn":23}],94:[function(require,module,exports){
 var inserted = exports.cache = {}
 
 exports.insert = function (css) {
@@ -36954,75 +34679,5 @@ exports.insert = function (css) {
   document.getElementsByTagName('head')[0].appendChild(elem)
   return elem
 }
-
-},{}],93:[function(require,module,exports){
-'use strict';
-
-var alphabet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_'.split('')
-  , length = 64
-  , map = {}
-  , seed = 0
-  , i = 0
-  , prev;
-
-/**
- * Return a string representing the specified number.
- *
- * @param {Number} num The number to convert.
- * @returns {String} The string representation of the number.
- * @api public
- */
-function encode(num) {
-  var encoded = '';
-
-  do {
-    encoded = alphabet[num % length] + encoded;
-    num = Math.floor(num / length);
-  } while (num > 0);
-
-  return encoded;
-}
-
-/**
- * Return the integer value specified by the given string.
- *
- * @param {String} str The string to convert.
- * @returns {Number} The integer value represented by the string.
- * @api public
- */
-function decode(str) {
-  var decoded = 0;
-
-  for (i = 0; i < str.length; i++) {
-    decoded = decoded * length + map[str.charAt(i)];
-  }
-
-  return decoded;
-}
-
-/**
- * Yeast: A tiny growing id generator.
- *
- * @returns {String} A unique id.
- * @api public
- */
-function yeast() {
-  var now = encode(+new Date());
-
-  if (now !== prev) return seed = 0, prev = now;
-  return now +'.'+ encode(seed++);
-}
-
-//
-// Map each character to its index.
-//
-for (; i < length; i++) map[alphabet[i]] = i;
-
-//
-// Expose the `yeast`, `encode` and `decode` functions.
-//
-yeast.encode = encode;
-yeast.decode = decode;
-module.exports = yeast;
 
 },{}]},{},[14])

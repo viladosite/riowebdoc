@@ -1,5 +1,34 @@
 <style lang="scss">
-  
+  #menumodal {
+    position: absolute;
+    right: 10%;
+    top: 7%;
+  }
+  .passo {
+    h3 {
+      margin-top: 0;
+      margin-bottom: 40px;
+    }
+    strong {
+      font-family: 'treta';
+      font-size: 30px;
+    }
+    .mdl-textfield--floating-label {
+      &.is-focused {
+        .mdl-textfield__label {
+          color: #d66843;
+        }
+      }
+    }
+    .mdl-textfield__input {
+      border-bottom: 2px dotted rgba(0,0,0,.12);
+    }
+    .mdl-textfield__label {
+      &:after {
+        background-color: #d66843;
+      }
+    }
+  }
 </style>
 
 <template>
@@ -11,7 +40,7 @@
     <button class="steps" @click.prevent="prevStep" v-if="passo > 0 && passo !== 4"> <i class="modaliconsr material-icons">arrow_back</i> </button>
   </div>
   <br>
-  <div :is="'passo-' + passo" :webcard.sync="webcard" :naves="naves" :ok.sync="ok"></div>
+  <div :is="'passo-' + passo" :webcard.sync="webcard" :naves="naves" :ok.sync="ok" class="passo"></div>
 </template>
 
 <script>

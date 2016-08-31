@@ -1,7 +1,7 @@
 /* inserção da fonte treta */
 @font-face{
     font-family: 'treta';
-    src: url("../font/treta_.ttf");
+    src: url("../font/1RIALCT.TTF");
 }
 
 
@@ -224,13 +224,17 @@ body{
 .fechar{
     text-align: center;
     position: absolute;
-    margin-left: 93%;
+    margin-left: 91%;
+    margin-top: 3.5%;
     width: 5%;
 }
 
 .steps{
-    text-align:right;
+    text-align: right;
     float: right;
+    background: transparent;
+    border: none;
+    cursor: pointer;
 }
 
 .modaliconsl,.modaliconsr {
@@ -297,10 +301,11 @@ body{
 
 /* sublinhado da div dos pins */
 .rwd_pinbox:hover{
-    border-bottom: 4px solid #093f5b;
+    border-bottom: 3px solid #d66843;
 }
 
 /* cor dos pins */
 .btnPin{
-    color: #093f5b;
+    color: #d66843;
+    opacity: .8
 }
