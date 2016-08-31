@@ -23,6 +23,7 @@
 	#janela2 {
 		h3 {
 			font-family: 'treta';
+			color: #06303c;
 		}
 	}
 
