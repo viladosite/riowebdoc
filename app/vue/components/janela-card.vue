@@ -25,6 +25,9 @@
         opacity: .8 !important;
       }
     }
+    &:focus {
+      outline: none;
+    }
     
   }
   .passo {

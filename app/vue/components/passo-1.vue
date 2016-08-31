@@ -24,6 +24,26 @@
       width: 100%;
     }
   }
+  .video-nav {
+    width: 22% !important;
+    color: #fff;
+    margin-right: 5%;
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 2%;
+    img {
+      width: 100%;
+      filter: gray;
+      filter: grayscale(1);
+      -webkit-filter: grayscale(1);
+    }
+    &:hover, &.escolhido {
+      img {
+        filter: none;
+        -webkit-filter: grayscale(0);
+      }
+    }
+  }
 </style>
 
 <template>
@@ -32,7 +52,7 @@
       <h3>Passo 2 - {{webcard.nave_nome}}</h3>
       <p>Escolha <strong>{{videos}}</strong> vídeos que aparecerão em seu Webcard.</p>
 
-      <div v-for="video in webcard.nave_videos" class="video-card" @click="choseVideo(video)" :id="video+'-vid'" :class="{escolhido: escolhido[$index]}" :style="{background: 'url(http://img.youtube.com/vi/'+video+'/1.jpg)'}"> video {{$index}}</div>
+      <div v-for="video in webcard.nave_videos" class="video-nav" @click="choseVideo(video)" :id="video+'-vid'" :class="{escolhido: escolhido[$index]}"> <img :src="'http://img.youtube.com/vi/'+video+'/1.jpg'"> </div>
 
     </div>
   </div>
