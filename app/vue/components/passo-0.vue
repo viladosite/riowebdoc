@@ -12,7 +12,7 @@
       <h3>Passo 1</h3>
       <p>Escolha o local que estará na capa de seu webcard.</p>
 
-      <div v-for="nave in naves" class="video-card nav" @click="escolherNave($index)" :id="nave.headers.id+'-nav'" :class="{escolhido: escolhido[$index]}"> {{nave.headers.nome}} </div>
+      <div v-for="nave in naves" class="video-card nav" @click="escolherNave($index)" :id="nave.headers.id+'-nav'" :class="{escolhido: escolhido[$index]}" class="nav-ico"> <img :src="'img/selo_'+nave.headers.icon+'.png'"> </div>
 
     </div>
   </div>

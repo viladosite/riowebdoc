@@ -5,7 +5,7 @@
 <template>
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--12-col">   
-      <h3>Passo 3</h3>
+      <h3>Passo 4</h3>
       <p>Escolha para quem quer enviar o cartão
       e coloque também seu email.<br>
       Se quiser enviar para outras pessoas use

@@ -271,11 +271,8 @@ body{
 
 /* div do passo 1 escolha dos videos */
 .video-card{
-    width: 20%;
-    height: 25%!important;
-    padding: 2%;
-    margin: 2%;
-    background-color: green;
+    padding-top: 2%;
+    padding-bottom: 2%;
     color: #fff;
     display: inline-block;
 }

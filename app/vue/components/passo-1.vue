@@ -1,8 +1,27 @@
 <style lang="scss">
   .video-card {
-    border: 3px solid white;
+    cursor: pointer;
+    width: 21% !important;
+    &:hover {
+      img {
+        opacity: .7;
+      }
+    }
+    &:nth-child(3), &:nth-child(4), &:nth-child(5), &:nth-child(6) {
+      border-bottom: 2px dotted rgba(214,104,67, .5);
+    }
+    &:nth-child(3), &:nth-child(4), &:nth-child(5), &:nth-child(7), &:nth-child(8), &:nth-child(9) {
+      border-right: 2px dotted rgba(214,104,67, .5);
+    }
     &.escolhido {
-      border: 3px solid red !important;
+      img {
+        opacity: 1;
+      }
+    }
+    img {
+      opacity: .4;
+      transition: opacity .2s;
+      width: 100%;
     }
   }
 </style>

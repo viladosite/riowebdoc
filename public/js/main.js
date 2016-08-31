@@ -1074,7 +1074,7 @@ module.exports = {
   components: {},
   filters: {}
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div class=\"mdl-grid\">\n    <div class=\"mdl-cell mdl-cell--12-col\">   \n      <h3>Passo 1</h3>\n      <p>Escolha o local que estará na capa de seu webcard.</p>\n\n      <div v-for=\"nave in naves\" class=\"video-card nav\" @click=\"escolherNave($index)\" :id=\"nave.headers.id+'-nav'\" :class=\"{escolhido: escolhido[$index]}\"> {{nave.headers.nome}} </div>\n\n    </div>\n  </div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div class=\"mdl-grid\">\n    <div class=\"mdl-cell mdl-cell--12-col\">   \n      <h3>Passo 1</h3>\n      <p>Escolha o local que estará na capa de seu webcard.</p>\n\n      <div v-for=\"nave in naves\" class=\"video-card nav\" @click=\"escolherNave($index)\" :id=\"nave.headers.id+'-nav'\" :class=\"{escolhido: escolhido[$index]}\"> <img :src=\"'img/selo_'+nave.headers.icon+'.png'\"> </div>\n\n    </div>\n  </div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -1091,7 +1091,7 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92,"vueify-insert-css":94}],10:[function(require,module,exports){
-var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.video-card {\n  border: 3px solid white; }\n  /* line 4, stdin */\n  .video-card.escolhido {\n    border: 3px solid red !important; }\n")
+var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.video-card {\n  cursor: pointer;\n  width: 21% !important; }\n  /* line 6, stdin */\n  .video-card:hover img {\n    opacity: .7; }\n  /* line 10, stdin */\n  .video-card:nth-child(3), .video-card:nth-child(4), .video-card:nth-child(5), .video-card:nth-child(6) {\n    border-bottom: 2px dotted rgba(214, 104, 67, 0.5); }\n  /* line 13, stdin */\n  .video-card:nth-child(3), .video-card:nth-child(4), .video-card:nth-child(5), .video-card:nth-child(7), .video-card:nth-child(8), .video-card:nth-child(9) {\n    border-right: 2px dotted rgba(214, 104, 67, 0.5); }\n  /* line 17, stdin */\n  .video-card.escolhido img {\n    opacity: 1; }\n  /* line 21, stdin */\n  .video-card img {\n    opacity: .4;\n    -webkit-transition: opacity .2s;\n    transition: opacity .2s;\n    width: 100%; }\n")
 'use strict';
 
 var $$$ = require('jquery');
@@ -1150,7 +1150,7 @@ if (module.hot) {(function () {  module.hot.accept()
   if (!hotAPI.compatible) return
   var id = "/media/bambuzal/Softwares/riowebdoc/app/vue/components/passo-1.vue"
   module.hot.dispose(function () {
-    require("vueify-insert-css").cache["/* line 2, stdin */\n.video-card {\n  border: 3px solid white; }\n  /* line 4, stdin */\n  .video-card.escolhido {\n    border: 3px solid red !important; }\n"] = false
+    require("vueify-insert-css").cache["/* line 2, stdin */\n.video-card {\n  cursor: pointer;\n  width: 21% !important; }\n  /* line 6, stdin */\n  .video-card:hover img {\n    opacity: .7; }\n  /* line 10, stdin */\n  .video-card:nth-child(3), .video-card:nth-child(4), .video-card:nth-child(5), .video-card:nth-child(6) {\n    border-bottom: 2px dotted rgba(214, 104, 67, 0.5); }\n  /* line 13, stdin */\n  .video-card:nth-child(3), .video-card:nth-child(4), .video-card:nth-child(5), .video-card:nth-child(7), .video-card:nth-child(8), .video-card:nth-child(9) {\n    border-right: 2px dotted rgba(214, 104, 67, 0.5); }\n  /* line 17, stdin */\n  .video-card.escolhido img {\n    opacity: 1; }\n  /* line 21, stdin */\n  .video-card img {\n    opacity: .4;\n    -webkit-transition: opacity .2s;\n    transition: opacity .2s;\n    width: 100%; }\n"] = false
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
@@ -1184,7 +1184,7 @@ module.exports = {
   components: {},
   filters: {}
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div class=\"mdl-grid\">\n    <div class=\"mdl-cell mdl-cell--12-col\">   \n      <h3>Passo 2</h3>\n      <p>Escreva sua mensagem:</p>\n\n      <!-- Floating Multiline Textfield -->\n      <form action=\"#\" class=\"rwd_p2\">\n        <div class=\"mdl-textfield mdl-js-textfield rwd_txtmsg\">\n          <textarea class=\"mdl-textfield__input  mdl-shadow--3dp\" type=\"text\" rows=\"10\" id=\"rwd_msg\" v-model=\"text\" @keyup=\"sendToWebcard\"></textarea>\n          <label class=\"mdl-textfield__label\" for=\"rwd_msg\">digite aqui sua mensagem</label>\n        </div>\n      </form>\n\n    </div>\n  </div> \n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div class=\"mdl-grid\">\n    <div class=\"mdl-cell mdl-cell--12-col\">   \n      <h3>Passo 3</h3>\n      <p>Escreva sua mensagem:</p>\n\n      <!-- Floating Multiline Textfield -->\n      <form action=\"#\" class=\"rwd_p2\">\n        <div class=\"mdl-textfield mdl-js-textfield rwd_txtmsg\">\n          <textarea class=\"mdl-textfield__input  mdl-shadow--3dp\" type=\"text\" rows=\"10\" id=\"rwd_msg\" v-model=\"text\" @keyup=\"sendToWebcard\"></textarea>\n          <label class=\"mdl-textfield__label\" for=\"rwd_msg\">digite aqui sua mensagem</label>\n        </div>\n      </form>\n\n    </div>\n  </div> \n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -1244,7 +1244,7 @@ module.exports = {
   components: {},
   filters: {}
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div class=\"mdl-grid\">\n    <div class=\"mdl-cell mdl-cell--12-col\">   \n      <h3>Passo 3</h3>\n      <p>Escolha para quem quer enviar o cartão\n      e coloque também seu email.<br>\n      Se quiser enviar para outras pessoas use\n      o link que irá receber.<br></p>\n      <br><br>\n\n      <!-- Floating Multiline Textfield -->\n      <form action=\"#\">\n        <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n          <input class=\"mdl-textfield__input\" type=\"email\" id=\"yourmail\" v-model=\"seu_email\">\n          <label class=\"mdl-textfield__label\" for=\"yourmail\">Seu email:</label>\n        </div>\n\n        <br>\n\n        <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n          <input class=\"mdl-textfield__input\" type=\"email\" id=\"friendmail\" v-model=\"amigo_email\">\n          <label class=\"mdl-textfield__label\" for=\"friendmail\">Recipiente:</label>\n        </div>\n\n      </form>\n\n    </div>\n  </div> \n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div class=\"mdl-grid\">\n    <div class=\"mdl-cell mdl-cell--12-col\">   \n      <h3>Passo 4</h3>\n      <p>Escolha para quem quer enviar o cartão\n      e coloque também seu email.<br>\n      Se quiser enviar para outras pessoas use\n      o link que irá receber.<br></p>\n      <br><br>\n\n      <!-- Floating Multiline Textfield -->\n      <form action=\"#\">\n        <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n          <input class=\"mdl-textfield__input\" type=\"email\" id=\"yourmail\" v-model=\"seu_email\">\n          <label class=\"mdl-textfield__label\" for=\"yourmail\">Seu email:</label>\n        </div>\n\n        <br>\n\n        <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n          <input class=\"mdl-textfield__input\" type=\"email\" id=\"friendmail\" v-model=\"amigo_email\">\n          <label class=\"mdl-textfield__label\" for=\"friendmail\">Recipiente:</label>\n        </div>\n\n      </form>\n\n    </div>\n  </div> \n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
