@@ -1,7 +1,7 @@
 /* inserção da fonte treta */
 @font-face{
     font-family: 'treta';
-    src: url("../font/treta_.ttf");
+    src: url("../font/1RIALCT.TTF");
 }
 
 
@@ -155,15 +155,18 @@ body{
 
 /* janela modal */
 	.window{
-    width:55%;
-    height:70%;
-    position:absolute;
-    left:22.5%;
-    top:15%;
-    background:#FFF;
+    width: 1040px;
+    height: 585px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -520px;
+    margin-top: -292px;
+    background-image: url("../img/modal_bg.png");
+    background-size: auto 100%;
+    background-repeat:  no-repeat;
     z-index:10000;
     padding:10px;
-    border-radius:10px;
 }
 
 @media (max-width: 900px){
@@ -175,16 +178,39 @@ body{
             }
 
  #janela2{
-    width: 95%;
-    float:right;
+    width: 96%;
+    height: 90%;
+    float: left;
+    margin-left: 4%;
  }
  @media (max-width: 900px){
     #janela2{
-        width:90%;
+        width:85%;
                 }
             }
 
- 
+.rwd_janela_conteudo {
+    width: 75%;
+    float: left;
+}
+
+.rwd_janela_img {
+     width: 25%;
+     height: 80%;
+     display: flex; 
+     float: left;
+     margin-top: 10%;
+     justify-content: center;     
+     align-items: center;
+}
+
+.rwd_janela_icon {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+}
+
 #mascara{
     position:absolute;
     left:0;
@@ -196,14 +222,19 @@ body{
 }
  
 .fechar{
-    text-align:left;
-    float: left;
+    text-align: center;
+    position: absolute;
+    margin-left: 91%;
+    margin-top: 3.5%;
     width: 5%;
 }
 
 .steps{
-    text-align:right;
+    text-align: right;
     float: right;
+    background: transparent;
+    border: none;
+    cursor: pointer;
 }
 
 .modaliconsl,.modaliconsr {
@@ -240,11 +271,8 @@ body{
 
 /* div do passo 1 escolha dos videos */
 .video-card{
-    width: 20%;
-    height: 25%!important;
-    padding: 2%;
-    margin: 2%;
-    background-color: green;
+    padding-top: 2%;
+    padding-bottom: 2%;
     color: #fff;
     display: inline-block;
 }
@@ -270,10 +298,11 @@ body{
 
 /* sublinhado da div dos pins */
 .rwd_pinbox:hover{
-    border-bottom: 4px solid #093f5b;
+    border-bottom: 3px solid #d66843;
 }
 
 /* cor dos pins */
 .btnPin{
-    color: #093f5b;
+    color: #d66843;
+    opacity: .8
 }

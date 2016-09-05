@@ -18,7 +18,6 @@
 			},
 			'/janela/:id': {
 				on: function (id) {
-					console.log(id)
 					var exec = function() {
 						if (id === 'card') {
 							app.$refs.view.janela = 'janela-card'
@@ -151,7 +150,7 @@
 				getMedia(n+1, medias, nave, nn, naves)
 			}
 
-			if (n === medias.length - 1 && nn === naves.length - 1) {
+			if (n === medias.length - 1 && nn === 7) {
 				init()
 			}
 		})

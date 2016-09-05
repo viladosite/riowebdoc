@@ -1,8 +1,47 @@
 <style lang="scss">
   .video-card {
-    border: 3px solid white;
+    cursor: pointer;
+    width: 21% !important;
+    &:hover {
+      img {
+        opacity: .7;
+      }
+    }
+    &:nth-child(3), &:nth-child(4), &:nth-child(5), &:nth-child(6) {
+      border-bottom: 2px dotted rgba(214,104,67, .5);
+    }
+    &:nth-child(3), &:nth-child(4), &:nth-child(5), &:nth-child(7), &:nth-child(8), &:nth-child(9) {
+      border-right: 2px dotted rgba(214,104,67, .5);
+    }
     &.escolhido {
-      border: 3px solid red !important;
+      img {
+        opacity: 1;
+      }
+    }
+    img {
+      opacity: .4;
+      transition: opacity .2s;
+      width: 100%;
+    }
+  }
+  .video-nav {
+    width: 22% !important;
+    color: #fff;
+    margin-right: 5%;
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 2%;
+    img {
+      width: 100%;
+      filter: gray;
+      filter: grayscale(1);
+      -webkit-filter: grayscale(1);
+    }
+    &:hover, &.escolhido {
+      img {
+        filter: none;
+        -webkit-filter: grayscale(0);
+      }
     }
   }
 </style>
@@ -11,9 +50,9 @@
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--12-col">   
       <h3>Passo 2 - {{webcard.nave_nome}}</h3>
-      <p>Escolha {{videos}} vídeos que aparecerão em seu Webcard.</p>
+      <p>Escolha <strong>{{videos}}</strong> vídeos que aparecerão em seu Webcard.</p>
 
-      <div v-for="video in webcard.nave_videos" class="video-card" @click="choseVideo(video)" :id="video+'-vid'" :class="{escolhido: escolhido[$index]}" :style="{background: 'url(http://img.youtube.com/vi/'+video+'/1.jpg)'}"> video {{$index}}</div>
+      <div v-for="video in webcard.nave_videos" class="video-nav" @click="choseVideo(video)" :id="video+'-vid'" :class="{escolhido: escolhido[$index]}"> <img :src="'http://img.youtube.com/vi/'+video+'/1.jpg'"> </div>
 
     </div>
   </div>

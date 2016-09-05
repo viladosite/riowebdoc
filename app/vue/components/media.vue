@@ -4,7 +4,7 @@
   .media_card {
     position: absolute; 
     transform-style: preserve-3d; 
-    transition: transform .3s, left .2s, top .2s; 
+    transition: transform .3s, left .2s, top .2s, opacity .4s; 
     z-index: 1; 
     perspective: 800px;
     cursor: pointer;
@@ -82,6 +82,7 @@
       position: absolute;
       transition: opacity .6s, height .2s, width .2s;
       opacity: 1;
+      padding: 0;
     }
     .mdl-card__menu {
       z-index: 3;
@@ -118,8 +119,8 @@
     <div v-if="assistido && !hover && !on" class="assistido" transition="fade"></div>
     <div :id="media.id+'-front'" class="demo-card-wide mdl-card mdl-shadow--{{sw}}dp front" style=""  :style="[{height: h_offset + media.height+'px'},{'min-height': h_offset + media.height+'px'},{width: w_offset + media.width+'px'}]">
       <div :id="media.id+'-player'" class="mdl-card__title player"></div>
-      <div v-for="img in media.imgs" class="mdl-card__title" :style="[{background: 'url('+img+') center / cover'}, {'z-index': media.imgs.length - $index}]" :id="$index+'-img-'+media.id">
-      </div>
+      <img v-for="img in media.imgs" class="mdl-card__title" :src="img" :style="[{'z-index': media.imgs.length - $index}]" :id="$index+'-img-'+media.id">
+      </img>
       <div style="z-index: 3; position: absolute; width: 100%; padding-left: 42%; padding-top: 22%;" v-if="on" transition="fade">
         <a v-if="playing === null" :href="'/#/home/'+media.id" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" style="overflow: visible;" transition="fade">
           <i class="material-icons" style="font-size: 60px;">play_circle_outline</i>
@@ -150,7 +151,9 @@
           <i class="material-icons">room</i>
         </a>
         <button :id="media.id+'-photo'" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" @click="unFlip(media.id)">
-          <i class="material-icons">photo</i>
+          <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+            <path fill="#000000" d="m 18.334101,19.618585 -12.3872826,0 0,-15.4980258 12.3868306,0 0,15.4978458 4.33e-4,0 0,1.8e-4 z m 2.550122,-16.9687922 0,-0.1558962 C 20.654487,2.4020434 19.961215,1.7086388 19.86959,1.4787215 l -0.155715,0 c -0.161583,0.4028738 -0.554708,0.687946 -1.015536,0.687946 -0.460377,0 -0.853953,-0.2850722 -1.015084,-0.687946 l -1.248884,0 c -0.16068,0.4028738 -0.554709,0.687946 -1.015085,0.687946 -0.460827,0 -0.854404,-0.2850722 -1.015085,-0.687946 l -1.248883,0 c -0.16068,0.4028738 -0.554257,0.687946 -1.015084,0.687946 -0.460377,0 -0.853953,-0.2850722 -1.015085,-0.687946 l -1.2488831,0 c -0.161132,0.4028738 -0.554709,0.687946 -1.0150851,0.687946 -0.4603762,0 -0.8539529,-0.2850722 -1.0150845,-0.687946 l -1.2488837,0 c -0.1611316,0.4028738 -0.5547081,0.687946 -1.0150851,0.687946 -0.4603755,0 -0.8539526,-0.2850722 -1.0150845,-0.687946 l -0.1557152,0 C 4.3192541,1.7086388 3.6259796,2.4020469 3.3962433,2.4938966 l 0,0.1558962 C 3.7988467,2.8109247 4.0841,3.2044554 4.0841,3.6649679 c 0,0.4605113 -0.2852533,0.854223 -0.6878567,1.015175 l 0,1.2487925 C 3.7988467,6.0900673 4.0841,6.4837791 4.0841,6.9441105 c 0,0.4605113 -0.2852533,0.8540432 -0.6878567,1.014994 l 0,1.2486127 C 3.7988467,9.3688942 4.0841,9.7624262 4.0841,10.222937 c 0,0.460692 -0.2852533,0.854179 -0.6878567,1.015355 l 0,1.248433 c 0.4026034,0.16095 0.6878567,0.554663 0.6878567,1.015536 0,0.46015 -0.2852533,0.853682 -0.6878567,1.015175 l 0,1.248612 C 3.7988467,15.927044 4.0841,16.320711 4.0841,16.781223 c 0,0.460512 -0.2852533,0.854043 -0.6878567,1.015355 l 0,1.248613 C 3.7988467,19.206007 4.0841,19.599719 4.0841,20.06023 c 0,0.460513 -0.2852533,0.854043 -0.6878567,1.014995 l 0,0.170159 c 0.2292859,0.09203 0.9230097,0.785438 1.0150845,1.015175 l 0.1557152,0 c 0.1611319,-0.402694 0.554709,-0.687631 1.0150845,-0.687631 0.4608282,0 0.8544049,0.284937 1.0155365,0.687631 l 1.2484323,0 c 0.1611316,-0.402694 0.5547083,-0.687631 1.0155359,-0.687631 0.4603767,0 0.8539527,0.284937 1.0150847,0.687631 l 1.2484321,0 c 0.161132,-0.402694 0.554708,-0.687631 1.015536,-0.687631 0.460376,0 0.853953,0.284937 1.015085,0.687631 l 1.248431,0 c 0.160681,-0.402694 0.554709,-0.687631 1.015536,-0.687631 0.459925,0 0.853503,0.284937 1.014634,0.687631 l 1.249335,0 c 0.16068,-0.402694 0.554256,-0.687631 1.015085,-0.687631 0.460376,0 0.853501,0.284937 1.015084,0.687631 l 0.155715,0 c 0.09162,-0.229557 0.784897,-0.922965 1.015085,-1.015175 l 0,-0.170159 C 20.48162,20.91459 20.196819,20.520562 20.196819,20.06005 c 0,-0.460511 0.284801,-0.854043 0.687856,-1.014994 l 0,-1.248612 c -0.403055,-0.160998 -0.687856,-0.554845 -0.687856,-1.015402 0,-0.460692 0.284801,-0.853998 0.687856,-1.015355 l 0,-1.248612 C 20.48162,14.356304 20.196819,13.962231 20.196819,13.5019 c 0,-0.460693 0.284801,-0.854225 0.687856,-1.015355 l 0,-1.249155 c -0.403055,-0.160952 -0.687856,-0.554664 -0.687856,-1.015175 0,-0.4605108 0.284801,-0.8542238 0.687856,-1.0151748 l 0,-1.2487934 C 20.48162,7.797116 20.196819,7.4035842 20.196819,6.9428918 c 0,-0.4603314 0.284801,-0.8538621 0.687856,-1.0150392 l 0,-1.2487937 C 20.48162,4.518108 20.196819,4.1243963 20.196819,3.663885 20.196385,3.2040944 20.48162,2.8109247 20.884223,2.6497928" /> 
+          </svg>
         </button>
         <a v-if="playing !== null" href="/#/home" :id="media.id+'-close'" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
           <i class="material-icons">clear</i>
@@ -197,15 +200,15 @@
           if (this.w_loop + this.offset + this.x_offset + this.media.x > this.width) {
             $$$('#'+this.media.id).addClass('in-trans')
             $$$('#'+this.media.id).css('opacity', 0)
-            this.w_loop = - (this.w_loop + this.width + this.media.width + 100)
+            this.w_loop = - (this.w_loop + this.width + 250)
             setTimeout(function() {
               $$$('#'+self.media.id).css('opacity', 1)
               $$$('#'+self.media.id).removeClass('in-trans')
             }, 500)
-          } else if (this.w_loop + this.offset + this.x_offset + this.media.x + this.media.width < -100) {
+          } else if (this.w_loop + this.offset + this.x_offset + this.media.x + this.media.width < -250) {
             $$$('#'+this.media.id).addClass('in-trans')
             $$$('#'+this.media.id).css('opacity', 0)
-            this.w_loop = this.w_loop + this.media.width + this.width + 40
+            this.w_loop = this.w_loop + this.width + 250
             setTimeout(function() {
               $$$('#'+self.media.id).css('opacity', 1)
               $$$('#'+self.media.id).removeClass('in-trans')
@@ -289,10 +292,10 @@
         if (this.playing === null) {
           this.hover = true
           if (!self.on) {
-            self.w_offset = this.media.width * .05
-            self.h_offset = this.media.height * .05
-            self.x_offset = -self.w_offset/2
-            self.y_offset = -self.h_offset/2
+            // self.w_offset = this.media.width * .05
+            // self.h_offset = this.media.height * .05
+            // self.x_offset = -self.w_offset/2
+            // self.y_offset = -self.h_offset/2
             setTimeout(function() {
               if (self.hover) {
                 $$$('#'+self.media.id).addClass('hover')
@@ -309,7 +312,7 @@
                 self.sw = 8
                 self.on = true
               }
-            }, 500)
+            }, 1000)
           }
         }
       },

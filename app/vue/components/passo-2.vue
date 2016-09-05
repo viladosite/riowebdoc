@@ -5,7 +5,7 @@
 <template>
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--12-col">   
-      <h3>Passo 2</h3>
+      <h3>Passo 3</h3>
       <p>Escreva sua mensagem:</p>
 
       <!-- Floating Multiline Textfield -->
