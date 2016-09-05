@@ -46,17 +46,27 @@
       }
 
       .left-postal{
-      	width: 55%!important;
-      	height: 80%!important;
+      	width: 60%!important;
+      	height: 75%!important;
       	border-right: 3px solid;
-      	padding: 7px;
+      	margin-left: 5%;
+        margin-top: 5%;
+        padding: 2%;
       	font-size: 90%;
-      	float: left;
+      	position: relative;
+        float: left;
+        background-color: red;
       }
 
       .right-postal{
-      	float: right;
-      	position: absolute;
+          width: 21%;
+          height: 75%;
+          text-align: center;
+          margin-top: 5%;
+          padding: 2%;
+          position: relative;
+          float: left;
+          background-color: yellow;
       }
 
       .mdl-card__menu {
@@ -158,13 +168,13 @@
       </div>
     </div>
     <div :id="media.id+'-back'" class="demo-card-wide mdl-card mdl-shadow--{{sw}}dp back" :style="[{height: h_offset + media.height+'px'},{'min-height': h_offset + media.height+'px'},{width: w_offset + media.width+'px'}]">
-      <div class="mdl-card__title" style="color: black;">
+      <div class="mdl-supporting-text" style="color: black; height: 100%; background-color: blue;">
       	
-      		<div class="mdl-card__title left-postal" style="color: black;">
+      		<div class="left-postal" style="color: black;">
         			{{video_desc}}
         	</div>
 
-        	<div class="mdl-card__title right-postal" style="color: black;">
+        	<div class="right-postal" style="color: black;">
         			texto aleatorio pra div da direita
         	</div>
        	
