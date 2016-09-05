@@ -44,6 +44,20 @@
           background: white;
         }
       }
+
+      .left-postal{
+      	width: 55%!important;
+      	height: 80%!important;
+      	border-right: 3px solid;
+      	padding: 7px;
+      	font-size: 90%;
+      }
+
+      .right-postal{
+      	float: right;
+      	position: absolute;
+      }
+
       .mdl-card__menu {
         z-index: 6;
         right: 10px;
@@ -144,7 +158,14 @@
     </div>
     <div :id="media.id+'-back'" class="demo-card-wide mdl-card mdl-shadow--{{sw}}dp back" :style="[{height: h_offset + media.height+'px'},{'min-height': h_offset + media.height+'px'},{width: w_offset + media.width+'px'}]">
       <div class="mdl-card__title" style="color: black;">
-        {{video_desc}}
+      	<div class="mdl-card__title left-postal" style="color: black;">
+        	{{video_desc}}
+        </div>
+
+        <div class="mdl-card__title right-postal" style="color: black;">
+        texto aleatorio pra div da direita
+        </div>
+
       </div>
       <div class="mdl-card__menu" v-if="on" transition="fade">
         <a :id="media.id+'-back-map'" :href="media.mapa" target="_blank" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
