@@ -145,8 +145,6 @@
     
 			<div id="rodape" class="rodape">
 
-				<div id="rwdrodape" class="rwdrodape">
-
 						<div id="sessao1" class="sessaofooter">
 							
 							<div class="footertitle">Realização:</div>
@@ -225,8 +223,6 @@
 
 						<a href="http://github.com/viladosite/riowebdoc"><img class="imgGit" src="images/forkme_dark_background.png" alt="Fork me on GitHub"></a>
 
-
-				</div>
 
 			</div>
 

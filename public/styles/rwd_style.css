@@ -98,16 +98,16 @@ body{
 /* Utilizada no rodapé */
 .rodape {
     width: 100%;
-    height: 12%;
+    height: 8%;
     padding-bottom: 20px;
     padding-top: 20px;
     position: absolute;
     bottom: 0;
-    background-image: url("../img/rodape_bg.jpg");
     display: flex;
     /* flex-wrap: wrap;  */
     align-items: center;
     color: #bdbdbd;
+    background-color: rgba(5,33,47,.9);
 }
 
 @media (max-width: 900px){
