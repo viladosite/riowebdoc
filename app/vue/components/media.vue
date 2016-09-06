@@ -52,7 +52,7 @@
       	margin-left: 5%;
         margin-top: 5%;
         padding: 2%;
-      	font-size: 90%;
+      	font-size: 85%!important;
       	position: relative;
         float: left;
         background-color: red;
