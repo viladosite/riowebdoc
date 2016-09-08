@@ -55,6 +55,7 @@
 			font-size: 30px;
 		}
 	}
+
 </style>
 
 <template>
@@ -63,6 +64,8 @@
     <header class="rwd_header mdl-layout__header ">
     	<div class="header_cover">
 			<div class="mdl-layout__header-row">
+
+				<a href="http://github.com/viladosite/riowebdoc"><img class="imgGit" src="images/github512.png" alt="Fork me on GitHub"></a>
 
 				<!-- Class destinada a dar um espaçamento grande -->
 				<div class="mdl-layout-spacer"></div>
@@ -221,7 +224,7 @@
 
 						<div class="clearboth"></div>
 
-						<a href="http://github.com/viladosite/riowebdoc"><img class="imgGit" src="images/forkme_dark_background.png" alt="Fork me on GitHub"></a>
+						
 
 
 			</div>
