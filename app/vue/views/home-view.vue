@@ -73,8 +73,8 @@
 				<!-- Construção dos ícones indicativos no menu -->
 				<nav class="mdl-navigation">
 			    
-				<a class="mdl-navigation__link" href="/#/home/janela/projeto">PROJETO</a>
-				<a class="mdl-navigation__link" href="/#/home/janela/realizacao">REALIZAÇÃO</a>
+				<a class="mdl-navigation__link" href="/#/home/janela/projeto">O PROJETO</a>
+				<a class="mdl-navigation__link" href="/#/home/janela/realizacao">ALUNOS</a>
 				<a class="mdl-navigation__link" href="/#/home/janela/equipe">EQUIPE</a>
 				<a class="mdl-navigation__link" href="/#/home/janela/contato">CONTATO</a>
 				<!-- <a class="mdl-navigation__link" href="">BLOG</a> -->
