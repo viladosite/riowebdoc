@@ -248,14 +248,15 @@ body{
 
 /*imagens do footer */
 .footer_img1{
-    height: 42px;
+    height: 30px;
     width: auto;
-    
+    opacity: 0.4;
 }
 
 .footer_img2{
     height: 42px;
-    width: auto;    
+    width: auto;
+    opacity: 0.7;    
 }
 
 @media (max-width: 400px){
@@ -289,7 +290,7 @@ body{
 }
 
 .imgGit {
-
+    width: 25px;
 }
 
 /* sublinhado da div dos pins */
