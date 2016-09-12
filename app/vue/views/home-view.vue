@@ -65,7 +65,7 @@
     	<div class="header_cover">
 			<div class="mdl-layout__header-row">
 
-				<a href="http://github.com/viladosite/riowebdoc"><img class="imgGit" src="images/github512.png" alt="Fork me on GitHub"></a>
+				<a href="http://github.com/viladosite/riowebdoc" class="gitLink"><img class="imgGit" src="images/github512.png" alt="Fork me on GitHub"> Fork me on GitHub </a>
 
 				<!-- Class destinada a dar um espaçamento grande -->
 				<div class="mdl-layout-spacer"></div>

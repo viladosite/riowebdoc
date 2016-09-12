@@ -293,6 +293,10 @@ body{
     width: 25px;
 }
 
+.gitLink{
+    color: #fff;
+}
+
 /* sublinhado da div dos pins */
 .rwd_pinbox:hover{
     border-bottom: 3px solid #d66843;
