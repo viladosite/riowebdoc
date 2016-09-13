@@ -98,13 +98,13 @@ body{
 /* Utilizada no rodapé */
 .rodape {
     width: 100%;
-    height: 8%;
+    height: 70px;
     padding-bottom: 20px;
-    padding-top: 20px;
+    padding-top: 30px;
     position: absolute;
-    bottom: 0;
+    bottom: -85px;
     display: flex;
-    /* flex-wrap: wrap;  */
+    // flex-wrap: wrap;
     align-items: center;
     color: #bdbdbd;
     background-color: rgba(5,33,47,.9);
@@ -300,18 +300,18 @@ body{
 
 /* sublinhado da div dos pins */
 .rwd_pinbox:hover{
-    border-bottom: 3px solid #d66843;
+    border-bottom: 3px solid #06303c;
 }
 
 /* cor dos pins */
 .btnPin{
-    color: #d66843;
+    color: #06303c;
     opacity: .8
 }
 
 /* ajustes da seta */
 .seta_footer{
-    margin-top: -4%;
+    margin-top: -4.8%;
 }
 
 .footer_seta{

@@ -27,6 +27,24 @@
 		}
 	}
 
+	.mdl-layout__content {
+		overflow: hidden;
+	}
+
+	.rodape {
+		transition: bottom .3s;
+		&:hover {
+			bottom: 0;
+			.footer_seta {
+				transform: rotate(0deg);
+			}
+		}
+		.footer_seta {
+			transition: transform .3s;
+			transform: rotate(180deg);
+		}
+	}
+
 	.rwd_pinbox {
 		cursor: pointer;
 		&:hover {
@@ -35,7 +53,7 @@
 			}
 		}
 		&.filtered {
-			border-bottom: 3px solid #d66843;
+			border-bottom: 3px solid #06303c;
 			.rwd_pinicon {
 				opacity: 1;
 			}
@@ -148,7 +166,7 @@
     
 			<div id="rodape" class="rodape">
 
-						<div id="sessao1" class="sessaofooter">
+						<div id="sessao1" class="sessaofooter" style="margin-left: 95px;">
 							
 							<div class="footertitle">Realização:</div>
 							

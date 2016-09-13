@@ -164,7 +164,7 @@
       </img>
       <div style="z-index: 3; position: absolute; width: 100%; padding-left: 42%; padding-top: 22%;" v-if="on" transition="fade">
         <a v-if="playing === null" :href="'/#/home/'+media.id" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" style="overflow: visible;" transition="fade">
-          <i class="material-icons" style="font-size: 60px;">play_circle_outline</i>
+          <i v-if="!no_video" class="material-icons" style="font-size: 60px;">play_circle_outline</i>
         </a>
       </div>
       <div class="mdl-card__menu" v-if="on" transition="fade">
@@ -172,10 +172,10 @@
         <button v-if="playing !== null" :id="media.id+'-voto'" :class="{votado: votado}" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" @click="votar">
           <i class="material-icons">thumb_up</i>
         </button>
-        <a :id="media.id+'-front-map'" :href="media.mapa" target="_blank" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+        <a v-if="!no_video" :id="media.id+'-front-map'" :href="media.mapa" target="_blank" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
           <i class="material-icons">room</i>
         </a>
-        <button :id="media.id+'-desc'" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" @click="flip(media.id)">
+        <button v-if="!no_video" :id="media.id+'-desc'" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" @click="flip(media.id)">
           <i class="material-icons">description</i>
         </button>
         <a v-if="playing !== null" href="/#/home" :id="media.id+'-close'" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
@@ -226,6 +226,7 @@
         y_offset: 0,
         w_offset: 0,
         h_offset: 0,
+        no_video: true,
         w_loop: 0,
         filter_offset: 0,
         sw: 2,
@@ -348,8 +349,8 @@
             setTimeout(function() {
               if (self.hover) {
                 $$$('#'+self.media.id).addClass('hover')
-                self.w_offset = 400 - self.media.width
-                self.h_offset = 225 - self.media.height
+                self.w_offset = 480 - self.media.width
+                self.h_offset = 270 - self.media.height
                 self.x_offset = -(self.w_offset/2)
                 if (self.media.matrix[0][1] - (self.h_offset/2) < 0) {
                   self.y_offset = 0
@@ -447,16 +448,23 @@
       }
       var self = this
 
-      var playlistUrl = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + this.media.video + '&key=AIzaSyCwNv14d5bNQ4MwaodqT6z45-6A5y4kzus'
-      var videoURL= 'http://www.youtube.com/embed/'
-      $$$.getJSON(playlistUrl, function(data) {
-        // console.log(data)
-        $$$.each(data.items, function(i, item) {
-          // console.log(item)
-          self.video_title = item.snippet.title
-          self.video_desc = item.snippet.description
-        });
-      })
+      if (this.media.video !== "__") {
+        var playlistUrl = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + this.media.video + '&key=AIzaSyCwNv14d5bNQ4MwaodqT6z45-6A5y4kzus'
+        var videoURL= 'http://www.youtube.com/embed/'
+        $$$.getJSON(playlistUrl, function(data) {
+          // console.log(data)
+          $$$.each(data.items, function(i, item) {
+            // console.log(item)
+            self.video_title = item.snippet.title
+            self.video_desc = item.snippet.description
+          });
+        })
+        this.no_video = false
+      } else {
+        this.no_video = true
+      }
+
+      
     },
     attached: function () {
       var self = this
