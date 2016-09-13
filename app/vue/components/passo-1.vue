@@ -17,6 +17,7 @@
       img {
         opacity: 1;
       }
+    }
     &.escolhido:before {
       content: "OK";
     }
@@ -27,9 +28,7 @@
     }
   }
 
-  .checkicon {
 
-  }
 
   .video-nav {
     width: 22% !important;
@@ -54,6 +53,7 @@
       span {
         visibility: visible;
       }
+    }
 // FIM - Incluido na tentativa de colocar o check sobre os vídeos ao seleciona-los
 
     img {
