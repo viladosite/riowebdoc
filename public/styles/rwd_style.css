@@ -248,13 +248,15 @@ body{
 
 /*imagens do footer */
 .footer_img1{
-    height: 42px;
+    height: 30px;
     width: auto;
+    opacity: 0.4;
 }
 
 .footer_img2{
     height: 42px;
-    width: auto;    
+    width: auto;
+    opacity: 0.7;    
 }
 
 @media (max-width: 400px){
@@ -288,12 +290,11 @@ body{
 }
 
 .imgGit {
-    position: absolute;
-    top: 0;
-    right: 0;
-    border: 0;
-    height: 100%;
-    width: auto;
+    width: 25px;
+}
+
+.gitLink{
+    color: #fff;
 }
 
 /* sublinhado da div dos pins */
