@@ -34,6 +34,7 @@
     display: inline-block;
     cursor: pointer;
     margin-top: 2%;
+    position: relative;
 
 // INICIO - Incluido na tentativa de colocar o check sobre os vídeos ao seleciona-los
     span {
@@ -41,8 +42,10 @@
       position: absolute;
       width: 50px;
       height: 50px;
+      top: 10px;
+      right: 10px;
     }
-    &:hover, &.escolhido {
+    &.escolhido {
       span {
         visibility: visible;
       }
