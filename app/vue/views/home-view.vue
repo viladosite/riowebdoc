@@ -153,7 +153,7 @@
 							<div class="footertitle">Realização:</div>
 							
 							<div class="footerlogos">
-							<a href="http://www.jardimdigital.com.br" target="_blank">
+							<a href="#" target="_blank">
 							<img src="images/rio_pref.png" alt="prefeitura Logo" class="footer_img1"/></a>
 
 							&nbsp;&nbsp;&nbsp;&nbsp;
@@ -167,7 +167,7 @@
 							<div class="footertitle">Produção:</div>
 							
 							<div class="footerlogos">
-							<a href="http://www.jardimdigital.com.br" target="_blank">
+							<a href="#" target="_blank">
 							<img src="images/cria.png" alt="cria Logo" class="footer_img1"/></a>
 
 							&nbsp;&nbsp;&nbsp;&nbsp;
@@ -182,7 +182,7 @@
 							<div class="footertitle">Parceria:</div>
 							
 							<div class="footerlogos">
-							<a href="http://www.jardimdigital.com.br" target="_blank">
+							<a href="#" target="_blank">
 							<img src="images/bug_404.png" alt="bug 404 Logo" class="footer_img1"/></a>
 
 							&nbsp; &nbsp; &nbsp; &nbsp;
@@ -199,11 +199,11 @@
 							<div class="footertitle">Gestão das Naves do Conhecimento:</div>
 							
 							<div class="footerlogos">
-							<a href="http://www.jardimdigital.com.br" target="_blank">
+							<a href="#" target="_blank">
 							<img src="images/idaco.png" alt="idaco Logo" class="footer_img1"/></a>
 
 							&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="http://www.viladosite.com.br" target="_blank">
+							<a href="#" target="_blank">
 							<img src="images/redeh_logo.png" alt="redeh Logo" class="footer_img2"/>
 							</a>
 							</div>
@@ -212,8 +212,21 @@
 
 						<div class="clearboth"></div>
 
-						
+						<div class="mdl-layout-spacer"></div>
 
+						<div id="seta" class="seta_footer">
+	
+							<div class="footertitle"></div>
+							
+							<div class="seta_image">
+							<a href="#" target="">
+							<img src="images/seta_footer.png" alt="seta" class="footer_seta"/></a>
+
+							&nbsp; &nbsp; &nbsp; &nbsp;
+							
+							</div>
+
+						</div>	
 
 			</div>
 
