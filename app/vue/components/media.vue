@@ -28,12 +28,30 @@
       .front {
         padding: 6px;
       }
+      .right-postal {
+        height: 57.5%;
+        margin-top: 15%;
+        font-size: 60%!important;
+      }
+      .left-postal {
+        font-size: 60%!important;
+        line-height: 12px;
+      }
     }
     &.playing {
       z-index: 6 !important;
       transition: transform .3s, left $time*2, top $time*2;
       perspective: 500px;
       cursor: default;
+      .right-postal {
+        height: 75%;
+        margin-top: 5%;
+        font-size: 80%!important;
+      }
+      .left-postal {
+        font-size: 80%!important;
+        line-height: auto;
+      }
       .mdl-card__title {
         height: 98%;
         width: 98.8%;
@@ -43,30 +61,6 @@
           padding: 30px;
           background: white;
         }
-      }
-
-      .left-postal{
-      	width: 60%!important;
-      	height: 75%!important;
-      	border-right: 3px solid;
-      	margin-left: 5%;
-        margin-top: 5%;
-        padding: 2%;
-      	font-size: 85%!important;
-      	position: relative;
-        float: left;
-        background-color: red;
-      }
-
-      .right-postal{
-          width: 21%;
-          height: 75%;
-          text-align: center;
-          margin-top: 5%;
-          padding: 2%;
-          position: relative;
-          float: left;
-          background-color: yellow;
       }
 
       .mdl-card__menu {
@@ -136,6 +130,28 @@
       }
     }
   }
+
+ .left-postal{
+      width: 60%!important;
+      height: 75%!important;
+      border-right: 3px solid;
+      margin-left: 5%;
+      margin-top: 5%;
+      padding: 2%;
+      position: relative;
+      float: left;
+      background-color: red;
+    }
+
+  .right-postal{
+      width: 21%;
+      text-align: center;
+      padding: 2%;
+      position: relative;
+      float: left;
+      background-color: yellow;
+  }
+
 </style>
 
 <template>
