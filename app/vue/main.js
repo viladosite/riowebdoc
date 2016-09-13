@@ -139,10 +139,14 @@
 				var nave = headers
 			}
 			var imgs = []
-			for (var i = 0; i < attach.length; i++) {
-				imgs.push(attach[i].url)
+			if (attach.length === 0) {
+				media.imgs = ['/img/default_img.png']
+			} else {
+				for (var i = 0; i < attach.length; i++) {
+					imgs.push(attach[i].url)
+				}
+				media.imgs = imgs
 			}
-			media.imgs = imgs
 			nave.media.push(media)
 			if (n === medias.length - 1) {
 				app.$data.naves.push(nave)
