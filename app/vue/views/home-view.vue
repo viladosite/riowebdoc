@@ -55,6 +55,7 @@
 			font-size: 30px;
 		}
 	}
+
 </style>
 
 <template>
@@ -64,14 +65,16 @@
     	<div class="header_cover">
 			<div class="mdl-layout__header-row">
 
+				<a href="http://github.com/viladosite/riowebdoc" class="gitLink"><img class="imgGit" src="images/github512.png" alt="Fork me on GitHub"> Fork me on GitHub </a>
+
 				<!-- Class destinada a dar um espaçamento grande -->
 				<div class="mdl-layout-spacer"></div>
 
 				<!-- Construção dos ícones indicativos no menu -->
 				<nav class="mdl-navigation">
 			    
-				<a class="mdl-navigation__link" href="/#/home/janela/projeto">PROJETO</a>
-				<a class="mdl-navigation__link" href="/#/home/janela/realizacao">REALIZAÇÃO</a>
+				<a class="mdl-navigation__link" href="/#/home/janela/projeto">O PROJETO</a>
+				<a class="mdl-navigation__link" href="/#/home/janela/realizacao">ALUNOS</a>
 				<a class="mdl-navigation__link" href="/#/home/janela/equipe">EQUIPE</a>
 				<a class="mdl-navigation__link" href="/#/home/janela/contato">CONTATO</a>
 				<!-- <a class="mdl-navigation__link" href="">BLOG</a> -->
@@ -145,48 +148,16 @@
     
 			<div id="rodape" class="rodape">
 
-				<div id="rwdrodape" class="rwdrodape">
-
 						<div id="sessao1" class="sessaofooter">
 							
 							<div class="footertitle">Realização:</div>
 							
 							<div class="footerlogos">
-							<a href="http://www.jardimdigital.com.br" target="_blank">
+							<a href="#" target="_blank">
 							<img src="images/rio_pref.png" alt="prefeitura Logo" class="footer_img1"/></a>
 
 							&nbsp;&nbsp;&nbsp;&nbsp;
 							
-							</div>
-
-						</div>
-
-						<div id="sessao2" class="sessaofooter">
-
-							
-							<div class="footertitle">Parceria:</div>
-							
-							<div class="footerlogos">
-							<a href="http://www.jardimdigital.com.br" target="_blank">
-							<img src="images/grupo_ccr.png" alt="grupo ccr Logo" class="footer_img1"/></a>
-
-							&nbsp; &nbsp; &nbsp; &nbsp;
-							
-							</div>
-
-						</div>
-
-						<div id="sessao3" class="sessaofooter">
-							
-							<div class="footertitle">Apoio:</div>
-							
-							<div class="footerlogos">
-							<a href="http://www.jardimdigital.com.br" target="_blank">
-							<img src="images/rio_onibus.png" alt="rio onibus Logo" class="footer_img1"/></a>
-
-							&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="http://www.viladosite.com.br" target="_blank">
-							<img src="images/riofilme.png" alt="Vila do Site Logo" class="footer_img2"/></a>
 							</div>
 
 						</div>
@@ -196,26 +167,44 @@
 							<div class="footertitle">Produção:</div>
 							
 							<div class="footerlogos">
-							<a href="http://www.jardimdigital.com.br" target="_blank">
-							<img src="images/mpc_logo.png" alt="Jardim Digital Logo" class="footer_img1"/></a>
+							<a href="#" target="_blank">
+							<img src="images/cria.png" alt="cria Logo" class="footer_img1"/></a>
 
 							&nbsp;&nbsp;&nbsp;&nbsp;
 							
 							</div>
+						</div>	
 
-						</div>
+
+						<div id="sessao2" class="sessaofooter">
+
+							
+							<div class="footertitle">Parceria:</div>
+							
+							<div class="footerlogos">
+							<a href="#" target="_blank">
+							<img src="images/bug_404.png" alt="bug 404 Logo" class="footer_img1"/></a>
+
+							&nbsp; &nbsp; &nbsp; &nbsp;
+							
+							</div>
+
+						</div>	
+							
+
+						
 						
 						<div id="sessao5" class="sessaofooter">
 
 							<div class="footertitle">Gestão das Naves do Conhecimento:</div>
 							
 							<div class="footerlogos">
-							<a href="http://www.jardimdigital.com.br" target="_blank">
-							<img src="images/cecip_logo.png" alt="Jardim Digital Logo" class="footer_img1"/></a>
+							<a href="#" target="_blank">
+							<img src="images/idaco.png" alt="idaco Logo" class="footer_img1"/></a>
 
 							&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="http://www.viladosite.com.br" target="_blank">
-							<img src="images/redeh_logo.png" alt="Vila do Site Logo" class="footer_img2"/>
+							<a href="#" target="_blank">
+							<img src="images/redeh_logo.png" alt="redeh Logo" class="footer_img2"/>
 							</a>
 							</div>
 
@@ -223,10 +212,21 @@
 
 						<div class="clearboth"></div>
 
-						<a href="http://github.com/viladosite/riowebdoc"><img class="imgGit" src="images/forkme_dark_background.png" alt="Fork me on GitHub"></a>
+						<div class="mdl-layout-spacer"></div>
 
+						<div id="seta" class="seta_footer">
+	
+							<div class="footertitle"></div>
+							
+							<div class="seta_image">
+							<a href="#" target="">
+							<img src="images/seta_footer.png" alt="seta" class="footer_seta"/></a>
 
-				</div>
+							&nbsp; &nbsp; &nbsp; &nbsp;
+							
+							</div>
+
+						</div>	
 
 			</div>
 

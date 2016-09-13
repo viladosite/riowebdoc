@@ -18,12 +18,18 @@
         opacity: 1;
       }
     }
+    &.escolhido:before {
+      content: "OK";
+    }
     img {
       opacity: .4;
       transition: opacity .2s;
       width: 100%;
     }
   }
+
+
+
   .video-nav {
     width: 22% !important;
     color: #fff;
@@ -31,6 +37,25 @@
     display: inline-block;
     cursor: pointer;
     margin-top: 2%;
+
+// INICIO - Incluido na tentativa de colocar o check sobre os vídeos ao seleciona-los
+    span {
+      visibility: hidden;
+      position: absolute;
+      left: 40%;
+      top: 35%;
+      filter: alpha(opacity=50);
+      -moz-opacity: 0.5;
+      -khtml-opacity: 0.5;
+      opacity: 0.5;
+    }
+    &:hover, &.escolhido {
+      span {
+        visibility: visible;
+      }
+    }
+// FIM - Incluido na tentativa de colocar o check sobre os vídeos ao seleciona-los
+
     img {
       width: 100%;
       filter: gray;
@@ -44,6 +69,8 @@
       }
     }
   }
+
+
 </style>
 
 <template>
@@ -52,7 +79,7 @@
       <h3>Passo 2 - {{webcard.nave_nome}}</h3>
       <p>Escolha <strong>{{videos}}</strong> vídeos que aparecerão em seu Webcard.</p>
 
-      <div v-for="video in webcard.nave_videos" class="video-nav" @click="choseVideo(video)" :id="video+'-vid'" :class="{escolhido: escolhido[$index]}"> <img :src="'http://img.youtube.com/vi/'+video+'/1.jpg'"> </div>
+      <div v-for="video in webcard.nave_videos" class="video-nav" @click="choseVideo(video)" :id="video+'-vid'" :class="{escolhido: escolhido[$index]}"> <img :src="'http://img.youtube.com/vi/'+video+'/1.jpg'"><span class="checkicon"><img src="img/check.png"/></span> </div>
 
     </div>
   </div>

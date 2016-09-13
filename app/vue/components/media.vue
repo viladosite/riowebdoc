@@ -28,12 +28,30 @@
       .front {
         padding: 6px;
       }
+      .right-postal {
+        height: 57.5%;
+        margin-top: 15%;
+        font-size: 60%!important;
+      }
+      .left-postal {
+        font-size: 60%!important;
+        line-height: 12px;
+      }
     }
     &.playing {
       z-index: 6 !important;
       transition: transform .3s, left $time*2, top $time*2;
       perspective: 500px;
       cursor: default;
+      .right-postal {
+        height: 75%;
+        margin-top: 5%;
+        font-size: 80%!important;
+      }
+      .left-postal {
+        font-size: 80%!important;
+        line-height: auto;
+      }
       .mdl-card__title {
         height: 98%;
         width: 98.8%;
@@ -44,6 +62,7 @@
           background: white;
         }
       }
+
       .mdl-card__menu {
         z-index: 6;
         right: 10px;
@@ -111,6 +130,28 @@
       }
     }
   }
+
+ .left-postal{
+      width: 60%!important;
+      height: 75%!important;
+      border-right: 3px solid;
+      margin-left: 5%;
+      margin-top: 5%;
+      padding: 2%;
+      position: relative;
+      float: left;
+      background-color: red;
+    }
+
+  .right-postal{
+      width: 21%;
+      text-align: center;
+      padding: 2%;
+      position: relative;
+      float: left;
+      background-color: yellow;
+  }
+
 </style>
 
 <template>
@@ -143,8 +184,16 @@
       </div>
     </div>
     <div :id="media.id+'-back'" class="demo-card-wide mdl-card mdl-shadow--{{sw}}dp back" :style="[{height: h_offset + media.height+'px'},{'min-height': h_offset + media.height+'px'},{width: w_offset + media.width+'px'}]">
-      <div class="mdl-card__title" style="color: black;">
-        {{video_desc}}
+      <div class="mdl-supporting-text" style="color: black; height: 100%; background-color: blue;">
+      	
+      		<div class="left-postal" style="color: black;">
+        			{{video_desc}}
+        	</div>
+
+        	<div class="right-postal" style="color: black;">
+        			texto aleatorio pra div da direita
+        	</div>
+       	
       </div>
       <div class="mdl-card__menu" v-if="on" transition="fade">
         <a :id="media.id+'-back-map'" :href="media.mapa" target="_blank" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
