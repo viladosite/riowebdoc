@@ -295,6 +295,7 @@ body{
 
 .gitLink{
     color: #fff;
+    text-decoration: none;
 }
 
 /* sublinhado da div dos pins */
@@ -306,4 +307,14 @@ body{
 .btnPin{
     color: #d66843;
     opacity: .8
+}
+
+/* ajustes da seta */
+.seta_footer{
+    margin-top: -4%;
+}
+
+.footer_seta{
+    width: auto;
+    height: 14px;
 }
