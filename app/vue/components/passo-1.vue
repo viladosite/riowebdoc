@@ -18,9 +18,6 @@
         opacity: 1;
       }
     }
-    &.escolhido:before {
-      content: "OK";
-    }
     img {
       opacity: .4;
       transition: opacity .2s;
@@ -42,12 +39,8 @@
     span {
       visibility: hidden;
       position: absolute;
-      left: 40%;
-      top: 35%;
-      filter: alpha(opacity=50);
-      -moz-opacity: 0.5;
-      -khtml-opacity: 0.5;
-      opacity: 0.5;
+      width: 50px;
+      height: 50px;
     }
     &:hover, &.escolhido {
       span {
