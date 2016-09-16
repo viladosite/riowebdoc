@@ -5,7 +5,6 @@
     position: absolute; 
     transform-style: preserve-3d; 
     transition: transform .3s, left .2s, top .2s, opacity .4s; 
-    z-index: 1; 
     perspective: 800px;
     cursor: pointer;
     &:hover {
@@ -368,10 +367,12 @@
       },
       mouseOut: function(event) {
         var self = this
+        var y = event.y || event.clientY
+        var x = event.x || event.clientX
         if (this.playing === null) {
           this.hover = false
           if (self.on) {
-            if (this.media.matrix[0][0]+this.offset+this.x_offset >= event.x || this.media.matrix[1][0]+this.offset-this.x_offset <= event.x || this.media.matrix[0][1]+this.y_offset <= event.y || this.media.matrix[1][1]+this.y_offset+this.media.height >= event.y) {
+            if (this.media.matrix[0][0]+this.offset+this.x_offset >= x || this.media.matrix[1][0]+this.offset-this.x_offset <= x || this.media.matrix[0][1]+this.y_offset <= y || this.media.matrix[1][1]+this.y_offset+this.media.height >= y) {
               setTimeout(function() {
                 if (!self.hover) {
                   self.w_offset = 0
@@ -419,6 +420,7 @@
       videoFim: function(event) {
         var self = this
         if (event.data == YT.PlayerState.ENDED) {
+          window.location.hash = "/home"
           self.playing = null
         }
       },
@@ -454,7 +456,7 @@
         $$$.getJSON(playlistUrl, function(data) {
           // console.log(data)
           $$$.each(data.items, function(i, item) {
-            // console.log(item)
+            console.log(item.snippet.description.split("["))
             self.video_title = item.snippet.title
             self.video_desc = item.snippet.description
           });

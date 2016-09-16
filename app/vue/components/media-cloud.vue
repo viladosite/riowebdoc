@@ -503,8 +503,9 @@
       },
       onWheel: function (event) {
         var offset = 25
+        var delta = event.wheelDelta || -event.deltaY
         if (this.playing === null && this.filter === '') {
-          if (event.wheelDelta > 0) {
+          if (delta > 0) {
             this.offset = this.offset + offset + this.interval
           } else {
             this.offset = this.offset - offset - this.interval

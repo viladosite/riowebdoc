@@ -224,7 +224,7 @@ body{
 .fechar{
     text-align: center;
     position: absolute;
-    margin-left: 91%;
+    right: 3%;
     margin-top: 3.5%;
     width: 5%;
 }
@@ -311,7 +311,7 @@ body{
 
 /* ajustes da seta */
 .seta_footer{
-    margin-top: -4.8%;
+    margin-top: -93px;
 }
 
 .footer_seta{
