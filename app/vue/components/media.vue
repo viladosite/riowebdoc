@@ -139,7 +139,6 @@
       padding: 2%;
       position: relative;
       float: left;
-      background-color: red;
     }
 
   .right-postal{
@@ -148,7 +147,6 @@
       padding: 2%;
       position: relative;
       float: left;
-      background-color: yellow;
   }
 
 </style>
@@ -183,14 +181,14 @@
       </div>
     </div>
     <div :id="media.id+'-back'" class="demo-card-wide mdl-card mdl-shadow--{{sw}}dp back" :style="[{height: h_offset + media.height+'px'},{'min-height': h_offset + media.height+'px'},{width: w_offset + media.width+'px'}]">
-      <div class="mdl-supporting-text" style="color: black; height: 100%; background-color: blue;">
-      	
+      <div class="mdl-supporting-text" style="color: black; height: 100%;">
       		<div class="left-postal" style="color: black;">
+              <h4 style="margin: 0;">{{video_title}}</h4>
         			{{video_desc}}
         	</div>
 
         	<div class="right-postal" style="color: black;">
-        			texto aleatorio pra div da direita
+        			{{video_auth}}
         	</div>
        	
       </div>
@@ -231,6 +229,7 @@
         sw: 2,
         video_desc: '',
         video_title: '',
+        video_auth: '',
         iframe: null,
         interval: 0,
         img_now: 0,
@@ -456,9 +455,10 @@
         $$$.getJSON(playlistUrl, function(data) {
           // console.log(data)
           $$$.each(data.items, function(i, item) {
-            console.log(item.snippet.description.split("["))
+            // console.log(item.snippet.description.split("[")[1].split("]")[1])
             self.video_title = item.snippet.title
-            self.video_desc = item.snippet.description
+            self.video_desc = item.snippet.description.split("[")[1].split("]")[1]
+            self.video_auth = item.snippet.description.split("[")[1].split("]")[0]
           });
         })
         this.no_video = false
