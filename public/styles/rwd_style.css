@@ -139,6 +139,7 @@ body{
 
 .footertitle {
     float: left;
+    font-size: 12px;
     }
 
 .footerlogos {
@@ -247,8 +248,15 @@ body{
 
 
 /*imagens do footer */
-.footer_img1{
+
+.footer_img{
     height: 30px;
+    width: auto;
+    opacity: 0.4;
+}
+
+.footer_img1{
+    height: 60px;
     width: auto;
     opacity: 0.4;
 }

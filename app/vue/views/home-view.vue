@@ -83,7 +83,7 @@
     	<div class="header_cover">
 			<div class="mdl-layout__header-row">
 
-				<a href="http://github.com/viladosite/riowebdoc" class="gitLink" target="_blank"><img class="imgGit" src="images/github512.png" alt="Fork me on GitHub"> Fork me on GitHub </a>
+				<!-- <a href="http://github.com/viladosite/riowebdoc" class="gitLink" target="_blank"><img class="imgGit" src="images/github512.png" alt="Fork me on GitHub"> Fork me on GitHub </a> -->
 
 				<!-- Class destinada a dar um espaçamento grande -->
 				<div class="mdl-layout-spacer"></div>
@@ -166,21 +166,24 @@
     
 			<div id="rodape" class="rodape">
 
-						<div id="sessao1" class="sessaofooter" style="margin-left: 95px;">
+						<div id="sessao1" class="sessaofooter" style="margin-left: 95px; margin-top: 20px;">
 							
 							<div class="footertitle">Realização:</div>
 							
 							<div class="footerlogos">
 							<a href="#" target="_blank">
 							<img src="images/rio_pref.png" alt="prefeitura Logo" class="footer_img1"/></a>
+							<a href="#" target="_blank">
+							<img src="images/naves.png" alt="naves Logo" class="footer_img1"/></a>
 
 							&nbsp;&nbsp;&nbsp;&nbsp;
 							
 							</div>
 
+
 						</div>
 				        
-				        <div id="sessao4" class="sessaofooter">
+				        <div id="sessao4" class="sessaofooter" style="margin-left: 15px; margin-top: 20px;">
 
 							<div class="footertitle">Produção:</div>
 							
@@ -194,7 +197,7 @@
 						</div>	
 
 
-						<div id="sessao2" class="sessaofooter">
+						<div id="sessao2" class="sessaofooter" style="margin-left: 15px; margin-top: 20px;">
 
 							
 							<div class="footertitle">Parceria:</div>
@@ -202,6 +205,8 @@
 							<div class="footerlogos">
 							<a href="#" target="_blank">
 							<img src="images/bug_404.png" alt="bug 404 Logo" class="footer_img1"/></a>
+							<a href="#" target="_blank">
+							<img src="images/unirio.png" alt="unirio Logo" class="footer_img1"/></a>
 
 							&nbsp; &nbsp; &nbsp; &nbsp;
 							
@@ -218,11 +223,11 @@
 							
 							<div class="footerlogos">
 							<a href="#" target="_blank">
-							<img src="images/idaco.png" alt="idaco Logo" class="footer_img1"/></a>
+							<img src="images/idaco.png" alt="idaco Logo" class="footer_img"/></a>
 
 							&nbsp;&nbsp;&nbsp;&nbsp;
 							<a href="#" target="_blank">
-							<img src="images/redeh_logo.png" alt="redeh Logo" class="footer_img2"/>
+							<img src="images/redeh_logo.png" alt="redeh Logo" class="footer_img"/>
 							</a>
 							</div>
 
