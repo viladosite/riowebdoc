@@ -171,7 +171,7 @@
 							<div class="footertitle">Realização:</div>
 							
 							<div class="footerlogos">
-							<a href="#" target="_blank">
+							<a href="#" target="_blank" style="margin-right: 10px;">
 							<img src="images/rio_pref.png" alt="prefeitura Logo" class="footer_img1"/></a>
 							<a href="#" target="_blank">
 							<img src="images/naves.png" alt="naves Logo" class="footer_img1"/></a>
@@ -203,7 +203,7 @@
 							<div class="footertitle">Parceria:</div>
 							
 							<div class="footerlogos">
-							<a href="#" target="_blank">
+							<a href="#" target="_blank" style="margin-right: 10px;">
 							<img src="images/bug_404.png" alt="bug 404 Logo" class="footer_img1"/></a>
 							<a href="#" target="_blank">
 							<img src="images/unirio.png" alt="unirio Logo" class="footer_img1"/></a>
