@@ -5,7 +5,6 @@
     position: absolute; 
     transform-style: preserve-3d; 
     transition: transform .3s, left .2s, top .2s, opacity .4s; 
-    z-index: 1; 
     perspective: 800px;
     cursor: pointer;
     &:hover {
@@ -140,7 +139,6 @@
       padding: 2%;
       position: relative;
       float: left;
-      background-color: red;
     }
 
   .right-postal{
@@ -149,7 +147,6 @@
       padding: 2%;
       position: relative;
       float: left;
-      background-color: yellow;
   }
 
 </style>
@@ -164,7 +161,7 @@
       </img>
       <div style="z-index: 3; position: absolute; width: 100%; padding-left: 42%; padding-top: 22%;" v-if="on" transition="fade">
         <a v-if="playing === null" :href="'/#/home/'+media.id" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" style="overflow: visible;" transition="fade">
-          <i class="material-icons" style="font-size: 60px;">play_circle_outline</i>
+          <i v-if="!no_video" class="material-icons" style="font-size: 60px;">play_circle_outline</i>
         </a>
       </div>
       <div class="mdl-card__menu" v-if="on" transition="fade">
@@ -172,10 +169,10 @@
         <button v-if="playing !== null" :id="media.id+'-voto'" :class="{votado: votado}" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" @click="votar">
           <i class="material-icons">thumb_up</i>
         </button>
-        <a :id="media.id+'-front-map'" :href="media.mapa" target="_blank" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+        <a v-if="!no_video" :id="media.id+'-front-map'" :href="media.mapa" target="_blank" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
           <i class="material-icons">room</i>
         </a>
-        <button :id="media.id+'-desc'" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" @click="flip(media.id)">
+        <button v-if="!no_video" :id="media.id+'-desc'" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" @click="flip(media.id)">
           <i class="material-icons">description</i>
         </button>
         <a v-if="playing !== null" href="/#/home" :id="media.id+'-close'" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
@@ -184,14 +181,14 @@
       </div>
     </div>
     <div :id="media.id+'-back'" class="demo-card-wide mdl-card mdl-shadow--{{sw}}dp back" :style="[{height: h_offset + media.height+'px'},{'min-height': h_offset + media.height+'px'},{width: w_offset + media.width+'px'}]">
-      <div class="mdl-supporting-text" style="color: black; height: 100%; background-color: blue;">
-      	
+      <div class="mdl-supporting-text" style="color: black; height: 100%;">
       		<div class="left-postal" style="color: black;">
+              <h4 style="margin: 0;">{{video_title}}</h4>
         			{{video_desc}}
         	</div>
 
         	<div class="right-postal" style="color: black;">
-        			texto aleatorio pra div da direita
+        			{{video_auth}}
         	</div>
        	
       </div>
@@ -226,11 +223,13 @@
         y_offset: 0,
         w_offset: 0,
         h_offset: 0,
+        no_video: true,
         w_loop: 0,
         filter_offset: 0,
         sw: 2,
         video_desc: '',
         video_title: '',
+        video_auth: '',
         iframe: null,
         interval: 0,
         img_now: 0,
@@ -348,8 +347,8 @@
             setTimeout(function() {
               if (self.hover) {
                 $$$('#'+self.media.id).addClass('hover')
-                self.w_offset = 400 - self.media.width
-                self.h_offset = 225 - self.media.height
+                self.w_offset = 480 - self.media.width
+                self.h_offset = 270 - self.media.height
                 self.x_offset = -(self.w_offset/2)
                 if (self.media.matrix[0][1] - (self.h_offset/2) < 0) {
                   self.y_offset = 0
@@ -367,10 +366,12 @@
       },
       mouseOut: function(event) {
         var self = this
+        var y = event.y || event.clientY
+        var x = event.x || event.clientX
         if (this.playing === null) {
           this.hover = false
           if (self.on) {
-            if (this.media.matrix[0][0]+this.offset+this.x_offset >= event.x || this.media.matrix[1][0]+this.offset-this.x_offset <= event.x || this.media.matrix[0][1]+this.y_offset <= event.y || this.media.matrix[1][1]+this.y_offset+this.media.height >= event.y) {
+            if (this.media.matrix[0][0]+this.offset+this.x_offset >= x || this.media.matrix[1][0]+this.offset-this.x_offset <= x || this.media.matrix[0][1]+this.y_offset <= y || this.media.matrix[1][1]+this.y_offset+this.media.height >= y) {
               setTimeout(function() {
                 if (!self.hover) {
                   self.w_offset = 0
@@ -418,6 +419,7 @@
       videoFim: function(event) {
         var self = this
         if (event.data == YT.PlayerState.ENDED) {
+          window.location.hash = "/home"
           self.playing = null
         }
       },
@@ -447,16 +449,24 @@
       }
       var self = this
 
-      var playlistUrl = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + this.media.video + '&key=AIzaSyCwNv14d5bNQ4MwaodqT6z45-6A5y4kzus'
-      var videoURL= 'http://www.youtube.com/embed/'
-      $$$.getJSON(playlistUrl, function(data) {
-        // console.log(data)
-        $$$.each(data.items, function(i, item) {
-          // console.log(item)
-          self.video_title = item.snippet.title
-          self.video_desc = item.snippet.description
-        });
-      })
+      if (this.media.video !== "__") {
+        var playlistUrl = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + this.media.video + '&key=AIzaSyCwNv14d5bNQ4MwaodqT6z45-6A5y4kzus'
+        var videoURL= 'http://www.youtube.com/embed/'
+        $$$.getJSON(playlistUrl, function(data) {
+          // console.log(data)
+          $$$.each(data.items, function(i, item) {
+            // console.log(item.snippet.description.split("[")[1].split("]")[1])
+            self.video_title = item.snippet.title
+            self.video_desc = item.snippet.description.split("[")[1].split("]")[1]
+            self.video_auth = item.snippet.description.split("[")[1].split("]")[0]
+          });
+        })
+        this.no_video = false
+      } else {
+        this.no_video = true
+      }
+
+      
     },
     attached: function () {
       var self = this

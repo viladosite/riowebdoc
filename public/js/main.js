@@ -37,7 +37,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"./views/card-view.vue":15,"./views/home-view.vue":16,"blueimp-md5":17,"jquery":24,"perfect-scrollbar":26,"underscore":91,"vue":93,"vue-hot-reload-api":92}],2:[function(require,module,exports){
+},{"./views/card-view.vue":15,"./views/home-view.vue":16,"blueimp-md5":17,"jquery":24,"perfect-scrollbar":26,"underscore":93,"vue":95,"vue-hot-reload-api":94}],2:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 3, stdin */\n#menumodal {\n  position: absolute;\n  right: 8%;\n  top: 6%; }\n\n/* line 9, stdin */\nsvg path {\n  fill: #06303c;\n  opacity: 1;\n  -webkit-transition: opacity .2s;\n  transition: opacity .2s; }\n\n/* line 15, stdin */\nsvg:hover path {\n  opacity: .7; }\n\n/* line 21, stdin */\nbutton:disabled {\n  cursor: default; }\n  /* line 23, stdin */\n  button:disabled path {\n    fill: gray;\n    opacity: .8 !important; }\n\n/* line 28, stdin */\nbutton:focus {\n  outline: none; }\n\n/* line 34, stdin */\n.passo h3 {\n  margin-top: 0;\n  margin-bottom: 40px; }\n\n/* line 38, stdin */\n.passo strong {\n  font-family: 'treta';\n  font-size: 30px;\n  color: #06303c; }\n\n/* line 45, stdin */\n.passo .mdl-textfield--floating-label.is-focused .mdl-textfield__label {\n  color: #d66843; }\n\n/* line 50, stdin */\n.passo .mdl-textfield__input {\n  border-bottom: 2px dotted rgba(0, 0, 0, 0.12); }\n\n/* line 54, stdin */\n.passo .mdl-textfield__label:after {\n  background-color: #d66843; }\n")
 'use strict';
 
@@ -119,7 +119,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"../components/passo-0.vue":9,"../components/passo-1.vue":10,"../components/passo-2.vue":11,"../components/passo-3.vue":12,"../components/passo-4.vue":13,"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92,"vueify-insert-css":94}],3:[function(require,module,exports){
+},{"../components/passo-0.vue":9,"../components/passo-1.vue":10,"../components/passo-2.vue":11,"../components/passo-3.vue":12,"../components/passo-4.vue":13,"jquery":24,"marked":25,"vue":95,"vue-hot-reload-api":94,"vueify-insert-css":96}],3:[function(require,module,exports){
 'use strict';
 
 var $$$ = require('jquery');
@@ -150,7 +150,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92}],4:[function(require,module,exports){
+},{"jquery":24,"marked":25,"vue":95,"vue-hot-reload-api":94}],4:[function(require,module,exports){
 'use strict';
 
 var $$$ = require('jquery');
@@ -181,11 +181,14 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92}],5:[function(require,module,exports){
+},{"jquery":24,"marked":25,"vue":95,"vue-hot-reload-api":94}],5:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.pscroll {\n  width: 100%;\n  position: relative;\n  height: 89%;\n  overflow: hidden; }\n")
 'use strict';
 
 var $$$ = require('jquery');
 var marked = require('marked');
+var perfectScrollbar = require('perfect-scrollbar/jquery')($$$);
+
 module.exports = {
   replace: true,
   props: [],
@@ -195,24 +198,32 @@ module.exports = {
   methods: {},
   computed: {},
   attached: function attached() {
+    $$$('.pscroll').perfectScrollbar({
+      suppressScrollX: true
+    });
+
     componentHandler.upgradeDom();
   },
   components: {},
   filters: {}
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div>\n    <div class=\"rwd_janela_conteudo\">\n    <div>\n      <h3>O Projeto</h3>\n      <p>Bem-vindo!</p>\n\n      <p>O mosaico de postais audiovisuais do Rio que apresentamos aqui é criação coletiva do\n        grupo de alunos do curso Meu Rio Vale Um Webdoc.</p> \n\n      <p>Você está navegando pelo primeiro “webdoc”, ou “webdocumentário” realizado pelas Naves do Conhecimento, uma iniciativa da Secretaria de Ciência e Tecnologia do município do Rio de Janeiro junto com a Cria Produções e com o apoio dos parceiros UniRio e Bug404.</p>\n\n      <p>O projeto Meu Rio Vale Um Webdoc é uma experiência inovadora no cruzamento entre o audiovisual, a fotografia e as narrativas interativas que o ambiente digital nos permite explorar.</p> \n\n      <p>Embarcados nas oito Naves do Conhecimento que conduzem a iniciativa, aplicamos diferentes técnicas criativas para interagir com espaços tão concretos quanto ruas e praças, gerando postais com perspectivas absolutamente originais de um Rio de Janeiro que é nosso e de cada um.</p>\n\n      <p>Reunimos os fragmentos de exercícios, produções individuais e coletivas, numa plataforma onde cada Nave do Conhecimento é uma estação, um elo nessa teia multimídia. Convidamos você a navegar por nossos postais digitais, e a interagir com eles, criando e enviando suas versões de webdoc cards!</p>\n\n      <p><b>Vamos nessa?<b></b></b></p><b><b> \n\n    <h3>O que é um webdoc?</h3>\n\n    <p>Conhecido também como webdocumentário ou documentário interativo, é um gênero de audiovisual que permite ao espectador navegar por diferentes conteúdos e interagir com eles criando seu próprio percurso. A partir de uma plataforma web, é possível explorar as possibilidades oferecidas e “filtrar” trechos do documentário, ou decidir em que ordem assistir, ou ainda determinar qual o nível de aprofundamento que você quer ter com o conteúdo. Uma combinação das perspectivas criadas pelos autores e das escolhas do espectador faz com que o ato de assistir ao webdoc não seja passivo, mas sim uma experiência singular e dinâmica.</p> \n\n    <p>Na cena internacional existem alguns festivais se dedicando ao tema, como o I-docs Symposium, na Inglaterra, e o Docs Barcelona. Produções cada vez mais elaboradas colocam os webdocs em destaque no cenário das mídias do terceiro milênio.</p>\n\n    <h3>O curso Meu Rio Vale um Webdoc</h3>\n\n    <p>O curso acontece nas Naves e Praças do Conhecimento, espaços criados pela Secretaria Municipal de Ciência e Tecnologia do Rio de Janeiro, a partir de 21 de julho. As oficinas são compostas de 10 aulas, totalizando 30 horas-aula. As seis Naves e duas Praças do Conhecimento estão localizadas em Vila Aliança, Irajá, Madureira, Complexo do Alemão (Nova Brasília), Triagem, Padre Miguel, Penha e Santa Cruz.</p>\n\n    <p>As aulas abordam desde a história da imagem fotográfica até técnicas contemporâneas como a fotografia 360 graus; as animações digitais no estilo time lapse e outras. São usadas câmeras de celular e também equipamentos profissionais. O objetivo é oferecer a oportunidade de aprendizado e experimentação criativa para jovens a partir de 16 anos e adultos iniciados em técnicas fotográficas, audiovisuais e/ou em outras linguagens visuais.</p>\n \n\n    </b></b></div><b><b>\n    <div class=\"rwd_janela_img\">\n      <img src=\"../img/icon_projeto.png\" class=\"rwd_janela_icon\">\n    </div>\n  </b></b></div><b><b>\n</b></b></div>"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div style=\"height: 100%;\">\n    <div style=\"height: 100%;\" class=\"rwd_janela_conteudo\">\n      <div style=\"height: 100%;\">\n        <h3>O Projeto</h3>\n        <div class=\"pscroll\">\n          <p>Bem-vindo!</p>\n\n          <p>O mosaico de postais audiovisuais do Rio que apresentamos aqui é criação coletiva do\n            grupo de alunos do curso Meu Rio Vale Um Webdoc.</p> \n\n          <p>Você está navegando pelo primeiro “webdoc”, ou “webdocumentário” realizado pelas Naves do Conhecimento, uma iniciativa da Secretaria de Ciência e Tecnologia do município do Rio de Janeiro junto com a Cria Produções e com o apoio dos parceiros UniRio e Bug404.</p>\n\n          <p>O projeto Meu Rio Vale Um Webdoc é uma experiência inovadora no cruzamento entre o audiovisual, a fotografia e as narrativas interativas que o ambiente digital nos permite explorar.</p> \n\n          <p>Embarcados nas oito Naves do Conhecimento que conduzem a iniciativa, aplicamos diferentes técnicas criativas para interagir com espaços tão concretos quanto ruas e praças, gerando postais com perspectivas absolutamente originais de um Rio de Janeiro que é nosso e de cada um.</p>\n\n          <p>Reunimos os fragmentos de exercícios, produções individuais e coletivas, numa plataforma onde cada Nave do Conhecimento é uma estação, um elo nessa teia multimídia. Convidamos você a navegar por nossos postais digitais, e a interagir com eles, criando e enviando suas versões de webdoc cards!</p>\n\n          <p><b>Vamos nessa?<b></b></b></p><b><b> \n\n          <h3>O que é um webdoc?</h3>\n\n          <p>Conhecido também como webdocumentário ou documentário interativo, é um gênero de audiovisual que permite ao espectador navegar por diferentes conteúdos e interagir com eles criando seu próprio percurso. A partir de uma plataforma web, é possível explorar as possibilidades oferecidas e “filtrar” trechos do documentário, ou decidir em que ordem assistir, ou ainda determinar qual o nível de aprofundamento que você quer ter com o conteúdo. Uma combinação das perspectivas criadas pelos autores e das escolhas do espectador faz com que o ato de assistir ao webdoc não seja passivo, mas sim uma experiência singular e dinâmica.</p> \n\n          <p>Na cena internacional existem alguns festivais se dedicando ao tema, como o I-docs Symposium, na Inglaterra, e o Docs Barcelona. Produções cada vez mais elaboradas colocam os webdocs em destaque no cenário das mídias do terceiro milênio.</p>\n\n          <h3>O curso Meu Rio Vale um Webdoc</h3>\n\n          <p>O curso acontece nas Naves e Praças do Conhecimento, espaços criados pela Secretaria Municipal de Ciência e Tecnologia do Rio de Janeiro, a partir de 21 de julho. As oficinas são compostas de 10 aulas, totalizando 30 horas-aula. As seis Naves e duas Praças do Conhecimento estão localizadas em Vila Aliança, Irajá, Madureira, Complexo do Alemão (Nova Brasília), Triagem, Padre Miguel, Penha e Santa Cruz.</p>\n\n          <p>As aulas abordam desde a história da imagem fotográfica até técnicas contemporâneas como a fotografia 360 graus; as animações digitais no estilo time lapse e outras. São usadas câmeras de celular e também equipamentos profissionais. O objetivo é oferecer a oportunidade de aprendizado e experimentação criativa para jovens a partir de 16 anos e adultos iniciados em técnicas fotográficas, audiovisuais e/ou em outras linguagens visuais.</p>\n        </b></b></div><b><b>\n        \n\n      </b></b></div><b><b>\n    </b></b></div><b><b>\n    <div class=\"rwd_janela_img\">\n      <img src=\"../img/icon_projeto.png\" class=\"rwd_janela_icon\">\n    </div>\n  </b></b></div><b><b>\n</b></b>"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   var id = "/media/bambuzal/Softwares/riowebdoc/app/vue/components/janela-projeto.vue"
+  module.hot.dispose(function () {
+    require("vueify-insert-css").cache["/* line 2, stdin */\n.pscroll {\n  width: 100%;\n  position: relative;\n  height: 89%;\n  overflow: hidden; }\n"] = false
+    document.head.removeChild(__vueify_style__)
+  })
   if (!module.hot.data) {
     hotAPI.createRecord(id, module.exports)
   } else {
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92}],6:[function(require,module,exports){
+},{"jquery":24,"marked":25,"perfect-scrollbar/jquery":27,"vue":95,"vue-hot-reload-api":94,"vueify-insert-css":96}],6:[function(require,module,exports){
 'use strict';
 
 var $$$ = require('jquery');
@@ -243,7 +254,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92}],7:[function(require,module,exports){
+},{"jquery":24,"marked":25,"vue":95,"vue-hot-reload-api":94}],7:[function(require,module,exports){
 'use strict';
 
 var $$$ = require('jquery');
@@ -291,7 +302,7 @@ module.exports = {
     getSize: function getSize(media) {
       var width = $$$(window).width();
       var size = {
-        width: width / 6 / 3,
+        width: width / 6 / 2,
         height: 0
       };
       var votos = size.width * (media.votes.length / 50);
@@ -302,7 +313,7 @@ module.exports = {
       return size;
     },
     changeCanvasSize: function changeCanvasSize() {
-      var h = $$$('#navegacao').outerHeight() + $$$('header').outerHeight() + $$$('#rodape').outerHeight();
+      var h = $$$('#navegacao').outerHeight() + $$$('header').outerHeight() + 32;
       var w = $$$(window).height();
       var width = $$$(window).width();
       this.width = 500 * this.naves.length;
@@ -671,8 +682,9 @@ module.exports = {
     },
     onWheel: function onWheel(event) {
       var offset = 25;
+      var delta = event.wheelDelta || -event.deltaY;
       if (this.playing === null && this.filter === '') {
-        if (event.wheelDelta > 0) {
+        if (delta > 0) {
           this.offset = this.offset + offset + this.interval;
         } else {
           this.offset = this.offset - offset - this.interval;
@@ -748,8 +760,8 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"./media.vue":8,"jquery":24,"marked":25,"underscore":91,"vue":93,"vue-hot-reload-api":92}],8:[function(require,module,exports){
-var __vueify_style__ = require("vueify-insert-css").insert("/* line 4, stdin */\n.media_card {\n  position: absolute;\n  -webkit-transform-style: preserve-3d;\n          transform-style: preserve-3d;\n  -webkit-transition: left .2s, top .2s, opacity .4s, -webkit-transform .3s;\n  transition: left .2s, top .2s, opacity .4s, -webkit-transform .3s;\n  transition: transform .3s, left .2s, top .2s, opacity .4s;\n  transition: transform .3s, left .2s, top .2s, opacity .4s, -webkit-transform .3s;\n  z-index: 1;\n  -webkit-perspective: 800px;\n          perspective: 800px;\n  cursor: pointer; }\n  /* line 11, stdin */\n  .media_card:hover {\n    z-index: 3 !important; }\n  /* line 14, stdin */\n  .media_card.in-trans {\n    -webkit-transition: none;\n    transition: none; }\n  /* line 17, stdin */\n  .media_card.hover {\n    z-index: 2;\n    -webkit-transition: left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s;\n    transition: left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s;\n    transition: transform 0.3s, left 0.2s linear, top 0.2s linear;\n    transition: transform 0.3s, left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s; }\n    /* line 20, stdin */\n    .media_card.hover .mdl-card {\n      -webkit-transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, padding 0.2s linear, -webkit-transform 0.5s;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, padding 0.2s linear, -webkit-transform 0.5s;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, transform 0.5s, padding 0.2s linear;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, transform 0.5s, padding 0.2s linear, -webkit-transform 0.5s; }\n    /* line 23, stdin */\n    .media_card.hover .mdl-card__title {\n      height: 95%;\n      width: 97%;\n      -webkit-transition: opacity 0.6s, height 0.2s linear, min-height 0.2s linear, width 0.2s linear;\n      transition: opacity 0.6s, height 0.2s linear, min-height 0.2s linear, width 0.2s linear; }\n    /* line 28, stdin */\n    .media_card.hover .front {\n      padding: 6px; }\n    /* line 31, stdin */\n    .media_card.hover .right-postal {\n      height: 57.5%;\n      margin-top: 15%;\n      font-size: 60% !important; }\n    /* line 36, stdin */\n    .media_card.hover .left-postal {\n      font-size: 60% !important;\n      line-height: 12px; }\n  /* line 41, stdin */\n  .media_card.playing {\n    z-index: 6 !important;\n    -webkit-transition: left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    transition: left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    transition: transform 0.3s, left 0.4s, top 0.4s;\n    transition: transform 0.3s, left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    -webkit-perspective: 500px;\n            perspective: 500px;\n    cursor: default; }\n    /* line 46, stdin */\n    .media_card.playing .right-postal {\n      height: 75%;\n      margin-top: 5%;\n      font-size: 80% !important; }\n    /* line 51, stdin */\n    .media_card.playing .left-postal {\n      font-size: 80% !important;\n      line-height: auto; }\n    /* line 55, stdin */\n    .media_card.playing .mdl-card__title {\n      height: 98%;\n      width: 98.8%;\n      -webkit-transition: opacity 0.6s, height 0.4s, min-height 0.4s linear, width 0.4s;\n      transition: opacity 0.6s, height 0.4s, min-height 0.4s linear, width 0.4s; }\n      /* line 59, stdin */\n      .media_card.playing .mdl-card__title.player {\n        z-index: 5;\n        padding: 30px;\n        background: white; }\n    /* line 66, stdin */\n    .media_card.playing .mdl-card__menu {\n      z-index: 6;\n      right: 10px;\n      top: 4px; }\n    /* line 72, stdin */\n    .media_card.playing .front .material-icons {\n      color: black; }\n    /* line 76, stdin */\n    .media_card.playing .mdl-card {\n      -webkit-transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, padding 0.4s, -webkit-transform 1s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, padding 0.4s, -webkit-transform 1s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, transform 1s, padding 0.4s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, transform 1s, padding 0.4s, -webkit-transform 1s; }\n  /* line 80, stdin */\n  .media_card.filtered {\n    opacity: 0 !important;\n    z-index: -1; }\n  /* line 84, stdin */\n  .media_card .front {\n    position: absolute;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    -webkit-transform-style: preserve-3d;\n            transform-style: preserve-3d;\n    padding: 2%; }\n    /* line 89, stdin */\n    .media_card .front .material-icons {\n      color: white; }\n  /* line 93, stdin */\n  .media_card .mdl-card {\n    border-radius: 1px;\n    -webkit-transition: box-shadow .2s, height .2s, width .2s, padding .2s, -webkit-transform 1s;\n    transition: box-shadow .2s, height .2s, width .2s, padding .2s, -webkit-transform 1s;\n    transition: box-shadow .2s, height .2s, width .2s, transform 1s, padding .2s;\n    transition: box-shadow .2s, height .2s, width .2s, transform 1s, padding .2s, -webkit-transform 1s; }\n  /* line 97, stdin */\n  .media_card .mdl-card__title {\n    height: 93%;\n    width: 96%;\n    color: white;\n    position: absolute;\n    -webkit-transition: opacity .6s, height .2s, width .2s;\n    transition: opacity .6s, height .2s, width .2s;\n    opacity: 1;\n    padding: 0; }\n  /* line 106, stdin */\n  .media_card .mdl-card__menu {\n    z-index: 3; }\n  /* line 109, stdin */\n  .media_card .back {\n    -webkit-transform: rotateY(180deg);\n            transform: rotateY(180deg);\n    position: absolute;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    -webkit-transform-style: preserve-3d;\n            transform-style: preserve-3d; }\n  /* line 116, stdin */\n  .media_card .mdl-button:hover, .media_card .mdl-button:focus {\n    background: transparent; }\n  /* line 120, stdin */\n  .media_card .assistido {\n    height: 100%;\n    width: 100%;\n    background: rgba(0, 0, 0, 0.5);\n    position: absolute;\n    z-index: 5; }\n  /* line 128, stdin */\n  .media_card .votado .material-icons {\n    color: red !important; }\n\n/* line 134, stdin */\n.left-postal {\n  width: 60% !important;\n  height: 75% !important;\n  border-right: 3px solid;\n  margin-left: 5%;\n  margin-top: 5%;\n  padding: 2%;\n  position: relative;\n  float: left;\n  background-color: red; }\n\n/* line 146, stdin */\n.right-postal {\n  width: 21%;\n  text-align: center;\n  padding: 2%;\n  position: relative;\n  float: left;\n  background-color: yellow; }\n")
+},{"./media.vue":8,"jquery":24,"marked":25,"underscore":93,"vue":95,"vue-hot-reload-api":94}],8:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("/* line 4, stdin */\n.media_card {\n  position: absolute;\n  -webkit-transform-style: preserve-3d;\n          transform-style: preserve-3d;\n  -webkit-transition: left .2s, top .2s, opacity .4s, -webkit-transform .3s;\n  transition: left .2s, top .2s, opacity .4s, -webkit-transform .3s;\n  transition: transform .3s, left .2s, top .2s, opacity .4s;\n  transition: transform .3s, left .2s, top .2s, opacity .4s, -webkit-transform .3s;\n  -webkit-perspective: 800px;\n          perspective: 800px;\n  cursor: pointer; }\n  /* line 10, stdin */\n  .media_card:hover {\n    z-index: 3 !important; }\n  /* line 13, stdin */\n  .media_card.in-trans {\n    -webkit-transition: none;\n    transition: none; }\n  /* line 16, stdin */\n  .media_card.hover {\n    z-index: 2;\n    -webkit-transition: left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s;\n    transition: left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s;\n    transition: transform 0.3s, left 0.2s linear, top 0.2s linear;\n    transition: transform 0.3s, left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s; }\n    /* line 19, stdin */\n    .media_card.hover .mdl-card {\n      -webkit-transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, padding 0.2s linear, -webkit-transform 0.5s;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, padding 0.2s linear, -webkit-transform 0.5s;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, transform 0.5s, padding 0.2s linear;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, transform 0.5s, padding 0.2s linear, -webkit-transform 0.5s; }\n    /* line 22, stdin */\n    .media_card.hover .mdl-card__title {\n      height: 95%;\n      width: 97%;\n      -webkit-transition: opacity 0.6s, height 0.2s linear, min-height 0.2s linear, width 0.2s linear;\n      transition: opacity 0.6s, height 0.2s linear, min-height 0.2s linear, width 0.2s linear; }\n    /* line 27, stdin */\n    .media_card.hover .front {\n      padding: 6px; }\n    /* line 30, stdin */\n    .media_card.hover .right-postal {\n      height: 57.5%;\n      margin-top: 15%;\n      font-size: 60% !important; }\n    /* line 35, stdin */\n    .media_card.hover .left-postal {\n      font-size: 60% !important;\n      line-height: 12px; }\n  /* line 40, stdin */\n  .media_card.playing {\n    z-index: 6 !important;\n    -webkit-transition: left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    transition: left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    transition: transform 0.3s, left 0.4s, top 0.4s;\n    transition: transform 0.3s, left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    -webkit-perspective: 500px;\n            perspective: 500px;\n    cursor: default; }\n    /* line 45, stdin */\n    .media_card.playing .right-postal {\n      height: 75%;\n      margin-top: 5%;\n      font-size: 80% !important; }\n    /* line 50, stdin */\n    .media_card.playing .left-postal {\n      font-size: 80% !important;\n      line-height: auto; }\n    /* line 54, stdin */\n    .media_card.playing .mdl-card__title {\n      height: 98%;\n      width: 98.8%;\n      -webkit-transition: opacity 0.6s, height 0.4s, min-height 0.4s linear, width 0.4s;\n      transition: opacity 0.6s, height 0.4s, min-height 0.4s linear, width 0.4s; }\n      /* line 58, stdin */\n      .media_card.playing .mdl-card__title.player {\n        z-index: 5;\n        padding: 30px;\n        background: white; }\n    /* line 65, stdin */\n    .media_card.playing .mdl-card__menu {\n      z-index: 6;\n      right: 10px;\n      top: 4px; }\n    /* line 71, stdin */\n    .media_card.playing .front .material-icons {\n      color: black; }\n    /* line 75, stdin */\n    .media_card.playing .mdl-card {\n      -webkit-transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, padding 0.4s, -webkit-transform 1s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, padding 0.4s, -webkit-transform 1s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, transform 1s, padding 0.4s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, transform 1s, padding 0.4s, -webkit-transform 1s; }\n  /* line 79, stdin */\n  .media_card.filtered {\n    opacity: 0 !important;\n    z-index: -1; }\n  /* line 83, stdin */\n  .media_card .front {\n    position: absolute;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    -webkit-transform-style: preserve-3d;\n            transform-style: preserve-3d;\n    padding: 2%; }\n    /* line 88, stdin */\n    .media_card .front .material-icons {\n      color: white; }\n  /* line 92, stdin */\n  .media_card .mdl-card {\n    border-radius: 1px;\n    -webkit-transition: box-shadow .2s, height .2s, width .2s, padding .2s, -webkit-transform 1s;\n    transition: box-shadow .2s, height .2s, width .2s, padding .2s, -webkit-transform 1s;\n    transition: box-shadow .2s, height .2s, width .2s, transform 1s, padding .2s;\n    transition: box-shadow .2s, height .2s, width .2s, transform 1s, padding .2s, -webkit-transform 1s; }\n  /* line 96, stdin */\n  .media_card .mdl-card__title {\n    height: 93%;\n    width: 96%;\n    color: white;\n    position: absolute;\n    -webkit-transition: opacity .6s, height .2s, width .2s;\n    transition: opacity .6s, height .2s, width .2s;\n    opacity: 1;\n    padding: 0; }\n  /* line 105, stdin */\n  .media_card .mdl-card__menu {\n    z-index: 3; }\n  /* line 108, stdin */\n  .media_card .back {\n    -webkit-transform: rotateY(180deg);\n            transform: rotateY(180deg);\n    position: absolute;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    -webkit-transform-style: preserve-3d;\n            transform-style: preserve-3d; }\n  /* line 115, stdin */\n  .media_card .mdl-button:hover, .media_card .mdl-button:focus {\n    background: transparent; }\n  /* line 119, stdin */\n  .media_card .assistido {\n    height: 100%;\n    width: 100%;\n    background: rgba(0, 0, 0, 0.5);\n    position: absolute;\n    z-index: 5; }\n  /* line 127, stdin */\n  .media_card .votado .material-icons {\n    color: red !important; }\n\n/* line 133, stdin */\n.left-postal {\n  width: 60% !important;\n  height: 75% !important;\n  border-right: 3px solid;\n  margin-left: 5%;\n  margin-top: 5%;\n  padding: 2%;\n  position: relative;\n  float: left; }\n\n/* line 144, stdin */\n.right-postal {\n  width: 21%;\n  text-align: center;\n  padding: 2%;\n  position: relative;\n  float: left; }\n")
 'use strict';
 
 var $$$ = require('jquery');
@@ -764,11 +776,13 @@ module.exports = {
       y_offset: 0,
       w_offset: 0,
       h_offset: 0,
+      no_video: true,
       w_loop: 0,
       filter_offset: 0,
       sw: 2,
       video_desc: '',
       video_title: '',
+      video_auth: '',
       iframe: null,
       interval: 0,
       img_now: 0,
@@ -884,8 +898,8 @@ module.exports = {
           setTimeout(function () {
             if (self.hover) {
               $$$('#' + self.media.id).addClass('hover');
-              self.w_offset = 400 - self.media.width;
-              self.h_offset = 225 - self.media.height;
+              self.w_offset = 480 - self.media.width;
+              self.h_offset = 270 - self.media.height;
               self.x_offset = -(self.w_offset / 2);
               if (self.media.matrix[0][1] - self.h_offset / 2 < 0) {
                 self.y_offset = 0;
@@ -903,10 +917,12 @@ module.exports = {
     },
     mouseOut: function mouseOut(event) {
       var self = this;
+      var y = event.y || event.clientY;
+      var x = event.x || event.clientX;
       if (this.playing === null) {
         this.hover = false;
         if (self.on) {
-          if (this.media.matrix[0][0] + this.offset + this.x_offset >= event.x || this.media.matrix[1][0] + this.offset - this.x_offset <= event.x || this.media.matrix[0][1] + this.y_offset <= event.y || this.media.matrix[1][1] + this.y_offset + this.media.height >= event.y) {
+          if (this.media.matrix[0][0] + this.offset + this.x_offset >= x || this.media.matrix[1][0] + this.offset - this.x_offset <= x || this.media.matrix[0][1] + this.y_offset <= y || this.media.matrix[1][1] + this.y_offset + this.media.height >= y) {
             setTimeout(function () {
               if (!self.hover) {
                 self.w_offset = 0;
@@ -954,6 +970,7 @@ module.exports = {
     videoFim: function videoFim(event) {
       var self = this;
       if (event.data == YT.PlayerState.ENDED) {
+        window.location.hash = "/home";
         self.playing = null;
       }
     },
@@ -983,16 +1000,22 @@ module.exports = {
     }
     var self = this;
 
-    var playlistUrl = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + this.media.video + '&key=AIzaSyCwNv14d5bNQ4MwaodqT6z45-6A5y4kzus';
-    var videoURL = 'http://www.youtube.com/embed/';
-    $$$.getJSON(playlistUrl, function (data) {
-      // console.log(data)
-      $$$.each(data.items, function (i, item) {
-        // console.log(item)
-        self.video_title = item.snippet.title;
-        self.video_desc = item.snippet.description;
+    if (this.media.video !== "__") {
+      var playlistUrl = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + this.media.video + '&key=AIzaSyCwNv14d5bNQ4MwaodqT6z45-6A5y4kzus';
+      var videoURL = 'http://www.youtube.com/embed/';
+      $$$.getJSON(playlistUrl, function (data) {
+        // console.log(data)
+        $$$.each(data.items, function (i, item) {
+          // console.log(item.snippet.description.split("[")[1].split("]")[1])
+          self.video_title = item.snippet.title;
+          self.video_desc = item.snippet.description.split("[")[1].split("]")[1];
+          self.video_auth = item.snippet.description.split("[")[1].split("]")[0];
+        });
       });
-    });
+      this.no_video = false;
+    } else {
+      this.no_video = true;
+    }
   },
   attached: function attached() {
     var self = this;
@@ -1023,14 +1046,14 @@ module.exports = {
     }
   }
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\n  <div :style=\"[{height: media.height+'px'},{'min-height': media.height+'px'},{width: media.width+'px'},{left: filter_offset + w_loop + x_offset + offset + media.x+'px'},{top: y_offset +  media.y+'px'}]\" class=\"media_card\" :id=\"media.id\" @mouseover=\"mouseOver\" @mouseout=\"mouseOut\">\n    <div v-if=\"assistido &amp;&amp; !hover &amp;&amp; !on\" class=\"assistido\" transition=\"fade\"></div>\n    <div :id=\"media.id+'-front'\" class=\"demo-card-wide mdl-card mdl-shadow--{{sw}}dp front\" style=\"\" :style=\"[{height: h_offset + media.height+'px'},{'min-height': h_offset + media.height+'px'},{width: w_offset + media.width+'px'}]\">\n      <div :id=\"media.id+'-player'\" class=\"mdl-card__title player\"></div>\n      <img v-for=\"img in media.imgs\" class=\"mdl-card__title\" :src=\"img\" :style=\"[{'z-index': media.imgs.length - $index}]\" :id=\"$index+'-img-'+media.id\">\n      \n      <div style=\"z-index: 3; position: absolute; width: 100%; padding-left: 42%; padding-top: 22%;\" v-if=\"on\" transition=\"fade\">\n        <a v-if=\"playing === null\" :href=\"'/#/home/'+media.id\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\" style=\"overflow: visible;\" transition=\"fade\">\n          <i class=\"material-icons\" style=\"font-size: 60px;\">play_circle_outline</i>\n        </a>\n      </div>\n      <div class=\"mdl-card__menu\" v-if=\"on\" transition=\"fade\">\n        <span v-if=\"playing !== null\">{{votos}}</span>\n        <button v-if=\"playing !== null\" :id=\"media.id+'-voto'\" :class=\"{votado: votado}\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\" @click=\"votar\">\n          <i class=\"material-icons\">thumb_up</i>\n        </button>\n        <a :id=\"media.id+'-front-map'\" :href=\"media.mapa\" target=\"_blank\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\">\n          <i class=\"material-icons\">room</i>\n        </a>\n        <button :id=\"media.id+'-desc'\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\" @click=\"flip(media.id)\">\n          <i class=\"material-icons\">description</i>\n        </button>\n        <a v-if=\"playing !== null\" href=\"/#/home\" :id=\"media.id+'-close'\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\">\n          <i class=\"material-icons\">clear</i>\n        </a>\n      </div>\n    </div>\n    <div :id=\"media.id+'-back'\" class=\"demo-card-wide mdl-card mdl-shadow--{{sw}}dp back\" :style=\"[{height: h_offset + media.height+'px'},{'min-height': h_offset + media.height+'px'},{width: w_offset + media.width+'px'}]\">\n      <div class=\"mdl-supporting-text\" style=\"color: black; height: 100%; background-color: blue;\">\n      \t\n      \t\t<div class=\"left-postal\" style=\"color: black;\">\n        \t\t\t{{video_desc}}\n        \t</div>\n\n        \t<div class=\"right-postal\" style=\"color: black;\">\n        \t\t\ttexto aleatorio pra div da direita\n        \t</div>\n       \t\n      </div>\n      <div class=\"mdl-card__menu\" v-if=\"on\" transition=\"fade\">\n        <a :id=\"media.id+'-back-map'\" :href=\"media.mapa\" target=\"_blank\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\">\n          <i class=\"material-icons\">room</i>\n        </a>\n        <button :id=\"media.id+'-photo'\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\" @click=\"unFlip(media.id)\">\n          <svg style=\"width:24px;height:24px\" viewBox=\"0 0 24 24\">\n            <path fill=\"#000000\" d=\"m 18.334101,19.618585 -12.3872826,0 0,-15.4980258 12.3868306,0 0,15.4978458 4.33e-4,0 0,1.8e-4 z m 2.550122,-16.9687922 0,-0.1558962 C 20.654487,2.4020434 19.961215,1.7086388 19.86959,1.4787215 l -0.155715,0 c -0.161583,0.4028738 -0.554708,0.687946 -1.015536,0.687946 -0.460377,0 -0.853953,-0.2850722 -1.015084,-0.687946 l -1.248884,0 c -0.16068,0.4028738 -0.554709,0.687946 -1.015085,0.687946 -0.460827,0 -0.854404,-0.2850722 -1.015085,-0.687946 l -1.248883,0 c -0.16068,0.4028738 -0.554257,0.687946 -1.015084,0.687946 -0.460377,0 -0.853953,-0.2850722 -1.015085,-0.687946 l -1.2488831,0 c -0.161132,0.4028738 -0.554709,0.687946 -1.0150851,0.687946 -0.4603762,0 -0.8539529,-0.2850722 -1.0150845,-0.687946 l -1.2488837,0 c -0.1611316,0.4028738 -0.5547081,0.687946 -1.0150851,0.687946 -0.4603755,0 -0.8539526,-0.2850722 -1.0150845,-0.687946 l -0.1557152,0 C 4.3192541,1.7086388 3.6259796,2.4020469 3.3962433,2.4938966 l 0,0.1558962 C 3.7988467,2.8109247 4.0841,3.2044554 4.0841,3.6649679 c 0,0.4605113 -0.2852533,0.854223 -0.6878567,1.015175 l 0,1.2487925 C 3.7988467,6.0900673 4.0841,6.4837791 4.0841,6.9441105 c 0,0.4605113 -0.2852533,0.8540432 -0.6878567,1.014994 l 0,1.2486127 C 3.7988467,9.3688942 4.0841,9.7624262 4.0841,10.222937 c 0,0.460692 -0.2852533,0.854179 -0.6878567,1.015355 l 0,1.248433 c 0.4026034,0.16095 0.6878567,0.554663 0.6878567,1.015536 0,0.46015 -0.2852533,0.853682 -0.6878567,1.015175 l 0,1.248612 C 3.7988467,15.927044 4.0841,16.320711 4.0841,16.781223 c 0,0.460512 -0.2852533,0.854043 -0.6878567,1.015355 l 0,1.248613 C 3.7988467,19.206007 4.0841,19.599719 4.0841,20.06023 c 0,0.460513 -0.2852533,0.854043 -0.6878567,1.014995 l 0,0.170159 c 0.2292859,0.09203 0.9230097,0.785438 1.0150845,1.015175 l 0.1557152,0 c 0.1611319,-0.402694 0.554709,-0.687631 1.0150845,-0.687631 0.4608282,0 0.8544049,0.284937 1.0155365,0.687631 l 1.2484323,0 c 0.1611316,-0.402694 0.5547083,-0.687631 1.0155359,-0.687631 0.4603767,0 0.8539527,0.284937 1.0150847,0.687631 l 1.2484321,0 c 0.161132,-0.402694 0.554708,-0.687631 1.015536,-0.687631 0.460376,0 0.853953,0.284937 1.015085,0.687631 l 1.248431,0 c 0.160681,-0.402694 0.554709,-0.687631 1.015536,-0.687631 0.459925,0 0.853503,0.284937 1.014634,0.687631 l 1.249335,0 c 0.16068,-0.402694 0.554256,-0.687631 1.015085,-0.687631 0.460376,0 0.853501,0.284937 1.015084,0.687631 l 0.155715,0 c 0.09162,-0.229557 0.784897,-0.922965 1.015085,-1.015175 l 0,-0.170159 C 20.48162,20.91459 20.196819,20.520562 20.196819,20.06005 c 0,-0.460511 0.284801,-0.854043 0.687856,-1.014994 l 0,-1.248612 c -0.403055,-0.160998 -0.687856,-0.554845 -0.687856,-1.015402 0,-0.460692 0.284801,-0.853998 0.687856,-1.015355 l 0,-1.248612 C 20.48162,14.356304 20.196819,13.962231 20.196819,13.5019 c 0,-0.460693 0.284801,-0.854225 0.687856,-1.015355 l 0,-1.249155 c -0.403055,-0.160952 -0.687856,-0.554664 -0.687856,-1.015175 0,-0.4605108 0.284801,-0.8542238 0.687856,-1.0151748 l 0,-1.2487934 C 20.48162,7.797116 20.196819,7.4035842 20.196819,6.9428918 c 0,-0.4603314 0.284801,-0.8538621 0.687856,-1.0150392 l 0,-1.2487937 C 20.48162,4.518108 20.196819,4.1243963 20.196819,3.663885 20.196385,3.2040944 20.48162,2.8109247 20.884223,2.6497928\"></path> \n          </svg>\n        </button>\n        <a v-if=\"playing !== null\" href=\"/#/home\" :id=\"media.id+'-close'\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\">\n          <i class=\"material-icons\">clear</i>\n        </a>\n      </div>\n    </div>\n  </div>  \n\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\n  <div :style=\"[{height: media.height+'px'},{'min-height': media.height+'px'},{width: media.width+'px'},{left: filter_offset + w_loop + x_offset + offset + media.x+'px'},{top: y_offset +  media.y+'px'}]\" class=\"media_card\" :id=\"media.id\" @mouseover=\"mouseOver\" @mouseout=\"mouseOut\">\n    <div v-if=\"assistido &amp;&amp; !hover &amp;&amp; !on\" class=\"assistido\" transition=\"fade\"></div>\n    <div :id=\"media.id+'-front'\" class=\"demo-card-wide mdl-card mdl-shadow--{{sw}}dp front\" style=\"\" :style=\"[{height: h_offset + media.height+'px'},{'min-height': h_offset + media.height+'px'},{width: w_offset + media.width+'px'}]\">\n      <div :id=\"media.id+'-player'\" class=\"mdl-card__title player\"></div>\n      <img v-for=\"img in media.imgs\" class=\"mdl-card__title\" :src=\"img\" :style=\"[{'z-index': media.imgs.length - $index}]\" :id=\"$index+'-img-'+media.id\">\n      \n      <div style=\"z-index: 3; position: absolute; width: 100%; padding-left: 42%; padding-top: 22%;\" v-if=\"on\" transition=\"fade\">\n        <a v-if=\"playing === null\" :href=\"'/#/home/'+media.id\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\" style=\"overflow: visible;\" transition=\"fade\">\n          <i v-if=\"!no_video\" class=\"material-icons\" style=\"font-size: 60px;\">play_circle_outline</i>\n        </a>\n      </div>\n      <div class=\"mdl-card__menu\" v-if=\"on\" transition=\"fade\">\n        <span v-if=\"playing !== null\">{{votos}}</span>\n        <button v-if=\"playing !== null\" :id=\"media.id+'-voto'\" :class=\"{votado: votado}\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\" @click=\"votar\">\n          <i class=\"material-icons\">thumb_up</i>\n        </button>\n        <a v-if=\"!no_video\" :id=\"media.id+'-front-map'\" :href=\"media.mapa\" target=\"_blank\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\">\n          <i class=\"material-icons\">room</i>\n        </a>\n        <button v-if=\"!no_video\" :id=\"media.id+'-desc'\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\" @click=\"flip(media.id)\">\n          <i class=\"material-icons\">description</i>\n        </button>\n        <a v-if=\"playing !== null\" href=\"/#/home\" :id=\"media.id+'-close'\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\">\n          <i class=\"material-icons\">clear</i>\n        </a>\n      </div>\n    </div>\n    <div :id=\"media.id+'-back'\" class=\"demo-card-wide mdl-card mdl-shadow--{{sw}}dp back\" :style=\"[{height: h_offset + media.height+'px'},{'min-height': h_offset + media.height+'px'},{width: w_offset + media.width+'px'}]\">\n      <div class=\"mdl-supporting-text\" style=\"color: black; height: 100%;\">\n      \t\t<div class=\"left-postal\" style=\"color: black;\">\n              <h4 style=\"margin: 0;\">{{video_title}}</h4>\n        \t\t\t{{video_desc}}\n        \t</div>\n\n        \t<div class=\"right-postal\" style=\"color: black;\">\n        \t\t\t{{video_auth}}\n        \t</div>\n       \t\n      </div>\n      <div class=\"mdl-card__menu\" v-if=\"on\" transition=\"fade\">\n        <a :id=\"media.id+'-back-map'\" :href=\"media.mapa\" target=\"_blank\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\">\n          <i class=\"material-icons\">room</i>\n        </a>\n        <button :id=\"media.id+'-photo'\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\" @click=\"unFlip(media.id)\">\n          <svg style=\"width:24px;height:24px\" viewBox=\"0 0 24 24\">\n            <path fill=\"#000000\" d=\"m 18.334101,19.618585 -12.3872826,0 0,-15.4980258 12.3868306,0 0,15.4978458 4.33e-4,0 0,1.8e-4 z m 2.550122,-16.9687922 0,-0.1558962 C 20.654487,2.4020434 19.961215,1.7086388 19.86959,1.4787215 l -0.155715,0 c -0.161583,0.4028738 -0.554708,0.687946 -1.015536,0.687946 -0.460377,0 -0.853953,-0.2850722 -1.015084,-0.687946 l -1.248884,0 c -0.16068,0.4028738 -0.554709,0.687946 -1.015085,0.687946 -0.460827,0 -0.854404,-0.2850722 -1.015085,-0.687946 l -1.248883,0 c -0.16068,0.4028738 -0.554257,0.687946 -1.015084,0.687946 -0.460377,0 -0.853953,-0.2850722 -1.015085,-0.687946 l -1.2488831,0 c -0.161132,0.4028738 -0.554709,0.687946 -1.0150851,0.687946 -0.4603762,0 -0.8539529,-0.2850722 -1.0150845,-0.687946 l -1.2488837,0 c -0.1611316,0.4028738 -0.5547081,0.687946 -1.0150851,0.687946 -0.4603755,0 -0.8539526,-0.2850722 -1.0150845,-0.687946 l -0.1557152,0 C 4.3192541,1.7086388 3.6259796,2.4020469 3.3962433,2.4938966 l 0,0.1558962 C 3.7988467,2.8109247 4.0841,3.2044554 4.0841,3.6649679 c 0,0.4605113 -0.2852533,0.854223 -0.6878567,1.015175 l 0,1.2487925 C 3.7988467,6.0900673 4.0841,6.4837791 4.0841,6.9441105 c 0,0.4605113 -0.2852533,0.8540432 -0.6878567,1.014994 l 0,1.2486127 C 3.7988467,9.3688942 4.0841,9.7624262 4.0841,10.222937 c 0,0.460692 -0.2852533,0.854179 -0.6878567,1.015355 l 0,1.248433 c 0.4026034,0.16095 0.6878567,0.554663 0.6878567,1.015536 0,0.46015 -0.2852533,0.853682 -0.6878567,1.015175 l 0,1.248612 C 3.7988467,15.927044 4.0841,16.320711 4.0841,16.781223 c 0,0.460512 -0.2852533,0.854043 -0.6878567,1.015355 l 0,1.248613 C 3.7988467,19.206007 4.0841,19.599719 4.0841,20.06023 c 0,0.460513 -0.2852533,0.854043 -0.6878567,1.014995 l 0,0.170159 c 0.2292859,0.09203 0.9230097,0.785438 1.0150845,1.015175 l 0.1557152,0 c 0.1611319,-0.402694 0.554709,-0.687631 1.0150845,-0.687631 0.4608282,0 0.8544049,0.284937 1.0155365,0.687631 l 1.2484323,0 c 0.1611316,-0.402694 0.5547083,-0.687631 1.0155359,-0.687631 0.4603767,0 0.8539527,0.284937 1.0150847,0.687631 l 1.2484321,0 c 0.161132,-0.402694 0.554708,-0.687631 1.015536,-0.687631 0.460376,0 0.853953,0.284937 1.015085,0.687631 l 1.248431,0 c 0.160681,-0.402694 0.554709,-0.687631 1.015536,-0.687631 0.459925,0 0.853503,0.284937 1.014634,0.687631 l 1.249335,0 c 0.16068,-0.402694 0.554256,-0.687631 1.015085,-0.687631 0.460376,0 0.853501,0.284937 1.015084,0.687631 l 0.155715,0 c 0.09162,-0.229557 0.784897,-0.922965 1.015085,-1.015175 l 0,-0.170159 C 20.48162,20.91459 20.196819,20.520562 20.196819,20.06005 c 0,-0.460511 0.284801,-0.854043 0.687856,-1.014994 l 0,-1.248612 c -0.403055,-0.160998 -0.687856,-0.554845 -0.687856,-1.015402 0,-0.460692 0.284801,-0.853998 0.687856,-1.015355 l 0,-1.248612 C 20.48162,14.356304 20.196819,13.962231 20.196819,13.5019 c 0,-0.460693 0.284801,-0.854225 0.687856,-1.015355 l 0,-1.249155 c -0.403055,-0.160952 -0.687856,-0.554664 -0.687856,-1.015175 0,-0.4605108 0.284801,-0.8542238 0.687856,-1.0151748 l 0,-1.2487934 C 20.48162,7.797116 20.196819,7.4035842 20.196819,6.9428918 c 0,-0.4603314 0.284801,-0.8538621 0.687856,-1.0150392 l 0,-1.2487937 C 20.48162,4.518108 20.196819,4.1243963 20.196819,3.663885 20.196385,3.2040944 20.48162,2.8109247 20.884223,2.6497928\"></path> \n          </svg>\n        </button>\n        <a v-if=\"playing !== null\" href=\"/#/home\" :id=\"media.id+'-close'\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\">\n          <i class=\"material-icons\">clear</i>\n        </a>\n      </div>\n    </div>\n  </div>  \n\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   var id = "/media/bambuzal/Softwares/riowebdoc/app/vue/components/media.vue"
   module.hot.dispose(function () {
-    require("vueify-insert-css").cache["/* line 4, stdin */\n.media_card {\n  position: absolute;\n  -webkit-transform-style: preserve-3d;\n          transform-style: preserve-3d;\n  -webkit-transition: left .2s, top .2s, opacity .4s, -webkit-transform .3s;\n  transition: left .2s, top .2s, opacity .4s, -webkit-transform .3s;\n  transition: transform .3s, left .2s, top .2s, opacity .4s;\n  transition: transform .3s, left .2s, top .2s, opacity .4s, -webkit-transform .3s;\n  z-index: 1;\n  -webkit-perspective: 800px;\n          perspective: 800px;\n  cursor: pointer; }\n  /* line 11, stdin */\n  .media_card:hover {\n    z-index: 3 !important; }\n  /* line 14, stdin */\n  .media_card.in-trans {\n    -webkit-transition: none;\n    transition: none; }\n  /* line 17, stdin */\n  .media_card.hover {\n    z-index: 2;\n    -webkit-transition: left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s;\n    transition: left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s;\n    transition: transform 0.3s, left 0.2s linear, top 0.2s linear;\n    transition: transform 0.3s, left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s; }\n    /* line 20, stdin */\n    .media_card.hover .mdl-card {\n      -webkit-transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, padding 0.2s linear, -webkit-transform 0.5s;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, padding 0.2s linear, -webkit-transform 0.5s;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, transform 0.5s, padding 0.2s linear;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, transform 0.5s, padding 0.2s linear, -webkit-transform 0.5s; }\n    /* line 23, stdin */\n    .media_card.hover .mdl-card__title {\n      height: 95%;\n      width: 97%;\n      -webkit-transition: opacity 0.6s, height 0.2s linear, min-height 0.2s linear, width 0.2s linear;\n      transition: opacity 0.6s, height 0.2s linear, min-height 0.2s linear, width 0.2s linear; }\n    /* line 28, stdin */\n    .media_card.hover .front {\n      padding: 6px; }\n    /* line 31, stdin */\n    .media_card.hover .right-postal {\n      height: 57.5%;\n      margin-top: 15%;\n      font-size: 60% !important; }\n    /* line 36, stdin */\n    .media_card.hover .left-postal {\n      font-size: 60% !important;\n      line-height: 12px; }\n  /* line 41, stdin */\n  .media_card.playing {\n    z-index: 6 !important;\n    -webkit-transition: left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    transition: left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    transition: transform 0.3s, left 0.4s, top 0.4s;\n    transition: transform 0.3s, left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    -webkit-perspective: 500px;\n            perspective: 500px;\n    cursor: default; }\n    /* line 46, stdin */\n    .media_card.playing .right-postal {\n      height: 75%;\n      margin-top: 5%;\n      font-size: 80% !important; }\n    /* line 51, stdin */\n    .media_card.playing .left-postal {\n      font-size: 80% !important;\n      line-height: auto; }\n    /* line 55, stdin */\n    .media_card.playing .mdl-card__title {\n      height: 98%;\n      width: 98.8%;\n      -webkit-transition: opacity 0.6s, height 0.4s, min-height 0.4s linear, width 0.4s;\n      transition: opacity 0.6s, height 0.4s, min-height 0.4s linear, width 0.4s; }\n      /* line 59, stdin */\n      .media_card.playing .mdl-card__title.player {\n        z-index: 5;\n        padding: 30px;\n        background: white; }\n    /* line 66, stdin */\n    .media_card.playing .mdl-card__menu {\n      z-index: 6;\n      right: 10px;\n      top: 4px; }\n    /* line 72, stdin */\n    .media_card.playing .front .material-icons {\n      color: black; }\n    /* line 76, stdin */\n    .media_card.playing .mdl-card {\n      -webkit-transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, padding 0.4s, -webkit-transform 1s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, padding 0.4s, -webkit-transform 1s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, transform 1s, padding 0.4s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, transform 1s, padding 0.4s, -webkit-transform 1s; }\n  /* line 80, stdin */\n  .media_card.filtered {\n    opacity: 0 !important;\n    z-index: -1; }\n  /* line 84, stdin */\n  .media_card .front {\n    position: absolute;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    -webkit-transform-style: preserve-3d;\n            transform-style: preserve-3d;\n    padding: 2%; }\n    /* line 89, stdin */\n    .media_card .front .material-icons {\n      color: white; }\n  /* line 93, stdin */\n  .media_card .mdl-card {\n    border-radius: 1px;\n    -webkit-transition: box-shadow .2s, height .2s, width .2s, padding .2s, -webkit-transform 1s;\n    transition: box-shadow .2s, height .2s, width .2s, padding .2s, -webkit-transform 1s;\n    transition: box-shadow .2s, height .2s, width .2s, transform 1s, padding .2s;\n    transition: box-shadow .2s, height .2s, width .2s, transform 1s, padding .2s, -webkit-transform 1s; }\n  /* line 97, stdin */\n  .media_card .mdl-card__title {\n    height: 93%;\n    width: 96%;\n    color: white;\n    position: absolute;\n    -webkit-transition: opacity .6s, height .2s, width .2s;\n    transition: opacity .6s, height .2s, width .2s;\n    opacity: 1;\n    padding: 0; }\n  /* line 106, stdin */\n  .media_card .mdl-card__menu {\n    z-index: 3; }\n  /* line 109, stdin */\n  .media_card .back {\n    -webkit-transform: rotateY(180deg);\n            transform: rotateY(180deg);\n    position: absolute;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    -webkit-transform-style: preserve-3d;\n            transform-style: preserve-3d; }\n  /* line 116, stdin */\n  .media_card .mdl-button:hover, .media_card .mdl-button:focus {\n    background: transparent; }\n  /* line 120, stdin */\n  .media_card .assistido {\n    height: 100%;\n    width: 100%;\n    background: rgba(0, 0, 0, 0.5);\n    position: absolute;\n    z-index: 5; }\n  /* line 128, stdin */\n  .media_card .votado .material-icons {\n    color: red !important; }\n\n/* line 134, stdin */\n.left-postal {\n  width: 60% !important;\n  height: 75% !important;\n  border-right: 3px solid;\n  margin-left: 5%;\n  margin-top: 5%;\n  padding: 2%;\n  position: relative;\n  float: left;\n  background-color: red; }\n\n/* line 146, stdin */\n.right-postal {\n  width: 21%;\n  text-align: center;\n  padding: 2%;\n  position: relative;\n  float: left;\n  background-color: yellow; }\n"] = false
+    require("vueify-insert-css").cache["/* line 4, stdin */\n.media_card {\n  position: absolute;\n  -webkit-transform-style: preserve-3d;\n          transform-style: preserve-3d;\n  -webkit-transition: left .2s, top .2s, opacity .4s, -webkit-transform .3s;\n  transition: left .2s, top .2s, opacity .4s, -webkit-transform .3s;\n  transition: transform .3s, left .2s, top .2s, opacity .4s;\n  transition: transform .3s, left .2s, top .2s, opacity .4s, -webkit-transform .3s;\n  -webkit-perspective: 800px;\n          perspective: 800px;\n  cursor: pointer; }\n  /* line 10, stdin */\n  .media_card:hover {\n    z-index: 3 !important; }\n  /* line 13, stdin */\n  .media_card.in-trans {\n    -webkit-transition: none;\n    transition: none; }\n  /* line 16, stdin */\n  .media_card.hover {\n    z-index: 2;\n    -webkit-transition: left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s;\n    transition: left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s;\n    transition: transform 0.3s, left 0.2s linear, top 0.2s linear;\n    transition: transform 0.3s, left 0.2s linear, top 0.2s linear, -webkit-transform 0.3s; }\n    /* line 19, stdin */\n    .media_card.hover .mdl-card {\n      -webkit-transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, padding 0.2s linear, -webkit-transform 0.5s;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, padding 0.2s linear, -webkit-transform 0.5s;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, transform 0.5s, padding 0.2s linear;\n      transition: box-shadow 0.2s linear, height 0.2s linear, min-height 0.2s linear, width 0.2s linear, transform 0.5s, padding 0.2s linear, -webkit-transform 0.5s; }\n    /* line 22, stdin */\n    .media_card.hover .mdl-card__title {\n      height: 95%;\n      width: 97%;\n      -webkit-transition: opacity 0.6s, height 0.2s linear, min-height 0.2s linear, width 0.2s linear;\n      transition: opacity 0.6s, height 0.2s linear, min-height 0.2s linear, width 0.2s linear; }\n    /* line 27, stdin */\n    .media_card.hover .front {\n      padding: 6px; }\n    /* line 30, stdin */\n    .media_card.hover .right-postal {\n      height: 57.5%;\n      margin-top: 15%;\n      font-size: 60% !important; }\n    /* line 35, stdin */\n    .media_card.hover .left-postal {\n      font-size: 60% !important;\n      line-height: 12px; }\n  /* line 40, stdin */\n  .media_card.playing {\n    z-index: 6 !important;\n    -webkit-transition: left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    transition: left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    transition: transform 0.3s, left 0.4s, top 0.4s;\n    transition: transform 0.3s, left 0.4s, top 0.4s, -webkit-transform 0.3s;\n    -webkit-perspective: 500px;\n            perspective: 500px;\n    cursor: default; }\n    /* line 45, stdin */\n    .media_card.playing .right-postal {\n      height: 75%;\n      margin-top: 5%;\n      font-size: 80% !important; }\n    /* line 50, stdin */\n    .media_card.playing .left-postal {\n      font-size: 80% !important;\n      line-height: auto; }\n    /* line 54, stdin */\n    .media_card.playing .mdl-card__title {\n      height: 98%;\n      width: 98.8%;\n      -webkit-transition: opacity 0.6s, height 0.4s, min-height 0.4s linear, width 0.4s;\n      transition: opacity 0.6s, height 0.4s, min-height 0.4s linear, width 0.4s; }\n      /* line 58, stdin */\n      .media_card.playing .mdl-card__title.player {\n        z-index: 5;\n        padding: 30px;\n        background: white; }\n    /* line 65, stdin */\n    .media_card.playing .mdl-card__menu {\n      z-index: 6;\n      right: 10px;\n      top: 4px; }\n    /* line 71, stdin */\n    .media_card.playing .front .material-icons {\n      color: black; }\n    /* line 75, stdin */\n    .media_card.playing .mdl-card {\n      -webkit-transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, padding 0.4s, -webkit-transform 1s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, padding 0.4s, -webkit-transform 1s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, transform 1s, padding 0.4s;\n      transition: box-shadow 0.4s, height 0.4s, min-height 0.4s linear, width 0.4s, transform 1s, padding 0.4s, -webkit-transform 1s; }\n  /* line 79, stdin */\n  .media_card.filtered {\n    opacity: 0 !important;\n    z-index: -1; }\n  /* line 83, stdin */\n  .media_card .front {\n    position: absolute;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    -webkit-transform-style: preserve-3d;\n            transform-style: preserve-3d;\n    padding: 2%; }\n    /* line 88, stdin */\n    .media_card .front .material-icons {\n      color: white; }\n  /* line 92, stdin */\n  .media_card .mdl-card {\n    border-radius: 1px;\n    -webkit-transition: box-shadow .2s, height .2s, width .2s, padding .2s, -webkit-transform 1s;\n    transition: box-shadow .2s, height .2s, width .2s, padding .2s, -webkit-transform 1s;\n    transition: box-shadow .2s, height .2s, width .2s, transform 1s, padding .2s;\n    transition: box-shadow .2s, height .2s, width .2s, transform 1s, padding .2s, -webkit-transform 1s; }\n  /* line 96, stdin */\n  .media_card .mdl-card__title {\n    height: 93%;\n    width: 96%;\n    color: white;\n    position: absolute;\n    -webkit-transition: opacity .6s, height .2s, width .2s;\n    transition: opacity .6s, height .2s, width .2s;\n    opacity: 1;\n    padding: 0; }\n  /* line 105, stdin */\n  .media_card .mdl-card__menu {\n    z-index: 3; }\n  /* line 108, stdin */\n  .media_card .back {\n    -webkit-transform: rotateY(180deg);\n            transform: rotateY(180deg);\n    position: absolute;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    -webkit-transform-style: preserve-3d;\n            transform-style: preserve-3d; }\n  /* line 115, stdin */\n  .media_card .mdl-button:hover, .media_card .mdl-button:focus {\n    background: transparent; }\n  /* line 119, stdin */\n  .media_card .assistido {\n    height: 100%;\n    width: 100%;\n    background: rgba(0, 0, 0, 0.5);\n    position: absolute;\n    z-index: 5; }\n  /* line 127, stdin */\n  .media_card .votado .material-icons {\n    color: red !important; }\n\n/* line 133, stdin */\n.left-postal {\n  width: 60% !important;\n  height: 75% !important;\n  border-right: 3px solid;\n  margin-left: 5%;\n  margin-top: 5%;\n  padding: 2%;\n  position: relative;\n  float: left; }\n\n/* line 144, stdin */\n.right-postal {\n  width: 21%;\n  text-align: center;\n  padding: 2%;\n  position: relative;\n  float: left; }\n"] = false
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
@@ -1039,7 +1062,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"./media.vue":8,"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92,"vueify-insert-css":94}],9:[function(require,module,exports){
+},{"./media.vue":8,"jquery":24,"marked":25,"vue":95,"vue-hot-reload-api":94,"vueify-insert-css":96}],9:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 3, stdin */\n.video-card.nav {\n  width: 15%; }\n")
 'use strict';
 
@@ -1090,7 +1113,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92,"vueify-insert-css":94}],10:[function(require,module,exports){
+},{"jquery":24,"marked":25,"vue":95,"vue-hot-reload-api":94,"vueify-insert-css":96}],10:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.video-card {\n  cursor: pointer;\n  width: 21% !important; }\n  /* line 6, stdin */\n  .video-card:hover img {\n    opacity: .7; }\n  /* line 10, stdin */\n  .video-card:nth-child(3), .video-card:nth-child(4), .video-card:nth-child(5), .video-card:nth-child(6) {\n    border-bottom: 2px dotted rgba(214, 104, 67, 0.5); }\n  /* line 13, stdin */\n  .video-card:nth-child(3), .video-card:nth-child(4), .video-card:nth-child(5), .video-card:nth-child(7), .video-card:nth-child(8), .video-card:nth-child(9) {\n    border-right: 2px dotted rgba(214, 104, 67, 0.5); }\n  /* line 17, stdin */\n  .video-card.escolhido img {\n    opacity: 1; }\n  /* line 21, stdin */\n  .video-card img {\n    opacity: .4;\n    -webkit-transition: opacity .2s;\n    transition: opacity .2s;\n    width: 100%; }\n\n/* line 30, stdin */\n.video-nav {\n  width: 22% !important;\n  color: #fff;\n  margin-right: 5%;\n  display: inline-block;\n  cursor: pointer;\n  margin-top: 2%;\n  position: relative; }\n  /* line 40, stdin */\n  .video-nav span {\n    visibility: hidden;\n    position: absolute;\n    width: 50px;\n    height: 50px;\n    top: 10px;\n    right: 10px; }\n  /* line 49, stdin */\n  .video-nav.escolhido span {\n    visibility: visible; }\n  /* line 55, stdin */\n  .video-nav img {\n    width: 100%;\n    -webkit-filter: gray;\n            filter: gray;\n    filter: grayscale(1);\n    -webkit-filter: grayscale(1); }\n  /* line 62, stdin */\n  .video-nav:hover img, .video-nav.escolhido img {\n    filter: none;\n    -webkit-filter: grayscale(0); }\n")
 'use strict';
 
@@ -1159,7 +1182,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":24,"marked":25,"underscore":91,"vue":93,"vue-hot-reload-api":92,"vueify-insert-css":94}],11:[function(require,module,exports){
+},{"jquery":24,"marked":25,"underscore":93,"vue":95,"vue-hot-reload-api":94,"vueify-insert-css":96}],11:[function(require,module,exports){
 'use strict';
 
 var $$$ = require('jquery');
@@ -1196,7 +1219,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92}],12:[function(require,module,exports){
+},{"jquery":24,"marked":25,"vue":95,"vue-hot-reload-api":94}],12:[function(require,module,exports){
 'use strict';
 
 var $$$ = require('jquery');
@@ -1256,7 +1279,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92}],13:[function(require,module,exports){
+},{"jquery":24,"marked":25,"vue":95,"vue-hot-reload-api":94}],13:[function(require,module,exports){
 'use strict';
 
 var $$$ = require('jquery');
@@ -1291,7 +1314,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92}],14:[function(require,module,exports){
+},{"jquery":24,"marked":25,"vue":95,"vue-hot-reload-api":94}],14:[function(require,module,exports){
 (function(){
 	var _ = require('underscore')
 	var Vue = require('vue')
@@ -1513,7 +1536,7 @@ if (module.hot) {(function () {  module.hot.accept()
 
 })()
 
-},{"./app.vue":1,"director":21,"underscore":91,"vue":93}],15:[function(require,module,exports){
+},{"./app.vue":1,"director":21,"underscore":93,"vue":95}],15:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 3, stdin */\n#content.card {\n  padding: 15px;\n  position: relative;\n  background-color: white;\n  box-sizing: border-box; }\n\n/* line 10, stdin */\n#protect {\n  position: absolute;\n  z-index: 5;\n  left: 0;\n  top: 0;\n  height: 100%;\n  width: 100%; }\n  /* line 17, stdin */\n  #protect .menssagem {\n    position: absolute;\n    right: 0;\n    width: 40%;\n    height: 100%;\n    top: 0; }\n    /* line 23, stdin */\n    #protect .menssagem h2 {\n      margin-top: 50px;\n      color: white;\n      text-align: center; }\n")
 'use strict';
 
@@ -1600,8 +1623,8 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":24,"marked":25,"vue":93,"vue-hot-reload-api":92,"vueify-insert-css":94}],16:[function(require,module,exports){
-var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.fade-transition {\n  -webkit-transition: opacity .6s ease .4s;\n  transition: opacity .6s ease .4s;\n  opacity: 1; }\n\n/* line 6, stdin */\n.fade-enter, .fade-leave {\n  opacity: 0; }\n\n/* line 9, stdin */\n.fade-leave {\n  -webkit-transition: opacity .1s linear;\n  transition: opacity .1s linear; }\n\n/* line 12, stdin */\n#navegacao {\n  padding-top: 30px; }\n\n/* line 15, stdin */\n.fade2-transition {\n  -webkit-transition: opacity .4s ease;\n  transition: opacity .4s ease;\n  opacity: 1; }\n\n/* line 19, stdin */\n.fade2-enter, .fade2-leave {\n  opacity: 0; }\n\n/* line 24, stdin */\n#janela2 h3 {\n  font-family: 'treta';\n  color: #06303c; }\n\n/* line 30, stdin */\n.rwd_pinbox {\n  cursor: pointer; }\n  /* line 33, stdin */\n  .rwd_pinbox:hover .rwd_pinicon {\n    opacity: 1; }\n  /* line 37, stdin */\n  .rwd_pinbox.filtered {\n    border-bottom: 3px solid #d66843; }\n    /* line 39, stdin */\n    .rwd_pinbox.filtered .rwd_pinicon {\n      opacity: 1; }\n  /* line 43, stdin */\n  .rwd_pinbox .rwd_pinicon {\n    opacity: 0;\n    -webkit-transition: opacity .2s;\n    transition: opacity .2s; }\n  /* line 47, stdin */\n  .rwd_pinbox .mdl-button {\n    background: transparent !important;\n    font-size: 30px;\n    height: 35px;\n    min-width: 35px;\n    width: 35px; }\n  /* line 54, stdin */\n  .rwd_pinbox .btnPin {\n    font-size: 30px; }\n")
+},{"jquery":24,"marked":25,"vue":95,"vue-hot-reload-api":94,"vueify-insert-css":96}],16:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.fade-transition {\n  -webkit-transition: opacity .6s ease .4s;\n  transition: opacity .6s ease .4s;\n  opacity: 1; }\n\n/* line 6, stdin */\n.fade-enter, .fade-leave {\n  opacity: 0; }\n\n/* line 9, stdin */\n.fade-leave {\n  -webkit-transition: opacity .1s linear;\n  transition: opacity .1s linear; }\n\n/* line 12, stdin */\n#navegacao {\n  padding-top: 30px; }\n\n/* line 15, stdin */\n.fade2-transition {\n  -webkit-transition: opacity .4s ease;\n  transition: opacity .4s ease;\n  opacity: 1; }\n\n/* line 19, stdin */\n.fade2-enter, .fade2-leave {\n  opacity: 0; }\n\n/* line 24, stdin */\n#janela2 h3 {\n  font-family: 'treta';\n  color: #06303c; }\n\n/* line 30, stdin */\n.mdl-layout__content {\n  overflow: hidden; }\n\n/* line 34, stdin */\n.rodape {\n  -webkit-transition: bottom .3s;\n  transition: bottom .3s; }\n  /* line 36, stdin */\n  .rodape:hover {\n    bottom: 0; }\n    /* line 38, stdin */\n    .rodape:hover .footer_seta {\n      -webkit-transform: rotate(0deg);\n              transform: rotate(0deg); }\n  /* line 42, stdin */\n  .rodape .footer_seta {\n    -webkit-transition: -webkit-transform .3s;\n    transition: -webkit-transform .3s;\n    transition: transform .3s;\n    transition: transform .3s, -webkit-transform .3s;\n    -webkit-transform: rotate(180deg);\n            transform: rotate(180deg); }\n\n/* line 48, stdin */\n.rwd_pinbox {\n  cursor: pointer; }\n  /* line 51, stdin */\n  .rwd_pinbox:hover .rwd_pinicon {\n    opacity: 1; }\n  /* line 55, stdin */\n  .rwd_pinbox.filtered {\n    border-bottom: 3px solid #06303c; }\n    /* line 57, stdin */\n    .rwd_pinbox.filtered .rwd_pinicon {\n      opacity: 1; }\n  /* line 61, stdin */\n  .rwd_pinbox .rwd_pinicon {\n    opacity: 0;\n    -webkit-transition: opacity .2s;\n    transition: opacity .2s; }\n  /* line 65, stdin */\n  .rwd_pinbox .mdl-button {\n    background: transparent !important;\n    font-size: 30px;\n    height: 35px;\n    min-width: 35px;\n    width: 35px; }\n  /* line 72, stdin */\n  .rwd_pinbox .btnPin {\n    font-size: 30px; }\n")
 'use strict';
 
 var $$$ = require('jquery');
@@ -1762,14 +1785,14 @@ module.exports = {
 		}
 	}
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div class=\"mdl-layout mdl-js-layout mdl-layout--fixed-header\">\n\n    <header class=\"rwd_header mdl-layout__header \">\n    \t<div class=\"header_cover\">\n\t\t\t<div class=\"mdl-layout__header-row\">\n\n\t\t\t\t<a href=\"http://github.com/viladosite/riowebdoc\" class=\"gitLink\"><img class=\"imgGit\" src=\"images/github512.png\" alt=\"Fork me on GitHub\"> Fork me on GitHub </a>\n\n\t\t\t\t<!-- Class destinada a dar um espaçamento grande -->\n\t\t\t\t<div class=\"mdl-layout-spacer\"></div>\n\n\t\t\t\t<!-- Construção dos ícones indicativos no menu -->\n\t\t\t\t<nav class=\"mdl-navigation\">\n\t\t\t    \n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/projeto\">O PROJETO</a>\n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/realizacao\">ALUNOS</a>\n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/equipe\">EQUIPE</a>\n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/contato\">CONTATO</a>\n\t\t\t\t<!-- <a class=\"mdl-navigation__link\" href=\"\">BLOG</a> -->\n\n\t\t\t\t</nav>\n\t\t\t</div>\n\t\t</div>\t\n\t</header>\n    \n   \n    <main class=\"mdl-layout__content\">\n    \n    \t<div id=\"rwd_conteudo\">\n\n    \t\t<div id=\"navegacao\">\n    \t\t\t\n    \t\t\t<div id=\"logo\" class=\"logo\">\n\t    \t\t\t<img src=\"images/logo.png\" class=\"logoimg\">\n\t    \t\t</div>\n\n\n\t    \t\t<div id=\"pins\" class=\"rwd_pins\">\n\t\t\t  \t\t<div class=\"rwd_local\">\n\t\t\t  \t\t\t<span v-for=\"nave in naves\">\n\n\t\t\t  \t\t\t\t<div class=\"rwd_pinbox\" @click=\"filterNave(nave.headers.nome)\" :class=\"{filtered: isFiltered[$index]}\">\n\n\t\t\t\t  \t\t\t\t<div>\n\t\t\t\t\t  \t\t\t\t<button class=\"mdl-button mdl-js-button mdl-button--icon mdl-button--primary rwd_pinicon\" :id=\"nave.headers.id\">\n\t\t\t\t\t\t    \t\t\t\n\t\t\t\t\t\t    \t\t\t<i class=\"btnPin material-icons mdl-badge\">\n\t\t\t\t\t\t    \t\t\troom\n\t\t\t\t\t\t    \t\t\t</i>\n\n\t\t\t\t\t\t    \t\t</button>\n\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t<div class=\"rwd_pintitle\" :for=\"nave.headers.id\">\n\t\t\t\t\t\t\t\t{{nave.headers.nome}}\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\n\t\t\t  \t\t\t</span>\n\t\t\t  \t\t\t\n\t\t\t  \t\t\t<div style=\"clear: both\">\n\t\t\t  \t\t\t</div>\n\n\t\t\t  \t\t</div>\n\t\t\t  \t</div>\n\n\t\t\t  \t<div id=\"selo\" class=\"selo\">\n\t\t\t  \t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/card\" rel=\"modal\">\n\t\t\t\t\t<img src=\"images/selo.png\" class=\"seloimg\" id=\"icon1\">\n\t\t\t\t\t</a>\n\t    \t\t</div>\n\n\t    \t\t<div class=\"mdl-tooltip mdl-tooltip--left\" for=\"icon1\">\n\t    \t\tEnviar um webcard\n\t    \t\t</div>\n\n    \t\t</div>\n    \t\t\n    \t\t<div id=\"cloud\" class=\"rwd_cloud\">\n\t\t  \t<media-cloud :naves=\"naves\" :user.sync=\"user\" :filter.sync=\"filter\" v-ref:cloud=\"\"></media-cloud>\n\t\t  \t</div>\n\n    \t\n    \n    \n\t\t\t<div id=\"rodape\" class=\"rodape\">\n\n\t\t\t\t\t\t<div id=\"sessao1\" class=\"sessaofooter\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footertitle\">Realização:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"#\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/rio_pref.png\" alt=\"prefeitura Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t        \n\t\t\t\t        <div id=\"sessao4\" class=\"sessaofooter\">\n\n\t\t\t\t\t\t\t<div class=\"footertitle\">Produção:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"#\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/cria.png\" alt=\"cria Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\t\n\n\n\t\t\t\t\t\t<div id=\"sessao2\" class=\"sessaofooter\">\n\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footertitle\">Parceria:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"#\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/bug_404.png\" alt=\"bug 404 Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp; &nbsp; &nbsp; &nbsp;\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\t\n\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div id=\"sessao5\" class=\"sessaofooter\">\n\n\t\t\t\t\t\t\t<div class=\"footertitle\">Gestão das Naves do Conhecimento:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"#\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/idaco.png\" alt=\"idaco Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t\t\t\t<a href=\"#\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/redeh_logo.png\" alt=\"redeh Logo\" class=\"footer_img2\">\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"clearboth\"></div>\n\n\t\t\t\t\t\t<div class=\"mdl-layout-spacer\"></div>\n\n\t\t\t\t\t\t<div id=\"seta\" class=\"seta_footer\">\n\t\n\t\t\t\t\t\t\t<div class=\"footertitle\"></div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"seta_image\">\n\t\t\t\t\t\t\t<a href=\"#\" target=\"\">\n\t\t\t\t\t\t\t<img src=\"images/seta_footer.png\" alt=\"seta\" class=\"footer_seta\"></a>\n\n\t\t\t\t\t\t\t&nbsp; &nbsp; &nbsp; &nbsp;\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\t\n\n\t\t\t</div>\n\n\t\t</div>\n\t\t\n\t</main>\n\n\n\t<div v-if=\"janela !== null\" transition=\"fade2\" class=\"window\" id=\"janela1\">\n\t    <a href=\"/#/home\" class=\"fechar\"> \n\t    \t<svg style=\"width:24px;height:24px\" viewBox=\"0 0 24 24\">\n\t    \t\t<g>\n\t    \t\t\t<path fill=\"#000000\" d=\"m 18.578809,18.436489 c 0.106721,0.103702 0.222569,0.2093 0.205017,0.28934 -0.143232,-0.05898 -0.260484,-0.156009 -0.205017,-0.28934 z m 1.435821,-0.07513 c 0.09689,-0.0568 0.09127,-0.13277 0.08566,-0.209019 0.08917,0.09436 0.06038,0.309631 -0.08566,0.209019 z m -0.749155,0.0066 c -0.07162,-0.07246 -0.143933,-0.144284 -0.216251,-0.216672 0.04845,-0.07709 0.148146,-0.05161 0.05406,-0.239701 0.185358,0.123923 0.202911,0.03286 0.332802,0.03862 0.183251,0.2159 0.05055,0.487969 -0.170614,0.417757 z m -0.817259,-0.481646 c 0.124976,-0.0022 0.261888,0.06087 0.384757,0.04859 -0.06249,0.110794 -0.155167,0.06003 -0.219761,0.157976 -0.07934,-0.07351 -0.152358,-0.145899 -0.164996,-0.206562 z m -2.028405,-0.01313 c 0.09268,0.05898 0.214145,0.142318 0.143231,0.227625 -0.08144,-0.08257 -0.193783,-0.170613 -0.143231,-0.227625 z m 2.61186,1.100351 c -0.06249,0.0825 -0.238718,-0.08474 -0.258377,-0.174756 0.05476,-0.104474 0.17272,0.11957 0.258377,0.174756 z m 0.256974,0.299171 c 0.01123,0.06066 -0.03862,0.109178 -0.09478,0.157203 -0.06179,-0.12266 -0.122168,-0.08833 -0.164295,-0.206843 0.02106,-0.02113 0.04143,-0.04192 0.06249,-0.06305 0.08074,0.116551 0.13621,0.09928 0.196592,0.11269 z m -1.281356,-2.121154 c 0.02808,-0.02822 0.05617,-0.05617 0.08425,-0.0839 0.04072,0.04114 0.08215,0.08257 0.123572,0.123712 -0.05125,0.08032 -0.136912,-0.01868 -0.207825,-0.03981 z m -1.088977,-0.333784 c 0.05687,-0.04985 0.113742,-0.102017 0.197293,-0.012 -0.107423,0.01397 -0.05055,0.140914 -0.197293,0.012 z m -1.640838,-0.338981 c 0.07442,0.122589 0.164294,0.248197 0.142528,0.352461 -0.10321,-0.128065 -0.205719,-0.256201 -0.142528,-0.352461 z m 0.931001,-0.622282 c 0.07091,0.02247 0.204315,0.0568 0.155167,0.154675 -0.03089,-0.0066 -0.195889,-0.09738 -0.155167,-0.154675 z m 0.28576,-0.470346 c 0.08847,-0.03406 0.09198,-0.03679 0.125679,-0.125889 0.12638,0.06607 -0.05968,0.25234 -0.125679,0.125889 z m -3.832133,-0.808834 c 0.05336,-0.06474 -0.04353,-0.158256 -0.01896,-0.228468 0.121466,0.228468 0.107424,0.01783 0.248548,0.12266 -0.07793,0.0271 -0.120061,0.240754 -0.229591,0.105808 z m 4.167743,-0.702885 c 0.120764,0.12315 0.187465,0.235839 0.163593,0.331537 -0.06319,-0.112127 -0.175528,-0.233663 -0.163593,-0.331537 z m -1.394396,0.03314 c 0.01404,-0.0389 0.0028,-0.08278 -0.05055,-0.134665 0.06319,-0.05947 0.148146,-0.0074 0.228187,0.01896 -0.06179,0.02492 -0.0997,0.17609 -0.177635,0.115708 z m 0.355971,-0.231978 c 0.07653,0.06466 0.110934,0.121466 0.08144,0.165909 -0.04845,-0.03539 -0.08917,-0.02935 -0.144635,-0.102859 0.02106,-0.02085 0.04213,-0.04199 0.06319,-0.06305 z m -3.212167,-0.314617 c 0.07583,-0.0839 0.179741,-0.01811 0.290675,0.08067 -0.08004,0.06031 -0.210634,-0.142388 -0.290675,-0.08067 z m -0.414247,-0.204315 c 0.07091,0.06558 0.102509,-0.07597 0.157274,-0.09521 0.03721,0.107283 0.275228,0.252902 0.16289,0.331608 -0.104615,-0.149199 -0.301207,-0.103632 -0.320164,-0.236402 z m 2.580266,0.01868 c -0.07372,-0.03651 -0.157273,-0.02387 -0.176231,-0.133893 0.07302,-0.07295 0.193082,0.05568 0.176231,0.133893 z M 14.44898,12.543441 c 0.04634,0.125327 0.318759,0.294255 0.225378,0.393253 C 14.547276,12.8945 14.389301,12.63282 14.44898,12.543441 z m -1.779154,-0.01537 c 0.05547,0.0938 0.111636,0.187886 0.153762,0.279441 -0.120763,-0.129399 -0.270313,-0.165066 -0.153762,-0.279441 z m 2.517075,0.08145 c 0.01896,0.09816 -0.105317,0.11269 -0.187464,0.06389 -0.01615,-0.07955 0.08847,-0.199119 0.187464,-0.06389 z m -1.680157,-0.546875 c 0.05687,-0.04964 0.126381,-0.03651 0.207124,0.03974 -0.05125,0.08011 -0.120062,0.06691 -0.207124,-0.03974 z m 0.522373,-0.275088 c 0.08425,0.09268 0.1664,0.171386 0.217655,0.09163 -0.0646,-0.150885 -0.297696,-0.14618 -0.236613,-0.320375 0.163593,0.173071 0.435311,0.366714 0.266803,0.476103 -0.08566,-0.06221 -0.30261,-0.145899 -0.247845,-0.247354 z M 12.959798,10.3822 c 0.01825,-0.03813 -0.0042,-0.08418 0.05266,-0.114866 0.05476,0.06031 0.08987,0.117323 0.08215,0.165628 -0.04915,-0.03924 -0.08706,-0.01755 -0.134805,-0.05076 z M 6.9686681,9.0103409 c 0.051956,0.051603 0.1032107,0.1031405 0.155167,0.1546756 -0.014042,0.014042 -0.028085,0.028012 -0.042127,0.041986 C 7.0381773,9.2363505 6.8984568,9.041374 6.9686681,9.0103406 z M 9.3116193,8.8334787 C 9.4134257,8.7961263 9.669697,8.8814358 9.7160364,8.9859776 9.5777201,8.8795373 9.390256,9.0468508 9.3116193,8.8334787 z m 2.9004287,0.2550776 c -0.02949,0.019732 -0.05476,0.064665 -0.09408,0.032089 0.06038,-0.080391 -0.174826,-0.2169525 -0.132699,-0.3006444 0.172719,0.035948 0.06179,0.158818 0.226782,0.2685583 z M 8.2338758,8.3019091 C 8.2121108,8.15601 8.1938558,8.0109535 8.3314698,7.8954559 c 0.077232,0.1426694 0.08987,-0.052658 0.1558691,0.029629 -0.051254,0.2213762 0.4009062,0.3137743 0.4858619,0.3181274 -0.1249761,0.09303 -0.1207634,0.188728 -0.077935,0.3134932 C 8.750631,8.5682204 8.7042915,8.3093515 8.7056958,8.443174 8.4606583,8.297556 8.4761048,8.4333445 8.2338758,8.3019091 z M 7.5289543,8.0169917 c 0.04634,-0.063612 0.1018064,-0.078988 0.1769325,0.00878 -0.028085,0.027944 -0.055467,0.055956 -0.083552,0.083903 -0.030893,-0.030966 -0.061786,-0.061716 -0.093381,-0.092679 z M 10.080433,7.7550333 c -0.087764,0.041425 0.04423,0.1251165 -0.04283,0.1667518 -0.03721,-0.052097 -0.1348056,-0.034263 -0.1713155,-0.024928 0.00421,-0.0014 0.00772,-0.00219 0.015446,-0.00489 0.022468,-0.091064 0.095487,-0.1440034 0.1986985,-0.136912 z m 0.662795,0.326974 c -0.03511,0.087764 0.105317,0.050412 0.155167,0.1546755 -0.06319,0.1560095 -0.341227,-0.2274144 -0.155167,-0.1546755 z M 5.6662482,6.9100403 c 0.060382,-0.089941 0.3124405,0.072177 0.2590799,0.174475 C 5.8305431,6.9989278 5.6894182,7.0137423 5.6662482,6.9100403 z M 8.6333781,6.7277015 c 0.01334,-0.075758 -0.043531,-0.2307143 0.084956,-0.2090191 0.1207634,0.1004022 0.046339,0.3068937 -0.084956,0.2090191 z M 7.0388794,5.8470411 C 7.1575365,5.9364201 7.0971548,5.991536 7.1308563,6.0647663 6.9967527,6.0395573 7.0171139,5.916129 7.0388794,5.8470411 z M 3.6736514,5.2527024 c 0.1326994,-0.08313 0.1930811,0.079269 0.3636946,0.06965 0.021765,0.2092297 -0.2415269,0.041144 -0.3636946,-0.06965 z M 5.5398679,4.8097393 c 0.028787,-0.022187 0.058977,-0.040582 0.1039127,0.019732 -0.021063,-0.1475139 0.166401,2.809e-4 0.2394208,-0.053995 0.067403,0.054557 0.032999,0.08966 0.050552,0.1346653 0.041425,0.038403 0.070211,0.015868 0.1144444,0.071826 C 5.86284,5.1105947 5.7343533,4.9125986 5.5398678,4.8097392 z M 5.3713607,4.9776146 C 5.3201067,4.9260066 5.2688522,4.8744741 5.2168959,4.822939 5.2878089,4.800118 5.3488931,4.72689 5.4359551,4.789726 5.3706581,4.843996 5.6634398,4.9665883 5.5272301,5.0075215 5.4528061,4.8769284 5.3790843,4.8873899 5.3208089,4.8426653 c -0.034404,0.035106 0.074424,0.097664 0.050552,0.1349461 z M 6.104367,4.4924544 C 6.2103861,4.6095669 6.2918312,4.6026862 6.3936376,4.6981034 6.3360643,4.8261688 6.0404747,4.5288941 6.104367,4.4924544 z M 5.5672503,4.0393107 c -0.00983,-0.060031 -0.050552,-0.1260995 0.042829,-0.1667519 0.088466,0.061716 0.016149,0.2158998 -0.042829,0.1667519 z M 5.341872,3.6460572 C 5.369956,3.6180402 5.398041,3.5901012 5.426126,3.5621542 5.5496978,3.669086 5.5904204,3.7604309 5.5272302,3.8316954 5.4169985,3.8130864 5.4499982,3.7329784 5.3418724,3.6460567 z M 18.807697,21.155562 c 0,0 0.110232,0.110794 0.331398,-0.09219 0.221165,-0.20263 1.021574,-1.04327 1.593796,-1.566274 l 0.102509,-0.111075 0.190272,-0.190623 0.106722,-0.106722 0.273824,-0.338137 c 0.110934,-0.119848 -0.08074,-0.310752 -0.187464,-0.436922 -0.534308,-0.626987 -1.120573,-1.256922 -1.759496,-1.89079 l -0.34895,-0.372963 c -0.0049,0.003 -0.0056,0.0069 -0.01123,0.0099 -0.07934,-0.06614 -0.148848,-0.08285 -0.237314,-0.195608 0.02036,-0.01699 0.03511,-0.02464 0.04845,-0.02851 l -0.01264,-0.01313 C 17.774889,14.620645 16.616403,13.404585 15.420002,12.173149 13.885183,10.598872 12.709846,9.4278174 11.895395,8.6598461 L 11.773929,8.5457528 c -0.0049,0.00219 -0.0063,0.00604 -0.01334,0.00765 -0.06881,-0.1266608 -0.236612,-0.132699 -0.214144,-0.2144249 0.0049,0.00466 0.01264,0.00709 0.01755,0.00955 L 11.156772,7.9662261 10.425873,7.2888274 C 9.7876519,6.6950532 9.0251572,6.0389988 8.0751983,5.2581789 7.8182249,5.047545 7.3983613,4.6904503 7.3688726,4.7200795 c -0.00489,0.00489 -0.00983,0.00962 -0.014744,0.014531 C 7.3513202,4.7376405 7.229152,4.6117407 7.2137056,4.5851307 7.0318583,4.4460421 6.7861187,4.2464313 6.6042714,4.1145043 6.5628467,4.1103443 6.5782932,3.9408717 6.5326559,3.9132085 6.5410809,3.9027445 6.489827,4.0473121 6.4989545,4.0401505 6.2300453,3.8470694 6.1773867,3.5561138 5.9084774,3.3781281 L 5.4401678,2.9765897 5.1965346,2.9442197 C 5.0083683,2.8948587 4.6453759,3.3635216 4.4852941,3.5212864 c 0.038616,0.00899 0.1081254,-0.00169 0.1397205,0.037847 -0.018957,0.037841 0.00351,0.083902 -0.053361,0.1148657 C 4.5161866,3.6424711 4.4726556,3.5985921 4.4459754,3.5599057 4.014878,3.9822969 3.9678364,3.8432083 3.5002291,4.2922096 l -0.2899727,0.3790006 -0.2008043,0.3568841 0.044935,0.1335419 0.2127403,0.1398609 0.064594,0.076249 0.2653987,0.077864 0.1074233,0.1267314 0.044233,0.051254 0.042829,0.05076 0.032297,0.038403 0.075828,0.089168 0.080041,0.1878153 0.04634,0.1497607 0.1032106,0.1722283 0.7421335,0.8800987 c 0.2597818,0.3049979 1.0103408,1.0882752 2.2579957,2.335649 l 0.4065243,0.4072963 0.1067212,0.1063702 0.1909747,0.190904 0.1109339,0.101737 c 1.3185682,1.442912 2.9776617,3.10362 4.9590237,5.001221 0.787069,0.756667 1.506735,1.451689 2.163211,2.088505 0.08496,-0.08636 0.235207,0.10946 0.14955,0.145057 0.73792,0.716646 1.387375,1.352409 1.954682,1.913047 0.01123,-0.0017 0.02177,-0.0017 0.03511,0.0082 -0.0028,0.0093 0.0021,0.02058 0.0042,0.03097 0.254165,0.251498 0.497096,0.492603 0.716858,0.712294\"></path> \n\t    \t\t\t<path fill=\"#000000\" d=\"m 19.704998,6.1978168 c -0.249952,-0.087273 -0.635412,0.5314996 -0.87062,0.3666434 0.07162,-0.1093892 -0.0681,-0.08636 -0.02177,-0.1458991 0.105317,-0.024647 0.309632,0.1157785 0.362993,-0.06965 -0.247144,0.013969 0.287164,-0.1713858 0.111636,-0.3214274 -0.05406,0.010391 -0.278739,0.2517778 -0.227485,0.1437226 0.13621,-0.1261697 0.243633,-0.246863 0.215549,-0.3415078 -0.07372,0.07983 -0.14604,0.1539032 -0.196592,0.1127594 0.200804,-0.2635733 0.40863,-0.1739134 0.536414,-0.4530736 0.127083,0.088326 0.354567,0.013127 0.386865,0.2012958 0.01334,-0.025209 0.0667,-0.1713858 0.124274,-0.1239931 0.100402,0.237244 -0.492182,0.4311676 -0.421268,0.6311294 z m -0.2991,0.2572542 C 19.549831,6.36506 19.541406,6.2584091 19.654446,6.332482 19.568786,6.38514 19.474003,6.4879299 19.405898,6.455071 z M 18.597766,5.7093567 c 0.103912,-0.107002 0.209229,-0.2224294 0.28927,-0.2057191 -0.05898,0.1440034 -0.155869,0.2605542 -0.28927,0.2057191 z m -0.07513,-1.4363126 c -0.05687,-0.096821 -0.132699,-0.091064 -0.209229,-0.085307 0.09478,-0.089168 0.310334,-0.060663 0.209229,0.085307 z m 0.0063,0.7490142 c -0.07162,0.072107 -0.143934,0.144214 -0.216251,0.2163912 -0.07723,-0.048586 -0.05125,-0.1481458 -0.239421,-0.054063 0.123572,-0.1848663 0.0323,-0.2029809 0.03862,-0.3326611 0.215549,-0.1835324 0.487969,-0.050479 0.417056,0.1703326 z m -0.480948,0.8175404 c -0.0021,-0.1247655 0.06038,-0.2618882 0.04845,-0.3844771 0.110232,0.062207 0.05968,0.155167 0.157975,0.219621 -0.07372,0.079268 -0.146039,0.1524989 -0.206421,0.1648561 z m -0.01334,2.0284748 c 0.05898,-0.092749 0.142529,-0.2144956 0.227485,-0.1434417 -0.08215,0.081726 -0.170614,0.1936428 -0.227485,0.1434417 z m 1.100211,-2.6117903 c 0.08215,0.062207 -0.08496,0.2382972 -0.174826,0.2585882 -0.104615,-0.055113 0.120061,-0.1730708 0.174826,-0.2585882 z m 0.2991,-0.257535 c 0.06038,-0.01074 0.10953,0.039178 0.157274,0.095136 -0.12287,0.062277 -0.08847,0.122308 -0.207124,0.1645752 -0.02036,-0.02085 -0.04142,-0.041986 -0.06249,-0.062839 0.116551,-0.080602 0.099,-0.1357184 0.112338,-0.1968724 z M 17.312876,6.280315 c -0.02809,-0.027944 -0.05617,-0.055888 -0.08425,-0.083902 0.04143,-0.041144 0.08285,-0.082569 0.124274,-0.1237123 0.08004,0.051322 -0.01896,0.1369121 -0.04002,0.2076148 z m -0.333503,1.0893986 c -0.04985,-0.057012 -0.102509,-0.1138125 -0.01194,-0.1974341 0.01334,0.1072126 0.140422,0.050131 0.01194,0.1974341 z M 16.640275,9.0103409 C 16.762443,8.9363382 16.888121,8.8457657 16.992736,8.8680226 16.864249,8.971163 16.736464,9.0737418 16.640275,9.0103409 z M 16.018203,8.0789882 c 0.02176,-0.070492 0.05617,-0.2038234 0.154465,-0.1544648 -0.0063,0.030753 -0.09759,0.1956087 -0.154465,0.1544648 z M 15.547085,7.7940006 c -0.0337,-0.089168 -0.03651,-0.092117 -0.125678,-0.1258889 0.0667,-0.1267314 0.25276,0.059539 0.125678,0.1258889 z m -0.808132,3.8317114 c -0.0653,-0.05322 -0.158678,0.04332 -0.228889,0.01868 0.228889,-0.121536 0.01825,-0.107213 0.12287,-0.248478 0.02738,0.07786 0.240825,0.120413 0.106019,0.229802 z M 14.036138,7.4580395 c 0.122869,-0.1206933 0.23591,-0.1873238 0.331397,-0.1634519 -0.112338,0.06305 -0.233804,0.1752474 -0.331397,0.1634519 z m 0.033,1.394326 c -0.03932,-0.013694 -0.08285,-0.00303 -0.134806,0.05076 -0.05968,-0.063611 -0.007,-0.1486373 0.01896,-0.2287484 0.02457,0.061997 0.17623,0.099841 0.115849,0.1779856 z M 13.836738,8.4963942 c 0.06459,-0.076249 0.121465,-0.1110741 0.165698,-0.081445 -0.0351,0.048235 -0.02879,0.088817 -0.102508,0.1444947 -0.02106,-0.021063 -0.04213,-0.041919 -0.06319,-0.06305 z m -0.314547,3.2121668 c -0.08355,-0.07569 -0.01825,-0.179951 0.08074,-0.290745 0.06038,0.08039 -0.142529,0.210634 -0.08074,0.290745 z m -0.204315,0.414106 c 0.066,-0.07098 -0.07583,-0.102297 -0.09478,-0.156852 0.107423,-0.03728 0.25276,-0.275088 0.331397,-0.163452 -0.148848,0.105037 -0.103913,0.301418 -0.236612,0.320304 z m 0.01896,-2.5799839 c -0.03651,0.07323 -0.02387,0.1569222 -0.134103,0.1758091 -0.07302,-0.07295 0.05617,-0.1930811 0.134103,-0.1758091 z M 12.704931,9.8389045 C 12.829907,9.7928459 12.999117,9.5199346 13.098115,9.613456 13.055988,9.7401874 12.7941,9.8984437 12.704931,9.8389045 z m -0.01545,1.7788735 c 0.09338,-0.05512 0.188166,-0.111355 0.279441,-0.153622 -0.129189,0.120412 -0.164997,0.270454 -0.279441,0.153622 z m 0.08145,-2.5169347 c 0.0983,-0.01917 0.11304,0.105317 0.06389,0.1878855 -0.07934,0.015654 -0.198698,-0.088888 -0.06389,-0.1878855 z m -0.546946,1.6804377 c -0.04915,-0.05736 -0.03651,-0.126451 0.04002,-0.207615 0.08004,0.05125 0.0667,0.120693 -0.04002,0.207615 z m -0.275228,-0.522443 c 0.09268,-0.08453 0.171315,-0.16626 0.09198,-0.217795 -0.150954,0.06502 -0.146039,0.297555 -0.320865,0.236401 0.173422,-0.163452 0.367205,-0.4349587 0.476735,-0.266311 -0.06249,0.08559 -0.14604,0.30254 -0.247846,0.247705 z m -1.404928,1.069318 c -0.03862,-0.01868 -0.08425,0.0039 -0.115147,-0.05294 0.06038,-0.05484 0.117253,-0.08966 0.165699,-0.08201 -0.03932,0.04936 -0.01755,0.08692 -0.05055,0.134947 z m -1.3719292,5.99071 c 0.051254,-0.05182 0.1032106,-0.103141 0.1544649,-0.154676 0.014042,0.01397 0.028084,0.02801 0.042127,0.04199 0.029489,0.04388 -0.1656987,0.183462 -0.1965917,0.112689 z m -0.1769325,-2.34246 c -0.037212,-0.102017 0.047744,-0.358218 0.1523586,-0.404277 -0.1067212,0.137684 0.061084,0.32557 -0.1523586,0.404277 z m -0.8165574,1.782173 c -0.063892,-0.04613 -0.079339,-0.101525 0.00842,-0.176932 0.028085,0.0283 0.056169,0.05596 0.084254,0.08418 -0.030893,0.03075 -0.061786,0.06172 -0.092679,0.09275 z m -0.095487,-2.508158 c -0.051956,0.03728 -0.033701,0.134665 -0.024574,0.171175 -0.0014,-0.0047 -0.00213,-0.0077 -0.00494,-0.01537 -0.091275,-0.02247 -0.1439332,-0.09598 -0.136912,-0.198838 0.041425,0.08748 0.1249761,-0.04473 0.1664008,0.04304 z m 0.1600818,-0.705975 c 0.088466,0.03511 0.050552,-0.105317 0.1551669,-0.154675 0.1558691,0.06256 -0.2274845,0.341227 -0.1551669,0.154675 z m 1.0068301,-1.468399 c 0.019659,0.02963 0.064594,0.05434 0.032297,0.0938 -0.080743,-0.06059 -0.2169528,0.174756 -0.3005042,0.13277 0.035808,-0.173071 0.1586775,-0.06228 0.2682072,-0.226572 z m -2.1786568,6.545308 c -0.08987,-0.06003 0.072318,-0.312089 0.1748262,-0.258658 -0.085658,0.09464 -0.070913,0.23591 -0.1748262,0.258658 z M 6.8886273,15.654647 c -0.075126,-0.01369 -0.2302931,0.04332 -0.2085276,-0.08503 0.1004021,-0.120693 0.3068234,-0.04634 0.2085276,0.08503 z m -0.8804498,1.594288 c 0.08987,-0.118727 0.1446353,-0.05842 0.2176551,-0.09163 -0.025276,0.133893 -0.1481459,0.113602 -0.2176551,0.09163 z m -0.5939879,3.365509 c -0.083551,-0.133051 0.079339,-0.193081 0.069509,-0.363695 0.2092299,-0.02191 0.040723,0.241387 -0.069509,0.363695 z M 4.9711563,18.748086 c -0.022468,-0.02907 -0.040723,-0.0587 0.019659,-0.103982 -0.1474438,0.02114 0,-0.166191 -0.054063,-0.239702 0.054765,-0.06691 0.08987,-0.03293 0.1348057,-0.05048 0.038616,-0.04114 0.016149,-0.06993 0.071615,-0.114093 0.1291888,0.185428 -0.068807,0.313493 -0.1720177,0.508259 z m 0.167805,0.168086 c -0.051254,0.0516 -0.1032106,0.103141 -0.1544648,0.154676 -0.02317,-0.0707 -0.096189,-0.131646 -0.033701,-0.218849 0.054765,0.06502 0.1769325,-0.227625 0.2183572,-0.09163 -0.130593,0.07463 -0.1200613,0.148427 -0.1649966,0.206562 0.035106,0.03426 0.097594,-0.07407 0.1348057,-0.05077 z M 4.6538012,18.183658 c 0.1172529,-0.105879 0.1102318,-0.187885 0.2057191,-0.289621 0.1277846,0.05757 -0.1692092,0.352951 -0.2057191,0.289621 z m -0.4528629,0.536976 c -0.060382,0.0096 -0.1263803,0.0502 -0.1671029,-0.04304 0.061786,-0.08861 0.2162508,-0.01622 0.1671029,0.04304 z M 3.807755,18.945801 c -0.028084,-0.02794 -0.056169,-0.05596 -0.084253,-0.0839 0.1074232,-0.123712 0.1986979,-0.164856 0.2696114,-0.101526 -0.018957,0.110302 -0.098998,0.07765 -0.1853579,0.185428 z M 21.225073,5.1484387 C 21.022162,4.9274135 20.181733,4.1270748 19.658658,3.5547123 L 19.547725,3.4526953 19.35675,3.2617907 19.250029,3.1557014 18.91161,2.8816667 c -0.119359,-0.1107934 -0.310334,0.080392 -0.436714,0.1876046 -0.626987,0.5340272 -1.256783,1.1200809 -1.89079,1.7597059 l -0.372822,0.3485289 c 0.0028,0.00472 0.007,0.00576 0.0098,0.011307 -0.066,0.079198 -0.08285,0.149199 -0.195188,0.2374546 -0.01755,-0.020569 -0.02528,-0.035594 -0.02879,-0.048794 l -0.01334,0.012357 c -1.202017,1.1231 -2.418077,2.2818674 -3.649583,3.4776359 C 10.760079,10.402496 9.588954,11.577763 8.8215444,12.392565 L 8.7071,12.514101 c 0.00213,0.0049 0.00632,0.006 0.00772,0.01285 -0.1263803,0.06888 -0.1326993,0.236682 -0.2148466,0.214776 0.00494,-0.0052 0.00772,-0.01292 0.00983,-0.01783 l -0.3819466,0.407016 -0.6775391,0.730899 c -0.5939876,0.638502 -1.2497612,1.400926 -2.0305112,2.350955 -0.211336,0.256485 -0.5680094,0.67663 -0.5385207,0.706259 0.00491,0.0049 0.00983,0.0099 0.014744,0.01482 0.00281,0.0028 -0.1228698,0.125046 -0.1495501,0.140142 -0.1390183,0.181847 -0.3391206,0.427586 -0.4704157,0.609714 -0.00421,0.04136 -0.1734219,0.02577 -0.2015064,0.07155 -0.010532,-0.0082 0.1341036,0.04276 0.1270824,0.03377 -0.1930811,0.26905 -0.484458,0.321709 -0.6620926,0.590478 l -0.4016086,0.46845 -0.032297,0.243492 c -0.049148,0.187886 0.4191615,0.550738 0.5771369,0.711452 0.00913,-0.03924 -0.0014,-0.108336 0.037914,-0.139861 0.037914,0.01868 0.083551,-0.0042 0.1144444,0.05294 -0.030893,0.05568 -0.075126,0.09956 -0.1137423,0.12617 0.4219699,0.430816 0.2829516,0.477436 0.7323039,0.945395 l 0.379141,0.290113 0.3566735,0.200523 0.1334014,-0.04473 0.1404226,-0.21281 0.075828,-0.06445 0.077935,-0.265189 0.1263806,-0.107844 0.051254,-0.04388 0.051254,-0.04276 0.037914,-0.03265 0.089168,-0.07541 0.1881663,-0.08011 0.1495501,-0.0469 0.1727198,-0.102789 0.8797477,-0.742485 c 0.3054201,-0.25972 1.0882761,-1.009858 2.335931,-2.257442 l 0.4072253,-0.407015 0.106019,-0.106651 0.190975,-0.190624 0.101807,-0.111074 c 1.442842,-1.318709 3.103339,-2.978223 5.00115,-4.959516 0.756878,-0.786858 1.45197,-1.5065237 2.088786,-2.1631398 -0.08636,-0.084745 0.10953,-0.2347164 0.144635,-0.149199 0.716858,-0.73771 1.35227,-1.3871645 1.913258,-1.9548931 -0.0014,-0.011026 -0.0014,-0.021979 0.0077,-0.034825 0.0098,0.00298 0.02106,-0.00253 0.03159,-0.00444 0.251356,-0.2542351 0.492181,-0.4969556 0.711942,-0.7166468 L 20.834669,5.9314999 21.31702,5.480322 c 0,0 0.110232,-0.1105126 -0.09198,-0.3318888\"></path> \n\t    \t\t</g>\n\t      </svg>\n\t    </a>\n\t    <div id=\"janela2\" name=\"janela2\">\n\t    \t<div :is=\"janela\" :janela.sync=\"janela\" :webcard=\"webcard\" :naves=\"naves\" v-ref:janela=\"\"></div>\n\t\t</div>\n\t</div>\n\t<div v-if=\"janela !== null\" transition=\"fade2\" id=\"mascara\" @click=\"closeJanela\"></div> \n\n\t<div class=\"clearboth\"></div>\n\n</div>\n\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div class=\"mdl-layout mdl-js-layout mdl-layout--fixed-header\">\n\n    <header class=\"rwd_header mdl-layout__header \">\n    \t<div class=\"header_cover\">\n\t\t\t<div class=\"mdl-layout__header-row\">\n\n\t\t\t\t<!-- <a href=\"http://github.com/viladosite/riowebdoc\" class=\"gitLink\" target=\"_blank\"><img class=\"imgGit\" src=\"images/github512.png\" alt=\"Fork me on GitHub\"> Fork me on GitHub </a> -->\n\n\t\t\t\t<!-- Class destinada a dar um espaçamento grande -->\n\t\t\t\t<div class=\"mdl-layout-spacer\"></div>\n\n\t\t\t\t<!-- Construção dos ícones indicativos no menu -->\n\t\t\t\t<nav class=\"mdl-navigation\">\n\t\t\t    \n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/projeto\">O PROJETO</a>\n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/realizacao\">ALUNOS</a>\n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/equipe\">EQUIPE</a>\n\t\t\t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/contato\">CONTATO</a>\n\t\t\t\t<!-- <a class=\"mdl-navigation__link\" href=\"\">BLOG</a> -->\n\n\t\t\t\t</nav>\n\t\t\t</div>\n\t\t</div>\t\n\t</header>\n    \n   \n    <main class=\"mdl-layout__content\">\n    \n    \t<div id=\"rwd_conteudo\">\n\n    \t\t<div id=\"navegacao\">\n    \t\t\t\n    \t\t\t<div id=\"logo\" class=\"logo\">\n\t    \t\t\t<img src=\"images/logo.png\" class=\"logoimg\">\n\t    \t\t</div>\n\n\n\t    \t\t<div id=\"pins\" class=\"rwd_pins\">\n\t\t\t  \t\t<div class=\"rwd_local\">\n\t\t\t  \t\t\t<span v-for=\"nave in naves\">\n\n\t\t\t  \t\t\t\t<div class=\"rwd_pinbox\" @click=\"filterNave(nave.headers.nome)\" :class=\"{filtered: isFiltered[$index]}\">\n\n\t\t\t\t  \t\t\t\t<div>\n\t\t\t\t\t  \t\t\t\t<button class=\"mdl-button mdl-js-button mdl-button--icon mdl-button--primary rwd_pinicon\" :id=\"nave.headers.id\">\n\t\t\t\t\t\t    \t\t\t\n\t\t\t\t\t\t    \t\t\t<i class=\"btnPin material-icons mdl-badge\">\n\t\t\t\t\t\t    \t\t\troom\n\t\t\t\t\t\t    \t\t\t</i>\n\n\t\t\t\t\t\t    \t\t</button>\n\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t<div class=\"rwd_pintitle\" :for=\"nave.headers.id\">\n\t\t\t\t\t\t\t\t{{nave.headers.nome}}\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\n\t\t\t  \t\t\t</span>\n\t\t\t  \t\t\t\n\t\t\t  \t\t\t<div style=\"clear: both\">\n\t\t\t  \t\t\t</div>\n\n\t\t\t  \t\t</div>\n\t\t\t  \t</div>\n\n\t\t\t  \t<div id=\"selo\" class=\"selo\">\n\t\t\t  \t\t<a class=\"mdl-navigation__link\" href=\"/#/home/janela/card\" rel=\"modal\">\n\t\t\t\t\t<img src=\"images/selo.png\" class=\"seloimg\" id=\"icon1\">\n\t\t\t\t\t</a>\n\t    \t\t</div>\n\n\t    \t\t<div class=\"mdl-tooltip mdl-tooltip--left\" for=\"icon1\">\n\t    \t\tEnviar um webcard\n\t    \t\t</div>\n\n    \t\t</div>\n    \t\t\n    \t\t<div id=\"cloud\" class=\"rwd_cloud\">\n\t\t  \t<media-cloud :naves=\"naves\" :user.sync=\"user\" :filter.sync=\"filter\" v-ref:cloud=\"\"></media-cloud>\n\t\t  \t</div>\n\n    \t\n    \n    \n\t\t\t<div id=\"rodape\" class=\"rodape\">\n\n\t\t\t\t\t\t<div id=\"sessao1\" class=\"sessaofooter\" style=\"margin-left: 95px; margin-top: 20px;\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footertitle\">Realização:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"#\" target=\"_blank\" style=\"margin-right: 10px;\">\n\t\t\t\t\t\t\t<img src=\"images/rio_pref.png\" alt=\"prefeitura Logo\" class=\"footer_img1\"></a>\n\t\t\t\t\t\t\t<a href=\"#\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/naves.png\" alt=\"naves Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t</div>\n\t\t\t\t        \n\t\t\t\t        <div id=\"sessao4\" class=\"sessaofooter\" style=\"margin-left: 15px; margin-top: 20px;\">\n\n\t\t\t\t\t\t\t<div class=\"footertitle\">Produção:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"#\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/cria.png\" alt=\"cria Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\t\n\n\n\t\t\t\t\t\t<div id=\"sessao2\" class=\"sessaofooter\" style=\"margin-left: 15px; margin-top: 20px;\">\n\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footertitle\">Parceria:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"#\" target=\"_blank\" style=\"margin-right: 10px;\">\n\t\t\t\t\t\t\t<img src=\"images/bug_404.png\" alt=\"bug 404 Logo\" class=\"footer_img1\"></a>\n\t\t\t\t\t\t\t<a href=\"#\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/unirio.png\" alt=\"unirio Logo\" class=\"footer_img1\"></a>\n\n\t\t\t\t\t\t\t&nbsp; &nbsp; &nbsp; &nbsp;\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\t\n\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div id=\"sessao5\" class=\"sessaofooter\">\n\n\t\t\t\t\t\t\t<div class=\"footertitle\">Gestão das Naves do Conhecimento:</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"footerlogos\">\n\t\t\t\t\t\t\t<a href=\"#\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/idaco.png\" alt=\"idaco Logo\" class=\"footer_img\"></a>\n\n\t\t\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t\t\t\t<a href=\"#\" target=\"_blank\">\n\t\t\t\t\t\t\t<img src=\"images/redeh_logo.png\" alt=\"redeh Logo\" class=\"footer_img\">\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"clearboth\"></div>\n\n\t\t\t\t\t\t<div class=\"mdl-layout-spacer\"></div>\n\n\t\t\t\t\t\t<div id=\"seta\" class=\"seta_footer\">\n\t\n\t\t\t\t\t\t\t<div class=\"footertitle\"></div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"seta_image\">\n\t\t\t\t\t\t\t<a href=\"#\" target=\"\">\n\t\t\t\t\t\t\t<img src=\"images/seta_footer.png\" alt=\"seta\" class=\"footer_seta\"></a>\n\n\t\t\t\t\t\t\t&nbsp; &nbsp; &nbsp; &nbsp;\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\t\n\n\t\t\t</div>\n\n\t\t</div>\n\t\t\n\t</main>\n\n\n\t<div v-if=\"janela !== null\" transition=\"fade2\" class=\"window\" id=\"janela1\">\n\t    <a href=\"/#/home\" class=\"fechar\"> \n\t    \t<svg style=\"width:24px;height:24px\" viewBox=\"0 0 24 24\">\n\t    \t\t<g>\n\t    \t\t\t<path fill=\"#000000\" d=\"m 18.578809,18.436489 c 0.106721,0.103702 0.222569,0.2093 0.205017,0.28934 -0.143232,-0.05898 -0.260484,-0.156009 -0.205017,-0.28934 z m 1.435821,-0.07513 c 0.09689,-0.0568 0.09127,-0.13277 0.08566,-0.209019 0.08917,0.09436 0.06038,0.309631 -0.08566,0.209019 z m -0.749155,0.0066 c -0.07162,-0.07246 -0.143933,-0.144284 -0.216251,-0.216672 0.04845,-0.07709 0.148146,-0.05161 0.05406,-0.239701 0.185358,0.123923 0.202911,0.03286 0.332802,0.03862 0.183251,0.2159 0.05055,0.487969 -0.170614,0.417757 z m -0.817259,-0.481646 c 0.124976,-0.0022 0.261888,0.06087 0.384757,0.04859 -0.06249,0.110794 -0.155167,0.06003 -0.219761,0.157976 -0.07934,-0.07351 -0.152358,-0.145899 -0.164996,-0.206562 z m -2.028405,-0.01313 c 0.09268,0.05898 0.214145,0.142318 0.143231,0.227625 -0.08144,-0.08257 -0.193783,-0.170613 -0.143231,-0.227625 z m 2.61186,1.100351 c -0.06249,0.0825 -0.238718,-0.08474 -0.258377,-0.174756 0.05476,-0.104474 0.17272,0.11957 0.258377,0.174756 z m 0.256974,0.299171 c 0.01123,0.06066 -0.03862,0.109178 -0.09478,0.157203 -0.06179,-0.12266 -0.122168,-0.08833 -0.164295,-0.206843 0.02106,-0.02113 0.04143,-0.04192 0.06249,-0.06305 0.08074,0.116551 0.13621,0.09928 0.196592,0.11269 z m -1.281356,-2.121154 c 0.02808,-0.02822 0.05617,-0.05617 0.08425,-0.0839 0.04072,0.04114 0.08215,0.08257 0.123572,0.123712 -0.05125,0.08032 -0.136912,-0.01868 -0.207825,-0.03981 z m -1.088977,-0.333784 c 0.05687,-0.04985 0.113742,-0.102017 0.197293,-0.012 -0.107423,0.01397 -0.05055,0.140914 -0.197293,0.012 z m -1.640838,-0.338981 c 0.07442,0.122589 0.164294,0.248197 0.142528,0.352461 -0.10321,-0.128065 -0.205719,-0.256201 -0.142528,-0.352461 z m 0.931001,-0.622282 c 0.07091,0.02247 0.204315,0.0568 0.155167,0.154675 -0.03089,-0.0066 -0.195889,-0.09738 -0.155167,-0.154675 z m 0.28576,-0.470346 c 0.08847,-0.03406 0.09198,-0.03679 0.125679,-0.125889 0.12638,0.06607 -0.05968,0.25234 -0.125679,0.125889 z m -3.832133,-0.808834 c 0.05336,-0.06474 -0.04353,-0.158256 -0.01896,-0.228468 0.121466,0.228468 0.107424,0.01783 0.248548,0.12266 -0.07793,0.0271 -0.120061,0.240754 -0.229591,0.105808 z m 4.167743,-0.702885 c 0.120764,0.12315 0.187465,0.235839 0.163593,0.331537 -0.06319,-0.112127 -0.175528,-0.233663 -0.163593,-0.331537 z m -1.394396,0.03314 c 0.01404,-0.0389 0.0028,-0.08278 -0.05055,-0.134665 0.06319,-0.05947 0.148146,-0.0074 0.228187,0.01896 -0.06179,0.02492 -0.0997,0.17609 -0.177635,0.115708 z m 0.355971,-0.231978 c 0.07653,0.06466 0.110934,0.121466 0.08144,0.165909 -0.04845,-0.03539 -0.08917,-0.02935 -0.144635,-0.102859 0.02106,-0.02085 0.04213,-0.04199 0.06319,-0.06305 z m -3.212167,-0.314617 c 0.07583,-0.0839 0.179741,-0.01811 0.290675,0.08067 -0.08004,0.06031 -0.210634,-0.142388 -0.290675,-0.08067 z m -0.414247,-0.204315 c 0.07091,0.06558 0.102509,-0.07597 0.157274,-0.09521 0.03721,0.107283 0.275228,0.252902 0.16289,0.331608 -0.104615,-0.149199 -0.301207,-0.103632 -0.320164,-0.236402 z m 2.580266,0.01868 c -0.07372,-0.03651 -0.157273,-0.02387 -0.176231,-0.133893 0.07302,-0.07295 0.193082,0.05568 0.176231,0.133893 z M 14.44898,12.543441 c 0.04634,0.125327 0.318759,0.294255 0.225378,0.393253 C 14.547276,12.8945 14.389301,12.63282 14.44898,12.543441 z m -1.779154,-0.01537 c 0.05547,0.0938 0.111636,0.187886 0.153762,0.279441 -0.120763,-0.129399 -0.270313,-0.165066 -0.153762,-0.279441 z m 2.517075,0.08145 c 0.01896,0.09816 -0.105317,0.11269 -0.187464,0.06389 -0.01615,-0.07955 0.08847,-0.199119 0.187464,-0.06389 z m -1.680157,-0.546875 c 0.05687,-0.04964 0.126381,-0.03651 0.207124,0.03974 -0.05125,0.08011 -0.120062,0.06691 -0.207124,-0.03974 z m 0.522373,-0.275088 c 0.08425,0.09268 0.1664,0.171386 0.217655,0.09163 -0.0646,-0.150885 -0.297696,-0.14618 -0.236613,-0.320375 0.163593,0.173071 0.435311,0.366714 0.266803,0.476103 -0.08566,-0.06221 -0.30261,-0.145899 -0.247845,-0.247354 z M 12.959798,10.3822 c 0.01825,-0.03813 -0.0042,-0.08418 0.05266,-0.114866 0.05476,0.06031 0.08987,0.117323 0.08215,0.165628 -0.04915,-0.03924 -0.08706,-0.01755 -0.134805,-0.05076 z M 6.9686681,9.0103409 c 0.051956,0.051603 0.1032107,0.1031405 0.155167,0.1546756 -0.014042,0.014042 -0.028085,0.028012 -0.042127,0.041986 C 7.0381773,9.2363505 6.8984568,9.041374 6.9686681,9.0103406 z M 9.3116193,8.8334787 C 9.4134257,8.7961263 9.669697,8.8814358 9.7160364,8.9859776 9.5777201,8.8795373 9.390256,9.0468508 9.3116193,8.8334787 z m 2.9004287,0.2550776 c -0.02949,0.019732 -0.05476,0.064665 -0.09408,0.032089 0.06038,-0.080391 -0.174826,-0.2169525 -0.132699,-0.3006444 0.172719,0.035948 0.06179,0.158818 0.226782,0.2685583 z M 8.2338758,8.3019091 C 8.2121108,8.15601 8.1938558,8.0109535 8.3314698,7.8954559 c 0.077232,0.1426694 0.08987,-0.052658 0.1558691,0.029629 -0.051254,0.2213762 0.4009062,0.3137743 0.4858619,0.3181274 -0.1249761,0.09303 -0.1207634,0.188728 -0.077935,0.3134932 C 8.750631,8.5682204 8.7042915,8.3093515 8.7056958,8.443174 8.4606583,8.297556 8.4761048,8.4333445 8.2338758,8.3019091 z M 7.5289543,8.0169917 c 0.04634,-0.063612 0.1018064,-0.078988 0.1769325,0.00878 -0.028085,0.027944 -0.055467,0.055956 -0.083552,0.083903 -0.030893,-0.030966 -0.061786,-0.061716 -0.093381,-0.092679 z M 10.080433,7.7550333 c -0.087764,0.041425 0.04423,0.1251165 -0.04283,0.1667518 -0.03721,-0.052097 -0.1348056,-0.034263 -0.1713155,-0.024928 0.00421,-0.0014 0.00772,-0.00219 0.015446,-0.00489 0.022468,-0.091064 0.095487,-0.1440034 0.1986985,-0.136912 z m 0.662795,0.326974 c -0.03511,0.087764 0.105317,0.050412 0.155167,0.1546755 -0.06319,0.1560095 -0.341227,-0.2274144 -0.155167,-0.1546755 z M 5.6662482,6.9100403 c 0.060382,-0.089941 0.3124405,0.072177 0.2590799,0.174475 C 5.8305431,6.9989278 5.6894182,7.0137423 5.6662482,6.9100403 z M 8.6333781,6.7277015 c 0.01334,-0.075758 -0.043531,-0.2307143 0.084956,-0.2090191 0.1207634,0.1004022 0.046339,0.3068937 -0.084956,0.2090191 z M 7.0388794,5.8470411 C 7.1575365,5.9364201 7.0971548,5.991536 7.1308563,6.0647663 6.9967527,6.0395573 7.0171139,5.916129 7.0388794,5.8470411 z M 3.6736514,5.2527024 c 0.1326994,-0.08313 0.1930811,0.079269 0.3636946,0.06965 0.021765,0.2092297 -0.2415269,0.041144 -0.3636946,-0.06965 z M 5.5398679,4.8097393 c 0.028787,-0.022187 0.058977,-0.040582 0.1039127,0.019732 -0.021063,-0.1475139 0.166401,2.809e-4 0.2394208,-0.053995 0.067403,0.054557 0.032999,0.08966 0.050552,0.1346653 0.041425,0.038403 0.070211,0.015868 0.1144444,0.071826 C 5.86284,5.1105947 5.7343533,4.9125986 5.5398678,4.8097392 z M 5.3713607,4.9776146 C 5.3201067,4.9260066 5.2688522,4.8744741 5.2168959,4.822939 5.2878089,4.800118 5.3488931,4.72689 5.4359551,4.789726 5.3706581,4.843996 5.6634398,4.9665883 5.5272301,5.0075215 5.4528061,4.8769284 5.3790843,4.8873899 5.3208089,4.8426653 c -0.034404,0.035106 0.074424,0.097664 0.050552,0.1349461 z M 6.104367,4.4924544 C 6.2103861,4.6095669 6.2918312,4.6026862 6.3936376,4.6981034 6.3360643,4.8261688 6.0404747,4.5288941 6.104367,4.4924544 z M 5.5672503,4.0393107 c -0.00983,-0.060031 -0.050552,-0.1260995 0.042829,-0.1667519 0.088466,0.061716 0.016149,0.2158998 -0.042829,0.1667519 z M 5.341872,3.6460572 C 5.369956,3.6180402 5.398041,3.5901012 5.426126,3.5621542 5.5496978,3.669086 5.5904204,3.7604309 5.5272302,3.8316954 5.4169985,3.8130864 5.4499982,3.7329784 5.3418724,3.6460567 z M 18.807697,21.155562 c 0,0 0.110232,0.110794 0.331398,-0.09219 0.221165,-0.20263 1.021574,-1.04327 1.593796,-1.566274 l 0.102509,-0.111075 0.190272,-0.190623 0.106722,-0.106722 0.273824,-0.338137 c 0.110934,-0.119848 -0.08074,-0.310752 -0.187464,-0.436922 -0.534308,-0.626987 -1.120573,-1.256922 -1.759496,-1.89079 l -0.34895,-0.372963 c -0.0049,0.003 -0.0056,0.0069 -0.01123,0.0099 -0.07934,-0.06614 -0.148848,-0.08285 -0.237314,-0.195608 0.02036,-0.01699 0.03511,-0.02464 0.04845,-0.02851 l -0.01264,-0.01313 C 17.774889,14.620645 16.616403,13.404585 15.420002,12.173149 13.885183,10.598872 12.709846,9.4278174 11.895395,8.6598461 L 11.773929,8.5457528 c -0.0049,0.00219 -0.0063,0.00604 -0.01334,0.00765 -0.06881,-0.1266608 -0.236612,-0.132699 -0.214144,-0.2144249 0.0049,0.00466 0.01264,0.00709 0.01755,0.00955 L 11.156772,7.9662261 10.425873,7.2888274 C 9.7876519,6.6950532 9.0251572,6.0389988 8.0751983,5.2581789 7.8182249,5.047545 7.3983613,4.6904503 7.3688726,4.7200795 c -0.00489,0.00489 -0.00983,0.00962 -0.014744,0.014531 C 7.3513202,4.7376405 7.229152,4.6117407 7.2137056,4.5851307 7.0318583,4.4460421 6.7861187,4.2464313 6.6042714,4.1145043 6.5628467,4.1103443 6.5782932,3.9408717 6.5326559,3.9132085 6.5410809,3.9027445 6.489827,4.0473121 6.4989545,4.0401505 6.2300453,3.8470694 6.1773867,3.5561138 5.9084774,3.3781281 L 5.4401678,2.9765897 5.1965346,2.9442197 C 5.0083683,2.8948587 4.6453759,3.3635216 4.4852941,3.5212864 c 0.038616,0.00899 0.1081254,-0.00169 0.1397205,0.037847 -0.018957,0.037841 0.00351,0.083902 -0.053361,0.1148657 C 4.5161866,3.6424711 4.4726556,3.5985921 4.4459754,3.5599057 4.014878,3.9822969 3.9678364,3.8432083 3.5002291,4.2922096 l -0.2899727,0.3790006 -0.2008043,0.3568841 0.044935,0.1335419 0.2127403,0.1398609 0.064594,0.076249 0.2653987,0.077864 0.1074233,0.1267314 0.044233,0.051254 0.042829,0.05076 0.032297,0.038403 0.075828,0.089168 0.080041,0.1878153 0.04634,0.1497607 0.1032106,0.1722283 0.7421335,0.8800987 c 0.2597818,0.3049979 1.0103408,1.0882752 2.2579957,2.335649 l 0.4065243,0.4072963 0.1067212,0.1063702 0.1909747,0.190904 0.1109339,0.101737 c 1.3185682,1.442912 2.9776617,3.10362 4.9590237,5.001221 0.787069,0.756667 1.506735,1.451689 2.163211,2.088505 0.08496,-0.08636 0.235207,0.10946 0.14955,0.145057 0.73792,0.716646 1.387375,1.352409 1.954682,1.913047 0.01123,-0.0017 0.02177,-0.0017 0.03511,0.0082 -0.0028,0.0093 0.0021,0.02058 0.0042,0.03097 0.254165,0.251498 0.497096,0.492603 0.716858,0.712294\"></path> \n\t    \t\t\t<path fill=\"#000000\" d=\"m 19.704998,6.1978168 c -0.249952,-0.087273 -0.635412,0.5314996 -0.87062,0.3666434 0.07162,-0.1093892 -0.0681,-0.08636 -0.02177,-0.1458991 0.105317,-0.024647 0.309632,0.1157785 0.362993,-0.06965 -0.247144,0.013969 0.287164,-0.1713858 0.111636,-0.3214274 -0.05406,0.010391 -0.278739,0.2517778 -0.227485,0.1437226 0.13621,-0.1261697 0.243633,-0.246863 0.215549,-0.3415078 -0.07372,0.07983 -0.14604,0.1539032 -0.196592,0.1127594 0.200804,-0.2635733 0.40863,-0.1739134 0.536414,-0.4530736 0.127083,0.088326 0.354567,0.013127 0.386865,0.2012958 0.01334,-0.025209 0.0667,-0.1713858 0.124274,-0.1239931 0.100402,0.237244 -0.492182,0.4311676 -0.421268,0.6311294 z m -0.2991,0.2572542 C 19.549831,6.36506 19.541406,6.2584091 19.654446,6.332482 19.568786,6.38514 19.474003,6.4879299 19.405898,6.455071 z M 18.597766,5.7093567 c 0.103912,-0.107002 0.209229,-0.2224294 0.28927,-0.2057191 -0.05898,0.1440034 -0.155869,0.2605542 -0.28927,0.2057191 z m -0.07513,-1.4363126 c -0.05687,-0.096821 -0.132699,-0.091064 -0.209229,-0.085307 0.09478,-0.089168 0.310334,-0.060663 0.209229,0.085307 z m 0.0063,0.7490142 c -0.07162,0.072107 -0.143934,0.144214 -0.216251,0.2163912 -0.07723,-0.048586 -0.05125,-0.1481458 -0.239421,-0.054063 0.123572,-0.1848663 0.0323,-0.2029809 0.03862,-0.3326611 0.215549,-0.1835324 0.487969,-0.050479 0.417056,0.1703326 z m -0.480948,0.8175404 c -0.0021,-0.1247655 0.06038,-0.2618882 0.04845,-0.3844771 0.110232,0.062207 0.05968,0.155167 0.157975,0.219621 -0.07372,0.079268 -0.146039,0.1524989 -0.206421,0.1648561 z m -0.01334,2.0284748 c 0.05898,-0.092749 0.142529,-0.2144956 0.227485,-0.1434417 -0.08215,0.081726 -0.170614,0.1936428 -0.227485,0.1434417 z m 1.100211,-2.6117903 c 0.08215,0.062207 -0.08496,0.2382972 -0.174826,0.2585882 -0.104615,-0.055113 0.120061,-0.1730708 0.174826,-0.2585882 z m 0.2991,-0.257535 c 0.06038,-0.01074 0.10953,0.039178 0.157274,0.095136 -0.12287,0.062277 -0.08847,0.122308 -0.207124,0.1645752 -0.02036,-0.02085 -0.04142,-0.041986 -0.06249,-0.062839 0.116551,-0.080602 0.099,-0.1357184 0.112338,-0.1968724 z M 17.312876,6.280315 c -0.02809,-0.027944 -0.05617,-0.055888 -0.08425,-0.083902 0.04143,-0.041144 0.08285,-0.082569 0.124274,-0.1237123 0.08004,0.051322 -0.01896,0.1369121 -0.04002,0.2076148 z m -0.333503,1.0893986 c -0.04985,-0.057012 -0.102509,-0.1138125 -0.01194,-0.1974341 0.01334,0.1072126 0.140422,0.050131 0.01194,0.1974341 z M 16.640275,9.0103409 C 16.762443,8.9363382 16.888121,8.8457657 16.992736,8.8680226 16.864249,8.971163 16.736464,9.0737418 16.640275,9.0103409 z M 16.018203,8.0789882 c 0.02176,-0.070492 0.05617,-0.2038234 0.154465,-0.1544648 -0.0063,0.030753 -0.09759,0.1956087 -0.154465,0.1544648 z M 15.547085,7.7940006 c -0.0337,-0.089168 -0.03651,-0.092117 -0.125678,-0.1258889 0.0667,-0.1267314 0.25276,0.059539 0.125678,0.1258889 z m -0.808132,3.8317114 c -0.0653,-0.05322 -0.158678,0.04332 -0.228889,0.01868 0.228889,-0.121536 0.01825,-0.107213 0.12287,-0.248478 0.02738,0.07786 0.240825,0.120413 0.106019,0.229802 z M 14.036138,7.4580395 c 0.122869,-0.1206933 0.23591,-0.1873238 0.331397,-0.1634519 -0.112338,0.06305 -0.233804,0.1752474 -0.331397,0.1634519 z m 0.033,1.394326 c -0.03932,-0.013694 -0.08285,-0.00303 -0.134806,0.05076 -0.05968,-0.063611 -0.007,-0.1486373 0.01896,-0.2287484 0.02457,0.061997 0.17623,0.099841 0.115849,0.1779856 z M 13.836738,8.4963942 c 0.06459,-0.076249 0.121465,-0.1110741 0.165698,-0.081445 -0.0351,0.048235 -0.02879,0.088817 -0.102508,0.1444947 -0.02106,-0.021063 -0.04213,-0.041919 -0.06319,-0.06305 z m -0.314547,3.2121668 c -0.08355,-0.07569 -0.01825,-0.179951 0.08074,-0.290745 0.06038,0.08039 -0.142529,0.210634 -0.08074,0.290745 z m -0.204315,0.414106 c 0.066,-0.07098 -0.07583,-0.102297 -0.09478,-0.156852 0.107423,-0.03728 0.25276,-0.275088 0.331397,-0.163452 -0.148848,0.105037 -0.103913,0.301418 -0.236612,0.320304 z m 0.01896,-2.5799839 c -0.03651,0.07323 -0.02387,0.1569222 -0.134103,0.1758091 -0.07302,-0.07295 0.05617,-0.1930811 0.134103,-0.1758091 z M 12.704931,9.8389045 C 12.829907,9.7928459 12.999117,9.5199346 13.098115,9.613456 13.055988,9.7401874 12.7941,9.8984437 12.704931,9.8389045 z m -0.01545,1.7788735 c 0.09338,-0.05512 0.188166,-0.111355 0.279441,-0.153622 -0.129189,0.120412 -0.164997,0.270454 -0.279441,0.153622 z m 0.08145,-2.5169347 c 0.0983,-0.01917 0.11304,0.105317 0.06389,0.1878855 -0.07934,0.015654 -0.198698,-0.088888 -0.06389,-0.1878855 z m -0.546946,1.6804377 c -0.04915,-0.05736 -0.03651,-0.126451 0.04002,-0.207615 0.08004,0.05125 0.0667,0.120693 -0.04002,0.207615 z m -0.275228,-0.522443 c 0.09268,-0.08453 0.171315,-0.16626 0.09198,-0.217795 -0.150954,0.06502 -0.146039,0.297555 -0.320865,0.236401 0.173422,-0.163452 0.367205,-0.4349587 0.476735,-0.266311 -0.06249,0.08559 -0.14604,0.30254 -0.247846,0.247705 z m -1.404928,1.069318 c -0.03862,-0.01868 -0.08425,0.0039 -0.115147,-0.05294 0.06038,-0.05484 0.117253,-0.08966 0.165699,-0.08201 -0.03932,0.04936 -0.01755,0.08692 -0.05055,0.134947 z m -1.3719292,5.99071 c 0.051254,-0.05182 0.1032106,-0.103141 0.1544649,-0.154676 0.014042,0.01397 0.028084,0.02801 0.042127,0.04199 0.029489,0.04388 -0.1656987,0.183462 -0.1965917,0.112689 z m -0.1769325,-2.34246 c -0.037212,-0.102017 0.047744,-0.358218 0.1523586,-0.404277 -0.1067212,0.137684 0.061084,0.32557 -0.1523586,0.404277 z m -0.8165574,1.782173 c -0.063892,-0.04613 -0.079339,-0.101525 0.00842,-0.176932 0.028085,0.0283 0.056169,0.05596 0.084254,0.08418 -0.030893,0.03075 -0.061786,0.06172 -0.092679,0.09275 z m -0.095487,-2.508158 c -0.051956,0.03728 -0.033701,0.134665 -0.024574,0.171175 -0.0014,-0.0047 -0.00213,-0.0077 -0.00494,-0.01537 -0.091275,-0.02247 -0.1439332,-0.09598 -0.136912,-0.198838 0.041425,0.08748 0.1249761,-0.04473 0.1664008,0.04304 z m 0.1600818,-0.705975 c 0.088466,0.03511 0.050552,-0.105317 0.1551669,-0.154675 0.1558691,0.06256 -0.2274845,0.341227 -0.1551669,0.154675 z m 1.0068301,-1.468399 c 0.019659,0.02963 0.064594,0.05434 0.032297,0.0938 -0.080743,-0.06059 -0.2169528,0.174756 -0.3005042,0.13277 0.035808,-0.173071 0.1586775,-0.06228 0.2682072,-0.226572 z m -2.1786568,6.545308 c -0.08987,-0.06003 0.072318,-0.312089 0.1748262,-0.258658 -0.085658,0.09464 -0.070913,0.23591 -0.1748262,0.258658 z M 6.8886273,15.654647 c -0.075126,-0.01369 -0.2302931,0.04332 -0.2085276,-0.08503 0.1004021,-0.120693 0.3068234,-0.04634 0.2085276,0.08503 z m -0.8804498,1.594288 c 0.08987,-0.118727 0.1446353,-0.05842 0.2176551,-0.09163 -0.025276,0.133893 -0.1481459,0.113602 -0.2176551,0.09163 z m -0.5939879,3.365509 c -0.083551,-0.133051 0.079339,-0.193081 0.069509,-0.363695 0.2092299,-0.02191 0.040723,0.241387 -0.069509,0.363695 z M 4.9711563,18.748086 c -0.022468,-0.02907 -0.040723,-0.0587 0.019659,-0.103982 -0.1474438,0.02114 0,-0.166191 -0.054063,-0.239702 0.054765,-0.06691 0.08987,-0.03293 0.1348057,-0.05048 0.038616,-0.04114 0.016149,-0.06993 0.071615,-0.114093 0.1291888,0.185428 -0.068807,0.313493 -0.1720177,0.508259 z m 0.167805,0.168086 c -0.051254,0.0516 -0.1032106,0.103141 -0.1544648,0.154676 -0.02317,-0.0707 -0.096189,-0.131646 -0.033701,-0.218849 0.054765,0.06502 0.1769325,-0.227625 0.2183572,-0.09163 -0.130593,0.07463 -0.1200613,0.148427 -0.1649966,0.206562 0.035106,0.03426 0.097594,-0.07407 0.1348057,-0.05077 z M 4.6538012,18.183658 c 0.1172529,-0.105879 0.1102318,-0.187885 0.2057191,-0.289621 0.1277846,0.05757 -0.1692092,0.352951 -0.2057191,0.289621 z m -0.4528629,0.536976 c -0.060382,0.0096 -0.1263803,0.0502 -0.1671029,-0.04304 0.061786,-0.08861 0.2162508,-0.01622 0.1671029,0.04304 z M 3.807755,18.945801 c -0.028084,-0.02794 -0.056169,-0.05596 -0.084253,-0.0839 0.1074232,-0.123712 0.1986979,-0.164856 0.2696114,-0.101526 -0.018957,0.110302 -0.098998,0.07765 -0.1853579,0.185428 z M 21.225073,5.1484387 C 21.022162,4.9274135 20.181733,4.1270748 19.658658,3.5547123 L 19.547725,3.4526953 19.35675,3.2617907 19.250029,3.1557014 18.91161,2.8816667 c -0.119359,-0.1107934 -0.310334,0.080392 -0.436714,0.1876046 -0.626987,0.5340272 -1.256783,1.1200809 -1.89079,1.7597059 l -0.372822,0.3485289 c 0.0028,0.00472 0.007,0.00576 0.0098,0.011307 -0.066,0.079198 -0.08285,0.149199 -0.195188,0.2374546 -0.01755,-0.020569 -0.02528,-0.035594 -0.02879,-0.048794 l -0.01334,0.012357 c -1.202017,1.1231 -2.418077,2.2818674 -3.649583,3.4776359 C 10.760079,10.402496 9.588954,11.577763 8.8215444,12.392565 L 8.7071,12.514101 c 0.00213,0.0049 0.00632,0.006 0.00772,0.01285 -0.1263803,0.06888 -0.1326993,0.236682 -0.2148466,0.214776 0.00494,-0.0052 0.00772,-0.01292 0.00983,-0.01783 l -0.3819466,0.407016 -0.6775391,0.730899 c -0.5939876,0.638502 -1.2497612,1.400926 -2.0305112,2.350955 -0.211336,0.256485 -0.5680094,0.67663 -0.5385207,0.706259 0.00491,0.0049 0.00983,0.0099 0.014744,0.01482 0.00281,0.0028 -0.1228698,0.125046 -0.1495501,0.140142 -0.1390183,0.181847 -0.3391206,0.427586 -0.4704157,0.609714 -0.00421,0.04136 -0.1734219,0.02577 -0.2015064,0.07155 -0.010532,-0.0082 0.1341036,0.04276 0.1270824,0.03377 -0.1930811,0.26905 -0.484458,0.321709 -0.6620926,0.590478 l -0.4016086,0.46845 -0.032297,0.243492 c -0.049148,0.187886 0.4191615,0.550738 0.5771369,0.711452 0.00913,-0.03924 -0.0014,-0.108336 0.037914,-0.139861 0.037914,0.01868 0.083551,-0.0042 0.1144444,0.05294 -0.030893,0.05568 -0.075126,0.09956 -0.1137423,0.12617 0.4219699,0.430816 0.2829516,0.477436 0.7323039,0.945395 l 0.379141,0.290113 0.3566735,0.200523 0.1334014,-0.04473 0.1404226,-0.21281 0.075828,-0.06445 0.077935,-0.265189 0.1263806,-0.107844 0.051254,-0.04388 0.051254,-0.04276 0.037914,-0.03265 0.089168,-0.07541 0.1881663,-0.08011 0.1495501,-0.0469 0.1727198,-0.102789 0.8797477,-0.742485 c 0.3054201,-0.25972 1.0882761,-1.009858 2.335931,-2.257442 l 0.4072253,-0.407015 0.106019,-0.106651 0.190975,-0.190624 0.101807,-0.111074 c 1.442842,-1.318709 3.103339,-2.978223 5.00115,-4.959516 0.756878,-0.786858 1.45197,-1.5065237 2.088786,-2.1631398 -0.08636,-0.084745 0.10953,-0.2347164 0.144635,-0.149199 0.716858,-0.73771 1.35227,-1.3871645 1.913258,-1.9548931 -0.0014,-0.011026 -0.0014,-0.021979 0.0077,-0.034825 0.0098,0.00298 0.02106,-0.00253 0.03159,-0.00444 0.251356,-0.2542351 0.492181,-0.4969556 0.711942,-0.7166468 L 20.834669,5.9314999 21.31702,5.480322 c 0,0 0.110232,-0.1105126 -0.09198,-0.3318888\"></path> \n\t    \t\t</g>\n\t      </svg>\n\t    </a>\n\t    <div id=\"janela2\" name=\"janela2\">\n\t    \t<div :is=\"janela\" :janela.sync=\"janela\" :webcard=\"webcard\" :naves=\"naves\" v-ref:janela=\"\"></div>\n\t\t</div>\n\t</div>\n\t<div v-if=\"janela !== null\" transition=\"fade2\" id=\"mascara\" @click=\"closeJanela\"></div> \n\n\t<div class=\"clearboth\"></div>\n\n</div>\n\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   var id = "/media/bambuzal/Softwares/riowebdoc/app/vue/views/home-view.vue"
   module.hot.dispose(function () {
-    require("vueify-insert-css").cache["/* line 2, stdin */\n.fade-transition {\n  -webkit-transition: opacity .6s ease .4s;\n  transition: opacity .6s ease .4s;\n  opacity: 1; }\n\n/* line 6, stdin */\n.fade-enter, .fade-leave {\n  opacity: 0; }\n\n/* line 9, stdin */\n.fade-leave {\n  -webkit-transition: opacity .1s linear;\n  transition: opacity .1s linear; }\n\n/* line 12, stdin */\n#navegacao {\n  padding-top: 30px; }\n\n/* line 15, stdin */\n.fade2-transition {\n  -webkit-transition: opacity .4s ease;\n  transition: opacity .4s ease;\n  opacity: 1; }\n\n/* line 19, stdin */\n.fade2-enter, .fade2-leave {\n  opacity: 0; }\n\n/* line 24, stdin */\n#janela2 h3 {\n  font-family: 'treta';\n  color: #06303c; }\n\n/* line 30, stdin */\n.rwd_pinbox {\n  cursor: pointer; }\n  /* line 33, stdin */\n  .rwd_pinbox:hover .rwd_pinicon {\n    opacity: 1; }\n  /* line 37, stdin */\n  .rwd_pinbox.filtered {\n    border-bottom: 3px solid #d66843; }\n    /* line 39, stdin */\n    .rwd_pinbox.filtered .rwd_pinicon {\n      opacity: 1; }\n  /* line 43, stdin */\n  .rwd_pinbox .rwd_pinicon {\n    opacity: 0;\n    -webkit-transition: opacity .2s;\n    transition: opacity .2s; }\n  /* line 47, stdin */\n  .rwd_pinbox .mdl-button {\n    background: transparent !important;\n    font-size: 30px;\n    height: 35px;\n    min-width: 35px;\n    width: 35px; }\n  /* line 54, stdin */\n  .rwd_pinbox .btnPin {\n    font-size: 30px; }\n"] = false
+    require("vueify-insert-css").cache["/* line 2, stdin */\n.fade-transition {\n  -webkit-transition: opacity .6s ease .4s;\n  transition: opacity .6s ease .4s;\n  opacity: 1; }\n\n/* line 6, stdin */\n.fade-enter, .fade-leave {\n  opacity: 0; }\n\n/* line 9, stdin */\n.fade-leave {\n  -webkit-transition: opacity .1s linear;\n  transition: opacity .1s linear; }\n\n/* line 12, stdin */\n#navegacao {\n  padding-top: 30px; }\n\n/* line 15, stdin */\n.fade2-transition {\n  -webkit-transition: opacity .4s ease;\n  transition: opacity .4s ease;\n  opacity: 1; }\n\n/* line 19, stdin */\n.fade2-enter, .fade2-leave {\n  opacity: 0; }\n\n/* line 24, stdin */\n#janela2 h3 {\n  font-family: 'treta';\n  color: #06303c; }\n\n/* line 30, stdin */\n.mdl-layout__content {\n  overflow: hidden; }\n\n/* line 34, stdin */\n.rodape {\n  -webkit-transition: bottom .3s;\n  transition: bottom .3s; }\n  /* line 36, stdin */\n  .rodape:hover {\n    bottom: 0; }\n    /* line 38, stdin */\n    .rodape:hover .footer_seta {\n      -webkit-transform: rotate(0deg);\n              transform: rotate(0deg); }\n  /* line 42, stdin */\n  .rodape .footer_seta {\n    -webkit-transition: -webkit-transform .3s;\n    transition: -webkit-transform .3s;\n    transition: transform .3s;\n    transition: transform .3s, -webkit-transform .3s;\n    -webkit-transform: rotate(180deg);\n            transform: rotate(180deg); }\n\n/* line 48, stdin */\n.rwd_pinbox {\n  cursor: pointer; }\n  /* line 51, stdin */\n  .rwd_pinbox:hover .rwd_pinicon {\n    opacity: 1; }\n  /* line 55, stdin */\n  .rwd_pinbox.filtered {\n    border-bottom: 3px solid #06303c; }\n    /* line 57, stdin */\n    .rwd_pinbox.filtered .rwd_pinicon {\n      opacity: 1; }\n  /* line 61, stdin */\n  .rwd_pinbox .rwd_pinicon {\n    opacity: 0;\n    -webkit-transition: opacity .2s;\n    transition: opacity .2s; }\n  /* line 65, stdin */\n  .rwd_pinbox .mdl-button {\n    background: transparent !important;\n    font-size: 30px;\n    height: 35px;\n    min-width: 35px;\n    width: 35px; }\n  /* line 72, stdin */\n  .rwd_pinbox .btnPin {\n    font-size: 30px; }\n"] = false
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
@@ -1778,7 +1801,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"../components/janela-card.vue":2,"../components/janela-contato.vue":3,"../components/janela-equipe.vue":4,"../components/janela-projeto.vue":5,"../components/janela-realizacao.vue":6,"../components/media-cloud.vue":7,"jquery":24,"marked":25,"socket.io-client":47,"vue":93,"vue-hot-reload-api":92,"vueify-insert-css":94}],17:[function(require,module,exports){
+},{"../components/janela-card.vue":2,"../components/janela-contato.vue":3,"../components/janela-equipe.vue":4,"../components/janela-projeto.vue":5,"../components/janela-realizacao.vue":6,"../components/media-cloud.vue":7,"jquery":24,"marked":25,"socket.io-client":49,"vue":95,"vue-hot-reload-api":94,"vueify-insert-css":96}],17:[function(require,module,exports){
 /*
  * JavaScript MD5
  * https://github.com/blueimp/JavaScript-MD5
@@ -14459,7 +14482,55 @@ if (typeof module !== 'undefined' && typeof exports === 'object') {
 
 module.exports = require('./src/js/main');
 
-},{"./src/js/main":32}],27:[function(require,module,exports){
+},{"./src/js/main":34}],27:[function(require,module,exports){
+'use strict';
+
+module.exports = require('./src/js/adaptor/jquery');
+
+},{"./src/js/adaptor/jquery":28}],28:[function(require,module,exports){
+'use strict';
+
+var ps = require('../main');
+var psInstances = require('../plugin/instances');
+
+function mountJQuery(jQuery) {
+  jQuery.fn.perfectScrollbar = function (settingOrCommand) {
+    return this.each(function () {
+      if (typeof settingOrCommand === 'object' ||
+          typeof settingOrCommand === 'undefined') {
+        // If it's an object or none, initialize.
+        var settings = settingOrCommand;
+
+        if (!psInstances.get(this)) {
+          ps.initialize(this, settings);
+        }
+      } else {
+        // Unless, it may be a command.
+        var command = settingOrCommand;
+
+        if (command === 'update') {
+          ps.update(this);
+        } else if (command === 'destroy') {
+          ps.destroy(this);
+        }
+      }
+    });
+  };
+}
+
+if (typeof define === 'function' && define.amd) {
+  // AMD. Register as an anonymous module.
+  define(['jquery'], mountJQuery);
+} else {
+  var jq = window.jQuery ? window.jQuery : window.$;
+  if (typeof jq !== 'undefined') {
+    mountJQuery(jq);
+  }
+}
+
+module.exports = mountJQuery;
+
+},{"../main":34,"../plugin/instances":45}],29:[function(require,module,exports){
 'use strict';
 
 function oldAdd(element, className) {
@@ -14503,7 +14574,7 @@ exports.list = function (element) {
   }
 };
 
-},{}],28:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 'use strict';
 
 var DOM = {};
@@ -14589,7 +14660,7 @@ DOM.queryChildren = function (element, selector) {
 
 module.exports = DOM;
 
-},{}],29:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 'use strict';
 
 var EventElement = function (element) {
@@ -14662,7 +14733,7 @@ EventManager.prototype.once = function (element, eventName, handler) {
 
 module.exports = EventManager;
 
-},{}],30:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 'use strict';
 
 module.exports = (function () {
@@ -14677,7 +14748,7 @@ module.exports = (function () {
   };
 })();
 
-},{}],31:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 'use strict';
 
 var cls = require('./class');
@@ -14762,7 +14833,7 @@ exports.env = {
   supportsIePointer: window.navigator.msMaxTouchPoints !== null
 };
 
-},{"./class":27,"./dom":28}],32:[function(require,module,exports){
+},{"./class":29,"./dom":30}],34:[function(require,module,exports){
 'use strict';
 
 var destroy = require('./plugin/destroy');
@@ -14775,7 +14846,7 @@ module.exports = {
   destroy: destroy
 };
 
-},{"./plugin/destroy":34,"./plugin/initialize":42,"./plugin/update":46}],33:[function(require,module,exports){
+},{"./plugin/destroy":36,"./plugin/initialize":44,"./plugin/update":48}],35:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -14794,7 +14865,7 @@ module.exports = {
   theme: 'default'
 };
 
-},{}],34:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 'use strict';
 
 var _ = require('../lib/helper');
@@ -14818,7 +14889,7 @@ module.exports = function (element) {
   instances.remove(element);
 };
 
-},{"../lib/dom":28,"../lib/helper":31,"./instances":43}],35:[function(require,module,exports){
+},{"../lib/dom":30,"../lib/helper":33,"./instances":45}],37:[function(require,module,exports){
 'use strict';
 
 var _ = require('../../lib/helper');
@@ -14880,7 +14951,7 @@ module.exports = function (element) {
   bindClickRailHandler(element, i);
 };
 
-},{"../../lib/helper":31,"../instances":43,"../update-geometry":44,"../update-scroll":45}],36:[function(require,module,exports){
+},{"../../lib/helper":33,"../instances":45,"../update-geometry":46,"../update-scroll":47}],38:[function(require,module,exports){
 'use strict';
 
 var _ = require('../../lib/helper');
@@ -14985,7 +15056,7 @@ module.exports = function (element) {
   bindMouseScrollYHandler(element, i);
 };
 
-},{"../../lib/dom":28,"../../lib/helper":31,"../instances":43,"../update-geometry":44,"../update-scroll":45}],37:[function(require,module,exports){
+},{"../../lib/dom":30,"../../lib/helper":33,"../instances":45,"../update-geometry":46,"../update-scroll":47}],39:[function(require,module,exports){
 'use strict';
 
 var _ = require('../../lib/helper');
@@ -15117,7 +15188,7 @@ module.exports = function (element) {
   bindKeyboardHandler(element, i);
 };
 
-},{"../../lib/dom":28,"../../lib/helper":31,"../instances":43,"../update-geometry":44,"../update-scroll":45}],38:[function(require,module,exports){
+},{"../../lib/dom":30,"../../lib/helper":33,"../instances":45,"../update-geometry":46,"../update-scroll":47}],40:[function(require,module,exports){
 'use strict';
 
 var instances = require('../instances');
@@ -15255,7 +15326,7 @@ module.exports = function (element) {
   bindMouseWheelHandler(element, i);
 };
 
-},{"../instances":43,"../update-geometry":44,"../update-scroll":45}],39:[function(require,module,exports){
+},{"../instances":45,"../update-geometry":46,"../update-scroll":47}],41:[function(require,module,exports){
 'use strict';
 
 var instances = require('../instances');
@@ -15272,7 +15343,7 @@ module.exports = function (element) {
   bindNativeScrollHandler(element, i);
 };
 
-},{"../instances":43,"../update-geometry":44}],40:[function(require,module,exports){
+},{"../instances":45,"../update-geometry":46}],42:[function(require,module,exports){
 'use strict';
 
 var _ = require('../../lib/helper');
@@ -15383,7 +15454,7 @@ module.exports = function (element) {
   bindSelectionHandler(element, i);
 };
 
-},{"../../lib/helper":31,"../instances":43,"../update-geometry":44,"../update-scroll":45}],41:[function(require,module,exports){
+},{"../../lib/helper":33,"../instances":45,"../update-geometry":46,"../update-scroll":47}],43:[function(require,module,exports){
 'use strict';
 
 var _ = require('../../lib/helper');
@@ -15561,7 +15632,7 @@ module.exports = function (element) {
   bindTouchHandler(element, i, _.env.supportsTouch, _.env.supportsIePointer);
 };
 
-},{"../../lib/helper":31,"../instances":43,"../update-geometry":44,"../update-scroll":45}],42:[function(require,module,exports){
+},{"../../lib/helper":33,"../instances":45,"../update-geometry":46,"../update-scroll":47}],44:[function(require,module,exports){
 'use strict';
 
 var _ = require('../lib/helper');
@@ -15600,7 +15671,7 @@ module.exports = function (element, userSettings) {
   updateGeometry(element);
 };
 
-},{"../lib/class":27,"../lib/helper":31,"./handler/click-rail":35,"./handler/drag-scrollbar":36,"./handler/keyboard":37,"./handler/mouse-wheel":38,"./handler/native-scroll":39,"./handler/selection":40,"./handler/touch":41,"./instances":43,"./update-geometry":44}],43:[function(require,module,exports){
+},{"../lib/class":29,"../lib/helper":33,"./handler/click-rail":37,"./handler/drag-scrollbar":38,"./handler/keyboard":39,"./handler/mouse-wheel":40,"./handler/native-scroll":41,"./handler/selection":42,"./handler/touch":43,"./instances":45,"./update-geometry":46}],45:[function(require,module,exports){
 'use strict';
 
 var _ = require('../lib/helper');
@@ -15709,7 +15780,7 @@ exports.get = function (element) {
   return instances[getId(element)];
 };
 
-},{"../lib/class":27,"../lib/dom":28,"../lib/event-manager":29,"../lib/guid":30,"../lib/helper":31,"./default-setting":33}],44:[function(require,module,exports){
+},{"../lib/class":29,"../lib/dom":30,"../lib/event-manager":31,"../lib/guid":32,"../lib/helper":33,"./default-setting":35}],46:[function(require,module,exports){
 'use strict';
 
 var _ = require('../lib/helper');
@@ -15837,7 +15908,7 @@ module.exports = function (element) {
   }
 };
 
-},{"../lib/class":27,"../lib/dom":28,"../lib/helper":31,"./instances":43,"./update-scroll":45}],45:[function(require,module,exports){
+},{"../lib/class":29,"../lib/dom":30,"../lib/helper":33,"./instances":45,"./update-scroll":47}],47:[function(require,module,exports){
 'use strict';
 
 var instances = require('./instances');
@@ -15951,7 +16022,7 @@ module.exports = function (element, axis, value) {
 
 };
 
-},{"./instances":43}],46:[function(require,module,exports){
+},{"./instances":45}],48:[function(require,module,exports){
 'use strict';
 
 var _ = require('../lib/helper');
@@ -15990,7 +16061,7 @@ module.exports = function (element) {
   dom.css(i.scrollbarYRail, 'display', '');
 };
 
-},{"../lib/dom":28,"../lib/helper":31,"./instances":43,"./update-geometry":44,"./update-scroll":45}],47:[function(require,module,exports){
+},{"../lib/dom":30,"../lib/helper":33,"./instances":45,"./update-geometry":46,"./update-scroll":47}],49:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -16084,7 +16155,7 @@ exports.connect = lookup;
 exports.Manager = require('./manager');
 exports.Socket = require('./socket');
 
-},{"./manager":48,"./socket":50,"./url":51,"debug":18,"socket.io-parser":85}],48:[function(require,module,exports){
+},{"./manager":50,"./socket":52,"./url":53,"debug":18,"socket.io-parser":87}],50:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -16643,7 +16714,7 @@ Manager.prototype.onreconnect = function(){
   this.emitAll('reconnect', attempt);
 };
 
-},{"./on":49,"./socket":50,"backo2":52,"component-bind":53,"component-emitter":54,"debug":18,"engine.io-client":55,"indexof":82,"socket.io-parser":85}],49:[function(require,module,exports){
+},{"./on":51,"./socket":52,"backo2":54,"component-bind":55,"component-emitter":56,"debug":18,"engine.io-client":57,"indexof":84,"socket.io-parser":87}],51:[function(require,module,exports){
 
 /**
  * Module exports.
@@ -16669,7 +16740,7 @@ function on(obj, ev, fn) {
   };
 }
 
-},{}],50:[function(require,module,exports){
+},{}],52:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -17083,7 +17154,7 @@ Socket.prototype.compress = function(compress){
   return this;
 };
 
-},{"./on":49,"component-bind":53,"component-emitter":54,"debug":18,"has-binary":80,"socket.io-parser":85,"to-array":90}],51:[function(require,module,exports){
+},{"./on":51,"component-bind":55,"component-emitter":56,"debug":18,"has-binary":82,"socket.io-parser":87,"to-array":92}],53:[function(require,module,exports){
 (function (global){
 
 /**
@@ -17163,7 +17234,7 @@ function url(uri, loc){
 }
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"debug":18,"parseuri":83}],52:[function(require,module,exports){
+},{"debug":18,"parseuri":85}],54:[function(require,module,exports){
 
 /**
  * Expose `Backoff`.
@@ -17250,7 +17321,7 @@ Backoff.prototype.setJitter = function(jitter){
 };
 
 
-},{}],53:[function(require,module,exports){
+},{}],55:[function(require,module,exports){
 /**
  * Slice reference.
  */
@@ -17275,7 +17346,7 @@ module.exports = function(obj, fn){
   }
 };
 
-},{}],54:[function(require,module,exports){
+},{}],56:[function(require,module,exports){
 
 /**
  * Expose `Emitter`.
@@ -17438,11 +17509,11 @@ Emitter.prototype.hasListeners = function(event){
   return !! this.listeners(event).length;
 };
 
-},{}],55:[function(require,module,exports){
+},{}],57:[function(require,module,exports){
 
 module.exports =  require('./lib/');
 
-},{"./lib/":56}],56:[function(require,module,exports){
+},{"./lib/":58}],58:[function(require,module,exports){
 
 module.exports = require('./socket');
 
@@ -17454,7 +17525,7 @@ module.exports = require('./socket');
  */
 module.exports.parser = require('engine.io-parser');
 
-},{"./socket":57,"engine.io-parser":67}],57:[function(require,module,exports){
+},{"./socket":59,"engine.io-parser":69}],59:[function(require,module,exports){
 (function (global){
 /**
  * Module dependencies.
@@ -18186,7 +18257,7 @@ Socket.prototype.filterUpgrades = function (upgrades) {
 };
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./transport":58,"./transports":59,"component-emitter":65,"debug":18,"engine.io-parser":67,"indexof":82,"parsejson":77,"parseqs":78,"parseuri":83}],58:[function(require,module,exports){
+},{"./transport":60,"./transports":61,"component-emitter":67,"debug":18,"engine.io-parser":69,"indexof":84,"parsejson":79,"parseqs":80,"parseuri":85}],60:[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -18343,7 +18414,7 @@ Transport.prototype.onClose = function () {
   this.emit('close');
 };
 
-},{"component-emitter":65,"engine.io-parser":67}],59:[function(require,module,exports){
+},{"component-emitter":67,"engine.io-parser":69}],61:[function(require,module,exports){
 (function (global){
 /**
  * Module dependencies
@@ -18400,7 +18471,7 @@ function polling(opts){
 }
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./polling-jsonp":60,"./polling-xhr":61,"./websocket":63,"xmlhttprequest-ssl":64}],60:[function(require,module,exports){
+},{"./polling-jsonp":62,"./polling-xhr":63,"./websocket":65,"xmlhttprequest-ssl":66}],62:[function(require,module,exports){
 (function (global){
 
 /**
@@ -18642,7 +18713,7 @@ JSONPPolling.prototype.doWrite = function (data, fn) {
 };
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./polling":62,"component-inherit":66}],61:[function(require,module,exports){
+},{"./polling":64,"component-inherit":68}],63:[function(require,module,exports){
 (function (global){
 /**
  * Module requirements.
@@ -19058,7 +19129,7 @@ function unloadHandler() {
 }
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./polling":62,"component-emitter":65,"component-inherit":66,"debug":18,"xmlhttprequest-ssl":64}],62:[function(require,module,exports){
+},{"./polling":64,"component-emitter":67,"component-inherit":68,"debug":18,"xmlhttprequest-ssl":66}],64:[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -19307,7 +19378,7 @@ Polling.prototype.uri = function(){
   return schema + '://' + (ipv6 ? '[' + this.hostname + ']' : this.hostname) + port + this.path + query;
 };
 
-},{"../transport":58,"component-inherit":66,"debug":18,"engine.io-parser":67,"parseqs":78,"xmlhttprequest-ssl":64,"yeast":79}],63:[function(require,module,exports){
+},{"../transport":60,"component-inherit":68,"debug":18,"engine.io-parser":69,"parseqs":80,"xmlhttprequest-ssl":66,"yeast":81}],65:[function(require,module,exports){
 (function (global){
 /**
  * Module dependencies.
@@ -19599,7 +19670,7 @@ WS.prototype.check = function(){
 };
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../transport":58,"component-inherit":66,"debug":18,"engine.io-parser":67,"parseqs":78,"ws":22,"yeast":79}],64:[function(require,module,exports){
+},{"../transport":60,"component-inherit":68,"debug":18,"engine.io-parser":69,"parseqs":80,"ws":22,"yeast":81}],66:[function(require,module,exports){
 // browser shim for xmlhttprequest module
 var hasCORS = require('has-cors');
 
@@ -19637,7 +19708,7 @@ module.exports = function(opts) {
   }
 }
 
-},{"has-cors":76}],65:[function(require,module,exports){
+},{"has-cors":78}],67:[function(require,module,exports){
 
 /**
  * Expose `Emitter`.
@@ -19803,7 +19874,7 @@ Emitter.prototype.hasListeners = function(event){
   return !! this.listeners(event).length;
 };
 
-},{}],66:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 
 module.exports = function(a, b){
   var fn = function(){};
@@ -19811,7 +19882,7 @@ module.exports = function(a, b){
   a.prototype = new fn;
   a.prototype.constructor = a;
 };
-},{}],67:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 (function (global){
 /**
  * Module dependencies.
@@ -20409,7 +20480,7 @@ exports.decodePayloadAsBinary = function (data, binaryType, callback) {
 };
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./keys":68,"after":69,"arraybuffer.slice":70,"base64-arraybuffer":71,"blob":72,"has-binary":73,"utf8":75}],68:[function(require,module,exports){
+},{"./keys":70,"after":71,"arraybuffer.slice":72,"base64-arraybuffer":73,"blob":74,"has-binary":75,"utf8":77}],70:[function(require,module,exports){
 
 /**
  * Gets the keys for an object.
@@ -20430,7 +20501,7 @@ module.exports = Object.keys || function keys (obj){
   return arr;
 };
 
-},{}],69:[function(require,module,exports){
+},{}],71:[function(require,module,exports){
 module.exports = after
 
 function after(count, callback, err_cb) {
@@ -20460,7 +20531,7 @@ function after(count, callback, err_cb) {
 
 function noop() {}
 
-},{}],70:[function(require,module,exports){
+},{}],72:[function(require,module,exports){
 /**
  * An abstraction for slicing an arraybuffer even when
  * ArrayBuffer.prototype.slice is not supported
@@ -20491,7 +20562,7 @@ module.exports = function(arraybuffer, start, end) {
   return result.buffer;
 };
 
-},{}],71:[function(require,module,exports){
+},{}],73:[function(require,module,exports){
 /*
  * base64-arraybuffer
  * https://github.com/niklasvh/base64-arraybuffer
@@ -20552,7 +20623,7 @@ module.exports = function(arraybuffer, start, end) {
   };
 })("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/");
 
-},{}],72:[function(require,module,exports){
+},{}],74:[function(require,module,exports){
 (function (global){
 /**
  * Create a blob builder even when vendor prefixes exist
@@ -20652,7 +20723,7 @@ module.exports = (function() {
 })();
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],73:[function(require,module,exports){
+},{}],75:[function(require,module,exports){
 (function (global){
 
 /*
@@ -20714,12 +20785,12 @@ function hasBinary(data) {
 }
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"isarray":74}],74:[function(require,module,exports){
+},{"isarray":76}],76:[function(require,module,exports){
 module.exports = Array.isArray || function (arr) {
   return Object.prototype.toString.call(arr) == '[object Array]';
 };
 
-},{}],75:[function(require,module,exports){
+},{}],77:[function(require,module,exports){
 (function (global){
 /*! https://mths.be/utf8js v2.0.0 by @mathias */
 ;(function(root) {
@@ -20967,7 +21038,7 @@ module.exports = Array.isArray || function (arr) {
 }(this));
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],76:[function(require,module,exports){
+},{}],78:[function(require,module,exports){
 
 /**
  * Module exports.
@@ -20986,7 +21057,7 @@ try {
   module.exports = false;
 }
 
-},{}],77:[function(require,module,exports){
+},{}],79:[function(require,module,exports){
 (function (global){
 /**
  * JSON parse.
@@ -21021,7 +21092,7 @@ module.exports = function parsejson(data) {
   }
 };
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],78:[function(require,module,exports){
+},{}],80:[function(require,module,exports){
 /**
  * Compiles a querystring
  * Returns string representation of the object
@@ -21060,7 +21131,7 @@ exports.decode = function(qs){
   return qry;
 };
 
-},{}],79:[function(require,module,exports){
+},{}],81:[function(require,module,exports){
 'use strict';
 
 var alphabet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_'.split('')
@@ -21130,7 +21201,7 @@ yeast.encode = encode;
 yeast.decode = decode;
 module.exports = yeast;
 
-},{}],80:[function(require,module,exports){
+},{}],82:[function(require,module,exports){
 (function (global){
 
 /*
@@ -21193,9 +21264,9 @@ function hasBinary(data) {
 }
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"isarray":81}],81:[function(require,module,exports){
-module.exports=require(74)
-},{}],82:[function(require,module,exports){
+},{"isarray":83}],83:[function(require,module,exports){
+module.exports=require(76)
+},{}],84:[function(require,module,exports){
 
 var indexOf = [].indexOf;
 
@@ -21206,7 +21277,7 @@ module.exports = function(arr, obj){
   }
   return -1;
 };
-},{}],83:[function(require,module,exports){
+},{}],85:[function(require,module,exports){
 /**
  * Parses an URI
  *
@@ -21247,7 +21318,7 @@ module.exports = function parseuri(str) {
     return uri;
 };
 
-},{}],84:[function(require,module,exports){
+},{}],86:[function(require,module,exports){
 (function (global){
 /*global Blob,File*/
 
@@ -21392,7 +21463,7 @@ exports.removeBlobs = function(data, callback) {
 };
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./is-buffer":86,"isarray":88}],85:[function(require,module,exports){
+},{"./is-buffer":88,"isarray":90}],87:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -21794,7 +21865,7 @@ function error(data){
   };
 }
 
-},{"./binary":84,"./is-buffer":86,"component-emitter":87,"debug":18,"isarray":88,"json3":89}],86:[function(require,module,exports){
+},{"./binary":86,"./is-buffer":88,"component-emitter":89,"debug":18,"isarray":90,"json3":91}],88:[function(require,module,exports){
 (function (global){
 
 module.exports = isBuf;
@@ -21811,11 +21882,11 @@ function isBuf(obj) {
 }
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],87:[function(require,module,exports){
-module.exports=require(65)
-},{}],88:[function(require,module,exports){
-module.exports=require(74)
 },{}],89:[function(require,module,exports){
+module.exports=require(67)
+},{}],90:[function(require,module,exports){
+module.exports=require(76)
+},{}],91:[function(require,module,exports){
 (function (global){
 /*! JSON v3.3.2 | http://bestiejs.github.io/json3 | Copyright 2012-2014, Kit Cambridge | http://kit.mit-license.org */
 ;(function () {
@@ -22721,7 +22792,7 @@ module.exports=require(74)
 }).call(this);
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],90:[function(require,module,exports){
+},{}],92:[function(require,module,exports){
 module.exports = toArray
 
 function toArray(list, index) {
@@ -22736,7 +22807,7 @@ function toArray(list, index) {
     return array
 }
 
-},{}],91:[function(require,module,exports){
+},{}],93:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -24286,7 +24357,7 @@ function toArray(list, index) {
   }
 }.call(this));
 
-},{}],92:[function(require,module,exports){
+},{}],94:[function(require,module,exports){
 var Vue // late bind
 var map = Object.create(null)
 var shimmed = false
@@ -24587,7 +24658,7 @@ function format (id) {
   return match ? match[0] : id
 }
 
-},{}],93:[function(require,module,exports){
+},{}],95:[function(require,module,exports){
 (function (process,global){
 /*!
  * Vue.js v1.0.26
@@ -34664,7 +34735,7 @@ setTimeout(function () {
 
 module.exports = Vue;
 }).call(this,require("oMfpAn"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"oMfpAn":23}],94:[function(require,module,exports){
+},{"oMfpAn":23}],96:[function(require,module,exports){
 var inserted = exports.cache = {}
 
 exports.insert = function (css) {

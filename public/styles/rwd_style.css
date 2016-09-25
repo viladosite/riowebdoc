@@ -98,13 +98,13 @@ body{
 /* Utilizada no rodapé */
 .rodape {
     width: 100%;
-    height: 8%;
+    height: 70px;
     padding-bottom: 20px;
-    padding-top: 20px;
+    padding-top: 30px;
     position: absolute;
-    bottom: 0;
+    bottom: -85px;
     display: flex;
-    /* flex-wrap: wrap;  */
+    // flex-wrap: wrap;
     align-items: center;
     color: #bdbdbd;
     background-color: rgba(5,33,47,.9);
@@ -139,6 +139,7 @@ body{
 
 .footertitle {
     float: left;
+    font-size: 12px;
     }
 
 .footerlogos {
@@ -224,7 +225,7 @@ body{
 .fechar{
     text-align: center;
     position: absolute;
-    margin-left: 91%;
+    right: 3%;
     margin-top: 3.5%;
     width: 5%;
 }
@@ -247,8 +248,15 @@ body{
 
 
 /*imagens do footer */
-.footer_img1{
+
+.footer_img{
     height: 30px;
+    width: auto;
+    opacity: 0.4;
+}
+
+.footer_img1{
+    height: 60px;
     width: auto;
     opacity: 0.4;
 }
@@ -300,18 +308,18 @@ body{
 
 /* sublinhado da div dos pins */
 .rwd_pinbox:hover{
-    border-bottom: 3px solid #d66843;
+    border-bottom: 3px solid #06303c;
 }
 
 /* cor dos pins */
 .btnPin{
-    color: #d66843;
+    color: #06303c;
     opacity: .8
 }
 
 /* ajustes da seta */
 .seta_footer{
-    margin-top: -4%;
+    margin-top: -93px;
 }
 
 .footer_seta{

@@ -61,7 +61,7 @@
       getSize: function (media) {
         var width = $$$(window).width()
         var size = {
-          width: (width/6)/3,
+          width: (width/6)/2,
           height: 0
         }
         var votos = size.width * (media.votes.length/50)
@@ -72,7 +72,7 @@
         return size;
       },
       changeCanvasSize: function () {
-        var h = $$$('#navegacao').outerHeight() + $$$('header').outerHeight() + $$$('#rodape').outerHeight()
+        var h = $$$('#navegacao').outerHeight() + $$$('header').outerHeight() + 32
         var w = $$$(window).height()
         var width = $$$(window).width()
         this.width = 500 * this.naves.length
@@ -503,8 +503,9 @@
       },
       onWheel: function (event) {
         var offset = 25
+        var delta = event.wheelDelta || -event.deltaY
         if (this.playing === null && this.filter === '') {
-          if (event.wheelDelta > 0) {
+          if (delta > 0) {
             this.offset = this.offset + offset + this.interval
           } else {
             this.offset = this.offset - offset - this.interval

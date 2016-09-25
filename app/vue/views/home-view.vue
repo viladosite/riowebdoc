@@ -27,6 +27,24 @@
 		}
 	}
 
+	.mdl-layout__content {
+		overflow: hidden;
+	}
+
+	.rodape {
+		transition: bottom .3s;
+		&:hover {
+			bottom: 0;
+			.footer_seta {
+				transform: rotate(0deg);
+			}
+		}
+		.footer_seta {
+			transition: transform .3s;
+			transform: rotate(180deg);
+		}
+	}
+
 	.rwd_pinbox {
 		cursor: pointer;
 		&:hover {
@@ -35,7 +53,7 @@
 			}
 		}
 		&.filtered {
-			border-bottom: 3px solid #d66843;
+			border-bottom: 3px solid #06303c;
 			.rwd_pinicon {
 				opacity: 1;
 			}
@@ -65,7 +83,7 @@
     	<div class="header_cover">
 			<div class="mdl-layout__header-row">
 
-				<a href="http://github.com/viladosite/riowebdoc" class="gitLink"><img class="imgGit" src="images/github512.png" alt="Fork me on GitHub"> Fork me on GitHub </a>
+				<!-- <a href="http://github.com/viladosite/riowebdoc" class="gitLink" target="_blank"><img class="imgGit" src="images/github512.png" alt="Fork me on GitHub"> Fork me on GitHub </a> -->
 
 				<!-- Class destinada a dar um espaçamento grande -->
 				<div class="mdl-layout-spacer"></div>
@@ -148,21 +166,24 @@
     
 			<div id="rodape" class="rodape">
 
-						<div id="sessao1" class="sessaofooter">
+						<div id="sessao1" class="sessaofooter" style="margin-left: 95px; margin-top: 20px;">
 							
 							<div class="footertitle">Realização:</div>
 							
 							<div class="footerlogos">
-							<a href="#" target="_blank">
+							<a href="#" target="_blank" style="margin-right: 10px;">
 							<img src="images/rio_pref.png" alt="prefeitura Logo" class="footer_img1"/></a>
+							<a href="#" target="_blank">
+							<img src="images/naves.png" alt="naves Logo" class="footer_img1"/></a>
 
 							&nbsp;&nbsp;&nbsp;&nbsp;
 							
 							</div>
 
+
 						</div>
 				        
-				        <div id="sessao4" class="sessaofooter">
+				        <div id="sessao4" class="sessaofooter" style="margin-left: 15px; margin-top: 20px;">
 
 							<div class="footertitle">Produção:</div>
 							
@@ -176,14 +197,16 @@
 						</div>	
 
 
-						<div id="sessao2" class="sessaofooter">
+						<div id="sessao2" class="sessaofooter" style="margin-left: 15px; margin-top: 20px;">
 
 							
 							<div class="footertitle">Parceria:</div>
 							
 							<div class="footerlogos">
-							<a href="#" target="_blank">
+							<a href="#" target="_blank" style="margin-right: 10px;">
 							<img src="images/bug_404.png" alt="bug 404 Logo" class="footer_img1"/></a>
+							<a href="#" target="_blank">
+							<img src="images/unirio.png" alt="unirio Logo" class="footer_img1"/></a>
 
 							&nbsp; &nbsp; &nbsp; &nbsp;
 							
@@ -200,11 +223,11 @@
 							
 							<div class="footerlogos">
 							<a href="#" target="_blank">
-							<img src="images/idaco.png" alt="idaco Logo" class="footer_img1"/></a>
+							<img src="images/idaco.png" alt="idaco Logo" class="footer_img"/></a>
 
 							&nbsp;&nbsp;&nbsp;&nbsp;
 							<a href="#" target="_blank">
-							<img src="images/redeh_logo.png" alt="redeh Logo" class="footer_img2"/>
+							<img src="images/redeh_logo.png" alt="redeh Logo" class="footer_img"/>
 							</a>
 							</div>
 
